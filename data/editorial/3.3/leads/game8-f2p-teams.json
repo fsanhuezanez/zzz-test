@@ -1,0 +1,59 @@
+{
+  "$schema": "../../../../schemas/editorial-submission.schema.json",
+  "sourceId": "game8",
+  "url": "https://game8.co/games/Zenless-Zone-Zero/archives/462110",
+  "title": "Best F2P Teams Guide",
+  "accessedAt": "2026-10-27",
+  "declaredPatch": null,
+  "collectedBy": "asistente (búsqueda web)",
+  "collectionMethod": "web_search",
+  "evidenceType": "explicit_recommendation",
+  "confidence": "low",
+  "verification": {
+    "state": "unverified"
+  },
+  "mode": "general",
+  "notes": "Resumen de buscador del 2026-10-27; la página original no se ha leído (bloqueada desde el entorno). Comprobar antes de verificar.",
+  "claims": [
+    {
+      "kind": "team",
+      "archetype": "F2P",
+      "stance": "recommended",
+      "members": [
+        {
+          "agent": "Sigrid",
+          "role": "main_dps"
+        },
+        {
+          "agent": "Anby",
+          "role": "stunner"
+        },
+        {
+          "agent": "Soukaku",
+          "role": "support"
+        }
+      ],
+      "budget": true
+    },
+    {
+      "kind": "team",
+      "archetype": "F2P",
+      "stance": "recommended",
+      "members": [
+        {
+          "agent": "Claret",
+          "role": "main_dps"
+        },
+        {
+          "agent": "Anby",
+          "role": "stunner"
+        },
+        {
+          "agent": "Nicole",
+          "role": "support"
+        }
+      ],
+      "budget": true
+    }
+  ]
+}

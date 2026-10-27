@@ -8,17 +8,19 @@ export const FIXTURE_DATA = join(ROOT, 'test/fixtures/data');
 export const NOW = new Date('2026-10-27T12:00:00Z');
 
 /** Copia el fixture a un directorio temporal para poder mutarlo. */
-export async function sandbox(): Promise<{ dir: string; data: string; out: string; reports: string }> {
+export interface Box { dir: string; data: string; out: string; reports: string; exportDir: string }
+
+export async function sandbox(): Promise<Box> {
   const dir = await mkdtemp(join(tmpdir(), 'zzz-meta-'));
   const data = join(dir, 'data');
   await cp(FIXTURE_DATA, data, { recursive: true });
-  return { dir, data, out: join(dir, 'db'), reports: join(dir, 'reports') };
+  return { dir, data, out: join(dir, 'db'), reports: join(dir, 'reports'), exportDir: join(dir, 'export') };
 }
 
-export function update(box: { data: string; out: string; reports: string }, extra: Partial<UpdateOptions> = {}) {
+export function update(box: Box, extra: Partial<UpdateOptions> = {}) {
   return runUpdate({
-    dataDir: box.data, outDir: box.out, reportsDir: box.reports, schemasDir: join(ROOT, 'schemas'),
-    patch: '3.3', now: NOW, ...extra,
+    dataDir: box.data, outDir: box.out, reportsDir: box.reports, schemasDir: join(ROOT, 'schemas'), exportDir: box.exportDir,
+    patch: '3.3', now: NOW, allowFixtures: true, ...extra,
   });
 }
 

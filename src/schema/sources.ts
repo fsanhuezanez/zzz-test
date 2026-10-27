@@ -1,10 +1,9 @@
 /**
  * Registro de fuentes: quién es cada fuente, qué permiten sus condiciones y cómo
- * se normalizan sus escalas de tier. El registro es la única puerta de entrada
- * para habilitar automatización.
+ * se normalizan sus escalas de tier.
  */
 import { Type, type Static } from '@sinclair/typebox';
-import { CollectionMethod, IsoDate, Note, Obj, Patch, Slug, StringEnum, Url } from './common.ts';
+import { IsoDate, Note, Obj, Patch, Slug, StringEnum, Url } from './common.ts';
 
 export const TierScale = Obj({
   id: Slug,
@@ -17,36 +16,33 @@ export const TierScale = Obj({
 });
 export type TierScale = Static<typeof TierScale>;
 
+/**
+ * Lo que permiten las condiciones de la fuente. Este proyecto no automatiza la
+ * recogida de ninguna fuente: el registro documenta por qué, y deja constancia
+ * de las dudas para revisarlas si la situación cambia.
+ */
 export const AutomationPolicy = Obj({
   status: StringEnum(['allowed', 'disallowed', 'unknown'], {
-    description: 'allowed: hay permiso explícito o API/feed con licencia; disallowed: las condiciones lo prohíben; unknown: sin información → se trata como disallowed.',
+    description: 'allowed: permiso explícito o API/feed con licencia; disallowed: las condiciones lo prohíben; unknown: sin información (NO equivale a permiso).',
   }),
   basis: Note,
   checkedAt: IsoDate,
+  checkedVia: StringEnum(['browser', 'web_search'], { description: 'Cómo se leyeron las condiciones. web_search = pendiente de releer en navegador.' }),
   evidenceUrls: Type.Array(Url, { description: 'Términos, robots.txt, correo de permiso, documentación de API...' }),
-  allowedMethods: Type.Array(CollectionMethod, { minItems: 1 }),
+  openQuestions: Type.Optional(Type.Array(Note, { description: 'Dudas sobre las condiciones y la alternativa prudente adoptada.' })),
 });
 export type AutomationPolicy = Static<typeof AutomationPolicy>;
-
-export const HttpFeedAdapter = Obj({
-  type: Type.Literal('http_json_feed'),
-  url: Url,
-  method: StringEnum(['automated_api', 'automated_feed']),
-  minIntervalMs: Type.Integer({ minimum: 1000, description: 'Pausa mínima entre peticiones.' }),
-  timeoutMs: Type.Integer({ minimum: 1000, maximum: 120000 }),
-  respectRobotsTxt: Type.Literal(true),
-});
-export type HttpFeedAdapter = Static<typeof HttpFeedAdapter>;
 
 export const Source = Obj({
   id: Slug,
   name: Type.String({ minLength: 1, maxLength: 80 }),
-  kind: StringEnum(['community_guide', 'stats_site', 'database', 'official', 'internal', 'fixture']),
+  kind: StringEnum(['community_guide', 'media', 'stats_site', 'database', 'official', 'internal', 'fixture'], {
+    description: 'media = prensa de videojuegos (agrega y resume); fixture = ficticia, solo para pruebas.',
+  }),
   homepage: Url,
   termsUrl: Type.Optional(Url),
   attribution: Type.String({ minLength: 1, maxLength: 200, description: 'Texto de atribución a mostrar junto a sus datos.' }),
   automation: AutomationPolicy,
-  adapter: Type.Optional(HttpFeedAdapter),
   defaultTierScale: Type.Optional(Slug),
   tierScales: Type.Array(TierScale),
   maxAgeDays: Type.Integer({ minimum: 1, maximum: 365, description: 'Días tras los que un dato consultado se marca access_too_old.' }),

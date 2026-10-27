@@ -68,8 +68,7 @@
               "older_patch",
               "access_too_old",
               "pre_release",
-              "carried_over",
-              "source_policy_changed",
+              "via_search",
               "unverified_catalog_refs"
             ],
             "type": "string"
@@ -95,16 +94,8 @@
               "type": "string"
             },
             "role": {
-              "enum": [
-                "attack",
-                "stun",
-                "anomaly",
-                "support",
-                "defense",
-                "rupture",
-                "sub_dps",
-                "overall"
-              ],
+              "maxLength": 40,
+              "pattern": "^[a-z][a-z0-9_]*$",
               "type": "string"
             },
             "score": {
@@ -192,6 +183,33 @@
                   "derivedFrom"
                 ]
               }
+            },
+            {
+              "if": {
+                "properties": {
+                  "collectionMethod": {
+                    "const": "web_search"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "confidence": {
+                    "enum": [
+                      "medium",
+                      "low"
+                    ]
+                  },
+                  "verification": {
+                    "properties": {
+                      "state": {
+                        "const": "unverified"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              }
             }
           ],
           "properties": {
@@ -208,8 +226,7 @@
             "collectionMethod": {
               "enum": [
                 "manual_entry",
-                "automated_api",
-                "automated_feed",
+                "web_search",
                 "derived"
               ],
               "type": "string"
@@ -260,6 +277,11 @@
             "notes": {
               "maxLength": 500,
               "minLength": 1,
+              "type": "string"
+            },
+            "pageUpdatedAt": {
+              "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+              "format": "date",
               "type": "string"
             },
             "rationale": {
@@ -459,8 +481,7 @@
               "older_patch",
               "access_too_old",
               "pre_release",
-              "carried_over",
-              "source_policy_changed",
+              "via_search",
               "unverified_catalog_refs"
             ],
             "type": "string"
@@ -478,7 +499,49 @@
         },
         "payload": {
           "additionalProperties": false,
+          "if": {
+            "properties": {
+              "stance": {
+                "const": "ranked"
+              }
+            }
+          },
           "properties": {
+            "alternates": {
+              "description": "Alternativas que la fuente cita sin decir a quién reemplazan.",
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "agent": {
+                    "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+                    "maxLength": 64,
+                    "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                    "type": "string"
+                  },
+                  "note": {
+                    "maxLength": 200,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "quality": {
+                    "enum": [
+                      "near_equivalent",
+                      "workable",
+                      "significant_downgrade",
+                      "unspecified"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "agent",
+                  "quality"
+                ],
+                "type": "object"
+              },
+              "maxItems": 8,
+              "type": "array"
+            },
             "archetype": {
               "maxLength": 80,
               "minLength": 1,
@@ -510,7 +573,66 @@
               "maxItems": 5,
               "type": "array"
             },
+            "budget": {
+              "description": "true si la fuente lo presenta como opción económica / F2P / para cuentas con pocos personajes.",
+              "type": "boolean"
+            },
+            "flex": {
+              "description": "Huecos flexibles: \"elige N de estas opciones\". Miembros + picks = 3.",
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "options": {
+                    "description": "En el orden que da la fuente.",
+                    "items": {
+                      "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+                      "maxLength": 64,
+                      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                      "type": "string"
+                    },
+                    "maxItems": 10,
+                    "minItems": 2,
+                    "type": "array"
+                  },
+                  "pick": {
+                    "maximum": 2,
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "role": {
+                    "enum": [
+                      "main_dps",
+                      "sub_dps",
+                      "stunner",
+                      "support",
+                      "anomaly",
+                      "defense",
+                      "flex"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "pick",
+                  "options"
+                ],
+                "type": "object"
+              },
+              "maxItems": 2,
+              "type": "array"
+            },
+            "limitations": {
+              "description": "Debilidades o advertencias que declara la fuente.",
+              "items": {
+                "maxLength": 160,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 6,
+              "type": "array"
+            },
             "members": {
+              "description": "Miembros fijos del núcleo.",
               "items": {
                 "additionalProperties": false,
                 "properties": {
@@ -563,7 +685,7 @@
                       ],
                       "type": "object"
                     },
-                    "maxItems": 6,
+                    "maxItems": 8,
                     "type": "array"
                   }
                 },
@@ -574,7 +696,7 @@
                 "type": "object"
               },
               "maxItems": 3,
-              "minItems": 2,
+              "minItems": 1,
               "type": "array"
             },
             "name": {
@@ -602,11 +724,59 @@
                 "label"
               ],
               "type": "object"
+            },
+            "requirements": {
+              "description": "Condiciones que la fuente declara para que el equipo funcione (Cinema, W-Engine, umbral de estadística…).",
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "agent": {
+                    "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+                    "maxLength": 64,
+                    "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                    "type": "string"
+                  },
+                  "level": {
+                    "enum": [
+                      "required",
+                      "recommended"
+                    ],
+                    "type": "string"
+                  },
+                  "text": {
+                    "maxLength": 160,
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "text",
+                  "level"
+                ],
+                "type": "object"
+              },
+              "maxItems": 8,
+              "type": "array"
+            },
+            "stance": {
+              "description": "Qué hace la fuente con el equipo: ranked = lo clasifica en un ranking de equipos (exige rating); recommended = lo recomienda explícitamente (p. ej. \"mejor equipo para X\"); showcase = solo lo muestra como opción viable. Una composición documentada no es por ello competitivamente superior.",
+              "enum": [
+                "ranked",
+                "recommended",
+                "showcase"
+              ],
+              "type": "string"
             }
           },
           "required": [
+            "stance",
             "members"
           ],
+          "then": {
+            "required": [
+              "rating"
+            ]
+          },
           "type": "object"
         },
         "provenance": {
@@ -666,6 +836,33 @@
                   "derivedFrom"
                 ]
               }
+            },
+            {
+              "if": {
+                "properties": {
+                  "collectionMethod": {
+                    "const": "web_search"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "confidence": {
+                    "enum": [
+                      "medium",
+                      "low"
+                    ]
+                  },
+                  "verification": {
+                    "properties": {
+                      "state": {
+                        "const": "unverified"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              }
             }
           ],
           "properties": {
@@ -682,8 +879,7 @@
             "collectionMethod": {
               "enum": [
                 "manual_entry",
-                "automated_api",
-                "automated_feed",
+                "web_search",
                 "derived"
               ],
               "type": "string"
@@ -734,6 +930,11 @@
             "notes": {
               "maxLength": 500,
               "minLength": 1,
+              "type": "string"
+            },
+            "pageUpdatedAt": {
+              "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+              "format": "date",
               "type": "string"
             },
             "rationale": {
@@ -933,8 +1134,7 @@
               "older_patch",
               "access_too_old",
               "pre_release",
-              "carried_over",
-              "source_policy_changed",
+              "via_search",
               "unverified_catalog_refs"
             ],
             "type": "string"
@@ -1055,6 +1255,33 @@
                   "derivedFrom"
                 ]
               }
+            },
+            {
+              "if": {
+                "properties": {
+                  "collectionMethod": {
+                    "const": "web_search"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "confidence": {
+                    "enum": [
+                      "medium",
+                      "low"
+                    ]
+                  },
+                  "verification": {
+                    "properties": {
+                      "state": {
+                        "const": "unverified"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              }
             }
           ],
           "properties": {
@@ -1071,8 +1298,7 @@
             "collectionMethod": {
               "enum": [
                 "manual_entry",
-                "automated_api",
-                "automated_feed",
+                "web_search",
                 "derived"
               ],
               "type": "string"
@@ -1123,6 +1349,11 @@
             "notes": {
               "maxLength": 500,
               "minLength": 1,
+              "type": "string"
+            },
+            "pageUpdatedAt": {
+              "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+              "format": "date",
               "type": "string"
             },
             "rationale": {
@@ -1322,8 +1553,7 @@
               "older_patch",
               "access_too_old",
               "pre_release",
-              "carried_over",
-              "source_policy_changed",
+              "via_search",
               "unverified_catalog_refs"
             ],
             "type": "string"
@@ -1439,6 +1669,33 @@
                   "derivedFrom"
                 ]
               }
+            },
+            {
+              "if": {
+                "properties": {
+                  "collectionMethod": {
+                    "const": "web_search"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "confidence": {
+                    "enum": [
+                      "medium",
+                      "low"
+                    ]
+                  },
+                  "verification": {
+                    "properties": {
+                      "state": {
+                        "const": "unverified"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              }
             }
           ],
           "properties": {
@@ -1455,8 +1712,7 @@
             "collectionMethod": {
               "enum": [
                 "manual_entry",
-                "automated_api",
-                "automated_feed",
+                "web_search",
                 "derived"
               ],
               "type": "string"
@@ -1507,6 +1763,11 @@
             "notes": {
               "maxLength": 500,
               "minLength": 1,
+              "type": "string"
+            },
+            "pageUpdatedAt": {
+              "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+              "format": "date",
               "type": "string"
             },
             "rationale": {
@@ -1706,8 +1967,7 @@
               "older_patch",
               "access_too_old",
               "pre_release",
-              "carried_over",
-              "source_policy_changed",
+              "via_search",
               "unverified_catalog_refs"
             ],
             "type": "string"
@@ -1817,6 +2077,33 @@
                   "derivedFrom"
                 ]
               }
+            },
+            {
+              "if": {
+                "properties": {
+                  "collectionMethod": {
+                    "const": "web_search"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "confidence": {
+                    "enum": [
+                      "medium",
+                      "low"
+                    ]
+                  },
+                  "verification": {
+                    "properties": {
+                      "state": {
+                        "const": "unverified"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              }
             }
           ],
           "properties": {
@@ -1833,8 +2120,7 @@
             "collectionMethod": {
               "enum": [
                 "manual_entry",
-                "automated_api",
-                "automated_feed",
+                "web_search",
                 "derived"
               ],
               "type": "string"
@@ -1885,6 +2171,11 @@
             "notes": {
               "maxLength": 500,
               "minLength": 1,
+              "type": "string"
+            },
+            "pageUpdatedAt": {
+              "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+              "format": "date",
               "type": "string"
             },
             "rationale": {
@@ -2084,8 +2375,7 @@
               "older_patch",
               "access_too_old",
               "pre_release",
-              "carried_over",
-              "source_policy_changed",
+              "via_search",
               "unverified_catalog_refs"
             ],
             "type": "string"
@@ -2210,6 +2500,33 @@
                   "derivedFrom"
                 ]
               }
+            },
+            {
+              "if": {
+                "properties": {
+                  "collectionMethod": {
+                    "const": "web_search"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "confidence": {
+                    "enum": [
+                      "medium",
+                      "low"
+                    ]
+                  },
+                  "verification": {
+                    "properties": {
+                      "state": {
+                        "const": "unverified"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              }
             }
           ],
           "properties": {
@@ -2226,8 +2543,7 @@
             "collectionMethod": {
               "enum": [
                 "manual_entry",
-                "automated_api",
-                "automated_feed",
+                "web_search",
                 "derived"
               ],
               "type": "string"
@@ -2278,6 +2594,11 @@
             "notes": {
               "maxLength": 500,
               "minLength": 1,
+              "type": "string"
+            },
+            "pageUpdatedAt": {
+              "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+              "format": "date",
               "type": "string"
             },
             "rationale": {
@@ -2477,8 +2798,7 @@
               "older_patch",
               "access_too_old",
               "pre_release",
-              "carried_over",
-              "source_policy_changed",
+              "via_search",
               "unverified_catalog_refs"
             ],
             "type": "string"
@@ -2520,27 +2840,8 @@
               "properties": {
                 "slot4": {
                   "items": {
-                    "enum": [
-                      "hp",
-                      "atk",
-                      "def",
-                      "hp_pct",
-                      "atk_pct",
-                      "def_pct",
-                      "crit_rate",
-                      "crit_dmg",
-                      "anomaly_proficiency",
-                      "anomaly_mastery",
-                      "pen",
-                      "pen_ratio",
-                      "impact",
-                      "energy_regen",
-                      "physical_dmg",
-                      "fire_dmg",
-                      "ice_dmg",
-                      "electric_dmg",
-                      "ether_dmg"
-                    ],
+                    "maxLength": 40,
+                    "pattern": "^[a-z][a-z0-9_]*$",
                     "type": "string"
                   },
                   "maxItems": 4,
@@ -2549,27 +2850,8 @@
                 },
                 "slot5": {
                   "items": {
-                    "enum": [
-                      "hp",
-                      "atk",
-                      "def",
-                      "hp_pct",
-                      "atk_pct",
-                      "def_pct",
-                      "crit_rate",
-                      "crit_dmg",
-                      "anomaly_proficiency",
-                      "anomaly_mastery",
-                      "pen",
-                      "pen_ratio",
-                      "impact",
-                      "energy_regen",
-                      "physical_dmg",
-                      "fire_dmg",
-                      "ice_dmg",
-                      "electric_dmg",
-                      "ether_dmg"
-                    ],
+                    "maxLength": 40,
+                    "pattern": "^[a-z][a-z0-9_]*$",
                     "type": "string"
                   },
                   "maxItems": 4,
@@ -2578,27 +2860,8 @@
                 },
                 "slot6": {
                   "items": {
-                    "enum": [
-                      "hp",
-                      "atk",
-                      "def",
-                      "hp_pct",
-                      "atk_pct",
-                      "def_pct",
-                      "crit_rate",
-                      "crit_dmg",
-                      "anomaly_proficiency",
-                      "anomaly_mastery",
-                      "pen",
-                      "pen_ratio",
-                      "impact",
-                      "energy_regen",
-                      "physical_dmg",
-                      "fire_dmg",
-                      "ice_dmg",
-                      "electric_dmg",
-                      "ether_dmg"
-                    ],
+                    "maxLength": 40,
+                    "pattern": "^[a-z][a-z0-9_]*$",
                     "type": "string"
                   },
                   "maxItems": 4,
@@ -2608,30 +2871,40 @@
               },
               "type": "object"
             },
+            "statTargets": {
+              "description": "Umbrales que la fuente publica (p. ej. maestría de anomalía ≥ X).",
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "min": {
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  "note": {
+                    "maxLength": 160,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "stat": {
+                    "maxLength": 40,
+                    "pattern": "^[a-z][a-z0-9_]*$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "stat",
+                  "min"
+                ],
+                "type": "object"
+              },
+              "maxItems": 6,
+              "type": "array"
+            },
             "substats": {
               "description": "Prioridad de subestadísticas en orden.",
               "items": {
-                "enum": [
-                  "hp",
-                  "atk",
-                  "def",
-                  "hp_pct",
-                  "atk_pct",
-                  "def_pct",
-                  "crit_rate",
-                  "crit_dmg",
-                  "anomaly_proficiency",
-                  "anomaly_mastery",
-                  "pen",
-                  "pen_ratio",
-                  "impact",
-                  "energy_regen",
-                  "physical_dmg",
-                  "fire_dmg",
-                  "ice_dmg",
-                  "electric_dmg",
-                  "ether_dmg"
-                ],
+                "maxLength": 40,
+                "pattern": "^[a-z][a-z0-9_]*$",
                 "type": "string"
               },
               "maxItems": 8,
@@ -2713,6 +2986,33 @@
                   "derivedFrom"
                 ]
               }
+            },
+            {
+              "if": {
+                "properties": {
+                  "collectionMethod": {
+                    "const": "web_search"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "confidence": {
+                    "enum": [
+                      "medium",
+                      "low"
+                    ]
+                  },
+                  "verification": {
+                    "properties": {
+                      "state": {
+                        "const": "unverified"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              }
             }
           ],
           "properties": {
@@ -2729,8 +3029,7 @@
             "collectionMethod": {
               "enum": [
                 "manual_entry",
-                "automated_api",
-                "automated_feed",
+                "web_search",
                 "derived"
               ],
               "type": "string"
@@ -2781,6 +3080,11 @@
             "notes": {
               "maxLength": 500,
               "minLength": 1,
+              "type": "string"
+            },
+            "pageUpdatedAt": {
+              "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+              "format": "date",
               "type": "string"
             },
             "rationale": {
@@ -2980,8 +3284,7 @@
               "older_patch",
               "access_too_old",
               "pre_release",
-              "carried_over",
-              "source_policy_changed",
+              "via_search",
               "unverified_catalog_refs"
             ],
             "type": "string"
@@ -3124,6 +3427,33 @@
                   "derivedFrom"
                 ]
               }
+            },
+            {
+              "if": {
+                "properties": {
+                  "collectionMethod": {
+                    "const": "web_search"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "confidence": {
+                    "enum": [
+                      "medium",
+                      "low"
+                    ]
+                  },
+                  "verification": {
+                    "properties": {
+                      "state": {
+                        "const": "unverified"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              }
             }
           ],
           "properties": {
@@ -3140,8 +3470,7 @@
             "collectionMethod": {
               "enum": [
                 "manual_entry",
-                "automated_api",
-                "automated_feed",
+                "web_search",
                 "derived"
               ],
               "type": "string"
@@ -3192,6 +3521,11 @@
             "notes": {
               "maxLength": 500,
               "minLength": 1,
+              "type": "string"
+            },
+            "pageUpdatedAt": {
+              "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+              "format": "date",
               "type": "string"
             },
             "rationale": {
@@ -3391,8 +3725,7 @@
               "older_patch",
               "access_too_old",
               "pre_release",
-              "carried_over",
-              "source_policy_changed",
+              "via_search",
               "unverified_catalog_refs"
             ],
             "type": "string"
@@ -3524,6 +3857,33 @@
                   "derivedFrom"
                 ]
               }
+            },
+            {
+              "if": {
+                "properties": {
+                  "collectionMethod": {
+                    "const": "web_search"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "confidence": {
+                    "enum": [
+                      "medium",
+                      "low"
+                    ]
+                  },
+                  "verification": {
+                    "properties": {
+                      "state": {
+                        "const": "unverified"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              }
             }
           ],
           "properties": {
@@ -3540,8 +3900,7 @@
             "collectionMethod": {
               "enum": [
                 "manual_entry",
-                "automated_api",
-                "automated_feed",
+                "web_search",
                 "derived"
               ],
               "type": "string"
@@ -3592,6 +3951,11 @@
             "notes": {
               "maxLength": 500,
               "minLength": 1,
+              "type": "string"
+            },
+            "pageUpdatedAt": {
+              "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+              "format": "date",
               "type": "string"
             },
             "rationale": {
@@ -3791,8 +4155,7 @@
               "older_patch",
               "access_too_old",
               "pre_release",
-              "carried_over",
-              "source_policy_changed",
+              "via_search",
               "unverified_catalog_refs"
             ],
             "type": "string"
@@ -3913,6 +4276,33 @@
                   "derivedFrom"
                 ]
               }
+            },
+            {
+              "if": {
+                "properties": {
+                  "collectionMethod": {
+                    "const": "web_search"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "confidence": {
+                    "enum": [
+                      "medium",
+                      "low"
+                    ]
+                  },
+                  "verification": {
+                    "properties": {
+                      "state": {
+                        "const": "unverified"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              }
             }
           ],
           "properties": {
@@ -3929,8 +4319,7 @@
             "collectionMethod": {
               "enum": [
                 "manual_entry",
-                "automated_api",
-                "automated_feed",
+                "web_search",
                 "derived"
               ],
               "type": "string"
@@ -3981,6 +4370,11 @@
             "notes": {
               "maxLength": 500,
               "minLength": 1,
+              "type": "string"
+            },
+            "pageUpdatedAt": {
+              "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+              "format": "date",
               "type": "string"
             },
             "rationale": {
@@ -4180,8 +4574,7 @@
               "older_patch",
               "access_too_old",
               "pre_release",
-              "carried_over",
-              "source_policy_changed",
+              "via_search",
               "unverified_catalog_refs"
             ],
             "type": "string"
@@ -4312,6 +4705,33 @@
                   "derivedFrom"
                 ]
               }
+            },
+            {
+              "if": {
+                "properties": {
+                  "collectionMethod": {
+                    "const": "web_search"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "confidence": {
+                    "enum": [
+                      "medium",
+                      "low"
+                    ]
+                  },
+                  "verification": {
+                    "properties": {
+                      "state": {
+                        "const": "unverified"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              }
             }
           ],
           "properties": {
@@ -4328,8 +4748,7 @@
             "collectionMethod": {
               "enum": [
                 "manual_entry",
-                "automated_api",
-                "automated_feed",
+                "web_search",
                 "derived"
               ],
               "type": "string"
@@ -4380,6 +4799,11 @@
             "notes": {
               "maxLength": 500,
               "minLength": 1,
+              "type": "string"
+            },
+            "pageUpdatedAt": {
+              "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+              "format": "date",
               "type": "string"
             },
             "rationale": {

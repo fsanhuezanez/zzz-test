@@ -1,0 +1,36 @@
+{
+  "$schema": "../../../../schemas/editorial-submission.schema.json",
+  "sourceId": "icy-veins",
+  "url": "https://www.icy-veins.com/zenless-zone-zero/severian-teams",
+  "accessedAt": "2026-10-27",
+  "declaredPatch": null,
+  "collectedBy": "asistente (búsqueda web)",
+  "collectionMethod": "web_search",
+  "evidenceType": "explicit_recommendation",
+  "confidence": "low",
+  "verification": {
+    "state": "unverified"
+  },
+  "mode": "general",
+  "notes": "Resumen de buscador del 2026-10-27; la página original no se ha leído (bloqueada desde el entorno). Comprobar antes de verificar.",
+  "claims": [
+    {
+      "kind": "team",
+      "stance": "showcase",
+      "members": [
+        {
+          "agent": "Severian",
+          "role": "main_dps"
+        },
+        {
+          "agent": "Norma",
+          "role": "support"
+        },
+        {
+          "agent": "Nicole",
+          "role": "support"
+        }
+      ]
+    }
+  ]
+}

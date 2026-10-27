@@ -656,6 +656,374 @@
         },
         "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified."
       }
+    },
+    {
+      "id": "phoenix",
+      "name": "Phoenix",
+      "aliases": [
+        "Phoenix Reffaella"
+      ],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "velina",
+      "name": "Velina",
+      "aliases": [
+        "Velina Airgid"
+      ],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "remielle",
+      "name": "Remielle",
+      "aliases": [
+        "Remielle Dan"
+      ],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "promeia",
+      "name": "Promeia",
+      "aliases": [],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "aria",
+      "name": "Aria",
+      "aliases": [],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "alice",
+      "name": "Alice",
+      "aliases": [
+        "Alice Thymefield"
+      ],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "yuzuha",
+      "name": "Yuzuha",
+      "aliases": [],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "ye-shunguang",
+      "name": "Ye Shunguang",
+      "aliases": [],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "dialyn",
+      "name": "Dialyn",
+      "aliases": [],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "sunna",
+      "name": "Sunna",
+      "aliases": [],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "ju-fufu",
+      "name": "Ju Fufu",
+      "aliases": [],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "zhao",
+      "name": "Zhao",
+      "aliases": [],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "yixuan",
+      "name": "Yixuan",
+      "aliases": [
+        "Yi Xuan"
+      ],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "lucia",
+      "name": "Lucia",
+      "aliases": [],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "nangong-yu",
+      "name": "Nangong Yu",
+      "aliases": [],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "norma",
+      "name": "Norma",
+      "aliases": [
+        "Norma Hollowell"
+      ],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "sigrid",
+      "name": "Sigrid",
+      "aliases": [
+        "Sigrid de L'Azur"
+      ],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "claret",
+      "name": "Claret",
+      "aliases": [
+        "Claret Flint"
+      ],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "severian",
+      "name": "Severian",
+      "aliases": [
+        "Severian Lowell"
+      ],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "roxy",
+      "name": "Roxy",
+      "aliases": [],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "starlight-billy",
+      "name": "Starlight Billy",
+      "aliases": [],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "banyue",
+      "name": "Banyue",
+      "aliases": [],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "yidhari",
+      "name": "Yidhari",
+      "aliases": [],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "manato",
+      "name": "Manato",
+      "aliases": [],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "pan-yinhu",
+      "name": "Pan Yinhu",
+      "aliases": [],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
     }
   ]
 }

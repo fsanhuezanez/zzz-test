@@ -1,22 +1,22 @@
 /**
- * Normalización: envío (editorial o feed automatizado) → claims canónicos.
+ * Normalización: envío editorial → claims canónicos.
  *
  * Aquí se aplican las reglas semánticas que un JSON Schema no expresa bien:
  * referencias al catálogo, coherencia entre tipo de fuente y tipo de evidencia,
  * escalas de tier, ranuras de Drive Disc, URL dentro del dominio de la fuente…
  */
-import type { Claim, ClaimFlag, ClaimKind, EditorialSubmission, InputClaim } from '../schema/claims.ts';
-import type { CollectionMethod, Provenance, Stat } from '../schema/common.ts';
+import type { Claim, ClaimKind, EditorialSubmission, InputClaim } from '../schema/claims.ts';
+import type { Provenance } from '../schema/common.ts';
 import type { Source } from '../schema/sources.ts';
 import { CatalogIndex, ResolveError, type EntityType } from './catalog.ts';
 import { shortHash } from './canonical.ts';
+import type { Vocabulary } from './vocabulary.ts';
 
 type DistributiveOmit<T, K extends PropertyKey> = T extends unknown ? Omit<T, K> : never;
 
 /** Claim antes del ciclo de vida (estado, flags finales y fechas los asigna lifecycle.ts). */
 export type DraftClaim = DistributiveOmit<Claim, 'status' | 'flags' | 'firstSeenAt' | 'supersededBy'> & {
   retracted: boolean;
-  initialFlags: ClaimFlag[];
   origin: string;
 };
 
@@ -25,13 +25,6 @@ export interface InputIssue {
   path: string;
   message: string;
 }
-
-const SLOT_RULES: Record<'slot4' | 'slot5' | 'slot6', Stat[]> = {
-  slot4: ['hp_pct', 'atk_pct', 'def_pct', 'crit_rate', 'crit_dmg', 'anomaly_proficiency'],
-  slot5: ['hp_pct', 'atk_pct', 'def_pct', 'pen_ratio', 'physical_dmg', 'fire_dmg', 'ice_dmg', 'electric_dmg', 'ether_dmg'],
-  slot6: ['hp_pct', 'atk_pct', 'def_pct', 'anomaly_mastery', 'impact', 'energy_regen'],
-};
-const SUBSTATS: Stat[] = ['hp', 'atk', 'def', 'hp_pct', 'atk_pct', 'def_pct', 'crit_rate', 'crit_dmg', 'pen', 'anomaly_proficiency'];
 
 const F2P_CATEGORY_TYPE: Record<string, EntityType> = {
   agent: 'agent', team: 'agent', w_engine: 'wEngine', bangboo: 'bangboo', drive_disc: 'driveDisc',
@@ -50,7 +43,7 @@ const sorted = (ids: string[]) => [...ids].sort();
 export interface NormalizeContext {
   catalog: CatalogIndex;
   sources: Map<string, Source>;
-  method: CollectionMethod;
+  vocabulary: Vocabulary;
   origin: string;
 }
 
@@ -62,8 +55,8 @@ export function normalizeSubmission(sub: EditorialSubmission, ctx: NormalizeCont
     issue('/sourceId', `fuente "${sub.sourceId}" no registrada en data/sources.json`);
     return { drafts: [], issues };
   }
-  if (!source.automation.allowedMethods.includes(ctx.method)) {
-    issue('/sourceId', `la política de "${source.id}" no permite el método "${ctx.method}" (permitidos: ${source.automation.allowedMethods.join(', ')})`);
+  if ((sub.collectionMethod ?? 'manual_entry') === 'web_search' && sub.verification.state === 'verified') {
+    issue('/verification', 'un dato tomado de un buscador no puede estar verificado: léelo en la página, corrígelo si hace falta y cambia collectionMethod a "manual_entry"');
     return { drafts: [], issues };
   }
 
@@ -98,8 +91,9 @@ function normalizeClaim(
   ctx: NormalizeContext,
   issue: (path: string, message: string) => void,
 ): DraftClaim | null {
-  const { catalog } = ctx;
+  const { catalog, vocabulary } = ctx;
   const agent = (ref: string) => catalog.resolve('agent', ref);
+  const method = sub.collectionMethod ?? 'manual_entry';
   const ev = input.evidence ?? {};
   const evidenceType = ev.evidenceType ?? sub.evidenceType;
   const confidence = ev.confidence ?? sub.confidence;
@@ -128,6 +122,9 @@ function normalizeClaim(
   }
   if (input.kind === 'usage' && evidenceType !== 'observed_data') {
     fail('/evidence/evidenceType', 'las estadísticas de uso solo se aceptan como "observed_data" de una fuente externa; no se estiman');
+  }
+  if (method === 'web_search' && confidence === 'high') {
+    fail('/evidence/confidence', 'un dato tomado de un buscador no puede tener confianza "high"');
   }
   if (source.kind !== 'internal' && hostOf(url) !== hostOf(source.homepage) && !hostOf(url).endsWith(`.${hostOf(source.homepage)}`)) {
     fail('/evidence/url', `la URL ${url} no pertenece al dominio de la fuente (${hostOf(source.homepage)}); la atribución debe apuntar a la página consultada`);
@@ -159,6 +156,7 @@ function normalizeClaim(
         fail('/tier', `etiqueta "${input.tier}" fuera de la escala "${scale.id}" (${scale.labels.map((l) => l.label).join(', ')}). Si la fuente cambió su escala, actualiza data/sources.json`);
         return null;
       }
+      if (!vocabulary.tierRoles.has(input.role)) fail('/role', `rol "${input.role}" desconocido (${vocabulary.list(vocabulary.tierRoles)}); si es nuevo, añádelo a data/game.json`);
       payload = { agent: id, role: input.role, tier: label.label, tierScale: scale.id, score: label.score };
       slotKey = `tier:${id}:${input.role}:${ctxKey}`;
       agentRefs = [id];
@@ -172,20 +170,46 @@ function normalizeClaim(
         return { agent: id, role: m.role, ...(subs.length ? { substitutes: subs } : {}) };
       });
       const ids = members.map((m) => m.agent);
+      const flex = (input.flex ?? []).map((f, i) => {
+        const options = f.options.map(agent);
+        if (new Set(options).size !== options.length) fail(`/flex/${i}/options`, 'opciones repetidas');
+        if (options.some((o) => ids.includes(o))) fail(`/flex/${i}/options`, 'una opción flexible ya es miembro fijo del equipo');
+        if (f.pick >= options.length) fail(`/flex/${i}/pick`, `pick (${f.pick}) debe ser menor que el número de opciones; si no hay elección, usa members`);
+        return { pick: f.pick, ...(f.role ? { role: f.role } : {}), options };
+      });
+      const size = ids.length + flex.reduce((n, f) => n + f.pick, 0);
+      if (size < 2 || size > 3) fail('/members', `el equipo resultante tiene ${size} agentes (members + flex.pick debe sumar 2 o 3)`);
       if (new Set(ids).size !== ids.length) fail('/members', 'agentes repetidos en el equipo');
       members.forEach((m, i) => {
         if (m.substitutes?.some((s) => ids.includes(s.agent))) fail(`/members/${i}/substitutes`, 'el sustituto ya forma parte del equipo');
       });
+      const alternates = (input.alternates ?? []).map((a) => ({ agent: agent(a.agent), quality: a.quality, ...(a.note ? { note: a.note } : {}) }));
+      if (alternates.some((a) => ids.includes(a.agent))) fail('/alternates', 'una alternativa ya es miembro fijo del equipo');
+      const requirements = (input.requirements ?? []).map((r) => ({ text: r.text, level: r.level, ...(r.agent ? { agent: agent(r.agent) } : {}) }));
       const bangboo = input.bangboo?.map((b) => ({ bangboo: catalog.resolve('bangboo', b.bangboo), rank: b.rank }));
+      if (input.rating?.scale && !source.tierScales.some((t) => t.id === input.rating!.scale)) {
+        fail('/rating/scale', `la fuente "${source.id}" no tiene la escala "${input.rating.scale}"`);
+      }
       payload = {
         ...(input.name ? { name: input.name } : {}),
         ...(input.archetype ? { archetype: input.archetype } : {}),
+        stance: input.stance,
+        ...(input.budget ? { budget: true } : {}),
         members,
+        ...(flex.length ? { flex } : {}),
+        ...(alternates.length ? { alternates } : {}),
+        ...(requirements.length ? { requirements } : {}),
+        ...(input.limitations?.length ? { limitations: input.limitations } : {}),
         ...(bangboo?.length ? { bangboo } : {}),
         ...(input.rating ? { rating: input.rating } : {}),
       };
-      slotKey = `team:${sorted(ids).join('+')}:${ctxKey}`;
-      agentRefs = [...ids, ...members.flatMap((m) => m.substitutes?.map((s) => s.agent) ?? [])];
+      const flexKey = flex.map((f) => `[${f.pick}:${sorted(f.options).join('|')}]`).join('');
+      slotKey = `team:${sorted(ids).join('+')}${flexKey}:${ctxKey}`;
+      agentRefs = [
+        ...ids, ...flex.flatMap((f) => f.options), ...alternates.map((a) => a.agent),
+        ...members.flatMap((m) => m.substitutes?.map((s) => s.agent) ?? []),
+        ...requirements.flatMap((r) => (r.agent ? [r.agent] : [])),
+      ];
       break;
     }
     case 'substitute': {
@@ -236,13 +260,20 @@ function normalizeClaim(
       const twoPiece = input.twoPiece.map((d) => catalog.resolve('driveDisc', d));
       for (const slot of ['slot4', 'slot5', 'slot6'] as const) {
         for (const stat of input.mainStats[slot] ?? []) {
-          if (!SLOT_RULES[slot].includes(stat)) fail(`/mainStats/${slot}`, `"${stat}" no puede ser estadística principal de la ranura ${slot.slice(4)}`);
+          if (!vocabulary.slotAllows(slot, stat)) fail(`/mainStats/${slot}`, `"${stat}" no puede ser estadística principal de la ranura ${slot.slice(4)} (según data/game.json)`);
         }
       }
       for (const stat of input.substats ?? []) {
-        if (!SUBSTATS.includes(stat)) fail('/substats', `"${stat}" no es una subestadística posible`);
+        if (!vocabulary.substats.has(stat)) fail('/substats', `"${stat}" no es una subestadística posible (según data/game.json)`);
       }
-      payload = { agent: id, fourPiece, twoPiece, mainStats: input.mainStats, ...(input.substats ? { substats: input.substats } : {}) };
+      for (const [i, t] of (input.statTargets ?? []).entries()) {
+        if (!vocabulary.stats.has(t.stat)) fail(`/statTargets/${i}/stat`, `estadística "${t.stat}" desconocida`);
+      }
+      payload = {
+        agent: id, fourPiece, twoPiece, mainStats: input.mainStats,
+        ...(input.substats ? { substats: input.substats } : {}),
+        ...(input.statTargets?.length ? { statTargets: input.statTargets } : {}),
+      };
       slotKey = `drive_disc:${id}:${ctxKey}`;
       agentRefs = [id];
       break;
@@ -299,10 +330,11 @@ function normalizeClaim(
     sourceId: source.id,
     url,
     accessedAt: sub.accessedAt,
+    ...(sub.pageUpdatedAt ? { pageUpdatedAt: sub.pageUpdatedAt } : {}),
     declaredPatch: sub.declaredPatch,
     evidenceType,
     confidence,
-    collectionMethod: ctx.method,
+    collectionMethod: method,
     collectedBy: sub.collectedBy,
     verification: sub.verification,
     ...(ev.excerpt ? { excerpt: ev.excerpt } : {}),
@@ -311,7 +343,7 @@ function normalizeClaim(
     ...(ev.sample ? { sample: ev.sample } : {}),
   };
   const kind: ClaimKind = input.kind;
-  const id = `clm_${kind}_${shortHash({ sourceId: source.id, slotKey, declaredPatch: sub.declaredPatch, payload, context, evidenceType })}`;
+  const id = `clm_${kind}_${shortHash({ sourceId: source.id, url, slotKey, declaredPatch: sub.declaredPatch, payload, context, evidenceType })}`;
   return {
     id,
     kind,
@@ -322,7 +354,6 @@ function normalizeClaim(
     context,
     provenance,
     retracted: input.retracted === true,
-    initialFlags: [],
     origin: ctx.origin,
   } as unknown as DraftClaim;
 }

@@ -6,11 +6,11 @@
     {
       "collectionMethod": "derived",
       "derivedFrom": [
-        "clm_team_1146c77fa655",
-        "clm_team_6075bf646663"
+        "clm_team_16f057765c32",
+        "clm_team_213e4af633df"
       ],
       "evidenceType": "cross_source_consensus",
-      "id": "cns_team_300d673454a6",
+      "id": "cns_team_d92021e16ce1",
       "members": [
         "ellen",
         "lycaon",
@@ -30,18 +30,18 @@
       "agreement": "agree",
       "collectionMethod": "derived",
       "derivedFrom": [
-        "clm_tier_bbb3d993ee2d",
-        "clm_tier_5e0dca51f3c3"
+        "clm_tier_29689aa407f5",
+        "clm_tier_74d759b5e13b"
       ],
       "entries": [
         {
-          "claimId": "clm_tier_bbb3d993ee2d",
+          "claimId": "clm_tier_29689aa407f5",
           "score": 1,
           "sourceId": "example-guide-a",
           "tier": "T0"
         },
         {
-          "claimId": "clm_tier_5e0dca51f3c3",
+          "claimId": "clm_tier_74d759b5e13b",
           "score": 0.8,
           "sourceId": "example-stats-b",
           "tier": "S"
@@ -61,18 +61,18 @@
       "agreement": "mixed",
       "collectionMethod": "derived",
       "derivedFrom": [
-        "clm_tier_3c9302901624",
-        "clm_tier_0118922b07ba"
+        "clm_tier_998ee1662a55",
+        "clm_tier_baccc092f287"
       ],
       "entries": [
         {
-          "claimId": "clm_tier_3c9302901624",
+          "claimId": "clm_tier_998ee1662a55",
           "score": 1,
           "sourceId": "example-guide-a",
           "tier": "T0"
         },
         {
-          "claimId": "clm_tier_0118922b07ba",
+          "claimId": "clm_tier_baccc092f287",
           "score": 0.6,
           "sourceId": "example-stats-b",
           "tier": "A"

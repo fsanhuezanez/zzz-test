@@ -15,9 +15,7 @@ export const SourceSummary = Obj({
   name: Type.String(),
   attribution: Type.String(),
   automationStatus: StringEnum(['allowed', 'disallowed', 'unknown']),
-  updateOutcome: StringEnum(['collected', 'carried_over', 'no_input'], {
-    description: 'collected: hay entrada válida en esta ejecución; carried_over: falló y se conservaron sus datos anteriores; no_input: sin datos.',
-  }),
+  updateOutcome: StringEnum(['collected', 'no_input'], { description: 'collected: hay envíos válidos de esta fuente; no_input: sin datos.' }),
   lastAccessedAt: Type.Union([IsoDate, Type.Null()]),
   claimCount: Type.Integer({ minimum: 0 }),
   currentClaimCount: Type.Integer({ minimum: 0 }),
@@ -38,13 +36,14 @@ export const Manifest = Obj({
     agents: Type.Integer(), wEngines: Type.Integer(), driveDiscs: Type.Integer(), bangboo: Type.Integer(),
     claims: Type.Integer(),
     claimsByStatus: Obj({ current: Type.Integer(), stale: Type.Integer(), superseded: Type.Integer(), retracted: Type.Integer() }),
+    liveClaimsByReview: Obj({ verified: Type.Integer(), pending: Type.Integer() }, { description: 'Claims current/stale según revisión humana.' }),
     tierConsensus: Type.Integer(),
     teamConsensus: Type.Integer(),
   }),
   sources: Type.Array(SourceSummary),
   files: Obj({
     agents: Type.String(), wEngines: Type.String(), driveDiscs: Type.String(), bangboo: Type.String(),
-    sources: Type.String(), claims: Type.String(), consensus: Type.String(), index: Type.String(),
+    sources: Type.String(), claims: Type.String(), consensus: Type.String(), vocabulary: Type.String(),
   }),
 }, { $id: 'manifest.schema.json', title: 'Manifest' });
 export type Manifest = Static<typeof Manifest>;
@@ -79,7 +78,8 @@ export type TierConsensus = Static<typeof TierConsensus>;
 
 export const TeamConsensus = Obj({
   id: Type.String({ pattern: '^cns_team_[0-9a-f]{12}$' }),
-  members: Type.Array(Slug, { minItems: 2, maxItems: 3 }),
+  members: Type.Array(Slug, { minItems: 1, maxItems: 3 }),
+  flex: Type.Optional(Type.Array(Obj({ pick: Type.Integer(), options: Type.Array(Slug) }))),
   mode: GameMode,
   patch: Patch,
   sources: Type.Array(Slug, { minItems: 2 }),
@@ -95,17 +95,6 @@ export const ConsensusFile = Obj({
   teams: Type.Array(TeamConsensus),
 }, { $id: 'consensus-file.schema.json' });
 export type ConsensusFile = Static<typeof ConsensusFile>;
-
-export const AgentIndexFile = Obj({
-  $schema: Type.Optional(Type.String()),
-  dataVersion: DataVersion,
-  agents: Type.Record(Slug, Obj({
-    claimIds: Type.Array(Type.String()),
-    currentClaimIds: Type.Array(Type.String()),
-    tierConsensusIds: Type.Array(Type.String()),
-  })),
-}, { $id: 'agent-index.schema.json' });
-export type AgentIndexFile = Static<typeof AgentIndexFile>;
 
 const ClaimRef = Obj({ id: Type.String(), kind: Type.String(), sourceId: Slug, slotKey: Type.String() });
 

@@ -1,46 +1,26 @@
 {
   "name": "zzz-meta-knowledge",
   "version": "0.1.0",
-  "description": "Recopilador y normalizador trazable de conocimiento competitivo de Zenless Zone Zero. Produce una base JSON versionada y validada para Hoyo Builds.",
+  "private": true,
+  "description": "Base de conocimiento competitivo de Zenless Zone Zero, trazable y versionada, para el proyecto personal Hoyo Builds.",
   "type": "module",
   "license": "MIT",
   "engines": {
     "node": ">=22.18"
   },
-  "bin": {
-    "zzz-meta": "./dist/cli.js"
-  },
-  "exports": {
-    ".": {
-      "types": "./dist/client/index.d.ts",
-      "default": "./dist/client/index.js"
-    },
-    "./types": {
-      "types": "./dist/schema/index.d.ts",
-      "default": "./dist/schema/index.js"
-    },
-    "./db/*": "./db/*",
-    "./schemas/*": "./schemas/*"
-  },
-  "files": [
-    "dist",
-    "db",
-    "schemas",
-    "src"
-  ],
   "scripts": {
     "update": "node src/cli.ts update",
     "validate": "node src/cli.ts validate",
     "report": "node src/cli.ts report",
+    "export": "node src/cli.ts export",
     "new-submission": "node src/cli.ts new-submission",
+    "new-patch": "node src/cli.ts new-patch",
     "schemas": "node src/cli.ts export-schemas",
-    "example:build": "node src/cli.ts update --data test/fixtures/data --out examples/fixture-db --reports examples/fixture-reports --patch 3.3 --now 2026-10-27T12:00:00Z",
+    "example:build": "node src/cli.ts update --allow-fixtures --data test/fixtures/data --out examples/fixture-db --reports examples/fixture-reports --export examples/fixture-export --patch 3.3 --now 2026-10-27T12:00:00Z",
     "example:recommend": "node examples/hoyo-builds-consumer/recommend.ts",
     "typecheck": "tsc --noEmit",
-    "build": "tsc -p tsconfig.build.json",
     "test": "node --test \"test/**/*.test.ts\"",
-    "check": "npm run typecheck && npm test && npm run validate",
-    "prepare": "tsc -p tsconfig.build.json"
+    "check": "npm run typecheck && npm test && npm run validate"
   },
   "dependencies": {
     "@sinclair/typebox": "^0.34.41",

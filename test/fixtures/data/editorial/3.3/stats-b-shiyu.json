@@ -39,6 +39,17 @@
           "agent": "Soukaku",
           "role": "support"
         }
+      ],
+      "stance": "ranked",
+      "rating": {
+        "label": "S",
+        "scale": "letters"
+      },
+      "alternates": [
+        {
+          "agent": "Qingyi",
+          "quality": "workable"
+        }
       ]
     },
     {

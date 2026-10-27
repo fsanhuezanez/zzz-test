@@ -1,4 +1,5 @@
 {
+  "name": "ejemplo",
   "agents": ["ellen", "miyabi", "qingyi", "soukaku", "nicole", "astra-yao", "anby", "zhu-yuan"],
   "wEngines": ["starlight-engine"],
   "bangboo": ["butler"]

@@ -1,0 +1,1851 @@
+{
+  "meta": {
+    "format": "zzz-meta-export",
+    "formatVersion": 1,
+    "dataVersion": "3.3-r1",
+    "gamePatch": "3.3",
+    "generatedAt": "2026-10-27T12:00:00.000Z",
+    "contentHash": "9394c34766b6288a8090c85a6b5bf7f34d0c3927d75393d45688eb2bcd4fb75d",
+    "isFixture": true,
+    "counts": {
+      "teams": 7,
+      "verified": 22,
+      "pending": 7,
+      "stale": 1
+    },
+    "notice": "Evidencia atribuida, no veredictos. \"pending\" = no comprobado en la página original; \"via_search\" = tomado de un resumen de buscador. Un tier individual no es un ranking de equipos, y un equipo documentado (showcase) no es necesariamente superior. Muestra siempre la fuente y el enlace."
+  },
+  "sources": [
+    {
+      "id": "example-guide-a",
+      "name": "Example Guide A (ficticia)",
+      "homepage": "https://guide-a.example.com/",
+      "attribution": "Fuente ficticia de pruebas A.",
+      "automation": "disallowed"
+    },
+    {
+      "id": "example-stats-b",
+      "name": "Example Stats B (ficticia)",
+      "homepage": "https://stats-b.example.com/",
+      "attribution": "Fuente ficticia de pruebas B.",
+      "automation": "disallowed"
+    },
+    {
+      "id": "maintainer",
+      "name": "Estimación del mantenedor",
+      "homepage": "https://github.com/fsanhuezanez/zzz-test",
+      "attribution": "Estimación propia de zzz-meta-knowledge.",
+      "automation": "disallowed"
+    }
+  ],
+  "agents": [
+    {
+      "id": "anby",
+      "name": "Anby Demara",
+      "aliases": [
+        "Anby"
+      ],
+      "review": "pending",
+      "rarity": "A",
+      "attribute": "electric",
+      "specialty": "stun",
+      "faction": "Cunning Hares"
+    },
+    {
+      "id": "anton",
+      "name": "Anton Ivanov",
+      "aliases": [
+        "Anton"
+      ],
+      "review": "pending",
+      "rarity": "A",
+      "attribute": "electric",
+      "specialty": "attack",
+      "faction": "Belobog Heavy Industries"
+    },
+    {
+      "id": "astra-yao",
+      "name": "Astra Yao",
+      "aliases": [
+        "Astra"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "ether",
+      "specialty": "support",
+      "faction": "Stars of Lyra"
+    },
+    {
+      "id": "ben",
+      "name": "Ben Bigger",
+      "aliases": [
+        "Ben"
+      ],
+      "review": "pending",
+      "rarity": "A",
+      "attribute": "fire",
+      "specialty": "defense",
+      "faction": "Belobog Heavy Industries"
+    },
+    {
+      "id": "billy",
+      "name": "Billy Kid",
+      "aliases": [
+        "Billy"
+      ],
+      "review": "pending",
+      "rarity": "A",
+      "attribute": "physical",
+      "specialty": "attack",
+      "faction": "Cunning Hares"
+    },
+    {
+      "id": "burnice",
+      "name": "Burnice White",
+      "aliases": [
+        "Burnice"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "fire",
+      "specialty": "anomaly",
+      "faction": "Sons of Calydon"
+    },
+    {
+      "id": "caesar",
+      "name": "Caesar King",
+      "aliases": [
+        "Caesar"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "physical",
+      "specialty": "defense",
+      "faction": "Sons of Calydon"
+    },
+    {
+      "id": "corin",
+      "name": "Corin Wickes",
+      "aliases": [
+        "Corin"
+      ],
+      "review": "pending",
+      "rarity": "A",
+      "attribute": "physical",
+      "specialty": "attack",
+      "faction": "Victoria Housekeeping"
+    },
+    {
+      "id": "ellen",
+      "name": "Ellen Joe",
+      "aliases": [
+        "Ellen"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "ice",
+      "specialty": "attack",
+      "faction": "Victoria Housekeeping"
+    },
+    {
+      "id": "evelyn",
+      "name": "Evelyn Chevalier",
+      "aliases": [
+        "Evelyn"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "fire",
+      "specialty": "attack",
+      "faction": "Stars of Lyra"
+    },
+    {
+      "id": "grace",
+      "name": "Grace Howard",
+      "aliases": [
+        "Grace"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "electric",
+      "specialty": "anomaly",
+      "faction": "Belobog Heavy Industries"
+    },
+    {
+      "id": "harumasa",
+      "name": "Asaba Harumasa",
+      "aliases": [
+        "Harumasa"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "electric",
+      "specialty": "attack",
+      "faction": "Section 6"
+    },
+    {
+      "id": "hugo",
+      "name": "Hugo Vlad",
+      "aliases": [
+        "Hugo"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "ice",
+      "specialty": "attack",
+      "faction": "Mockingbird"
+    },
+    {
+      "id": "jane-doe",
+      "name": "Jane Doe",
+      "aliases": [
+        "Jane"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "physical",
+      "specialty": "anomaly",
+      "faction": "Criminal Investigation Special Response Team"
+    },
+    {
+      "id": "koleda",
+      "name": "Koleda Belobog",
+      "aliases": [
+        "Koleda"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "fire",
+      "specialty": "stun",
+      "faction": "Belobog Heavy Industries"
+    },
+    {
+      "id": "lighter",
+      "name": "Lighter",
+      "aliases": [],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "fire",
+      "specialty": "stun",
+      "faction": "Sons of Calydon"
+    },
+    {
+      "id": "lucy",
+      "name": "Luciana de Montefio",
+      "aliases": [
+        "Lucy",
+        "Luciana"
+      ],
+      "review": "pending",
+      "rarity": "A",
+      "attribute": "fire",
+      "specialty": "support",
+      "faction": "Sons of Calydon"
+    },
+    {
+      "id": "lycaon",
+      "name": "Von Lycaon",
+      "aliases": [
+        "Lycaon"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "ice",
+      "specialty": "stun",
+      "faction": "Victoria Housekeeping"
+    },
+    {
+      "id": "miyabi",
+      "name": "Hoshimi Miyabi",
+      "aliases": [
+        "Miyabi"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "ice",
+      "specialty": "anomaly",
+      "faction": "Section 6"
+    },
+    {
+      "id": "nekomata",
+      "name": "Nekomiya Mana",
+      "aliases": [
+        "Nekomata",
+        "Neko"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "physical",
+      "specialty": "attack",
+      "faction": "Cunning Hares"
+    },
+    {
+      "id": "nicole",
+      "name": "Nicole Demara",
+      "aliases": [
+        "Nicole"
+      ],
+      "review": "pending",
+      "rarity": "A",
+      "attribute": "ether",
+      "specialty": "support",
+      "faction": "Cunning Hares"
+    },
+    {
+      "id": "piper",
+      "name": "Piper Wheel",
+      "aliases": [
+        "Piper"
+      ],
+      "review": "pending",
+      "rarity": "A",
+      "attribute": "physical",
+      "specialty": "anomaly",
+      "faction": "Sons of Calydon"
+    },
+    {
+      "id": "pulchra",
+      "name": "Pulchra Fellini",
+      "aliases": [
+        "Pulchra"
+      ],
+      "review": "pending",
+      "rarity": "A",
+      "attribute": "physical",
+      "specialty": "stun",
+      "faction": "Sons of Calydon"
+    },
+    {
+      "id": "qingyi",
+      "name": "Qingyi",
+      "aliases": [],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "electric",
+      "specialty": "stun",
+      "faction": "Criminal Investigation Special Response Team"
+    },
+    {
+      "id": "rina",
+      "name": "Alexandrina Sebastiane",
+      "aliases": [
+        "Rina",
+        "Alexandrina"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "electric",
+      "specialty": "support",
+      "faction": "Victoria Housekeeping"
+    },
+    {
+      "id": "seth",
+      "name": "Seth Lowell",
+      "aliases": [
+        "Seth"
+      ],
+      "review": "pending",
+      "rarity": "A",
+      "attribute": "electric",
+      "specialty": "defense",
+      "faction": "Criminal Investigation Special Response Team"
+    },
+    {
+      "id": "soldier-0-anby",
+      "name": "Soldier 0 - Anby",
+      "aliases": [
+        "Soldier 0 Anby",
+        "S0 Anby",
+        "Soldier 0"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "electric",
+      "specialty": "attack",
+      "faction": "OBOLS Squad"
+    },
+    {
+      "id": "soldier-11",
+      "name": "Soldier 11",
+      "aliases": [
+        "S11"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "fire",
+      "specialty": "attack",
+      "faction": "OBOLS Squad"
+    },
+    {
+      "id": "soukaku",
+      "name": "Soukaku",
+      "aliases": [],
+      "review": "pending",
+      "rarity": "A",
+      "attribute": "ice",
+      "specialty": "support",
+      "faction": "Section 6"
+    },
+    {
+      "id": "trigger",
+      "name": "Trigger",
+      "aliases": [],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "electric",
+      "specialty": "stun",
+      "faction": "OBOLS Squad"
+    },
+    {
+      "id": "vivian",
+      "name": "Vivian Banshee",
+      "aliases": [
+        "Vivian"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "ether",
+      "specialty": "anomaly",
+      "faction": "Mockingbird"
+    },
+    {
+      "id": "yanagi",
+      "name": "Tsukishiro Yanagi",
+      "aliases": [
+        "Yanagi"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "electric",
+      "specialty": "anomaly",
+      "faction": "Section 6"
+    },
+    {
+      "id": "zhu-yuan",
+      "name": "Zhu Yuan",
+      "aliases": [],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "ether",
+      "specialty": "attack",
+      "faction": "Criminal Investigation Special Response Team"
+    }
+  ],
+  "wEngines": [
+    {
+      "id": "bashful-demon",
+      "name": "Bashful Demon",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "blazing-laurel",
+      "name": "Blazing Laurel",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "deep-sea-visitor",
+      "name": "Deep Sea Visitor",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "demara-battery-mark-ii",
+      "name": "Demara Battery Mark II",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "electro-lip-gloss",
+      "name": "Electro-Lip Gloss",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "elegant-vanity",
+      "name": "Elegant Vanity",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "flamemaker-shaker",
+      "name": "Flamemaker Shaker",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "fusion-compiler",
+      "name": "Fusion Compiler",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "hailstorm-shrine",
+      "name": "Hailstorm Shrine",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "heartstring-nocturne",
+      "name": "Heartstring Nocturne",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "hellfire-gears",
+      "name": "Hellfire Gears",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "ice-jade-teapot",
+      "name": "Ice-Jade Teapot",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "kaboom-the-cannon",
+      "name": "Kaboom the Cannon",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "marcato-desire",
+      "name": "Marcato Desire",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "precious-fossilized-core",
+      "name": "Precious Fossilized Core",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "riot-suppressor-mark-vi",
+      "name": "Riot Suppressor Mark VI",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "sharpened-stinger",
+      "name": "Sharpened Stinger",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "slice-of-time",
+      "name": "Slice of Time",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "spring-embrace",
+      "name": "Spring Embrace",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "starlight-engine",
+      "name": "Starlight Engine",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "steel-cushion",
+      "name": "Steel Cushion",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "the-brimstone",
+      "name": "The Brimstone",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "the-restrained",
+      "name": "The Restrained",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "timeweaver",
+      "name": "Timeweaver",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "tusks-of-fury",
+      "name": "Tusks of Fury",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "weeping-cradle",
+      "name": "Weeping Cradle",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "weeping-gemini",
+      "name": "Weeping Gemini",
+      "aliases": [],
+      "review": "pending"
+    }
+  ],
+  "driveDiscs": [
+    {
+      "id": "astral-voice",
+      "name": "Astral Voice",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "branch-blade-song",
+      "name": "Branch & Blade Song",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "chaos-jazz",
+      "name": "Chaos Jazz",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "chaotic-metal",
+      "name": "Chaotic Metal",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "fanged-metal",
+      "name": "Fanged Metal",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "freedom-blues",
+      "name": "Freedom Blues",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "hormone-punk",
+      "name": "Hormone Punk",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "inferno-metal",
+      "name": "Inferno Metal",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "phaethon-s-melody",
+      "name": "Phaethon's Melody",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "polar-metal",
+      "name": "Polar Metal",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "proto-punk",
+      "name": "Proto Punk",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "puffer-electro",
+      "name": "Puffer Electro",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "shadow-harmony",
+      "name": "Shadow Harmony",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "shockstar-disco",
+      "name": "Shockstar Disco",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "soul-rock",
+      "name": "Soul Rock",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "swing-jazz",
+      "name": "Swing Jazz",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "thunder-metal",
+      "name": "Thunder Metal",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "woodpecker-electro",
+      "name": "Woodpecker Electro",
+      "aliases": [],
+      "review": "pending"
+    }
+  ],
+  "bangboo": [
+    {
+      "id": "amillion",
+      "name": "Amillion",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "bagboo",
+      "name": "Bagboo",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "butler",
+      "name": "Butler",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "exploreboo",
+      "name": "Exploreboo",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "penguinboo",
+      "name": "Penguinboo",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "plugboo",
+      "name": "Plugboo",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "rocketboo",
+      "name": "Rocketboo",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "sharkboo",
+      "name": "Sharkboo",
+      "aliases": [],
+      "review": "pending"
+    }
+  ],
+  "teams": [
+    {
+      "id": "clm_team_0c3d7c945272",
+      "mode": "shiyu_defense",
+      "conditions": [],
+      "archetype": "Económico",
+      "stance": "recommended",
+      "budget": true,
+      "members": [
+        {
+          "agent": "billy",
+          "role": "main_dps",
+          "substitutes": []
+        },
+        {
+          "agent": "anby",
+          "role": "stunner",
+          "substitutes": []
+        },
+        {
+          "agent": "nicole",
+          "role": "support",
+          "substitutes": []
+        }
+      ],
+      "flex": [],
+      "alternates": [],
+      "requirements": [],
+      "limitations": [],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_0c3d7c945272",
+        "sourceId": "example-guide-a",
+        "sourceName": "Example Guide A (ficticia)",
+        "url": "https://guide-a.example.com/zzz/tier-list",
+        "accessedAt": "2026-10-24",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "confidence": "high",
+        "collectionMethod": "manual_entry",
+        "review": "verified",
+        "status": "current",
+        "flags": [
+          "unverified_catalog_refs"
+        ]
+      }
+    },
+    {
+      "id": "clm_team_16f057765c32",
+      "mode": "shiyu_defense",
+      "conditions": [],
+      "stance": "ranked",
+      "budget": false,
+      "rating": {
+        "label": "S",
+        "scale": "letters"
+      },
+      "members": [
+        {
+          "agent": "ellen",
+          "role": "main_dps",
+          "substitutes": []
+        },
+        {
+          "agent": "lycaon",
+          "role": "stunner",
+          "substitutes": []
+        },
+        {
+          "agent": "soukaku",
+          "role": "support",
+          "substitutes": []
+        }
+      ],
+      "flex": [],
+      "alternates": [
+        {
+          "agent": "qingyi",
+          "quality": "workable"
+        }
+      ],
+      "requirements": [],
+      "limitations": [],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_16f057765c32",
+        "sourceId": "example-stats-b",
+        "sourceName": "Example Stats B (ficticia)",
+        "url": "https://stats-b.example.com/zzz/shiyu",
+        "accessedAt": "2026-10-26",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "confidence": "medium",
+        "collectionMethod": "manual_entry",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "unverified_catalog_refs"
+        ]
+      }
+    },
+    {
+      "id": "clm_team_213e4af633df",
+      "mode": "shiyu_defense",
+      "conditions": [],
+      "archetype": "Ice burst",
+      "stance": "recommended",
+      "budget": false,
+      "members": [
+        {
+          "agent": "ellen",
+          "role": "main_dps",
+          "substitutes": []
+        },
+        {
+          "agent": "lycaon",
+          "role": "stunner",
+          "substitutes": [
+            {
+              "agent": "qingyi",
+              "quality": "workable"
+            }
+          ]
+        },
+        {
+          "agent": "soukaku",
+          "role": "support",
+          "substitutes": [
+            {
+              "agent": "astra-yao",
+              "quality": "near_equivalent"
+            }
+          ]
+        }
+      ],
+      "flex": [],
+      "alternates": [],
+      "requirements": [],
+      "limitations": [],
+      "bangboo": [
+        {
+          "bangboo": "butler",
+          "rank": 1
+        }
+      ],
+      "evidence": {
+        "claimId": "clm_team_213e4af633df",
+        "sourceId": "example-guide-a",
+        "sourceName": "Example Guide A (ficticia)",
+        "url": "https://guide-a.example.com/zzz/tier-list",
+        "accessedAt": "2026-10-24",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "confidence": "high",
+        "collectionMethod": "manual_entry",
+        "review": "verified",
+        "status": "current",
+        "flags": [
+          "unverified_catalog_refs"
+        ]
+      }
+    },
+    {
+      "id": "clm_team_54e358314b75",
+      "mode": "shiyu_defense",
+      "conditions": [],
+      "archetype": "Ether flexible",
+      "stance": "showcase",
+      "budget": false,
+      "members": [
+        {
+          "agent": "zhu-yuan",
+          "role": "main_dps",
+          "substitutes": []
+        }
+      ],
+      "flex": [
+        {
+          "pick": 2,
+          "options": [
+            "nicole",
+            "qingyi",
+            "astra-yao",
+            "soukaku"
+          ]
+        }
+      ],
+      "alternates": [],
+      "requirements": [],
+      "limitations": [],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_54e358314b75",
+        "sourceId": "example-guide-a",
+        "sourceName": "Example Guide A (ficticia)",
+        "url": "https://guide-a.example.com/zzz/tier-list",
+        "accessedAt": "2026-10-24",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "confidence": "high",
+        "collectionMethod": "manual_entry",
+        "review": "verified",
+        "status": "current",
+        "flags": [
+          "unverified_catalog_refs"
+        ]
+      }
+    },
+    {
+      "id": "clm_team_cb5e4536e287",
+      "mode": "shiyu_defense",
+      "conditions": [],
+      "archetype": "Frost anomaly",
+      "stance": "recommended",
+      "budget": false,
+      "members": [
+        {
+          "agent": "miyabi",
+          "role": "anomaly",
+          "substitutes": []
+        },
+        {
+          "agent": "yanagi",
+          "role": "anomaly",
+          "substitutes": []
+        },
+        {
+          "agent": "astra-yao",
+          "role": "support",
+          "substitutes": [
+            {
+              "agent": "nicole",
+              "quality": "workable"
+            }
+          ]
+        }
+      ],
+      "flex": [],
+      "alternates": [],
+      "requirements": [
+        {
+          "text": "Ejemplo ficticio: necesita a Yanagi para activar la reacción del núcleo.",
+          "level": "required",
+          "agent": "yanagi"
+        }
+      ],
+      "limitations": [
+        "Ejemplo ficticio: rinde peor contra enemigos resistentes al hielo."
+      ],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_cb5e4536e287",
+        "sourceId": "example-guide-a",
+        "sourceName": "Example Guide A (ficticia)",
+        "url": "https://guide-a.example.com/zzz/tier-list",
+        "accessedAt": "2026-10-24",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "confidence": "high",
+        "collectionMethod": "manual_entry",
+        "review": "verified",
+        "status": "current",
+        "flags": [
+          "unverified_catalog_refs"
+        ]
+      }
+    },
+    {
+      "id": "clm_team_d4c644c40a25",
+      "mode": "shiyu_defense",
+      "conditions": [],
+      "archetype": "Ether hypercarry",
+      "stance": "recommended",
+      "budget": false,
+      "members": [
+        {
+          "agent": "zhu-yuan",
+          "role": "main_dps",
+          "substitutes": []
+        },
+        {
+          "agent": "qingyi",
+          "role": "stunner",
+          "substitutes": [
+            {
+              "agent": "anby",
+              "quality": "significant_downgrade"
+            }
+          ]
+        },
+        {
+          "agent": "nicole",
+          "role": "support",
+          "substitutes": []
+        }
+      ],
+      "flex": [],
+      "alternates": [],
+      "requirements": [],
+      "limitations": [],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_d4c644c40a25",
+        "sourceId": "example-guide-a",
+        "sourceName": "Example Guide A (ficticia)",
+        "url": "https://guide-a.example.com/zzz/tier-list",
+        "accessedAt": "2026-10-24",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "confidence": "high",
+        "collectionMethod": "manual_entry",
+        "review": "verified",
+        "status": "current",
+        "flags": [
+          "unverified_catalog_refs"
+        ]
+      }
+    },
+    {
+      "id": "clm_team_dea4f35cdfce",
+      "mode": "shiyu_defense",
+      "conditions": [],
+      "stance": "recommended",
+      "budget": false,
+      "members": [
+        {
+          "agent": "miyabi",
+          "role": "anomaly",
+          "substitutes": []
+        },
+        {
+          "agent": "soukaku",
+          "role": "support",
+          "substitutes": []
+        },
+        {
+          "agent": "lycaon",
+          "role": "stunner",
+          "substitutes": []
+        }
+      ],
+      "flex": [],
+      "alternates": [],
+      "requirements": [],
+      "limitations": [],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_dea4f35cdfce",
+        "sourceId": "example-stats-b",
+        "sourceName": "Example Stats B (ficticia)",
+        "url": "https://stats-b.example.com/zzz/teams",
+        "accessedAt": "2026-10-27",
+        "pageUpdatedAt": "2026-10-22",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    }
+  ],
+  "compositions": [
+    {
+      "key": "anby+billy+nicole@shiyu_defense",
+      "mode": "shiyu_defense",
+      "core": [
+        "anby",
+        "billy",
+        "nicole"
+      ],
+      "flex": [],
+      "teamIds": [
+        "clm_team_0c3d7c945272"
+      ],
+      "support": {
+        "sources": [
+          "example-guide-a"
+        ],
+        "verifiedSources": [
+          "example-guide-a"
+        ],
+        "stances": [
+          "recommended"
+        ],
+        "hasCurrentEvidence": true
+      }
+    },
+    {
+      "key": "astra-yao+miyabi+yanagi@shiyu_defense",
+      "mode": "shiyu_defense",
+      "core": [
+        "astra-yao",
+        "miyabi",
+        "yanagi"
+      ],
+      "flex": [],
+      "teamIds": [
+        "clm_team_cb5e4536e287"
+      ],
+      "support": {
+        "sources": [
+          "example-guide-a"
+        ],
+        "verifiedSources": [
+          "example-guide-a"
+        ],
+        "stances": [
+          "recommended"
+        ],
+        "hasCurrentEvidence": true
+      }
+    },
+    {
+      "key": "ellen+lycaon+soukaku@shiyu_defense",
+      "mode": "shiyu_defense",
+      "core": [
+        "ellen",
+        "lycaon",
+        "soukaku"
+      ],
+      "flex": [],
+      "teamIds": [
+        "clm_team_16f057765c32",
+        "clm_team_213e4af633df"
+      ],
+      "support": {
+        "sources": [
+          "example-stats-b",
+          "example-guide-a"
+        ],
+        "verifiedSources": [
+          "example-guide-a"
+        ],
+        "stances": [
+          "ranked",
+          "recommended"
+        ],
+        "hasCurrentEvidence": true
+      }
+    },
+    {
+      "key": "lycaon+miyabi+soukaku@shiyu_defense",
+      "mode": "shiyu_defense",
+      "core": [
+        "lycaon",
+        "miyabi",
+        "soukaku"
+      ],
+      "flex": [],
+      "teamIds": [
+        "clm_team_dea4f35cdfce"
+      ],
+      "support": {
+        "sources": [
+          "example-stats-b"
+        ],
+        "verifiedSources": [],
+        "stances": [
+          "recommended"
+        ],
+        "hasCurrentEvidence": true
+      }
+    },
+    {
+      "key": "nicole+qingyi+zhu-yuan@shiyu_defense",
+      "mode": "shiyu_defense",
+      "core": [
+        "nicole",
+        "qingyi",
+        "zhu-yuan"
+      ],
+      "flex": [],
+      "teamIds": [
+        "clm_team_d4c644c40a25"
+      ],
+      "support": {
+        "sources": [
+          "example-guide-a"
+        ],
+        "verifiedSources": [
+          "example-guide-a"
+        ],
+        "stances": [
+          "recommended"
+        ],
+        "hasCurrentEvidence": true
+      }
+    },
+    {
+      "key": "zhu-yuan[2:astra-yao|nicole|qingyi|soukaku]@shiyu_defense",
+      "mode": "shiyu_defense",
+      "core": [
+        "zhu-yuan"
+      ],
+      "flex": [
+        {
+          "pick": 2,
+          "options": [
+            "astra-yao",
+            "nicole",
+            "qingyi",
+            "soukaku"
+          ]
+        }
+      ],
+      "teamIds": [
+        "clm_team_54e358314b75"
+      ],
+      "support": {
+        "sources": [
+          "example-guide-a"
+        ],
+        "verifiedSources": [
+          "example-guide-a"
+        ],
+        "stances": [
+          "showcase"
+        ],
+        "hasCurrentEvidence": true
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "agent": "lycaon",
+      "substitute": "anby",
+      "quality": "significant_downgrade",
+      "withAgents": [
+        "ellen"
+      ],
+      "mode": "shiyu_defense",
+      "evidence": {
+        "claimId": "clm_substitute_ec7ec577626d",
+        "sourceId": "maintainer",
+        "sourceName": "Estimación del mantenedor",
+        "url": "https://github.com/fsanhuezanez/zzz-test/blob/main/docs/ESTIMATES.md",
+        "accessedAt": "2026-10-26",
+        "declaredPatch": "3.3",
+        "evidenceType": "internal_estimate",
+        "confidence": "low",
+        "collectionMethod": "manual_entry",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "unverified_catalog_refs"
+        ],
+        "rationale": "Estimación ficticia: Anby aporta aturdimiento básico cuando falta Lycaon; ninguna fuente lo evalúa."
+      }
+    }
+  ],
+  "builds": {
+    "ellen": {
+      "wEngines": [
+        {
+          "options": [
+            {
+              "wEngine": "deep-sea-visitor",
+              "rank": 1
+            },
+            {
+              "wEngine": "starlight-engine",
+              "rank": 2,
+              "f2p": true
+            }
+          ],
+          "mode": "shiyu_defense",
+          "evidence": {
+            "claimId": "clm_w_engine_a42754011ef1",
+            "sourceId": "example-guide-a",
+            "sourceName": "Example Guide A (ficticia)",
+            "url": "https://guide-a.example.com/zzz/tier-list",
+            "accessedAt": "2026-10-24",
+            "declaredPatch": "3.3",
+            "evidenceType": "explicit_recommendation",
+            "confidence": "high",
+            "collectionMethod": "manual_entry",
+            "review": "verified",
+            "status": "current",
+            "flags": [
+              "unverified_catalog_refs"
+            ]
+          }
+        }
+      ],
+      "driveDiscs": [
+        {
+          "fourPiece": [
+            "polar-metal"
+          ],
+          "twoPiece": [
+            "woodpecker-electro"
+          ],
+          "mainStats": {
+            "slot4": [
+              "crit_rate",
+              "crit_dmg"
+            ],
+            "slot5": [
+              "ice_dmg"
+            ],
+            "slot6": [
+              "atk_pct"
+            ]
+          },
+          "substats": [
+            "crit_rate",
+            "crit_dmg",
+            "atk_pct",
+            "pen"
+          ],
+          "statTargets": [],
+          "mode": "shiyu_defense",
+          "evidence": {
+            "claimId": "clm_drive_disc_8b9e9ea0a91c",
+            "sourceId": "example-guide-a",
+            "sourceName": "Example Guide A (ficticia)",
+            "url": "https://guide-a.example.com/zzz/tier-list",
+            "accessedAt": "2026-10-24",
+            "declaredPatch": "3.3",
+            "evidenceType": "explicit_recommendation",
+            "confidence": "high",
+            "collectionMethod": "manual_entry",
+            "review": "verified",
+            "status": "current",
+            "flags": [
+              "unverified_catalog_refs"
+            ]
+          }
+        }
+      ],
+      "bangboo": [
+        {
+          "options": [
+            {
+              "bangboo": "butler",
+              "rank": 1
+            },
+            {
+              "bangboo": "sharkboo",
+              "rank": 2
+            }
+          ],
+          "mode": "shiyu_defense",
+          "evidence": {
+            "claimId": "clm_bangboo_5e4191e77f40",
+            "sourceId": "example-guide-a",
+            "sourceName": "Example Guide A (ficticia)",
+            "url": "https://guide-a.example.com/zzz/tier-list",
+            "accessedAt": "2026-10-24",
+            "declaredPatch": "3.3",
+            "evidenceType": "explicit_recommendation",
+            "confidence": "high",
+            "collectionMethod": "manual_entry",
+            "review": "verified",
+            "status": "current",
+            "flags": [
+              "unverified_catalog_refs"
+            ]
+          }
+        }
+      ],
+      "investment": [
+        {
+          "aspect": "signature_w_engine",
+          "priority": "medium",
+          "priorityLabel": "Nice to have",
+          "evidence": {
+            "claimId": "clm_investment_ada1214360ff",
+            "sourceId": "example-guide-a",
+            "sourceName": "Example Guide A (ficticia)",
+            "url": "https://guide-a.example.com/zzz/tier-list",
+            "accessedAt": "2026-10-24",
+            "declaredPatch": "3.3",
+            "evidenceType": "explicit_recommendation",
+            "confidence": "high",
+            "collectionMethod": "manual_entry",
+            "review": "verified",
+            "status": "current",
+            "flags": [
+              "unverified_catalog_refs"
+            ]
+          }
+        }
+      ],
+      "f2p": [
+        {
+          "category": "w_engine",
+          "entities": [
+            "starlight-engine"
+          ],
+          "replaces": "deep-sea-visitor",
+          "evidence": {
+            "claimId": "clm_f2p_option_317a128546d7",
+            "sourceId": "example-guide-a",
+            "sourceName": "Example Guide A (ficticia)",
+            "url": "https://guide-a.example.com/zzz/tier-list",
+            "accessedAt": "2026-10-24",
+            "declaredPatch": "3.3",
+            "evidenceType": "explicit_recommendation",
+            "confidence": "high",
+            "collectionMethod": "manual_entry",
+            "review": "verified",
+            "status": "current",
+            "flags": [
+              "unverified_catalog_refs"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "tiers": [
+    {
+      "agent": "yanagi",
+      "role": "anomaly",
+      "tier": "T0.5",
+      "tierScale": "t-scale",
+      "scoreInScale": 0.9,
+      "mode": "shiyu_defense",
+      "evidence": {
+        "claimId": "clm_tier_06e55d490089",
+        "sourceId": "example-guide-a",
+        "sourceName": "Example Guide A (ficticia)",
+        "url": "https://guide-a.example.com/zzz/tier-list",
+        "accessedAt": "2026-10-24",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "confidence": "high",
+        "collectionMethod": "manual_entry",
+        "review": "verified",
+        "status": "current",
+        "flags": [
+          "unverified_catalog_refs"
+        ]
+      }
+    },
+    {
+      "agent": "ellen",
+      "role": "attack",
+      "tier": "T0",
+      "tierScale": "t-scale",
+      "scoreInScale": 1,
+      "mode": "shiyu_defense",
+      "evidence": {
+        "claimId": "clm_tier_29689aa407f5",
+        "sourceId": "example-guide-a",
+        "sourceName": "Example Guide A (ficticia)",
+        "url": "https://guide-a.example.com/zzz/tier-list",
+        "accessedAt": "2026-10-24",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "confidence": "high",
+        "collectionMethod": "manual_entry",
+        "review": "verified",
+        "status": "current",
+        "flags": [
+          "unverified_catalog_refs"
+        ]
+      }
+    },
+    {
+      "agent": "astra-yao",
+      "role": "support",
+      "tier": "T0",
+      "tierScale": "t-scale",
+      "scoreInScale": 1,
+      "mode": "shiyu_defense",
+      "evidence": {
+        "claimId": "clm_tier_2ebac4b074f4",
+        "sourceId": "example-guide-a",
+        "sourceName": "Example Guide A (ficticia)",
+        "url": "https://guide-a.example.com/zzz/tier-list",
+        "accessedAt": "2026-10-24",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "confidence": "high",
+        "collectionMethod": "manual_entry",
+        "review": "verified",
+        "status": "current",
+        "flags": [
+          "unverified_catalog_refs"
+        ]
+      }
+    },
+    {
+      "agent": "qingyi",
+      "role": "stun",
+      "tier": "T0.5",
+      "tierScale": "t-scale",
+      "scoreInScale": 0.9,
+      "mode": "shiyu_defense",
+      "evidence": {
+        "claimId": "clm_tier_361b95836687",
+        "sourceId": "example-guide-a",
+        "sourceName": "Example Guide A (ficticia)",
+        "url": "https://guide-a.example.com/zzz/tier-list",
+        "accessedAt": "2026-10-24",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "confidence": "high",
+        "collectionMethod": "manual_entry",
+        "review": "verified",
+        "status": "current",
+        "flags": [
+          "unverified_catalog_refs"
+        ]
+      }
+    },
+    {
+      "agent": "lycaon",
+      "role": "stun",
+      "tier": "T0.5",
+      "tierScale": "t-scale",
+      "scoreInScale": 0.9,
+      "mode": "shiyu_defense",
+      "evidence": {
+        "claimId": "clm_tier_43a72a77ae49",
+        "sourceId": "example-guide-a",
+        "sourceName": "Example Guide A (ficticia)",
+        "url": "https://guide-a.example.com/zzz/tier-list",
+        "accessedAt": "2026-10-24",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "confidence": "high",
+        "collectionMethod": "manual_entry",
+        "review": "verified",
+        "status": "current",
+        "flags": [
+          "unverified_catalog_refs"
+        ]
+      }
+    },
+    {
+      "agent": "soukaku",
+      "role": "support",
+      "tier": "T1",
+      "tierScale": "t-scale",
+      "scoreInScale": 0.8,
+      "mode": "shiyu_defense",
+      "evidence": {
+        "claimId": "clm_tier_4646202609fd",
+        "sourceId": "example-guide-a",
+        "sourceName": "Example Guide A (ficticia)",
+        "url": "https://guide-a.example.com/zzz/tier-list",
+        "accessedAt": "2026-10-24",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "confidence": "high",
+        "collectionMethod": "manual_entry",
+        "review": "verified",
+        "status": "current",
+        "flags": [
+          "unverified_catalog_refs"
+        ]
+      }
+    },
+    {
+      "agent": "hugo",
+      "role": "attack",
+      "tier": "T1",
+      "tierScale": "t-scale",
+      "scoreInScale": 0.8,
+      "mode": "general",
+      "evidence": {
+        "claimId": "clm_tier_726b895187bb",
+        "sourceId": "example-guide-a",
+        "sourceName": "Example Guide A (ficticia)",
+        "url": "https://guide-a.example.com/zzz/preview",
+        "accessedAt": "2026-10-15",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "manual_entry",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "pre_release",
+          "unverified_catalog_refs"
+        ],
+        "notes": "Valoración previa al lanzamiento (ficticia)."
+      }
+    },
+    {
+      "agent": "ellen",
+      "role": "attack",
+      "tier": "S",
+      "tierScale": "letters",
+      "scoreInScale": 0.8,
+      "mode": "shiyu_defense",
+      "evidence": {
+        "claimId": "clm_tier_74d759b5e13b",
+        "sourceId": "example-stats-b",
+        "sourceName": "Example Stats B (ficticia)",
+        "url": "https://stats-b.example.com/zzz/shiyu",
+        "accessedAt": "2026-10-26",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "confidence": "medium",
+        "collectionMethod": "manual_entry",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "unverified_catalog_refs"
+        ]
+      }
+    },
+    {
+      "agent": "nicole",
+      "role": "support",
+      "tier": "T1",
+      "tierScale": "t-scale",
+      "scoreInScale": 0.8,
+      "mode": "shiyu_defense",
+      "evidence": {
+        "claimId": "clm_tier_7edb45f2e16c",
+        "sourceId": "example-guide-a",
+        "sourceName": "Example Guide A (ficticia)",
+        "url": "https://guide-a.example.com/zzz/tier-list",
+        "accessedAt": "2026-10-24",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "confidence": "high",
+        "collectionMethod": "manual_entry",
+        "review": "verified",
+        "status": "current",
+        "flags": [
+          "unverified_catalog_refs"
+        ]
+      }
+    },
+    {
+      "agent": "miyabi",
+      "role": "anomaly",
+      "tier": "T0",
+      "tierScale": "t-scale",
+      "scoreInScale": 1,
+      "mode": "shiyu_defense",
+      "evidence": {
+        "claimId": "clm_tier_998ee1662a55",
+        "sourceId": "example-guide-a",
+        "sourceName": "Example Guide A (ficticia)",
+        "url": "https://guide-a.example.com/zzz/tier-list",
+        "accessedAt": "2026-10-24",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "confidence": "high",
+        "collectionMethod": "manual_entry",
+        "review": "verified",
+        "status": "current",
+        "flags": [
+          "unverified_catalog_refs"
+        ]
+      }
+    },
+    {
+      "agent": "burnice",
+      "role": "anomaly",
+      "tier": "T0.5",
+      "tierScale": "t-scale",
+      "scoreInScale": 0.9,
+      "mode": "shiyu_defense",
+      "evidence": {
+        "claimId": "clm_tier_a96608972f98",
+        "sourceId": "example-guide-a",
+        "sourceName": "Example Guide A (ficticia)",
+        "url": "https://guide-a.example.com/zzz/tier-list",
+        "accessedAt": "2026-09-15",
+        "declaredPatch": "3.2",
+        "evidenceType": "explicit_recommendation",
+        "confidence": "high",
+        "collectionMethod": "manual_entry",
+        "review": "verified",
+        "status": "stale",
+        "flags": [
+          "access_too_old",
+          "older_patch",
+          "unverified_catalog_refs"
+        ]
+      }
+    },
+    {
+      "agent": "miyabi",
+      "role": "anomaly",
+      "tier": "A",
+      "tierScale": "letters",
+      "scoreInScale": 0.6,
+      "mode": "shiyu_defense",
+      "evidence": {
+        "claimId": "clm_tier_baccc092f287",
+        "sourceId": "example-stats-b",
+        "sourceName": "Example Stats B (ficticia)",
+        "url": "https://stats-b.example.com/zzz/shiyu",
+        "accessedAt": "2026-10-26",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "confidence": "medium",
+        "collectionMethod": "manual_entry",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "unverified_catalog_refs"
+        ]
+      }
+    },
+    {
+      "agent": "zhu-yuan",
+      "role": "attack",
+      "tier": "T1",
+      "tierScale": "t-scale",
+      "scoreInScale": 0.8,
+      "mode": "shiyu_defense",
+      "evidence": {
+        "claimId": "clm_tier_d89b76b6c7c5",
+        "sourceId": "example-guide-a",
+        "sourceName": "Example Guide A (ficticia)",
+        "url": "https://guide-a.example.com/zzz/tier-list",
+        "accessedAt": "2026-10-24",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "confidence": "high",
+        "collectionMethod": "manual_entry",
+        "review": "verified",
+        "status": "current",
+        "flags": [
+          "unverified_catalog_refs"
+        ]
+      }
+    }
+  ],
+  "synergies": [
+    {
+      "agents": [
+        "ellen",
+        "lycaon"
+      ],
+      "polarity": "positive",
+      "mechanism": "Ejemplo ficticio: el aturdidor amplifica el daño de hielo del DPS principal.",
+      "mode": "shiyu_defense",
+      "evidence": {
+        "claimId": "clm_synergy_33b2f27f7430",
+        "sourceId": "example-guide-a",
+        "sourceName": "Example Guide A (ficticia)",
+        "url": "https://guide-a.example.com/zzz/tier-list",
+        "accessedAt": "2026-10-24",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "confidence": "high",
+        "collectionMethod": "manual_entry",
+        "review": "verified",
+        "status": "current",
+        "flags": [
+          "unverified_catalog_refs"
+        ]
+      }
+    }
+  ],
+  "rotations": [
+    {
+      "agents": [
+        "ellen",
+        "lycaon",
+        "soukaku"
+      ],
+      "steps": [
+        "Soukaku abre con su ataque de apoyo",
+        "Lycaon acumula aturdimiento",
+        "Ellen descarga durante el aturdimiento"
+      ],
+      "mode": "shiyu_defense",
+      "evidence": {
+        "claimId": "clm_rotation_f676fe1fecb5",
+        "sourceId": "example-guide-a",
+        "sourceName": "Example Guide A (ficticia)",
+        "url": "https://guide-a.example.com/zzz/tier-list",
+        "accessedAt": "2026-10-24",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "confidence": "high",
+        "collectionMethod": "manual_entry",
+        "review": "verified",
+        "status": "current",
+        "flags": [
+          "unverified_catalog_refs"
+        ]
+      }
+    }
+  ]
+}

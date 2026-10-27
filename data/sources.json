@@ -15,8 +15,9 @@
         "evidenceUrls": [
           "https://www.prydwen.gg/terms"
         ],
-        "allowedMethods": [
-          "manual_entry"
+        "checkedVia": "web_search",
+        "openQuestions": [
+          "Los términos permiten uso personal no comercial pero prohíben la extracción masiva. Un grupo privado de amigos encaja en 'personal', pero no está claro si compartir datos resumidos con terceros es 'redistribución'. Alternativa prudente: solo hechos breves con enlace, sin copiar texto, y no publicar la base."
         ]
       },
       "defaultTierScale": "prydwen-zzz",
@@ -62,7 +63,7 @@
         }
       ],
       "maxAgeDays": 30,
-      "notes": "Registrar solo hechos estructurados breves con enlace, nunca texto de sus guías. Para uso comercial en Hoyo Builds, pedir permiso por escrito antes de publicar."
+      "notes": "Fuente prioritaria para equipos y builds. Registrar solo hechos estructurados breves con enlace; nunca texto de sus guías. No usar mirrors ni cachés (p. ej. CDN) para saltarse el acceso."
     },
     {
       "id": "mobalytics",
@@ -78,9 +79,7 @@
         "evidenceUrls": [
           "https://mobalytics.gg/terms/"
         ],
-        "allowedMethods": [
-          "manual_entry"
-        ]
+        "checkedVia": "web_search"
       },
       "defaultTierScale": "mobalytics-letter",
       "tierScales": [
@@ -131,8 +130,9 @@
         "evidenceUrls": [
           "https://zzz.akademiya.app/en/tier-lists"
         ],
-        "allowedMethods": [
-          "manual_entry"
+        "checkedVia": "web_search",
+        "openQuestions": [
+          "No publica condiciones: la ausencia de términos no equivale a permiso. Se trata como no automatizable; pedir permiso a los mantenedores si se quiere un export."
         ]
       },
       "defaultTierScale": "akademiya-letter",
@@ -185,9 +185,7 @@
         "evidenceUrls": [
           "https://zenless.hoyoverse.com/"
         ],
-        "allowedMethods": [
-          "manual_entry"
-        ]
+        "checkedVia": "web_search"
       },
       "tierScales": [],
       "maxAgeDays": 365
@@ -205,12 +203,111 @@
         "evidenceUrls": [
           "https://github.com/fsanhuezanez/zzz-test"
         ],
-        "allowedMethods": [
-          "manual_entry"
-        ]
+        "checkedVia": "web_search"
       },
       "tierScales": [],
       "maxAgeDays": 60
+    },
+    {
+      "id": "game8",
+      "name": "Game8",
+      "kind": "community_guide",
+      "homepage": "https://game8.co/",
+      "termsUrl": "https://game8.co/terms",
+      "attribution": "Datos resumidos de Game8 (game8.co). Consulta la guía original en el enlace de cada dato.",
+      "automation": {
+        "status": "unknown",
+        "basis": "No se pudieron leer sus condiciones desde el entorno de trabajo. Por prudencia: solo consulta manual en navegador y resumen breve con enlace.",
+        "checkedAt": "2026-10-27",
+        "checkedVia": "web_search",
+        "evidenceUrls": [
+          "https://game8.co/terms"
+        ],
+        "openQuestions": [
+          "Confirmar en navegador qué permiten sus términos sobre reutilización de contenido. Mientras tanto, solo hechos breves con enlace."
+        ]
+      },
+      "tierScales": [],
+      "maxAgeDays": 30,
+      "notes": "Publica páginas de 'Best Team Comps', guías por agente y un tier list por rol. Útil para equipos y alternativas."
+    },
+    {
+      "id": "icy-veins",
+      "name": "Icy Veins",
+      "kind": "community_guide",
+      "homepage": "https://www.icy-veins.com/zenless-zone-zero/",
+      "attribution": "Datos resumidos de Icy Veins (icy-veins.com). Consulta la guía original en el enlace de cada dato.",
+      "automation": {
+        "status": "unknown",
+        "basis": "Condiciones no revisadas en navegador. Solo consulta manual y resumen breve con enlace.",
+        "checkedAt": "2026-10-27",
+        "checkedVia": "web_search",
+        "evidenceUrls": [
+          "https://www.icy-veins.com/"
+        ]
+      },
+      "tierScales": [],
+      "maxAgeDays": 30,
+      "notes": "Páginas de equipos y sinergias por agente; a veces discrepa de otras fuentes, lo que es útil para detectar condiciones."
+    },
+    {
+      "id": "gamerant",
+      "name": "Game Rant",
+      "kind": "media",
+      "homepage": "https://gamerant.com/",
+      "attribution": "Datos resumidos de Game Rant (gamerant.com).",
+      "automation": {
+        "status": "unknown",
+        "basis": "Medio de prensa. Condiciones no revisadas en navegador. Solo consulta manual y resumen breve con enlace.",
+        "checkedAt": "2026-10-27",
+        "checkedVia": "web_search",
+        "evidenceUrls": [
+          "https://gamerant.com/"
+        ]
+      },
+      "tierScales": [],
+      "maxAgeDays": 30,
+      "notes": "Prensa que resume guías; menor prioridad que Prydwen o Game8. Fijarse en la fecha de la página."
+    },
+    {
+      "id": "zzz-build",
+      "name": "ZZZ Build (zzz-build.com)",
+      "kind": "community_guide",
+      "homepage": "https://www.zzz-build.com/",
+      "attribution": "Datos resumidos de zzz-build.com.",
+      "automation": {
+        "status": "unknown",
+        "basis": "Condiciones no revisadas. Solo consulta manual y resumen breve con enlace.",
+        "checkedAt": "2026-10-27",
+        "checkedVia": "web_search",
+        "evidenceUrls": [
+          "https://www.zzz-build.com/"
+        ],
+        "openQuestions": [
+          "Dice sincronizarse con datos de Prydwen: puede ser fuente secundaria. Si coincide con Prydwen, no contar ambas como fuentes independientes."
+        ]
+      },
+      "tierScales": [],
+      "maxAgeDays": 30
+    },
+    {
+      "id": "timesaver",
+      "name": "Timesaver.gg",
+      "kind": "media",
+      "homepage": "https://timesaver.gg/",
+      "attribution": "Datos resumidos de timesaver.gg.",
+      "automation": {
+        "status": "unknown",
+        "basis": "Blog de guías. Condiciones no revisadas. Solo consulta manual y resumen breve con enlace.",
+        "checkedAt": "2026-10-27",
+        "checkedVia": "web_search",
+        "evidenceUrls": [
+          "https://timesaver.gg/"
+        ]
+      },
+      "tierScales": [],
+      "maxAgeDays": 30,
+      "notes": "Útil por sus opciones de presupuesto para cuentas con pocos personajes; prioridad baja."
     }
   ]
 }

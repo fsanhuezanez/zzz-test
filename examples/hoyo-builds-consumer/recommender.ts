@@ -1,209 +1,213 @@
 /**
- * Ejemplo de recomendador para Hoyo Builds: combina la evidencia competitiva
- * con el roster real de una cuenta.
+ * Ejemplo de recomendador para Hoyo Builds. Solo usa el paquete exportado
+ * (export/zzz-meta.json + zzz-meta.types.ts), igual que lo haría la app real.
  *
- * Principios:
- *  1. La unidad de recomendación es el EQUIPO citado por una fuente, no la suma
- *     de tiers individuales. Un agente T0 no mejora un equipo que ninguna
- *     fuente avala.
- *  2. Un hueco solo se rellena con sustitutos que alguna fuente (o una
- *     estimación interna, con menor peso) declara para ese equipo/agente.
- *  3. Los tiers individuales solo desempatan y se muestran como contexto.
- *  4. Cada sugerencia lleva la evidencia y la atribución que la sostienen.
- *
- * Los pesos son heurísticas de ESTE ejemplo, no datos: ajústalos en tu app.
+ * Reglas:
+ *  1. Parte de EQUIPOS publicados por fuentes, nunca de la suma de tiers.
+ *  2. Un hueco que la cuenta no cubre solo se rellena con lo que la evidencia
+ *     documenta: sustituto de la misma fuente, afirmación de sustitución
+ *     compatible o alternativa citada por la fuente. Si no, el equipo queda
+ *     "bloqueado" y se dice qué falta.
+ *  3. El orden es transparente (no es una puntuación): verificado antes que
+ *     pendiente, vigente antes que antiguo, "ranked/recommended" antes que
+ *     "showcase", más confianza, no económico antes que económico, más fuentes
+ *     distintas que documentan el núcleo original, menos sustituciones.
+ *  4. Requisitos y limitaciones se muestran siempre: decide la persona.
  */
-import type { MetaDatabase } from '../../src/client/index.ts';
-import type { ClaimOf, Confidence, EvidenceType, GameMode, SubstituteQuality } from '../../src/client/index.ts';
+import type {
+  Evidence, GameMode, SubstituteQuality, Team, TeamStance, ZzzMetaExport,
+} from '../../export/zzz-meta.types.ts';
 
 export interface Roster {
+  name?: string;
   agents: string[];
   wEngines?: string[];
   bangboo?: string[];
 }
 
 export interface Slot {
-  original: string;
-  chosen: string;
-  role: string;
-  substitution?: { quality: SubstituteQuality; basis: 'team_claim' | 'substitute_claim'; claimId: string; evidenceType: EvidenceType };
+  agent: string;
+  /** Agente original al que sustituye, si es sustituto. */
+  replaces?: string;
+  via: 'owned' | 'same_source_substitute' | 'substitute_claim' | 'alternate' | 'flex';
+  quality?: SubstituteQuality;
+  evidence?: Evidence;
 }
 
-export interface EvidenceRef {
-  claimId: string;
-  sourceId: string;
-  evidenceType: EvidenceType;
-  confidence: Confidence;
-  status: string;
-  flags: string[];
-  attribution: string;
-  weight: number;
-}
-
-export interface TeamSuggestion {
-  members: string[];
-  slots: Slot[];
+export interface TeamOption {
+  lineup: string[];
   mode: GameMode;
-  score: number;
-  independentSources: number;
-  evidence: EvidenceRef[];
-  tierContext: { agent: string; tier: string; sourceId: string }[];
-  warnings: string[];
+  slots: Slot[];
+  backing: Team[];
+  sources: string[];
+  /** Fuentes distintas que documentan el núcleo original (antes de sustituir). */
+  coreSources: number;
+  budget: boolean;
+  substitutions: number;
+  notes: string[];
 }
 
-export interface NearMiss {
-  teamClaimId: string;
-  members: string[];
+export interface Blocked {
+  teamId: string;
+  sourceId: string;
+  core: string[];
   missing: string[];
-  attribution: string;
 }
 
-const EVIDENCE_WEIGHT: Record<EvidenceType, number> = {
-  explicit_recommendation: 1,
-  observed_data: 1,
-  cross_source_consensus: 1,
-  internal_estimate: 0.4,
-};
-const CONFIDENCE_WEIGHT: Record<Confidence, number> = { high: 1, medium: 0.75, low: 0.5 };
-const STATUS_WEIGHT: Record<string, number> = { current: 1, stale: 0.5 };
-const SUBSTITUTE_FACTOR: Record<SubstituteQuality, number> = {
-  near_equivalent: 0.9, workable: 0.75, unspecified: 0.65, significant_downgrade: 0.5,
-};
-const UNVERIFIED_FACTOR = 0.85;
-const NEGATIVE_SYNERGY_FACTOR = 0.8;
-/** Peso máximo del contexto de tiers: suficiente para desempatar, nunca para decidir. */
-const TIER_TIEBREAK = 0.02;
+const STANCE: Record<TeamStance, number> = { ranked: 3, recommended: 2, showcase: 1 };
+const CONFIDENCE = { high: 3, medium: 2, low: 1 } as const;
+const QUALITY: Record<SubstituteQuality, number> = { near_equivalent: 4, workable: 3, unspecified: 2, significant_downgrade: 1 };
 
-function claimWeight(c: ClaimOf<'team'> | ClaimOf<'substitute'>): number {
-  const p = c.provenance;
-  return EVIDENCE_WEIGHT[p.evidenceType] * CONFIDENCE_WEIGHT[p.confidence] * (STATUS_WEIGHT[c.status] ?? 0)
-    * (c.flags.includes('unverified') ? UNVERIFIED_FACTOR : 1);
+/** Clave de orden de una evidencia de equipo (mayor = más respaldo). */
+function strength(t: Team): number[] {
+  const e = t.evidence;
+  return [e.review === 'verified' ? 1 : 0, e.status === 'current' ? 1 : 0, STANCE[t.stance], CONFIDENCE[e.confidence], e.collectionMethod === 'manual_entry' ? 1 : 0];
 }
 
-export function recommendTeams(db: MetaDatabase, roster: Roster, options: { mode: GameMode; includeStale?: boolean }): {
-  suggestions: TeamSuggestion[];
-  nearMisses: NearMiss[];
-} {
+function compare(a: number[], b: number[]): number {
+  for (let i = 0; i < Math.max(a.length, b.length); i++) {
+    const d = (b[i] ?? 0) - (a[i] ?? 0);
+    if (d !== 0) return d;
+  }
+  return 0;
+}
+
+export function recommendTeams(data: ZzzMetaExport, roster: Roster, options: {
+  mode: GameMode;
+  /** Incluir datos pendientes de verificar (por defecto sí, marcados). */
+  includePending?: boolean;
+  includeStale?: boolean;
+}): { options: TeamOption[]; blocked: Blocked[] } {
+  if (data.meta.isFixture) console.warn('⚠ Paquete con datos FICTICIOS de prueba.');
   const owned = new Set(roster.agents);
-  const status = options.includeStale ? (['current', 'stale'] as const) : (['current'] as const);
+  const includePending = options.includePending ?? true;
+  const usable = (e: Evidence) => (includePending || e.review === 'verified') && (options.includeStale || e.status === 'current');
   const modeOk = (m: GameMode) => m === options.mode || m === 'general';
-  const teams = db.claims({ kind: 'team', status: [...status] }).filter((c) => modeOk(c.context.mode));
-  const substituteClaims = db.claims({ kind: 'substitute', status: [...status] }).filter((c) => modeOk(c.context.mode));
 
-  const grouped = new Map<string, TeamSuggestion>();
-  const nearMisses: NearMiss[] = [];
+  const grouped = new Map<string, TeamOption>();
+  const blocked: Blocked[] = [];
+  const coreSources = new Map<string, number>();
+  for (const c of data.compositions) for (const id of c.teamIds) coreSources.set(id, c.support.sources.length);
 
-  for (const team of teams) {
-    const memberIds = team.payload.members.map((m) => m.agent);
+  for (const team of data.teams.filter((t) => modeOk(t.mode) && usable(t.evidence))) {
+    const core = team.members.map((m) => m.agent);
+    const used = new Set<string>();
     const slots: Slot[] = [];
     const missing: string[] = [];
-    let factor = 1;
-    const used = new Set<string>();
+    const take = (s: Slot) => {
+      used.add(s.agent);
+      slots.push(s);
+    };
+    const free = (a: string) => owned.has(a) && !used.has(a) && !core.includes(a);
 
-    for (const member of team.payload.members) {
-      if (owned.has(member.agent)) {
-        slots.push({ original: member.agent, chosen: member.agent, role: member.role });
-        used.add(member.agent);
+    for (const m of team.members) {
+      if (owned.has(m.agent)) {
+        take({ agent: m.agent, via: 'owned' });
         continue;
       }
-      // Sustitutos declarados en el propio claim de equipo (misma fuente).
-      const inline = (member.substitutes ?? [])
-        .filter((s) => owned.has(s.agent) && !used.has(s.agent) && !memberIds.includes(s.agent))
-        .map((s) => ({ agent: s.agent, quality: s.quality, basis: 'team_claim' as const, claimId: team.id, evidenceType: team.provenance.evidenceType, w: SUBSTITUTE_FACTOR[s.quality] }));
-      // Sustituciones generales cuyo contexto (withAgents) encaja con este equipo.
-      const general = substituteClaims
-        .filter((s) => s.payload.agent === member.agent && owned.has(s.payload.substitute) && !used.has(s.payload.substitute)
-          && !memberIds.includes(s.payload.substitute)
-          && (s.payload.withAgents ?? []).every((a) => memberIds.includes(a)))
-        .map((s) => ({ agent: s.payload.substitute, quality: s.payload.quality, basis: 'substitute_claim' as const, claimId: s.id, evidenceType: s.provenance.evidenceType, w: SUBSTITUTE_FACTOR[s.payload.quality] * claimWeight(s) }));
-      const best = [...inline, ...general].sort((a, b) => b.w - a.w)[0];
-      if (!best) {
-        missing.push(member.agent);
+      // Candidatos documentados, de más a menos fiable: sustituto de la misma fuente,
+      // alternativa citada por la misma fuente, afirmación de sustitución externa
+      // y, por último, estimación propia.
+      const candidates: (Slot & { rank: number[] })[] = [
+        ...m.substitutes.filter((s) => free(s.agent)).map((s) => ({
+          agent: s.agent, replaces: m.agent, via: 'same_source_substitute' as const, quality: s.quality, evidence: team.evidence, rank: [3, QUALITY[s.quality]],
+        })),
+        ...team.alternates.filter((a) => free(a.agent)).map((a) => ({
+          agent: a.agent, replaces: m.agent, via: 'alternate' as const, quality: a.quality, evidence: team.evidence, rank: [2, QUALITY[a.quality]],
+        })),
+        ...data.substitutes
+          .filter((s) => s.agent === m.agent && free(s.substitute) && modeOk(s.mode) && usable(s.evidence) && s.withAgents.every((a) => core.includes(a)))
+          .map((s) => ({
+            agent: s.substitute, replaces: m.agent, via: 'substitute_claim' as const, quality: s.quality, evidence: s.evidence,
+            rank: [s.evidence.evidenceType === 'internal_estimate' ? 0 : 2, QUALITY[s.quality]],
+          })),
+      ].sort((a, b) => compare(a.rank, b.rank));
+      const best = candidates[0];
+      if (best) {
+        const { rank: _rank, ...slot } = best;
+        take(slot);
         continue;
       }
-      factor *= best.w;
-      used.add(best.agent);
-      slots.push({
-        original: member.agent, chosen: best.agent, role: member.role,
-        substitution: { quality: best.quality, basis: best.basis, claimId: best.claimId, evidenceType: best.evidenceType },
-      });
+      missing.push(m.agent);
+    }
+    for (const f of team.flex) {
+      const picks = f.options.filter((o) => owned.has(o) && !used.has(o)).slice(0, f.pick);
+      picks.forEach((agent) => take({ agent, via: 'flex' }));
+      if (picks.length < f.pick) missing.push(`${f.pick - picks.length} de [${f.options.join(', ')}]`);
     }
 
     if (missing.length) {
-      nearMisses.push({ teamClaimId: team.id, members: memberIds, missing, attribution: db.attribution(team) });
+      blocked.push({ teamId: team.id, sourceId: team.evidence.sourceId, core, missing });
       continue;
     }
 
-    const lineup = slots.map((s) => s.chosen).sort();
-    const key = `${lineup.join('+')}|${team.context.mode}`;
-    const weight = claimWeight(team) * factor;
-    const entry = grouped.get(key) ?? {
-      members: lineup, slots, mode: team.context.mode, score: 0, independentSources: 0, evidence: [], tierContext: [], warnings: [],
-    };
-    entry.evidence.push({
-      claimId: team.id, sourceId: team.sourceId, evidenceType: team.provenance.evidenceType, confidence: team.provenance.confidence,
-      status: team.status, flags: team.flags, attribution: db.attribution(team), weight: Math.round(weight * 1000) / 1000,
-    });
-    // Si varias fuentes llegan a la misma alineación, se conserva la que menos sustituye.
-    if (slots.filter((s) => s.substitution).length < entry.slots.filter((s) => s.substitution).length) entry.slots = slots;
-    grouped.set(key, entry);
+    const lineup = slots.map((s) => s.agent).sort();
+    const key = `${lineup.join('+')}@${team.mode}`;
+    const option = grouped.get(key) ?? { lineup, mode: team.mode, slots, backing: [], sources: [], coreSources: 0, budget: true, substitutions: Infinity, notes: [] };
+    option.coreSources = Math.max(option.coreSources, coreSources.get(team.id) ?? 1);
+    option.budget &&= team.budget;
+    // Los huecos mostrados salen del respaldo con menos sustituciones y, a igualdad, más fuerte.
+    const subs = slots.filter((s) => s.replaces).length;
+    const strongest = option.backing.length ? [...option.backing].sort((x, y) => compare(strength(x), strength(y)))[0]! : null;
+    if (subs < option.substitutions || (subs === option.substitutions && strongest && compare(strength(team), strength(strongest)) < 0)) {
+      option.slots = slots;
+      option.substitutions = subs;
+    }
+    option.backing.push(team);
+    if (!option.sources.includes(team.evidence.sourceId)) option.sources.push(team.evidence.sourceId);
+    for (const r of team.requirements) {
+      if (r.agent && !lineup.includes(r.agent)) option.notes.push(`Requisito (${r.level}) no cubierto: ${r.text}`);
+      else option.notes.push(`Requisito (${r.level}): ${r.text}`);
+    }
+    for (const l of team.limitations) option.notes.push(`Limitación: ${l}`);
+    grouped.set(key, option);
   }
 
-  const suggestions = [...grouped.values()].map((s) => {
-    // Agregación con rendimientos decrecientes por fuente independiente.
-    const bySource = new Map<string, number>();
-    for (const e of s.evidence) bySource.set(e.sourceId, Math.max(bySource.get(e.sourceId) ?? 0, e.weight));
-    const weights = [...bySource.values()].sort((a, b) => b - a);
-    let score = weights.reduce((acc, w, i) => acc + w * (i === 0 ? 1 : 0.35), 0);
-
-    for (const syn of db.claims({ kind: 'synergy' })) {
-      if (syn.payload.polarity === 'negative' && syn.payload.agents.every((a) => s.members.includes(a))) {
-        score *= NEGATIVE_SYNERGY_FACTOR;
-        s.warnings.push(`Sinergia negativa declarada: ${db.attribution(syn)}`);
-      }
-    }
-
-    const tiers = s.members.flatMap((agent) => db.claims({ kind: 'tier', agent }).filter((t) => modeOk(t.context.mode)));
-    s.tierContext = tiers.map((t) => ({ agent: t.payload.agent, tier: t.payload.tier, sourceId: t.sourceId }));
-    const meanTier = tiers.length ? tiers.reduce((a, t) => a + t.payload.score, 0) / tiers.length : 0;
-    score += TIER_TIEBREAK * meanTier;
-
-    if (s.slots.some((slot) => slot.substitution?.evidenceType === 'internal_estimate')) {
-      s.warnings.push('Incluye una sustitución basada en una estimación interna, no en una fuente externa.');
-    }
-    if (s.evidence.every((e) => e.status !== 'current')) s.warnings.push('Toda la evidencia es de un parche anterior o está caducada.');
-    return { ...s, score: Math.round(score * 1000) / 1000, independentSources: bySource.size };
+  const result = [...grouped.values()].map((o) => {
+    o.backing.sort((a, b) => compare(strength(a), strength(b)));
+    if (o.slots.some((s) => s.evidence?.evidenceType === 'internal_estimate')) o.notes.push('Incluye una sustitución que es estimación propia, no de una fuente.');
+    if (o.backing.every((t) => t.evidence.review !== 'verified')) o.notes.push('Ningún respaldo verificado todavía.');
+    if (o.backing.every((t) => t.stance === 'showcase')) o.notes.push('Las fuentes solo lo muestran como opción; no lo clasifican ni recomiendan.');
+    o.notes = [...new Set(o.notes)];
+    return o;
   });
-
-  suggestions.sort((a, b) => b.score - a.score || a.members.join().localeCompare(b.members.join()));
-  return { suggestions, nearMisses };
+  result.sort((a, b) =>
+    compare(strength(a.backing[0]!), strength(b.backing[0]!))
+    || Number(a.budget) - Number(b.budget)
+    || b.coreSources - a.coreSources
+    || b.sources.length - a.sources.length
+    || a.substitutions - b.substitutions
+    || a.lineup.join().localeCompare(b.lineup.join()));
+  return { options: result, blocked };
 }
 
-/** Para modos con dos equipos (p. ej. Shiyu Defense): mejor par sin agentes repetidos. */
-export function bestDisjointPair(suggestions: TeamSuggestion[]): [TeamSuggestion, TeamSuggestion] | null {
-  let best: [TeamSuggestion, TeamSuggestion] | null = null;
-  let bestScore = -1;
-  for (let i = 0; i < suggestions.length; i++) {
-    for (let j = i + 1; j < suggestions.length; j++) {
-      const a = suggestions[i]!;
-      const b = suggestions[j]!;
-      if (a.members.some((m) => b.members.includes(m))) continue;
-      if (a.score + b.score > bestScore) {
-        bestScore = a.score + b.score;
-        best = [a, b];
+/** Para modos de dos equipos (Shiyu Defense): primera pareja sin agentes repetidos según el orden anterior. */
+export function bestDisjointPair(options: TeamOption[]): [TeamOption, TeamOption] | null {
+  let best: [TeamOption, TeamOption] | null = null;
+  let bestRank = Infinity;
+  for (let i = 0; i < options.length; i++) {
+    for (let j = i + 1; j < options.length; j++) {
+      if (options[i]!.lineup.some((a) => options[j]!.lineup.includes(a))) continue;
+      if (i + j < bestRank) {
+        bestRank = i + j;
+        best = [options[i]!, options[j]!];
       }
     }
   }
   return best;
 }
 
-/** Recomendaciones de equipo (W-Engine, Drive Discs, Bangboo) para un agente, filtradas por lo que se posee. */
-export function gearFor(db: MetaDatabase, agent: string, roster: Roster) {
-  const wEngines = db.claims({ kind: 'w_engine', agent }).map((c) => ({
-    attribution: db.attribution(c),
-    options: c.payload.options.map((o) => ({ ...o, name: db.wEngines.get(o.wEngine)?.name ?? o.wEngine, owned: roster.wEngines?.includes(o.wEngine) ?? null })),
-  }));
-  const driveDiscs = db.claims({ kind: 'drive_disc', agent }).map((c) => ({ attribution: db.attribution(c), ...c.payload }));
-  const f2p = db.claims({ kind: 'f2p_option', agent }).map((c) => ({ attribution: db.attribution(c), ...c.payload }));
-  return { wEngines, driveDiscs, f2p };
+/** Builds documentadas de un agente, marcando lo que la cuenta ya tiene. */
+export function buildsFor(data: ZzzMetaExport, agent: string, roster: Roster) {
+  const b = data.builds[agent];
+  if (!b) return null;
+  return {
+    wEngines: b.wEngines.map((w) => ({
+      ...w,
+      options: w.options.map((o) => ({ ...o, owned: roster.wEngines ? roster.wEngines.includes(o.wEngine) : null })),
+    })),
+    driveDiscs: b.driveDiscs,
+    f2p: b.f2p,
+    investment: b.investment,
+  };
 }

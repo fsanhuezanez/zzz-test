@@ -2,7 +2,7 @@
  * Detección de cambios entre dos versiones de la base.
  *
  * - added / removed: claims nuevos o desaparecidos.
- * - changed: misma fuente y mismo "hueco" (slotKey) con un valor distinto
+ * - changed: misma fuente, misma página y mismo "hueco" (slotKey) con un valor distinto
  *   (p. ej. la fuente movió a un agente de T1 a T0).
  * - refreshed: mismo dato, procedencia renovada (nueva consulta o verificación).
  * - statusChanged: cambia el estado o los flags (p. ej. pasa a stale).
@@ -53,10 +53,11 @@ export function diffDatabases(
   let removed = prevClaims.filter((c) => !nextById.has(c.id));
 
   const changed: Changelog['claims']['changed'] = [];
-  const removedBySlot = new Map(removed.map((c) => [`${c.sourceId}|${c.slotKey}`, c]));
+  const slot = (c: Claim) => `${c.sourceId}|${c.provenance.url}|${c.slotKey}`;
+  const removedBySlot = new Map(removed.map((c) => [slot(c), c]));
   const matched = new Set<string>();
   for (const c of added) {
-    const old = removedBySlot.get(`${c.sourceId}|${c.slotKey}`);
+    const old = removedBySlot.get(slot(c));
     if (!old) continue;
     changed.push({ sourceId: c.sourceId, kind: c.kind, slotKey: c.slotKey, fromId: old.id, toId: c.id, fields: changedFields(old, c) });
     matched.add(old.id).add(c.id);

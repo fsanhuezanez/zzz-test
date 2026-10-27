@@ -1,0 +1,2969 @@
+{
+  "meta": {
+    "format": "zzz-meta-export",
+    "formatVersion": 1,
+    "dataVersion": "3.3-r1",
+    "gamePatch": "3.3",
+    "generatedAt": "2026-10-27T18:01:19.667Z",
+    "contentHash": "acefb2f5827abbb277af98e1dd71bac549795828ff60a2633eb550f2083ca10e",
+    "isFixture": false,
+    "counts": {
+      "teams": 22,
+      "verified": 0,
+      "pending": 33,
+      "stale": 2
+    },
+    "notice": "Evidencia atribuida, no veredictos. \"pending\" = no comprobado en la página original; \"via_search\" = tomado de un resumen de buscador. Un tier individual no es un ranking de equipos, y un equipo documentado (showcase) no es necesariamente superior. Muestra siempre la fuente y el enlace."
+  },
+  "sources": [
+    {
+      "id": "akademiya",
+      "name": "ZZZ Akademiya",
+      "homepage": "https://zzz.akademiya.app/",
+      "attribution": "Datos de ZZZ Akademiya (zzz.akademiya.app), base de datos comunitaria no afiliada a HoYoverse.",
+      "automation": "unknown"
+    },
+    {
+      "id": "game8",
+      "name": "Game8",
+      "homepage": "https://game8.co/",
+      "attribution": "Datos resumidos de Game8 (game8.co). Consulta la guía original en el enlace de cada dato.",
+      "automation": "unknown"
+    },
+    {
+      "id": "gamerant",
+      "name": "Game Rant",
+      "homepage": "https://gamerant.com/",
+      "attribution": "Datos resumidos de Game Rant (gamerant.com).",
+      "automation": "unknown"
+    },
+    {
+      "id": "hoyoverse-official",
+      "name": "HoYoverse (fuentes oficiales)",
+      "homepage": "https://zenless.hoyoverse.com/",
+      "attribution": "Información oficial de Zenless Zone Zero © HoYoverse.",
+      "automation": "unknown"
+    },
+    {
+      "id": "icy-veins",
+      "name": "Icy Veins",
+      "homepage": "https://www.icy-veins.com/zenless-zone-zero/",
+      "attribution": "Datos resumidos de Icy Veins (icy-veins.com). Consulta la guía original en el enlace de cada dato.",
+      "automation": "unknown"
+    },
+    {
+      "id": "maintainer",
+      "name": "Estimación del mantenedor",
+      "homepage": "https://github.com/fsanhuezanez/zzz-test",
+      "attribution": "Estimación propia de zzz-meta-knowledge; no procede de ninguna fuente externa.",
+      "automation": "disallowed"
+    },
+    {
+      "id": "mobalytics",
+      "name": "Mobalytics",
+      "homepage": "https://mobalytics.gg/",
+      "attribution": "Datos resumidos de Mobalytics (mobalytics.gg). Consulta la guía original en el enlace de cada dato.",
+      "automation": "disallowed"
+    },
+    {
+      "id": "prydwen",
+      "name": "Prydwen Institute",
+      "homepage": "https://www.prydwen.gg/zenless/",
+      "attribution": "Datos resumidos de Prydwen Institute (prydwen.gg). Consulta la guía original en el enlace de cada dato.",
+      "automation": "disallowed"
+    },
+    {
+      "id": "timesaver",
+      "name": "Timesaver.gg",
+      "homepage": "https://timesaver.gg/",
+      "attribution": "Datos resumidos de timesaver.gg.",
+      "automation": "unknown"
+    },
+    {
+      "id": "zzz-build",
+      "name": "ZZZ Build (zzz-build.com)",
+      "homepage": "https://www.zzz-build.com/",
+      "attribution": "Datos resumidos de zzz-build.com.",
+      "automation": "unknown"
+    }
+  ],
+  "agents": [
+    {
+      "id": "alice",
+      "name": "Alice",
+      "aliases": [
+        "Alice Thymefield"
+      ],
+      "review": "pending"
+    },
+    {
+      "id": "anby",
+      "name": "Anby Demara",
+      "aliases": [
+        "Anby"
+      ],
+      "review": "pending",
+      "rarity": "A",
+      "attribute": "electric",
+      "specialty": "stun",
+      "faction": "Cunning Hares"
+    },
+    {
+      "id": "anton",
+      "name": "Anton Ivanov",
+      "aliases": [
+        "Anton"
+      ],
+      "review": "pending",
+      "rarity": "A",
+      "attribute": "electric",
+      "specialty": "attack",
+      "faction": "Belobog Heavy Industries"
+    },
+    {
+      "id": "aria",
+      "name": "Aria",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "astra-yao",
+      "name": "Astra Yao",
+      "aliases": [
+        "Astra"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "ether",
+      "specialty": "support",
+      "faction": "Stars of Lyra"
+    },
+    {
+      "id": "banyue",
+      "name": "Banyue",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "ben",
+      "name": "Ben Bigger",
+      "aliases": [
+        "Ben"
+      ],
+      "review": "pending",
+      "rarity": "A",
+      "attribute": "fire",
+      "specialty": "defense",
+      "faction": "Belobog Heavy Industries"
+    },
+    {
+      "id": "billy",
+      "name": "Billy Kid",
+      "aliases": [
+        "Billy"
+      ],
+      "review": "pending",
+      "rarity": "A",
+      "attribute": "physical",
+      "specialty": "attack",
+      "faction": "Cunning Hares"
+    },
+    {
+      "id": "burnice",
+      "name": "Burnice White",
+      "aliases": [
+        "Burnice"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "fire",
+      "specialty": "anomaly",
+      "faction": "Sons of Calydon"
+    },
+    {
+      "id": "caesar",
+      "name": "Caesar King",
+      "aliases": [
+        "Caesar"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "physical",
+      "specialty": "defense",
+      "faction": "Sons of Calydon"
+    },
+    {
+      "id": "claret",
+      "name": "Claret",
+      "aliases": [
+        "Claret Flint"
+      ],
+      "review": "pending"
+    },
+    {
+      "id": "corin",
+      "name": "Corin Wickes",
+      "aliases": [
+        "Corin"
+      ],
+      "review": "pending",
+      "rarity": "A",
+      "attribute": "physical",
+      "specialty": "attack",
+      "faction": "Victoria Housekeeping"
+    },
+    {
+      "id": "dialyn",
+      "name": "Dialyn",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "ellen",
+      "name": "Ellen Joe",
+      "aliases": [
+        "Ellen"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "ice",
+      "specialty": "attack",
+      "faction": "Victoria Housekeeping"
+    },
+    {
+      "id": "evelyn",
+      "name": "Evelyn Chevalier",
+      "aliases": [
+        "Evelyn"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "fire",
+      "specialty": "attack",
+      "faction": "Stars of Lyra"
+    },
+    {
+      "id": "grace",
+      "name": "Grace Howard",
+      "aliases": [
+        "Grace"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "electric",
+      "specialty": "anomaly",
+      "faction": "Belobog Heavy Industries"
+    },
+    {
+      "id": "harumasa",
+      "name": "Asaba Harumasa",
+      "aliases": [
+        "Harumasa"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "electric",
+      "specialty": "attack",
+      "faction": "Section 6"
+    },
+    {
+      "id": "hugo",
+      "name": "Hugo Vlad",
+      "aliases": [
+        "Hugo"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "ice",
+      "specialty": "attack",
+      "faction": "Mockingbird"
+    },
+    {
+      "id": "jane-doe",
+      "name": "Jane Doe",
+      "aliases": [
+        "Jane"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "physical",
+      "specialty": "anomaly",
+      "faction": "Criminal Investigation Special Response Team"
+    },
+    {
+      "id": "ju-fufu",
+      "name": "Ju Fufu",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "koleda",
+      "name": "Koleda Belobog",
+      "aliases": [
+        "Koleda"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "fire",
+      "specialty": "stun",
+      "faction": "Belobog Heavy Industries"
+    },
+    {
+      "id": "lighter",
+      "name": "Lighter",
+      "aliases": [],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "fire",
+      "specialty": "stun",
+      "faction": "Sons of Calydon"
+    },
+    {
+      "id": "lucia",
+      "name": "Lucia",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "lucy",
+      "name": "Luciana de Montefio",
+      "aliases": [
+        "Lucy",
+        "Luciana"
+      ],
+      "review": "pending",
+      "rarity": "A",
+      "attribute": "fire",
+      "specialty": "support",
+      "faction": "Sons of Calydon"
+    },
+    {
+      "id": "lycaon",
+      "name": "Von Lycaon",
+      "aliases": [
+        "Lycaon"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "ice",
+      "specialty": "stun",
+      "faction": "Victoria Housekeeping"
+    },
+    {
+      "id": "manato",
+      "name": "Manato",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "miyabi",
+      "name": "Hoshimi Miyabi",
+      "aliases": [
+        "Miyabi"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "ice",
+      "specialty": "anomaly",
+      "faction": "Section 6"
+    },
+    {
+      "id": "nangong-yu",
+      "name": "Nangong Yu",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "nekomata",
+      "name": "Nekomiya Mana",
+      "aliases": [
+        "Nekomata",
+        "Neko"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "physical",
+      "specialty": "attack",
+      "faction": "Cunning Hares"
+    },
+    {
+      "id": "nicole",
+      "name": "Nicole Demara",
+      "aliases": [
+        "Nicole"
+      ],
+      "review": "pending",
+      "rarity": "A",
+      "attribute": "ether",
+      "specialty": "support",
+      "faction": "Cunning Hares"
+    },
+    {
+      "id": "norma",
+      "name": "Norma",
+      "aliases": [
+        "Norma Hollowell"
+      ],
+      "review": "pending"
+    },
+    {
+      "id": "pan-yinhu",
+      "name": "Pan Yinhu",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "phoenix",
+      "name": "Phoenix",
+      "aliases": [
+        "Phoenix Reffaella"
+      ],
+      "review": "pending"
+    },
+    {
+      "id": "piper",
+      "name": "Piper Wheel",
+      "aliases": [
+        "Piper"
+      ],
+      "review": "pending",
+      "rarity": "A",
+      "attribute": "physical",
+      "specialty": "anomaly",
+      "faction": "Sons of Calydon"
+    },
+    {
+      "id": "promeia",
+      "name": "Promeia",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "pulchra",
+      "name": "Pulchra Fellini",
+      "aliases": [
+        "Pulchra"
+      ],
+      "review": "pending",
+      "rarity": "A",
+      "attribute": "physical",
+      "specialty": "stun",
+      "faction": "Sons of Calydon"
+    },
+    {
+      "id": "qingyi",
+      "name": "Qingyi",
+      "aliases": [],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "electric",
+      "specialty": "stun",
+      "faction": "Criminal Investigation Special Response Team"
+    },
+    {
+      "id": "remielle",
+      "name": "Remielle",
+      "aliases": [
+        "Remielle Dan"
+      ],
+      "review": "pending"
+    },
+    {
+      "id": "rina",
+      "name": "Alexandrina Sebastiane",
+      "aliases": [
+        "Rina",
+        "Alexandrina"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "electric",
+      "specialty": "support",
+      "faction": "Victoria Housekeeping"
+    },
+    {
+      "id": "roxy",
+      "name": "Roxy",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "seth",
+      "name": "Seth Lowell",
+      "aliases": [
+        "Seth"
+      ],
+      "review": "pending",
+      "rarity": "A",
+      "attribute": "electric",
+      "specialty": "defense",
+      "faction": "Criminal Investigation Special Response Team"
+    },
+    {
+      "id": "severian",
+      "name": "Severian",
+      "aliases": [
+        "Severian Lowell"
+      ],
+      "review": "pending"
+    },
+    {
+      "id": "sigrid",
+      "name": "Sigrid",
+      "aliases": [
+        "Sigrid de L'Azur"
+      ],
+      "review": "pending"
+    },
+    {
+      "id": "soldier-0-anby",
+      "name": "Soldier 0 - Anby",
+      "aliases": [
+        "Soldier 0 Anby",
+        "S0 Anby",
+        "Soldier 0"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "electric",
+      "specialty": "attack",
+      "faction": "OBOLS Squad"
+    },
+    {
+      "id": "soldier-11",
+      "name": "Soldier 11",
+      "aliases": [
+        "S11"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "fire",
+      "specialty": "attack",
+      "faction": "OBOLS Squad"
+    },
+    {
+      "id": "soukaku",
+      "name": "Soukaku",
+      "aliases": [],
+      "review": "pending",
+      "rarity": "A",
+      "attribute": "ice",
+      "specialty": "support",
+      "faction": "Section 6"
+    },
+    {
+      "id": "starlight-billy",
+      "name": "Starlight Billy",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "sunna",
+      "name": "Sunna",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "trigger",
+      "name": "Trigger",
+      "aliases": [],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "electric",
+      "specialty": "stun",
+      "faction": "OBOLS Squad"
+    },
+    {
+      "id": "velina",
+      "name": "Velina",
+      "aliases": [
+        "Velina Airgid"
+      ],
+      "review": "pending"
+    },
+    {
+      "id": "vivian",
+      "name": "Vivian Banshee",
+      "aliases": [
+        "Vivian"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "ether",
+      "specialty": "anomaly",
+      "faction": "Mockingbird"
+    },
+    {
+      "id": "yanagi",
+      "name": "Tsukishiro Yanagi",
+      "aliases": [
+        "Yanagi"
+      ],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "electric",
+      "specialty": "anomaly",
+      "faction": "Section 6"
+    },
+    {
+      "id": "ye-shunguang",
+      "name": "Ye Shunguang",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "yidhari",
+      "name": "Yidhari",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "yixuan",
+      "name": "Yixuan",
+      "aliases": [
+        "Yi Xuan"
+      ],
+      "review": "pending"
+    },
+    {
+      "id": "yuzuha",
+      "name": "Yuzuha",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "zhao",
+      "name": "Zhao",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "zhu-yuan",
+      "name": "Zhu Yuan",
+      "aliases": [],
+      "review": "pending",
+      "rarity": "S",
+      "attribute": "ether",
+      "specialty": "attack",
+      "faction": "Criminal Investigation Special Response Team"
+    }
+  ],
+  "wEngines": [
+    {
+      "id": "angel-in-the-shell",
+      "name": "Angel in the Shell",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "bashful-demon",
+      "name": "Bashful Demon",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "blazing-laurel",
+      "name": "Blazing Laurel",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "cloudcleave-radiance",
+      "name": "Cloudcleave Radiance",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "deep-sea-visitor",
+      "name": "Deep Sea Visitor",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "demara-battery-mark-ii",
+      "name": "Demara Battery Mark II",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "electro-lip-gloss",
+      "name": "Electro-Lip Gloss",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "elegant-vanity",
+      "name": "Elegant Vanity",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "flamemaker-shaker",
+      "name": "Flamemaker Shaker",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "frostfall-sickle",
+      "name": "Frostfall Sickle",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "fusion-compiler",
+      "name": "Fusion Compiler",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "hailstorm-shrine",
+      "name": "Hailstorm Shrine",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "heartstring-nocturne",
+      "name": "Heartstring Nocturne",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "hellfire-gears",
+      "name": "Hellfire Gears",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "ice-jade-teapot",
+      "name": "Ice-Jade Teapot",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "kaboom-the-cannon",
+      "name": "Kaboom the Cannon",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "marcato-desire",
+      "name": "Marcato Desire",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "plume-of-rebirth",
+      "name": "Plume of Rebirth",
+      "aliases": [
+        "Nirvana's First Plume"
+      ],
+      "review": "pending"
+    },
+    {
+      "id": "precious-fossilized-core",
+      "name": "Precious Fossilized Core",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "riot-suppressor-mark-vi",
+      "name": "Riot Suppressor Mark VI",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "roaring-ride",
+      "name": "Roaring Ride",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "sharpened-stinger",
+      "name": "Sharpened Stinger",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "slice-of-time",
+      "name": "Slice of Time",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "spring-embrace",
+      "name": "Spring Embrace",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "starlight-engine",
+      "name": "Starlight Engine",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "steel-cushion",
+      "name": "Steel Cushion",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "the-brimstone",
+      "name": "The Brimstone",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "the-restrained",
+      "name": "The Restrained",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "timeweaver",
+      "name": "Timeweaver",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "tusks-of-fury",
+      "name": "Tusks of Fury",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "weeping-cradle",
+      "name": "Weeping Cradle",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "weeping-gemini",
+      "name": "Weeping Gemini",
+      "aliases": [],
+      "review": "pending"
+    }
+  ],
+  "driveDiscs": [
+    {
+      "id": "astral-voice",
+      "name": "Astral Voice",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "branch-blade-song",
+      "name": "Branch & Blade Song",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "chaos-jazz",
+      "name": "Chaos Jazz",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "chaotic-metal",
+      "name": "Chaotic Metal",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "fanged-metal",
+      "name": "Fanged Metal",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "freedom-blues",
+      "name": "Freedom Blues",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "hormone-punk",
+      "name": "Hormone Punk",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "inferno-metal",
+      "name": "Inferno Metal",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "phaethon-s-melody",
+      "name": "Phaethon's Melody",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "polar-metal",
+      "name": "Polar Metal",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "proto-punk",
+      "name": "Proto Punk",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "puffer-electro",
+      "name": "Puffer Electro",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "shadow-harmony",
+      "name": "Shadow Harmony",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "shockstar-disco",
+      "name": "Shockstar Disco",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "soul-rock",
+      "name": "Soul Rock",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "swing-jazz",
+      "name": "Swing Jazz",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "thunder-metal",
+      "name": "Thunder Metal",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "woodpecker-electro",
+      "name": "Woodpecker Electro",
+      "aliases": [],
+      "review": "pending"
+    }
+  ],
+  "bangboo": [
+    {
+      "id": "amillion",
+      "name": "Amillion",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "ariel",
+      "name": "Ariel",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "bagboo",
+      "name": "Bagboo",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "butler",
+      "name": "Butler",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "exploreboo",
+      "name": "Exploreboo",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "penguinboo",
+      "name": "Penguinboo",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "plugboo",
+      "name": "Plugboo",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "rocketboo",
+      "name": "Rocketboo",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "sharkboo",
+      "name": "Sharkboo",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "ultra-jake",
+      "name": "Ultra Jake",
+      "aliases": [],
+      "review": "pending"
+    }
+  ],
+  "teams": [
+    {
+      "id": "clm_team_0155e2c7bd6f",
+      "mode": "general",
+      "conditions": [],
+      "archetype": "Presupuesto (cuenta con Miyabi)",
+      "stance": "recommended",
+      "budget": true,
+      "members": [
+        {
+          "agent": "miyabi",
+          "role": "anomaly",
+          "substitutes": []
+        },
+        {
+          "agent": "lycaon",
+          "role": "stunner",
+          "substitutes": []
+        },
+        {
+          "agent": "soukaku",
+          "role": "support",
+          "substitutes": []
+        }
+      ],
+      "flex": [],
+      "alternates": [],
+      "requirements": [],
+      "limitations": [],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_0155e2c7bd6f",
+        "sourceId": "timesaver",
+        "sourceName": "Timesaver.gg",
+        "url": "https://timesaver.gg/blog/zzz-best-teams",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    },
+    {
+      "id": "clm_team_034ee13d7bae",
+      "mode": "general",
+      "conditions": [],
+      "archetype": "Disorder (Miyabi)",
+      "stance": "recommended",
+      "budget": false,
+      "members": [
+        {
+          "agent": "miyabi",
+          "role": "anomaly",
+          "substitutes": []
+        }
+      ],
+      "flex": [
+        {
+          "pick": 2,
+          "options": [
+            "yanagi",
+            "yuzuha",
+            "alice",
+            "vivian",
+            "astra-yao",
+            "burnice",
+            "nangong-yu"
+          ]
+        }
+      ],
+      "alternates": [],
+      "requirements": [],
+      "limitations": [],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_034ee13d7bae",
+        "sourceId": "game8",
+        "sourceName": "Game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/458656",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    },
+    {
+      "id": "clm_team_1661950cca77",
+      "mode": "general",
+      "conditions": [],
+      "archetype": "F2P",
+      "stance": "recommended",
+      "budget": true,
+      "members": [
+        {
+          "agent": "claret",
+          "role": "main_dps",
+          "substitutes": []
+        },
+        {
+          "agent": "anby",
+          "role": "stunner",
+          "substitutes": []
+        },
+        {
+          "agent": "nicole",
+          "role": "support",
+          "substitutes": []
+        }
+      ],
+      "flex": [],
+      "alternates": [],
+      "requirements": [],
+      "limitations": [],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_1661950cca77",
+        "sourceId": "game8",
+        "sourceName": "Game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/462110",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    },
+    {
+      "id": "clm_team_288ac86cbb0a",
+      "mode": "general",
+      "conditions": [],
+      "stance": "recommended",
+      "budget": false,
+      "members": [
+        {
+          "agent": "remielle",
+          "role": "anomaly",
+          "substitutes": []
+        },
+        {
+          "agent": "velina",
+          "role": "anomaly",
+          "substitutes": []
+        },
+        {
+          "agent": "aria",
+          "role": "anomaly",
+          "substitutes": []
+        }
+      ],
+      "flex": [],
+      "alternates": [],
+      "requirements": [],
+      "limitations": [],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_288ac86cbb0a",
+        "sourceId": "mobalytics",
+        "sourceName": "Mobalytics",
+        "url": "https://mobalytics.gg/zzz/builds/remielle-build-guide",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ],
+        "notes": "Según el resumen, la guía llama a Aria la mejor DPS principal junto a Velina."
+      }
+    },
+    {
+      "id": "clm_team_4221f20b96ba",
+      "mode": "general",
+      "conditions": [],
+      "archetype": "Attack (Ye Shunguang)",
+      "stance": "recommended",
+      "budget": false,
+      "members": [
+        {
+          "agent": "ye-shunguang",
+          "role": "main_dps",
+          "substitutes": []
+        }
+      ],
+      "flex": [
+        {
+          "pick": 2,
+          "options": [
+            "dialyn",
+            "sunna",
+            "ju-fufu",
+            "zhao",
+            "trigger",
+            "astra-yao"
+          ]
+        }
+      ],
+      "alternates": [],
+      "requirements": [],
+      "limitations": [],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_4221f20b96ba",
+        "sourceId": "game8",
+        "sourceName": "Game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/458656",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ],
+        "notes": "Según el resumen, la página lo describe como uno de los equipos más fuertes actualmente."
+      }
+    },
+    {
+      "id": "clm_team_53853138a459",
+      "mode": "general",
+      "conditions": [],
+      "stance": "showcase",
+      "budget": false,
+      "members": [
+        {
+          "agent": "phoenix",
+          "role": "anomaly",
+          "substitutes": []
+        },
+        {
+          "agent": "nangong-yu",
+          "role": "stunner",
+          "substitutes": []
+        },
+        {
+          "agent": "remielle",
+          "role": "anomaly",
+          "substitutes": []
+        }
+      ],
+      "flex": [],
+      "alternates": [],
+      "requirements": [],
+      "limitations": [
+        "Opción provisional según la propia página"
+      ],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_53853138a459",
+        "sourceId": "zzz-build",
+        "sourceName": "ZZZ Build (zzz-build.com)",
+        "url": "https://www.zzz-build.com/agents/phoenix/teams",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    },
+    {
+      "id": "clm_team_7439383e3870",
+      "mode": "general",
+      "conditions": [],
+      "archetype": "F2P",
+      "stance": "recommended",
+      "budget": true,
+      "members": [
+        {
+          "agent": "sigrid",
+          "role": "main_dps",
+          "substitutes": []
+        },
+        {
+          "agent": "lycaon",
+          "role": "stunner",
+          "substitutes": []
+        },
+        {
+          "agent": "rina",
+          "role": "support",
+          "substitutes": []
+        }
+      ],
+      "flex": [],
+      "alternates": [],
+      "requirements": [],
+      "limitations": [],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_7439383e3870",
+        "sourceId": "gamerant",
+        "sourceName": "Game Rant",
+        "url": "https://gamerant.com/zenless-zone-zero-zzz-sigrid-team-comp-composition-best-pair-teammates/",
+        "accessedAt": "2026-10-27",
+        "pageUpdatedAt": "2026-08-19",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "stale",
+        "flags": [
+          "older_patch",
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    },
+    {
+      "id": "clm_team_76d5a301a807",
+      "mode": "general",
+      "conditions": [],
+      "stance": "recommended",
+      "budget": false,
+      "members": [
+        {
+          "agent": "claret",
+          "role": "main_dps",
+          "substitutes": []
+        },
+        {
+          "agent": "norma",
+          "role": "support",
+          "substitutes": []
+        },
+        {
+          "agent": "rina",
+          "role": "support",
+          "substitutes": []
+        }
+      ],
+      "flex": [],
+      "alternates": [],
+      "requirements": [
+        {
+          "text": "Claret necesita un agente Stun o Armorer en el equipo para activar su habilidad adicional",
+          "level": "required",
+          "agent": "claret"
+        }
+      ],
+      "limitations": [],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_76d5a301a807",
+        "sourceId": "gamerant",
+        "sourceName": "Game Rant",
+        "url": "https://gamerant.com/zzz-claret-team-comp-composition-zenless-zone-zero-best-pair-teammates/",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    },
+    {
+      "id": "clm_team_809ffcb380e6",
+      "mode": "general",
+      "conditions": [],
+      "stance": "recommended",
+      "budget": false,
+      "members": [
+        {
+          "agent": "phoenix",
+          "role": "anomaly",
+          "substitutes": []
+        },
+        {
+          "agent": "velina",
+          "role": "anomaly",
+          "substitutes": []
+        },
+        {
+          "agent": "remielle",
+          "role": "anomaly",
+          "substitutes": []
+        }
+      ],
+      "flex": [],
+      "alternates": [],
+      "requirements": [],
+      "limitations": [],
+      "bangboo": [
+        {
+          "bangboo": "ariel",
+          "rank": 1
+        }
+      ],
+      "evidence": {
+        "claimId": "clm_team_809ffcb380e6",
+        "sourceId": "game8",
+        "sourceName": "Game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/597644",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    },
+    {
+      "id": "clm_team_99a5d4906553",
+      "mode": "general",
+      "conditions": [],
+      "stance": "recommended",
+      "budget": false,
+      "members": [
+        {
+          "agent": "phoenix",
+          "role": "anomaly",
+          "substitutes": []
+        },
+        {
+          "agent": "velina",
+          "role": "anomaly",
+          "substitutes": []
+        },
+        {
+          "agent": "remielle",
+          "role": "anomaly",
+          "substitutes": [
+            {
+              "agent": "yuzuha",
+              "quality": "unspecified"
+            }
+          ]
+        }
+      ],
+      "flex": [],
+      "alternates": [],
+      "requirements": [],
+      "limitations": [],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_99a5d4906553",
+        "sourceId": "timesaver",
+        "sourceName": "Timesaver.gg",
+        "url": "https://timesaver.gg/blog/zzz-best-teams",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "unverified_catalog_refs",
+          "via_search"
+        ],
+        "notes": "La página atribuye estas dos variantes a la recomendación oficial de HoYoverse; no comprobado."
+      }
+    },
+    {
+      "id": "clm_team_9c8c4ea82fe6",
+      "mode": "general",
+      "conditions": [],
+      "stance": "showcase",
+      "budget": false,
+      "members": [
+        {
+          "agent": "severian",
+          "role": "main_dps",
+          "substitutes": []
+        },
+        {
+          "agent": "norma",
+          "role": "support",
+          "substitutes": []
+        },
+        {
+          "agent": "nicole",
+          "role": "support",
+          "substitutes": []
+        }
+      ],
+      "flex": [],
+      "alternates": [],
+      "requirements": [],
+      "limitations": [],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_9c8c4ea82fe6",
+        "sourceId": "icy-veins",
+        "sourceName": "Icy Veins",
+        "url": "https://www.icy-veins.com/zenless-zone-zero/severian-teams",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    },
+    {
+      "id": "clm_team_a46cf5f74284",
+      "mode": "general",
+      "conditions": [],
+      "archetype": "F2P",
+      "stance": "recommended",
+      "budget": true,
+      "members": [
+        {
+          "agent": "yixuan",
+          "role": "main_dps",
+          "substitutes": []
+        },
+        {
+          "agent": "anby",
+          "role": "stunner",
+          "substitutes": []
+        },
+        {
+          "agent": "soukaku",
+          "role": "support",
+          "substitutes": []
+        }
+      ],
+      "flex": [],
+      "alternates": [],
+      "requirements": [],
+      "limitations": [],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_a46cf5f74284",
+        "sourceId": "game8",
+        "sourceName": "Game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/516115",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    },
+    {
+      "id": "clm_team_a7181052dda3",
+      "mode": "general",
+      "conditions": [],
+      "archetype": "Rupture (Yixuan)",
+      "stance": "recommended",
+      "budget": false,
+      "members": [
+        {
+          "agent": "yixuan",
+          "role": "main_dps",
+          "substitutes": []
+        },
+        {
+          "agent": "dialyn",
+          "role": "stunner",
+          "substitutes": []
+        },
+        {
+          "agent": "lucia",
+          "role": "support",
+          "substitutes": []
+        }
+      ],
+      "flex": [],
+      "alternates": [
+        {
+          "agent": "ju-fufu",
+          "quality": "unspecified"
+        },
+        {
+          "agent": "astra-yao",
+          "quality": "unspecified"
+        }
+      ],
+      "requirements": [],
+      "limitations": [],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_a7181052dda3",
+        "sourceId": "game8",
+        "sourceName": "Game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/458656",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    },
+    {
+      "id": "clm_team_c2adba9232bf",
+      "mode": "general",
+      "conditions": [],
+      "stance": "recommended",
+      "budget": false,
+      "members": [
+        {
+          "agent": "phoenix",
+          "role": "anomaly",
+          "substitutes": []
+        },
+        {
+          "agent": "velina",
+          "role": "anomaly",
+          "substitutes": []
+        },
+        {
+          "agent": "remielle",
+          "role": "anomaly",
+          "substitutes": []
+        }
+      ],
+      "flex": [],
+      "alternates": [],
+      "requirements": [],
+      "limitations": [
+        "Composición provisional según la propia página (calculada antes o en el lanzamiento de Phoenix)"
+      ],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_c2adba9232bf",
+        "sourceId": "zzz-build",
+        "sourceName": "ZZZ Build (zzz-build.com)",
+        "url": "https://www.zzz-build.com/agents/phoenix/teams",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    },
+    {
+      "id": "clm_team_d228437f4aa2",
+      "mode": "general",
+      "conditions": [],
+      "stance": "showcase",
+      "budget": false,
+      "members": [
+        {
+          "agent": "yixuan",
+          "role": "main_dps",
+          "substitutes": []
+        },
+        {
+          "agent": "pan-yinhu",
+          "role": "defense",
+          "substitutes": []
+        }
+      ],
+      "flex": [
+        {
+          "pick": 1,
+          "options": [
+            "astra-yao",
+            "yuzuha"
+          ]
+        }
+      ],
+      "alternates": [],
+      "requirements": [],
+      "limitations": [],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_d228437f4aa2",
+        "sourceId": "prydwen",
+        "sourceName": "Prydwen Institute",
+        "url": "https://www.prydwen.gg/zenless/characters/yixuan",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ],
+        "notes": "Según el resumen, la guía describe Pan Yinhu con Astra Yao o Yuzuha como otros equipos fuertes; sus cálculos usan Ju Fufu."
+      }
+    },
+    {
+      "id": "clm_team_d4ce32d167ce",
+      "mode": "general",
+      "conditions": [],
+      "stance": "recommended",
+      "budget": false,
+      "members": [
+        {
+          "agent": "sigrid",
+          "role": "main_dps",
+          "substitutes": []
+        },
+        {
+          "agent": "norma",
+          "role": "support",
+          "substitutes": [
+            {
+              "agent": "dialyn",
+              "quality": "unspecified"
+            }
+          ]
+        },
+        {
+          "agent": "sunna",
+          "role": "support",
+          "substitutes": []
+        }
+      ],
+      "flex": [],
+      "alternates": [],
+      "requirements": [],
+      "limitations": [],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_d4ce32d167ce",
+        "sourceId": "gamerant",
+        "sourceName": "Game Rant",
+        "url": "https://gamerant.com/zenless-zone-zero-zzz-sigrid-team-comp-composition-best-pair-teammates/",
+        "accessedAt": "2026-10-27",
+        "pageUpdatedAt": "2026-08-19",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "stale",
+        "flags": [
+          "older_patch",
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    },
+    {
+      "id": "clm_team_e5152f9de4cf",
+      "mode": "general",
+      "conditions": [],
+      "stance": "recommended",
+      "budget": false,
+      "members": [
+        {
+          "agent": "yixuan",
+          "role": "main_dps",
+          "substitutes": []
+        },
+        {
+          "agent": "dialyn",
+          "role": "stunner",
+          "substitutes": []
+        },
+        {
+          "agent": "lucia",
+          "role": "support",
+          "substitutes": []
+        }
+      ],
+      "flex": [],
+      "alternates": [],
+      "requirements": [],
+      "limitations": [],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_e5152f9de4cf",
+        "sourceId": "game8",
+        "sourceName": "Game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/516115",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    },
+    {
+      "id": "clm_team_e9df7637958d",
+      "mode": "general",
+      "conditions": [],
+      "name": "Premium",
+      "stance": "recommended",
+      "budget": false,
+      "members": [
+        {
+          "agent": "severian",
+          "role": "main_dps",
+          "substitutes": []
+        },
+        {
+          "agent": "norma",
+          "role": "support",
+          "substitutes": []
+        },
+        {
+          "agent": "astra-yao",
+          "role": "support",
+          "substitutes": []
+        }
+      ],
+      "flex": [],
+      "alternates": [],
+      "requirements": [],
+      "limitations": [],
+      "bangboo": [
+        {
+          "bangboo": "ultra-jake",
+          "rank": 1
+        }
+      ],
+      "evidence": {
+        "claimId": "clm_team_e9df7637958d",
+        "sourceId": "game8",
+        "sourceName": "Game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/597407",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    },
+    {
+      "id": "clm_team_eada3c03d6dc",
+      "mode": "general",
+      "conditions": [],
+      "archetype": "Anomaly (Remielle)",
+      "stance": "recommended",
+      "budget": false,
+      "members": [
+        {
+          "agent": "remielle",
+          "role": "anomaly",
+          "substitutes": []
+        },
+        {
+          "agent": "phoenix",
+          "role": "anomaly",
+          "substitutes": []
+        },
+        {
+          "agent": "velina",
+          "role": "anomaly",
+          "substitutes": []
+        }
+      ],
+      "flex": [],
+      "alternates": [
+        {
+          "agent": "promeia",
+          "quality": "unspecified"
+        },
+        {
+          "agent": "vivian",
+          "quality": "unspecified"
+        },
+        {
+          "agent": "aria",
+          "quality": "unspecified"
+        },
+        {
+          "agent": "alice",
+          "quality": "unspecified"
+        }
+      ],
+      "requirements": [
+        {
+          "text": "Remielle obtiene sus mayores bonificaciones con otros dos agentes Anomaly en el equipo",
+          "level": "recommended",
+          "agent": "remielle"
+        }
+      ],
+      "limitations": [],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_eada3c03d6dc",
+        "sourceId": "game8",
+        "sourceName": "Game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/458656",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    },
+    {
+      "id": "clm_team_ef66b2cacde3",
+      "mode": "general",
+      "conditions": [],
+      "archetype": "F2P",
+      "stance": "recommended",
+      "budget": true,
+      "members": [
+        {
+          "agent": "claret",
+          "role": "main_dps",
+          "substitutes": []
+        },
+        {
+          "agent": "koleda",
+          "role": "stunner",
+          "substitutes": []
+        },
+        {
+          "agent": "rina",
+          "role": "support",
+          "substitutes": []
+        }
+      ],
+      "flex": [],
+      "alternates": [],
+      "requirements": [],
+      "limitations": [],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_ef66b2cacde3",
+        "sourceId": "gamerant",
+        "sourceName": "Game Rant",
+        "url": "https://gamerant.com/zzz-claret-team-comp-composition-zenless-zone-zero-best-pair-teammates/",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    },
+    {
+      "id": "clm_team_f867857919fc",
+      "mode": "general",
+      "conditions": [],
+      "archetype": "Presupuesto (cuenta nueva)",
+      "stance": "recommended",
+      "budget": true,
+      "members": [
+        {
+          "agent": "billy",
+          "role": "main_dps",
+          "substitutes": []
+        },
+        {
+          "agent": "anby",
+          "role": "stunner",
+          "substitutes": []
+        },
+        {
+          "agent": "nicole",
+          "role": "support",
+          "substitutes": []
+        }
+      ],
+      "flex": [],
+      "alternates": [],
+      "requirements": [],
+      "limitations": [],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_f867857919fc",
+        "sourceId": "timesaver",
+        "sourceName": "Timesaver.gg",
+        "url": "https://timesaver.gg/blog/zzz-best-teams",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    },
+    {
+      "id": "clm_team_fb13aa256273",
+      "mode": "general",
+      "conditions": [],
+      "archetype": "F2P",
+      "stance": "recommended",
+      "budget": true,
+      "members": [
+        {
+          "agent": "sigrid",
+          "role": "main_dps",
+          "substitutes": []
+        },
+        {
+          "agent": "anby",
+          "role": "stunner",
+          "substitutes": []
+        },
+        {
+          "agent": "soukaku",
+          "role": "support",
+          "substitutes": []
+        }
+      ],
+      "flex": [],
+      "alternates": [],
+      "requirements": [],
+      "limitations": [],
+      "bangboo": [],
+      "evidence": {
+        "claimId": "clm_team_fb13aa256273",
+        "sourceId": "game8",
+        "sourceName": "Game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/462110",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    }
+  ],
+  "compositions": [
+    {
+      "key": "anby+billy+nicole@general",
+      "mode": "general",
+      "core": [
+        "anby",
+        "billy",
+        "nicole"
+      ],
+      "flex": [],
+      "teamIds": [
+        "clm_team_f867857919fc"
+      ],
+      "support": {
+        "sources": [
+          "timesaver"
+        ],
+        "verifiedSources": [],
+        "stances": [
+          "recommended"
+        ],
+        "hasCurrentEvidence": true
+      }
+    },
+    {
+      "key": "anby+claret+nicole@general",
+      "mode": "general",
+      "core": [
+        "anby",
+        "claret",
+        "nicole"
+      ],
+      "flex": [],
+      "teamIds": [
+        "clm_team_1661950cca77"
+      ],
+      "support": {
+        "sources": [
+          "game8"
+        ],
+        "verifiedSources": [],
+        "stances": [
+          "recommended"
+        ],
+        "hasCurrentEvidence": true
+      }
+    },
+    {
+      "key": "anby+sigrid+soukaku@general",
+      "mode": "general",
+      "core": [
+        "anby",
+        "sigrid",
+        "soukaku"
+      ],
+      "flex": [],
+      "teamIds": [
+        "clm_team_fb13aa256273"
+      ],
+      "support": {
+        "sources": [
+          "game8"
+        ],
+        "verifiedSources": [],
+        "stances": [
+          "recommended"
+        ],
+        "hasCurrentEvidence": true
+      }
+    },
+    {
+      "key": "anby+soukaku+yixuan@general",
+      "mode": "general",
+      "core": [
+        "anby",
+        "soukaku",
+        "yixuan"
+      ],
+      "flex": [],
+      "teamIds": [
+        "clm_team_a46cf5f74284"
+      ],
+      "support": {
+        "sources": [
+          "game8"
+        ],
+        "verifiedSources": [],
+        "stances": [
+          "recommended"
+        ],
+        "hasCurrentEvidence": true
+      }
+    },
+    {
+      "key": "aria+remielle+velina@general",
+      "mode": "general",
+      "core": [
+        "aria",
+        "remielle",
+        "velina"
+      ],
+      "flex": [],
+      "teamIds": [
+        "clm_team_288ac86cbb0a"
+      ],
+      "support": {
+        "sources": [
+          "mobalytics"
+        ],
+        "verifiedSources": [],
+        "stances": [
+          "recommended"
+        ],
+        "hasCurrentEvidence": true
+      }
+    },
+    {
+      "key": "astra-yao+norma+severian@general",
+      "mode": "general",
+      "core": [
+        "astra-yao",
+        "norma",
+        "severian"
+      ],
+      "flex": [],
+      "teamIds": [
+        "clm_team_e9df7637958d"
+      ],
+      "support": {
+        "sources": [
+          "game8"
+        ],
+        "verifiedSources": [],
+        "stances": [
+          "recommended"
+        ],
+        "hasCurrentEvidence": true
+      }
+    },
+    {
+      "key": "claret+koleda+rina@general",
+      "mode": "general",
+      "core": [
+        "claret",
+        "koleda",
+        "rina"
+      ],
+      "flex": [],
+      "teamIds": [
+        "clm_team_ef66b2cacde3"
+      ],
+      "support": {
+        "sources": [
+          "gamerant"
+        ],
+        "verifiedSources": [],
+        "stances": [
+          "recommended"
+        ],
+        "hasCurrentEvidence": true
+      }
+    },
+    {
+      "key": "claret+norma+rina@general",
+      "mode": "general",
+      "core": [
+        "claret",
+        "norma",
+        "rina"
+      ],
+      "flex": [],
+      "teamIds": [
+        "clm_team_76d5a301a807"
+      ],
+      "support": {
+        "sources": [
+          "gamerant"
+        ],
+        "verifiedSources": [],
+        "stances": [
+          "recommended"
+        ],
+        "hasCurrentEvidence": true
+      }
+    },
+    {
+      "key": "dialyn+lucia+yixuan@general",
+      "mode": "general",
+      "core": [
+        "dialyn",
+        "lucia",
+        "yixuan"
+      ],
+      "flex": [],
+      "teamIds": [
+        "clm_team_a7181052dda3",
+        "clm_team_e5152f9de4cf"
+      ],
+      "support": {
+        "sources": [
+          "game8"
+        ],
+        "verifiedSources": [],
+        "stances": [
+          "recommended"
+        ],
+        "hasCurrentEvidence": true
+      }
+    },
+    {
+      "key": "lycaon+miyabi+soukaku@general",
+      "mode": "general",
+      "core": [
+        "lycaon",
+        "miyabi",
+        "soukaku"
+      ],
+      "flex": [],
+      "teamIds": [
+        "clm_team_0155e2c7bd6f"
+      ],
+      "support": {
+        "sources": [
+          "timesaver"
+        ],
+        "verifiedSources": [],
+        "stances": [
+          "recommended"
+        ],
+        "hasCurrentEvidence": true
+      }
+    },
+    {
+      "key": "lycaon+rina+sigrid@general",
+      "mode": "general",
+      "core": [
+        "lycaon",
+        "rina",
+        "sigrid"
+      ],
+      "flex": [],
+      "teamIds": [
+        "clm_team_7439383e3870"
+      ],
+      "support": {
+        "sources": [
+          "gamerant"
+        ],
+        "verifiedSources": [],
+        "stances": [
+          "recommended"
+        ],
+        "hasCurrentEvidence": false
+      }
+    },
+    {
+      "key": "miyabi[2:alice|astra-yao|burnice|nangong-yu|vivian|yanagi|yuzuha]@general",
+      "mode": "general",
+      "core": [
+        "miyabi"
+      ],
+      "flex": [
+        {
+          "pick": 2,
+          "options": [
+            "alice",
+            "astra-yao",
+            "burnice",
+            "nangong-yu",
+            "vivian",
+            "yanagi",
+            "yuzuha"
+          ]
+        }
+      ],
+      "teamIds": [
+        "clm_team_034ee13d7bae"
+      ],
+      "support": {
+        "sources": [
+          "game8"
+        ],
+        "verifiedSources": [],
+        "stances": [
+          "recommended"
+        ],
+        "hasCurrentEvidence": true
+      }
+    },
+    {
+      "key": "nangong-yu+phoenix+remielle@general",
+      "mode": "general",
+      "core": [
+        "nangong-yu",
+        "phoenix",
+        "remielle"
+      ],
+      "flex": [],
+      "teamIds": [
+        "clm_team_53853138a459"
+      ],
+      "support": {
+        "sources": [
+          "zzz-build"
+        ],
+        "verifiedSources": [],
+        "stances": [
+          "showcase"
+        ],
+        "hasCurrentEvidence": true
+      }
+    },
+    {
+      "key": "nicole+norma+severian@general",
+      "mode": "general",
+      "core": [
+        "nicole",
+        "norma",
+        "severian"
+      ],
+      "flex": [],
+      "teamIds": [
+        "clm_team_9c8c4ea82fe6"
+      ],
+      "support": {
+        "sources": [
+          "icy-veins"
+        ],
+        "verifiedSources": [],
+        "stances": [
+          "showcase"
+        ],
+        "hasCurrentEvidence": true
+      }
+    },
+    {
+      "key": "norma+sigrid+sunna@general",
+      "mode": "general",
+      "core": [
+        "norma",
+        "sigrid",
+        "sunna"
+      ],
+      "flex": [],
+      "teamIds": [
+        "clm_team_d4ce32d167ce"
+      ],
+      "support": {
+        "sources": [
+          "gamerant"
+        ],
+        "verifiedSources": [],
+        "stances": [
+          "recommended"
+        ],
+        "hasCurrentEvidence": false
+      }
+    },
+    {
+      "key": "pan-yinhu+yixuan[1:astra-yao|yuzuha]@general",
+      "mode": "general",
+      "core": [
+        "pan-yinhu",
+        "yixuan"
+      ],
+      "flex": [
+        {
+          "pick": 1,
+          "options": [
+            "astra-yao",
+            "yuzuha"
+          ]
+        }
+      ],
+      "teamIds": [
+        "clm_team_d228437f4aa2"
+      ],
+      "support": {
+        "sources": [
+          "prydwen"
+        ],
+        "verifiedSources": [],
+        "stances": [
+          "showcase"
+        ],
+        "hasCurrentEvidence": true
+      }
+    },
+    {
+      "key": "phoenix+remielle+velina@general",
+      "mode": "general",
+      "core": [
+        "phoenix",
+        "remielle",
+        "velina"
+      ],
+      "flex": [],
+      "teamIds": [
+        "clm_team_809ffcb380e6",
+        "clm_team_99a5d4906553",
+        "clm_team_c2adba9232bf",
+        "clm_team_eada3c03d6dc"
+      ],
+      "support": {
+        "sources": [
+          "game8",
+          "timesaver",
+          "zzz-build"
+        ],
+        "verifiedSources": [],
+        "stances": [
+          "recommended"
+        ],
+        "hasCurrentEvidence": true
+      }
+    },
+    {
+      "key": "ye-shunguang[2:astra-yao|dialyn|ju-fufu|sunna|trigger|zhao]@general",
+      "mode": "general",
+      "core": [
+        "ye-shunguang"
+      ],
+      "flex": [
+        {
+          "pick": 2,
+          "options": [
+            "astra-yao",
+            "dialyn",
+            "ju-fufu",
+            "sunna",
+            "trigger",
+            "zhao"
+          ]
+        }
+      ],
+      "teamIds": [
+        "clm_team_4221f20b96ba"
+      ],
+      "support": {
+        "sources": [
+          "game8"
+        ],
+        "verifiedSources": [],
+        "stances": [
+          "recommended"
+        ],
+        "hasCurrentEvidence": true
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "agent": "yixuan",
+      "substitute": "banyue",
+      "quality": "unspecified",
+      "withAgents": [
+        "lucia"
+      ],
+      "archetype": "Rupture",
+      "mode": "general",
+      "evidence": {
+        "claimId": "clm_substitute_054fd6bdaa50",
+        "sourceId": "game8",
+        "sourceName": "Game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/545821",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    },
+    {
+      "agent": "yixuan",
+      "substitute": "yidhari",
+      "quality": "unspecified",
+      "withAgents": [
+        "lucia"
+      ],
+      "archetype": "Rupture",
+      "mode": "general",
+      "evidence": {
+        "claimId": "clm_substitute_0bdf86b91944",
+        "sourceId": "game8",
+        "sourceName": "Game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/545821",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    },
+    {
+      "agent": "yixuan",
+      "substitute": "manato",
+      "quality": "unspecified",
+      "withAgents": [
+        "lucia"
+      ],
+      "archetype": "Rupture",
+      "mode": "general",
+      "evidence": {
+        "claimId": "clm_substitute_61ffb08a104a",
+        "sourceId": "game8",
+        "sourceName": "Game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/545821",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    },
+    {
+      "agent": "yixuan",
+      "substitute": "starlight-billy",
+      "quality": "unspecified",
+      "withAgents": [
+        "lucia"
+      ],
+      "archetype": "Rupture",
+      "mode": "general",
+      "evidence": {
+        "claimId": "clm_substitute_bc88dddb3767",
+        "sourceId": "game8",
+        "sourceName": "Game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/545821",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    }
+  ],
+  "builds": {
+    "ye-shunguang": {
+      "wEngines": [
+        {
+          "options": [
+            {
+              "wEngine": "cloudcleave-radiance",
+              "rank": 1,
+              "note": "W-Engine exclusivo"
+            }
+          ],
+          "mode": "general",
+          "evidence": {
+            "claimId": "clm_w_engine_5d40d830424b",
+            "sourceId": "gamerant",
+            "sourceName": "Game Rant",
+            "url": "https://gamerant.com/zenless-zone-zero-zzz-ye-shunguang-build-best-weapon-w-engine-drive-disc-materials-mindscape-cinema/",
+            "accessedAt": "2026-10-27",
+            "declaredPatch": null,
+            "evidenceType": "explicit_recommendation",
+            "confidence": "low",
+            "collectionMethod": "web_search",
+            "review": "pending",
+            "status": "current",
+            "flags": [
+              "patch_undeclared",
+              "unverified_catalog_refs",
+              "via_search"
+            ]
+          }
+        }
+      ],
+      "driveDiscs": [],
+      "bangboo": [],
+      "investment": [],
+      "f2p": []
+    },
+    "phoenix": {
+      "wEngines": [
+        {
+          "options": [
+            {
+              "wEngine": "plume-of-rebirth",
+              "rank": 1
+            },
+            {
+              "wEngine": "angel-in-the-shell",
+              "rank": 2,
+              "note": "Alternativas sin orden claro en el resumen"
+            },
+            {
+              "wEngine": "frostfall-sickle",
+              "rank": 2
+            },
+            {
+              "wEngine": "fusion-compiler",
+              "rank": 2
+            },
+            {
+              "wEngine": "roaring-ride",
+              "rank": 2
+            },
+            {
+              "wEngine": "weeping-gemini",
+              "rank": 2
+            }
+          ],
+          "mode": "general",
+          "evidence": {
+            "claimId": "clm_w_engine_bccf39a14bbd",
+            "sourceId": "game8",
+            "sourceName": "Game8",
+            "url": "https://game8.co/games/Zenless-Zone-Zero/archives/597644",
+            "accessedAt": "2026-10-27",
+            "declaredPatch": null,
+            "evidenceType": "explicit_recommendation",
+            "confidence": "low",
+            "collectionMethod": "web_search",
+            "review": "pending",
+            "status": "current",
+            "flags": [
+              "patch_undeclared",
+              "unverified_catalog_refs",
+              "via_search"
+            ]
+          }
+        }
+      ],
+      "driveDiscs": [
+        {
+          "fourPiece": [
+            "freedom-blues"
+          ],
+          "twoPiece": [
+            "phaethon-s-melody"
+          ],
+          "mainStats": {
+            "slot4": [
+              "anomaly_proficiency"
+            ],
+            "slot5": [
+              "fire_dmg",
+              "pen_ratio",
+              "atk_pct"
+            ],
+            "slot6": [
+              "anomaly_mastery"
+            ]
+          },
+          "substats": [
+            "anomaly_proficiency",
+            "atk_pct",
+            "pen"
+          ],
+          "statTargets": [],
+          "mode": "general",
+          "evidence": {
+            "claimId": "clm_drive_disc_49cf93a1466f",
+            "sourceId": "game8",
+            "sourceName": "Game8",
+            "url": "https://game8.co/games/Zenless-Zone-Zero/archives/597644",
+            "accessedAt": "2026-10-27",
+            "declaredPatch": null,
+            "evidenceType": "explicit_recommendation",
+            "confidence": "low",
+            "collectionMethod": "web_search",
+            "review": "pending",
+            "status": "current",
+            "flags": [
+              "patch_undeclared",
+              "unverified_catalog_refs",
+              "via_search"
+            ]
+          }
+        }
+      ],
+      "bangboo": [],
+      "investment": [],
+      "f2p": []
+    },
+    "yixuan": {
+      "wEngines": [],
+      "driveDiscs": [],
+      "bangboo": [],
+      "investment": [],
+      "f2p": [
+        {
+          "category": "team",
+          "entities": [
+            "yixuan",
+            "anby",
+            "soukaku"
+          ],
+          "evidence": {
+            "claimId": "clm_f2p_option_943c0751683b",
+            "sourceId": "game8",
+            "sourceName": "Game8",
+            "url": "https://game8.co/games/Zenless-Zone-Zero/archives/516115",
+            "accessedAt": "2026-10-27",
+            "declaredPatch": null,
+            "evidenceType": "explicit_recommendation",
+            "confidence": "low",
+            "collectionMethod": "web_search",
+            "review": "pending",
+            "status": "current",
+            "flags": [
+              "patch_undeclared",
+              "unverified_catalog_refs",
+              "via_search"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "tiers": [],
+  "synergies": [
+    {
+      "agents": [
+        "phoenix",
+        "remielle"
+      ],
+      "polarity": "conditional",
+      "mechanism": "Remielle no aprovecha del todo sus bonificaciones sin un tercer agente Anomaly; contradice a otras fuentes que recomiendan el trío",
+      "mode": "general",
+      "evidence": {
+        "claimId": "clm_synergy_9f6bf24b8ba2",
+        "sourceId": "icy-veins",
+        "sourceName": "Icy Veins",
+        "url": "https://www.icy-veins.com/zenless-zone-zero/remielle-dan-teams",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    },
+    {
+      "agents": [
+        "remielle",
+        "vivian"
+      ],
+      "polarity": "negative",
+      "mechanism": "La baja acumulación de Anomalía de Vivian encaja mal con Remielle",
+      "mode": "general",
+      "evidence": {
+        "claimId": "clm_synergy_e0e8388c2c8d",
+        "sourceId": "icy-veins",
+        "sourceName": "Icy Veins",
+        "url": "https://www.icy-veins.com/zenless-zone-zero/remielle-dan-teams",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    }
+  ],
+  "rotations": [
+    {
+      "agents": [
+        "phoenix",
+        "velina",
+        "remielle"
+      ],
+      "steps": [
+        "Durante la animación larga del EX2 de Phoenix, cambiar a Velina o Remielle"
+      ],
+      "mode": "general",
+      "evidence": {
+        "claimId": "clm_rotation_c04fca9852de",
+        "sourceId": "mobalytics",
+        "sourceName": "Mobalytics",
+        "url": "https://mobalytics.gg/zzz/builds/phoenix-build",
+        "accessedAt": "2026-10-27",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "confidence": "low",
+        "collectionMethod": "web_search",
+        "review": "pending",
+        "status": "current",
+        "flags": [
+          "patch_undeclared",
+          "unverified_catalog_refs",
+          "via_search"
+        ]
+      }
+    }
+  ]
+}

@@ -1,56 +1,54 @@
-# Ejemplo: consumo desde Hoyo Builds
+# Ejemplo: cómo consume Hoyo Builds el paquete
 
-Un recomendador mínimo que toma un roster real y propone equipos **avalados por evidencia**.
+`recommender.ts` usa solo `export/zzz-meta.json` y `export/zzz-meta.types.ts`, igual que la app real.
 
 ```bash
-npm run example:build      # genera examples/fixture-db (fuentes FICTICIAS)
-npm run example:recommend  # usa roster.example.json en modo shiyu_defense
-node examples/hoyo-builds-consumer/recommend.ts db mi-roster.json deadly_assault   # con la base real
+npm run example:build      # paquete de PRUEBA en examples/fixture-export
+npm run example:recommend  # roster.example.json con datos ficticios
+node examples/hoyo-builds-consumer/recommend.ts export/zzz-meta.json mi-roster.json shiyu_defense   # datos reales
 ```
 
-## Lógica (`recommender.ts`)
+Formato del roster (ids del catálogo; ver `agents` en el paquete):
 
-1. Parte de los claims `team` vigentes del modo pedido (y de `general`).
-2. Por cada miembro que falta en el roster busca un sustituto, primero en los `substitutes` del propio claim de equipo y luego en claims `substitute` cuyo contexto (`withAgents`) encaje. Si no hay ninguno, el equipo pasa a *near misses* con lo que falta. **No rellena huecos con el agente de mejor tier.**
-3. Puntúa cada equipo con el tipo de evidencia, la confianza, el estado, la verificación y la penalización de los sustitutos. Las estimaciones internas pesan 0,4.
-4. Agrega las alineaciones iguales con rendimientos decrecientes por fuente independiente.
-5. Penaliza las sinergias negativas declaradas.
-6. Usa los tiers individuales solo como desempate (+0,02 como máximo) y los muestra como contexto.
-7. `bestDisjointPair` elige dos equipos sin agentes repetidos (Shiyu Defense) y `gearFor` lista W-Engines, Drive Discs y opciones F2P con atribución, marcando lo que la cuenta posee.
-
-Los pesos son heurísticas del ejemplo, no datos de la base. En Hoyo Builds conviene exponerlos como configuración.
-
-## Salida con la base de prueba
-
-El roster tiene a Miyabi (T0 en la fuente ficticia A), pero no a Yanagi, y ninguna fuente documenta un sustituto para Yanagi en ese equipo. Por eso Miyabi no aparece en ninguna sugerencia y su equipo sale como *near miss*:
-
-```
-▶ Nicole Demara / Qingyi / Zhu Yuan  score=1.017  fuentes=1
-▶ Ellen Joe / Qingyi / Soukaku  score=0.768  fuentes=1
-    · Qingyi sustituye a Von Lycaon (workable, team_claim, explicit_recommendation)
-▶ Anby Demara / Ellen Joe / Soukaku  score=0.071  fuentes=1
-    · Anby Demara sustituye a Von Lycaon (significant_downgrade, substitute_claim, internal_estimate)
-    ! Incluye una sustitución basada en una estimación interna, no en una fuente externa.
-
-Equipos avalados pero no formables (faltan agentes sin sustituto documentado):
-  ✗ Hoshimi Miyabi / Tsukishiro Yanagi / Astra Yao — falta: Tsukishiro Yanagi
-
-Mejor pareja sin solapamiento: [Nicole Demara, Qingyi, Zhu Yuan] + [Anby Demara, Ellen Joe, Soukaku]
+```json
+{ "name": "felipe", "agents": ["phoenix", "velina", "miyabi", "yanagi"], "wEngines": ["weeping-gemini"] }
 ```
 
-## Integración en una app TypeScript
+## Qué hace
 
-```ts
-import { loadDatabase, MetaDatabase } from 'zzz-meta-knowledge';
-import type { ClaimOf } from 'zzz-meta-knowledge/types';
+1. Parte de los **equipos publicados** del modo pedido y de los marcados `general`.
+2. Para cada miembro que falta busca, en este orden:
+   1. un sustituto de la misma fuente;
+   2. una alternativa citada por la misma fuente;
+   3. una afirmación de sustitución externa compatible;
+   4. una estimación propia.
 
-// Node / servidor
-const db = await loadDatabase('node_modules/zzz-meta-knowledge/db');
+   Si no hay ninguno, el equipo queda **bloqueado** y se dice qué falta. Nunca rellena con «el de mejor tier».
+3. Los huecos `flex` se cubren con las opciones que la cuenta tiene, en el orden de la fuente.
+4. Ordena de forma **transparente**, sin puntuación numérica:
+   1. respaldo verificado;
+   2. vigente;
+   3. clasificado o recomendado antes que solo mostrado;
+   4. confianza;
+   5. no económico antes que económico;
+   6. número de fuentes que documentan el núcleo original;
+   7. menos sustituciones.
+5. Muestra siempre requisitos, limitaciones, la fuente y su enlace. Además avisa cuando nada está verificado o cuando una sustitución es una estimación propia.
+6. `bestDisjointPair` elige dos equipos sin repetir agentes (Shiyu). `buildsFor` lista W-Engines y Drive Discs marcando lo que se posee.
 
-// Navegador: descarga los JSON listados en manifest.files y construye la base
-const files = { manifest, agents, wEngines, driveDiscs, bangboo, sources, claims, consensus, index };
-const db2 = MetaDatabase.fromFiles(files, { validate: true });
+`includePending: false` deja solo lo verificado. Hoy eso es nada: la base real aún no tiene datos verificados.
 
-if (db.isFixture) throw new Error('no usar datos de prueba en producción');
-const teams: ClaimOf<'team'>[] = db.claims({ kind: 'team', status: ['current'], minConfidence: 'medium' });
+## Salida con datos reales (27-10-2026, todo pendiente de verificar)
+
+Con un roster de prueba que tiene Miyabi, Yanagi, Phoenix, Velina, Yuzuha, Lycaon, Soukaku, Anby, Nicole, Billy y Astra Yao:
+
+```
+▶ Phoenix / Velina / Yuzuha  (núcleo documentado por 3 fuente(s), 1 sustitución(es))
+    · Yuzuha en lugar de Remielle — same_source_substitute, unspecified
+    ✓ recommended — Timesaver.gg, PENDIENTE vía buscador, low, parche 3.3
+▶ Hoshimi Miyabi / Tsukishiro Yanagi / Yuzuha  (núcleo documentado por 1 fuente(s), 0 sustitución(es))
+    ✓ recommended — Game8, PENDIENTE vía buscador, low, parche ¿?
+▶ Anby Demara / Billy Kid / Nicole Demara  [económico]  …
+Equipos documentados a los que solo os falta 1 agente (sin sustituto documentado):
+  ✗ Phoenix / Velina / Remielle (game8) — falta: Remielle
 ```

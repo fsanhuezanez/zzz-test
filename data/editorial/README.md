@@ -1,9 +1,11 @@
 # Envíos editoriales
 
-Un fichero JSON por página consultada, agrupado por parche (`3.3/`, `3.4/`…). El formato es `schemas/editorial-submission.schema.json`.
+Un fichero JSON por página consultada, agrupado por parche (`3.3/`, `3.4/`…). Formato: `schemas/editorial-submission.schema.json`.
 
-- Crear un borrador: `npm run new-submission -- --source <id> --patch <X.Y> --kinds tier,team`
-- Los `*.draft.json` y los ficheros que empiezan por `_` se ignoran.
-- Guía completa: [docs/EDITORIAL-GUIDE.md](../../docs/EDITORIAL-GUIDE.md)
+- `<parche>/*.json`: datos leídos en la página (pendientes o verificados).
+- `<parche>/leads/*.json`: **pistas de buscador** (`collectionMethod: "web_search"`): no se ha leído la página y nunca están verificadas.
+- `*.draft.json` y los ficheros que empiezan por `_` se ignoran.
 
-Todavía no hay envíos reales: ver la sección "Estado de los datos" del README.
+Crear un borrador: `npm run new-submission -- --source <id> --template team|build|tier|all --url <página>`
+
+Guía: [docs/EDITORIAL-GUIDE.md](../../docs/EDITORIAL-GUIDE.md)

@@ -13,7 +13,7 @@
       "flags": [
         "unverified_catalog_refs"
       ],
-      "id": "clm_bangboo_7238e4d11f1b",
+      "id": "clm_bangboo_5e4191e77f40",
       "kind": "bangboo",
       "payload": {
         "agent": "ellen",
@@ -58,7 +58,7 @@
       "flags": [
         "unverified_catalog_refs"
       ],
-      "id": "clm_drive_disc_114c4678fd1f",
+      "id": "clm_drive_disc_8b9e9ea0a91c",
       "kind": "drive_disc",
       "payload": {
         "agent": "ellen",
@@ -117,7 +117,7 @@
       "flags": [
         "unverified_catalog_refs"
       ],
-      "id": "clm_f2p_option_0005883bd5f4",
+      "id": "clm_f2p_option_317a128546d7",
       "kind": "f2p_option",
       "payload": {
         "agent": "ellen",
@@ -157,7 +157,7 @@
       "flags": [
         "unverified_catalog_refs"
       ],
-      "id": "clm_investment_faf123713b93",
+      "id": "clm_investment_ada1214360ff",
       "kind": "investment",
       "payload": {
         "agent": "ellen",
@@ -197,7 +197,7 @@
       "flags": [
         "unverified_catalog_refs"
       ],
-      "id": "clm_rotation_b3b3b2c1725b",
+      "id": "clm_rotation_f676fe1fecb5",
       "kind": "rotation",
       "payload": {
         "agents": [
@@ -244,7 +244,7 @@
         "unverified",
         "unverified_catalog_refs"
       ],
-      "id": "clm_substitute_f0f064bf0324",
+      "id": "clm_substitute_ec7ec577626d",
       "kind": "substitute",
       "payload": {
         "agent": "lycaon",
@@ -284,7 +284,7 @@
       "flags": [
         "unverified_catalog_refs"
       ],
-      "id": "clm_synergy_57e8af828fc2",
+      "id": "clm_synergy_33b2f27f7430",
       "kind": "synergy",
       "payload": {
         "agents": [
@@ -315,6 +315,120 @@
     },
     {
       "agentRefs": [
+        "anby",
+        "billy",
+        "nicole"
+      ],
+      "context": {
+        "mode": "shiyu_defense"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "unverified_catalog_refs"
+      ],
+      "id": "clm_team_0c3d7c945272",
+      "kind": "team",
+      "payload": {
+        "archetype": "Económico",
+        "budget": true,
+        "members": [
+          {
+            "agent": "billy",
+            "role": "main_dps"
+          },
+          {
+            "agent": "anby",
+            "role": "stunner"
+          },
+          {
+            "agent": "nicole",
+            "role": "support"
+          }
+        ],
+        "stance": "recommended"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-24",
+        "collectedBy": "editor-a",
+        "collectionMethod": "manual_entry",
+        "confidence": "high",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "example-guide-a",
+        "url": "https://guide-a.example.com/zzz/tier-list",
+        "verification": {
+          "reviewedAt": "2026-10-25",
+          "reviewedBy": "revisor-b",
+          "state": "verified"
+        }
+      },
+      "slotKey": "team:anby+billy+nicole:shiyu_defense",
+      "sourceId": "example-guide-a",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "ellen",
+        "lycaon",
+        "qingyi",
+        "soukaku"
+      ],
+      "context": {
+        "mode": "shiyu_defense"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "unverified",
+        "unverified_catalog_refs"
+      ],
+      "id": "clm_team_16f057765c32",
+      "kind": "team",
+      "payload": {
+        "alternates": [
+          {
+            "agent": "qingyi",
+            "quality": "workable"
+          }
+        ],
+        "members": [
+          {
+            "agent": "ellen",
+            "role": "main_dps"
+          },
+          {
+            "agent": "lycaon",
+            "role": "stunner"
+          },
+          {
+            "agent": "soukaku",
+            "role": "support"
+          }
+        ],
+        "rating": {
+          "label": "S",
+          "scale": "letters"
+        },
+        "stance": "ranked"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-26",
+        "collectedBy": "editor-b",
+        "collectionMethod": "manual_entry",
+        "confidence": "medium",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "example-stats-b",
+        "url": "https://stats-b.example.com/zzz/shiyu",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "team:ellen+lycaon+soukaku:shiyu_defense",
+      "sourceId": "example-stats-b",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
         "astra-yao",
         "ellen",
         "lycaon",
@@ -328,7 +442,7 @@
       "flags": [
         "unverified_catalog_refs"
       ],
-      "id": "clm_team_1146c77fa655",
+      "id": "clm_team_213e4af633df",
       "kind": "team",
       "payload": {
         "archetype": "Ice burst",
@@ -363,7 +477,8 @@
               }
             ]
           }
-        ]
+        ],
+        "stance": "recommended"
       },
       "provenance": {
         "accessedAt": "2026-10-24",
@@ -386,51 +501,59 @@
     },
     {
       "agentRefs": [
-        "ellen",
-        "lycaon",
-        "soukaku"
+        "astra-yao",
+        "nicole",
+        "qingyi",
+        "soukaku",
+        "zhu-yuan"
       ],
       "context": {
         "mode": "shiyu_defense"
       },
       "firstSeenAt": "2026-10-27",
       "flags": [
-        "unverified",
         "unverified_catalog_refs"
       ],
-      "id": "clm_team_6075bf646663",
+      "id": "clm_team_54e358314b75",
       "kind": "team",
       "payload": {
+        "archetype": "Ether flexible",
+        "flex": [
+          {
+            "options": [
+              "nicole",
+              "qingyi",
+              "astra-yao",
+              "soukaku"
+            ],
+            "pick": 2
+          }
+        ],
         "members": [
           {
-            "agent": "ellen",
+            "agent": "zhu-yuan",
             "role": "main_dps"
-          },
-          {
-            "agent": "lycaon",
-            "role": "stunner"
-          },
-          {
-            "agent": "soukaku",
-            "role": "support"
           }
-        ]
+        ],
+        "stance": "showcase"
       },
       "provenance": {
-        "accessedAt": "2026-10-26",
-        "collectedBy": "editor-b",
+        "accessedAt": "2026-10-24",
+        "collectedBy": "editor-a",
         "collectionMethod": "manual_entry",
-        "confidence": "medium",
+        "confidence": "high",
         "declaredPatch": "3.3",
         "evidenceType": "explicit_recommendation",
-        "sourceId": "example-stats-b",
-        "url": "https://stats-b.example.com/zzz/shiyu",
+        "sourceId": "example-guide-a",
+        "url": "https://guide-a.example.com/zzz/tier-list",
         "verification": {
-          "state": "unverified"
+          "reviewedAt": "2026-10-25",
+          "reviewedBy": "revisor-b",
+          "state": "verified"
         }
       },
-      "slotKey": "team:ellen+lycaon+soukaku:shiyu_defense",
-      "sourceId": "example-stats-b",
+      "slotKey": "team:zhu-yuan[2:astra-yao|nicole|qingyi|soukaku]:shiyu_defense",
+      "sourceId": "example-guide-a",
       "status": "current"
     },
     {
@@ -447,10 +570,13 @@
       "flags": [
         "unverified_catalog_refs"
       ],
-      "id": "clm_team_8560cf154716",
+      "id": "clm_team_cb5e4536e287",
       "kind": "team",
       "payload": {
         "archetype": "Frost anomaly",
+        "limitations": [
+          "Ejemplo ficticio: rinde peor contra enemigos resistentes al hielo."
+        ],
         "members": [
           {
             "agent": "miyabi",
@@ -470,7 +596,15 @@
               }
             ]
           }
-        ]
+        ],
+        "requirements": [
+          {
+            "agent": "yanagi",
+            "level": "required",
+            "text": "Ejemplo ficticio: necesita a Yanagi para activar la reacción del núcleo."
+          }
+        ],
+        "stance": "recommended"
       },
       "provenance": {
         "accessedAt": "2026-10-24",
@@ -505,7 +639,7 @@
       "flags": [
         "unverified_catalog_refs"
       ],
-      "id": "clm_team_e04d1b1384d9",
+      "id": "clm_team_d4c644c40a25",
       "kind": "team",
       "payload": {
         "archetype": "Ether hypercarry",
@@ -528,7 +662,8 @@
             "agent": "nicole",
             "role": "support"
           }
-        ]
+        ],
+        "stance": "recommended"
       },
       "provenance": {
         "accessedAt": "2026-10-24",
@@ -551,44 +686,8 @@
     },
     {
       "agentRefs": [
-        "miyabi"
-      ],
-      "context": {
-        "mode": "shiyu_defense"
-      },
-      "firstSeenAt": "2026-10-27",
-      "flags": [
-        "unverified",
-        "unverified_catalog_refs"
-      ],
-      "id": "clm_tier_0118922b07ba",
-      "kind": "tier",
-      "payload": {
-        "agent": "miyabi",
-        "role": "anomaly",
-        "score": 0.6,
-        "tier": "A",
-        "tierScale": "letters"
-      },
-      "provenance": {
-        "accessedAt": "2026-10-26",
-        "collectedBy": "editor-b",
-        "collectionMethod": "manual_entry",
-        "confidence": "medium",
-        "declaredPatch": "3.3",
-        "evidenceType": "explicit_recommendation",
-        "sourceId": "example-stats-b",
-        "url": "https://stats-b.example.com/zzz/shiyu",
-        "verification": {
-          "state": "unverified"
-        }
-      },
-      "slotKey": "tier:miyabi:anomaly:shiyu_defense",
-      "sourceId": "example-stats-b",
-      "status": "current"
-    },
-    {
-      "agentRefs": [
+        "lycaon",
+        "miyabi",
         "soukaku"
       ],
       "context": {
@@ -596,34 +695,46 @@
       },
       "firstSeenAt": "2026-10-27",
       "flags": [
-        "unverified_catalog_refs"
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
       ],
-      "id": "clm_tier_394ede30f5be",
-      "kind": "tier",
+      "id": "clm_team_dea4f35cdfce",
+      "kind": "team",
       "payload": {
-        "agent": "soukaku",
-        "role": "support",
-        "score": 0.8,
-        "tier": "T1",
-        "tierScale": "t-scale"
+        "members": [
+          {
+            "agent": "miyabi",
+            "role": "anomaly"
+          },
+          {
+            "agent": "soukaku",
+            "role": "support"
+          },
+          {
+            "agent": "lycaon",
+            "role": "stunner"
+          }
+        ],
+        "stance": "recommended"
       },
       "provenance": {
-        "accessedAt": "2026-10-24",
-        "collectedBy": "editor-a",
-        "collectionMethod": "manual_entry",
-        "confidence": "high",
-        "declaredPatch": "3.3",
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
         "evidenceType": "explicit_recommendation",
-        "sourceId": "example-guide-a",
-        "url": "https://guide-a.example.com/zzz/tier-list",
+        "pageUpdatedAt": "2026-10-22",
+        "sourceId": "example-stats-b",
+        "url": "https://stats-b.example.com/zzz/teams",
         "verification": {
-          "reviewedAt": "2026-10-25",
-          "reviewedBy": "revisor-b",
-          "state": "verified"
+          "state": "unverified"
         }
       },
-      "slotKey": "tier:soukaku:support:shiyu_defense",
-      "sourceId": "example-guide-a",
+      "slotKey": "team:lycaon+miyabi+soukaku:shiyu_defense",
+      "sourceId": "example-stats-b",
       "status": "current"
     },
     {
@@ -637,7 +748,7 @@
       "flags": [
         "unverified_catalog_refs"
       ],
-      "id": "clm_tier_3acab5cccba9",
+      "id": "clm_tier_06e55d490089",
       "kind": "tier",
       "payload": {
         "agent": "yanagi",
@@ -667,7 +778,49 @@
     },
     {
       "agentRefs": [
-        "miyabi"
+        "ellen"
+      ],
+      "context": {
+        "mode": "shiyu_defense"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "access_too_old",
+        "older_patch",
+        "unverified_catalog_refs"
+      ],
+      "id": "clm_tier_14e6a2c82859",
+      "kind": "tier",
+      "payload": {
+        "agent": "ellen",
+        "role": "attack",
+        "score": 0.8,
+        "tier": "T1",
+        "tierScale": "t-scale"
+      },
+      "provenance": {
+        "accessedAt": "2026-09-15",
+        "collectedBy": "editor-a",
+        "collectionMethod": "manual_entry",
+        "confidence": "high",
+        "declaredPatch": "3.2",
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "example-guide-a",
+        "url": "https://guide-a.example.com/zzz/tier-list",
+        "verification": {
+          "reviewedAt": "2026-09-16",
+          "reviewedBy": "revisor-b",
+          "state": "verified"
+        }
+      },
+      "slotKey": "tier:ellen:attack:shiyu_defense",
+      "sourceId": "example-guide-a",
+      "status": "superseded",
+      "supersededBy": "clm_tier_29689aa407f5"
+    },
+    {
+      "agentRefs": [
+        "ellen"
       ],
       "context": {
         "mode": "shiyu_defense"
@@ -676,11 +829,11 @@
       "flags": [
         "unverified_catalog_refs"
       ],
-      "id": "clm_tier_3c9302901624",
+      "id": "clm_tier_29689aa407f5",
       "kind": "tier",
       "payload": {
-        "agent": "miyabi",
-        "role": "anomaly",
+        "agent": "ellen",
+        "role": "attack",
         "score": 1,
         "tier": "T0",
         "tierScale": "t-scale"
@@ -700,85 +853,7 @@
           "state": "verified"
         }
       },
-      "slotKey": "tier:miyabi:anomaly:shiyu_defense",
-      "sourceId": "example-guide-a",
-      "status": "current"
-    },
-    {
-      "agentRefs": [
-        "lycaon"
-      ],
-      "context": {
-        "mode": "shiyu_defense"
-      },
-      "firstSeenAt": "2026-10-27",
-      "flags": [
-        "unverified_catalog_refs"
-      ],
-      "id": "clm_tier_3f3335ac5f92",
-      "kind": "tier",
-      "payload": {
-        "agent": "lycaon",
-        "role": "stun",
-        "score": 0.9,
-        "tier": "T0.5",
-        "tierScale": "t-scale"
-      },
-      "provenance": {
-        "accessedAt": "2026-10-24",
-        "collectedBy": "editor-a",
-        "collectionMethod": "manual_entry",
-        "confidence": "high",
-        "declaredPatch": "3.3",
-        "evidenceType": "explicit_recommendation",
-        "sourceId": "example-guide-a",
-        "url": "https://guide-a.example.com/zzz/tier-list",
-        "verification": {
-          "reviewedAt": "2026-10-25",
-          "reviewedBy": "revisor-b",
-          "state": "verified"
-        }
-      },
-      "slotKey": "tier:lycaon:stun:shiyu_defense",
-      "sourceId": "example-guide-a",
-      "status": "current"
-    },
-    {
-      "agentRefs": [
-        "qingyi"
-      ],
-      "context": {
-        "mode": "shiyu_defense"
-      },
-      "firstSeenAt": "2026-10-27",
-      "flags": [
-        "unverified_catalog_refs"
-      ],
-      "id": "clm_tier_46499499471d",
-      "kind": "tier",
-      "payload": {
-        "agent": "qingyi",
-        "role": "stun",
-        "score": 0.9,
-        "tier": "T0.5",
-        "tierScale": "t-scale"
-      },
-      "provenance": {
-        "accessedAt": "2026-10-24",
-        "collectedBy": "editor-a",
-        "collectionMethod": "manual_entry",
-        "confidence": "high",
-        "declaredPatch": "3.3",
-        "evidenceType": "explicit_recommendation",
-        "sourceId": "example-guide-a",
-        "url": "https://guide-a.example.com/zzz/tier-list",
-        "verification": {
-          "reviewedAt": "2026-10-25",
-          "reviewedBy": "revisor-b",
-          "state": "verified"
-        }
-      },
-      "slotKey": "tier:qingyi:stun:shiyu_defense",
+      "slotKey": "tier:ellen:attack:shiyu_defense",
       "sourceId": "example-guide-a",
       "status": "current"
     },
@@ -793,7 +868,7 @@
       "flags": [
         "unverified_catalog_refs"
       ],
-      "id": "clm_tier_496d44a84d1e",
+      "id": "clm_tier_2ebac4b074f4",
       "kind": "tier",
       "payload": {
         "agent": "astra-yao",
@@ -823,128 +898,46 @@
     },
     {
       "agentRefs": [
-        "ellen"
+        "qingyi"
       ],
       "context": {
         "mode": "shiyu_defense"
       },
       "firstSeenAt": "2026-10-27",
       "flags": [
-        "unverified",
         "unverified_catalog_refs"
       ],
-      "id": "clm_tier_5e0dca51f3c3",
+      "id": "clm_tier_361b95836687",
       "kind": "tier",
       "payload": {
-        "agent": "ellen",
-        "role": "attack",
-        "score": 0.8,
-        "tier": "S",
-        "tierScale": "letters"
-      },
-      "provenance": {
-        "accessedAt": "2026-10-26",
-        "collectedBy": "editor-b",
-        "collectionMethod": "manual_entry",
-        "confidence": "medium",
-        "declaredPatch": "3.3",
-        "evidenceType": "explicit_recommendation",
-        "sourceId": "example-stats-b",
-        "url": "https://stats-b.example.com/zzz/shiyu",
-        "verification": {
-          "state": "unverified"
-        }
-      },
-      "slotKey": "tier:ellen:attack:shiyu_defense",
-      "sourceId": "example-stats-b",
-      "status": "current"
-    },
-    {
-      "agentRefs": [
-        "ellen"
-      ],
-      "context": {
-        "mode": "shiyu_defense"
-      },
-      "firstSeenAt": "2026-10-27",
-      "flags": [
-        "access_too_old",
-        "older_patch",
-        "unverified_catalog_refs"
-      ],
-      "id": "clm_tier_70d61bae0c7c",
-      "kind": "tier",
-      "payload": {
-        "agent": "ellen",
-        "role": "attack",
-        "score": 0.8,
-        "tier": "T1",
-        "tierScale": "t-scale"
-      },
-      "provenance": {
-        "accessedAt": "2026-09-15",
-        "collectedBy": "editor-a",
-        "collectionMethod": "manual_entry",
-        "confidence": "high",
-        "declaredPatch": "3.2",
-        "evidenceType": "explicit_recommendation",
-        "sourceId": "example-guide-a",
-        "url": "https://guide-a.example.com/zzz/tier-list",
-        "verification": {
-          "reviewedAt": "2026-09-16",
-          "reviewedBy": "revisor-b",
-          "state": "verified"
-        }
-      },
-      "slotKey": "tier:ellen:attack:shiyu_defense",
-      "sourceId": "example-guide-a",
-      "status": "superseded",
-      "supersededBy": "clm_tier_bbb3d993ee2d"
-    },
-    {
-      "agentRefs": [
-        "burnice"
-      ],
-      "context": {
-        "mode": "shiyu_defense"
-      },
-      "firstSeenAt": "2026-10-27",
-      "flags": [
-        "access_too_old",
-        "older_patch",
-        "unverified_catalog_refs"
-      ],
-      "id": "clm_tier_9a499d69aadc",
-      "kind": "tier",
-      "payload": {
-        "agent": "burnice",
-        "role": "anomaly",
+        "agent": "qingyi",
+        "role": "stun",
         "score": 0.9,
         "tier": "T0.5",
         "tierScale": "t-scale"
       },
       "provenance": {
-        "accessedAt": "2026-09-15",
+        "accessedAt": "2026-10-24",
         "collectedBy": "editor-a",
         "collectionMethod": "manual_entry",
         "confidence": "high",
-        "declaredPatch": "3.2",
+        "declaredPatch": "3.3",
         "evidenceType": "explicit_recommendation",
         "sourceId": "example-guide-a",
         "url": "https://guide-a.example.com/zzz/tier-list",
         "verification": {
-          "reviewedAt": "2026-09-16",
+          "reviewedAt": "2026-10-25",
           "reviewedBy": "revisor-b",
           "state": "verified"
         }
       },
-      "slotKey": "tier:burnice:anomaly:shiyu_defense",
+      "slotKey": "tier:qingyi:stun:shiyu_defense",
       "sourceId": "example-guide-a",
-      "status": "stale"
+      "status": "current"
     },
     {
       "agentRefs": [
-        "zhu-yuan"
+        "lycaon"
       ],
       "context": {
         "mode": "shiyu_defense"
@@ -953,13 +946,13 @@
       "flags": [
         "unverified_catalog_refs"
       ],
-      "id": "clm_tier_bb21b9a255cd",
+      "id": "clm_tier_43a72a77ae49",
       "kind": "tier",
       "payload": {
-        "agent": "zhu-yuan",
-        "role": "attack",
-        "score": 0.8,
-        "tier": "T1",
+        "agent": "lycaon",
+        "role": "stun",
+        "score": 0.9,
+        "tier": "T0.5",
         "tierScale": "t-scale"
       },
       "provenance": {
@@ -977,13 +970,13 @@
           "state": "verified"
         }
       },
-      "slotKey": "tier:zhu-yuan:attack:shiyu_defense",
+      "slotKey": "tier:lycaon:stun:shiyu_defense",
       "sourceId": "example-guide-a",
       "status": "current"
     },
     {
       "agentRefs": [
-        "ellen"
+        "soukaku"
       ],
       "context": {
         "mode": "shiyu_defense"
@@ -992,49 +985,10 @@
       "flags": [
         "unverified_catalog_refs"
       ],
-      "id": "clm_tier_bbb3d993ee2d",
+      "id": "clm_tier_4646202609fd",
       "kind": "tier",
       "payload": {
-        "agent": "ellen",
-        "role": "attack",
-        "score": 1,
-        "tier": "T0",
-        "tierScale": "t-scale"
-      },
-      "provenance": {
-        "accessedAt": "2026-10-24",
-        "collectedBy": "editor-a",
-        "collectionMethod": "manual_entry",
-        "confidence": "high",
-        "declaredPatch": "3.3",
-        "evidenceType": "explicit_recommendation",
-        "sourceId": "example-guide-a",
-        "url": "https://guide-a.example.com/zzz/tier-list",
-        "verification": {
-          "reviewedAt": "2026-10-25",
-          "reviewedBy": "revisor-b",
-          "state": "verified"
-        }
-      },
-      "slotKey": "tier:ellen:attack:shiyu_defense",
-      "sourceId": "example-guide-a",
-      "status": "current"
-    },
-    {
-      "agentRefs": [
-        "nicole"
-      ],
-      "context": {
-        "mode": "shiyu_defense"
-      },
-      "firstSeenAt": "2026-10-27",
-      "flags": [
-        "unverified_catalog_refs"
-      ],
-      "id": "clm_tier_f3e90be8abd4",
-      "kind": "tier",
-      "payload": {
-        "agent": "nicole",
+        "agent": "soukaku",
         "role": "support",
         "score": 0.8,
         "tier": "T1",
@@ -1055,7 +1009,7 @@
           "state": "verified"
         }
       },
-      "slotKey": "tier:nicole:support:shiyu_defense",
+      "slotKey": "tier:soukaku:support:shiyu_defense",
       "sourceId": "example-guide-a",
       "status": "current"
     },
@@ -1072,7 +1026,7 @@
         "unverified",
         "unverified_catalog_refs"
       ],
-      "id": "clm_tier_fe76c8740915",
+      "id": "clm_tier_726b895187bb",
       "kind": "tier",
       "payload": {
         "agent": "hugo",
@@ -1111,7 +1065,241 @@
         "unverified",
         "unverified_catalog_refs"
       ],
-      "id": "clm_usage_541be35a159d",
+      "id": "clm_tier_74d759b5e13b",
+      "kind": "tier",
+      "payload": {
+        "agent": "ellen",
+        "role": "attack",
+        "score": 0.8,
+        "tier": "S",
+        "tierScale": "letters"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-26",
+        "collectedBy": "editor-b",
+        "collectionMethod": "manual_entry",
+        "confidence": "medium",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "example-stats-b",
+        "url": "https://stats-b.example.com/zzz/shiyu",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "tier:ellen:attack:shiyu_defense",
+      "sourceId": "example-stats-b",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "nicole"
+      ],
+      "context": {
+        "mode": "shiyu_defense"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "unverified_catalog_refs"
+      ],
+      "id": "clm_tier_7edb45f2e16c",
+      "kind": "tier",
+      "payload": {
+        "agent": "nicole",
+        "role": "support",
+        "score": 0.8,
+        "tier": "T1",
+        "tierScale": "t-scale"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-24",
+        "collectedBy": "editor-a",
+        "collectionMethod": "manual_entry",
+        "confidence": "high",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "example-guide-a",
+        "url": "https://guide-a.example.com/zzz/tier-list",
+        "verification": {
+          "reviewedAt": "2026-10-25",
+          "reviewedBy": "revisor-b",
+          "state": "verified"
+        }
+      },
+      "slotKey": "tier:nicole:support:shiyu_defense",
+      "sourceId": "example-guide-a",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "miyabi"
+      ],
+      "context": {
+        "mode": "shiyu_defense"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "unverified_catalog_refs"
+      ],
+      "id": "clm_tier_998ee1662a55",
+      "kind": "tier",
+      "payload": {
+        "agent": "miyabi",
+        "role": "anomaly",
+        "score": 1,
+        "tier": "T0",
+        "tierScale": "t-scale"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-24",
+        "collectedBy": "editor-a",
+        "collectionMethod": "manual_entry",
+        "confidence": "high",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "example-guide-a",
+        "url": "https://guide-a.example.com/zzz/tier-list",
+        "verification": {
+          "reviewedAt": "2026-10-25",
+          "reviewedBy": "revisor-b",
+          "state": "verified"
+        }
+      },
+      "slotKey": "tier:miyabi:anomaly:shiyu_defense",
+      "sourceId": "example-guide-a",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "burnice"
+      ],
+      "context": {
+        "mode": "shiyu_defense"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "access_too_old",
+        "older_patch",
+        "unverified_catalog_refs"
+      ],
+      "id": "clm_tier_a96608972f98",
+      "kind": "tier",
+      "payload": {
+        "agent": "burnice",
+        "role": "anomaly",
+        "score": 0.9,
+        "tier": "T0.5",
+        "tierScale": "t-scale"
+      },
+      "provenance": {
+        "accessedAt": "2026-09-15",
+        "collectedBy": "editor-a",
+        "collectionMethod": "manual_entry",
+        "confidence": "high",
+        "declaredPatch": "3.2",
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "example-guide-a",
+        "url": "https://guide-a.example.com/zzz/tier-list",
+        "verification": {
+          "reviewedAt": "2026-09-16",
+          "reviewedBy": "revisor-b",
+          "state": "verified"
+        }
+      },
+      "slotKey": "tier:burnice:anomaly:shiyu_defense",
+      "sourceId": "example-guide-a",
+      "status": "stale"
+    },
+    {
+      "agentRefs": [
+        "miyabi"
+      ],
+      "context": {
+        "mode": "shiyu_defense"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "unverified",
+        "unverified_catalog_refs"
+      ],
+      "id": "clm_tier_baccc092f287",
+      "kind": "tier",
+      "payload": {
+        "agent": "miyabi",
+        "role": "anomaly",
+        "score": 0.6,
+        "tier": "A",
+        "tierScale": "letters"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-26",
+        "collectedBy": "editor-b",
+        "collectionMethod": "manual_entry",
+        "confidence": "medium",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "example-stats-b",
+        "url": "https://stats-b.example.com/zzz/shiyu",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "tier:miyabi:anomaly:shiyu_defense",
+      "sourceId": "example-stats-b",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "zhu-yuan"
+      ],
+      "context": {
+        "mode": "shiyu_defense"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "unverified_catalog_refs"
+      ],
+      "id": "clm_tier_d89b76b6c7c5",
+      "kind": "tier",
+      "payload": {
+        "agent": "zhu-yuan",
+        "role": "attack",
+        "score": 0.8,
+        "tier": "T1",
+        "tierScale": "t-scale"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-24",
+        "collectedBy": "editor-a",
+        "collectionMethod": "manual_entry",
+        "confidence": "high",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "example-guide-a",
+        "url": "https://guide-a.example.com/zzz/tier-list",
+        "verification": {
+          "reviewedAt": "2026-10-25",
+          "reviewedBy": "revisor-b",
+          "state": "verified"
+        }
+      },
+      "slotKey": "tier:zhu-yuan:attack:shiyu_defense",
+      "sourceId": "example-guide-a",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "ellen"
+      ],
+      "context": {
+        "mode": "shiyu_defense"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "unverified",
+        "unverified_catalog_refs"
+      ],
+      "id": "clm_usage_91e577a759e0",
       "kind": "usage",
       "payload": {
         "agents": [
@@ -1154,7 +1342,7 @@
       "flags": [
         "unverified_catalog_refs"
       ],
-      "id": "clm_w_engine_92ce8bd945a9",
+      "id": "clm_w_engine_a42754011ef1",
       "kind": "w_engine",
       "payload": {
         "agent": "ellen",

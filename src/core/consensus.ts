@@ -33,7 +33,8 @@ export function buildConsensus(claims: Claim[], patch: string): { tiers: TierCon
       const key = `${c.payload.agent}|${c.payload.role}|${c.context.mode}`;
       tierGroups.set(key, [...(tierGroups.get(key) ?? []), c]);
     } else if (c.kind === 'team') {
-      const key = `${c.payload.members.map((m) => m.agent).sort().join('+')}|${c.context.mode}`;
+      const flex = (c.payload.flex ?? []).map((f) => `[${f.pick}:${[...f.options].sort().join('|')}]`).join('');
+      const key = `${c.payload.members.map((m) => m.agent).sort().join('+')}${flex}|${c.context.mode}`;
       teamGroups.set(key, [...(teamGroups.get(key) ?? []), c]);
     }
   }
@@ -77,9 +78,11 @@ export function buildConsensus(claims: Claim[], patch: string): { tiers: TierCon
     if (sources.length < 2) continue;
     const first = group[0]!;
     const members = first.payload.members.map((m) => m.agent).sort();
+    const flex = (first.payload.flex ?? []).map((f) => ({ pick: f.pick, options: [...f.options].sort() }));
     teams.push({
-      id: `cns_team_${shortHash({ members, mode: first.context.mode, patch })}`,
+      id: `cns_team_${shortHash({ members, flex, mode: first.context.mode, patch })}`,
       members,
+      ...(flex.length ? { flex } : {}),
       mode: first.context.mode,
       patch,
       sources,

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../../../schemas/editorial-submission.schema.json",
+  "sourceId": "gamerant",
+  "url": "https://gamerant.com/zenless-zone-zero-zzz-ye-shunguang-build-best-weapon-w-engine-drive-disc-materials-mindscape-cinema/",
+  "accessedAt": "2026-10-27",
+  "declaredPatch": null,
+  "collectedBy": "asistente (búsqueda web)",
+  "collectionMethod": "web_search",
+  "evidenceType": "explicit_recommendation",
+  "confidence": "low",
+  "verification": {
+    "state": "unverified"
+  },
+  "mode": "general",
+  "notes": "Resumen de buscador del 2026-10-27; la página original no se ha leído (bloqueada desde el entorno). Comprobar antes de verificar.",
+  "claims": [
+    {
+      "kind": "w_engine",
+      "agent": "Ye Shunguang",
+      "options": [
+        {
+          "wEngine": "Cloudcleave Radiance",
+          "rank": 1,
+          "note": "W-Engine exclusivo"
+        }
+      ]
+    }
+  ]
+}

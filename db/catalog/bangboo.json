@@ -18,6 +18,20 @@
     },
     {
       "aliases": [],
+      "id": "ariel",
+      "name": "Ariel",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
+      "aliases": [],
       "id": "bagboo",
       "name": "Bagboo",
       "provenance": {
@@ -120,6 +134,20 @@
         }
       },
       "rarity": "S"
+    },
+    {
+      "aliases": [],
+      "id": "ultra-jake",
+      "name": "Ultra Jake",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
     }
   ]
 }

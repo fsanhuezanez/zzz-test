@@ -4,7 +4,11 @@
  */
 import { readdir, readFile } from 'node:fs/promises';
 import { join, relative } from 'node:path';
-import type { CollectedSubmission } from './types.ts';
+
+export interface CollectedSubmission {
+  origin: string;
+  data: unknown;
+}
 
 export interface ManualScan {
   submissions: CollectedSubmission[];
@@ -40,7 +44,7 @@ export async function scanEditorial(editorialDir: string, baseDir: string): Prom
       continue;
     }
     try {
-      scan.submissions.push({ origin: rel, method: 'manual_entry', data: JSON.parse(await readFile(file, 'utf8')) });
+      scan.submissions.push({ origin: rel, data: JSON.parse(await readFile(file, 'utf8')) });
     } catch (err) {
       scan.parseErrors.push({ file: rel, message: `JSON inválido: ${(err as Error).message}` });
     }

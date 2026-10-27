@@ -14,9 +14,7 @@
         "evidenceUrls": [
           "https://example.com/"
         ],
-        "allowedMethods": [
-          "manual_entry"
-        ]
+        "checkedVia": "browser"
       },
       "defaultTierScale": "t-scale",
       "tierScales": [
@@ -62,9 +60,7 @@
         "evidenceUrls": [
           "https://example.com/"
         ],
-        "allowedMethods": [
-          "manual_entry"
-        ]
+        "checkedVia": "browser"
       },
       "defaultTierScale": "letters",
       "tierScales": [
@@ -110,9 +106,7 @@
         "evidenceUrls": [
           "https://github.com/fsanhuezanez/zzz-test"
         ],
-        "allowedMethods": [
-          "manual_entry"
-        ]
+        "checkedVia": "browser"
       },
       "tierScales": [],
       "maxAgeDays": 60

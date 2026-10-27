@@ -1,0 +1,86 @@
+{
+  "$schema": "../../../../schemas/editorial-submission.schema.json",
+  "sourceId": "timesaver",
+  "url": "https://timesaver.gg/blog/zzz-best-teams",
+  "title": "ZZZ Best Teams (3.3)",
+  "accessedAt": "2026-10-27",
+  "declaredPatch": "3.3",
+  "collectedBy": "asistente (búsqueda web)",
+  "collectionMethod": "web_search",
+  "evidenceType": "explicit_recommendation",
+  "confidence": "low",
+  "verification": {
+    "state": "unverified"
+  },
+  "mode": "general",
+  "notes": "Resumen de buscador del 2026-10-27; la página original no se ha leído (bloqueada desde el entorno). Comprobar antes de verificar.",
+  "claims": [
+    {
+      "kind": "team",
+      "stance": "recommended",
+      "members": [
+        {
+          "agent": "Phoenix",
+          "role": "anomaly"
+        },
+        {
+          "agent": "Velina",
+          "role": "anomaly"
+        },
+        {
+          "agent": "Remielle",
+          "role": "anomaly",
+          "substitutes": [
+            {
+              "agent": "Yuzuha",
+              "quality": "unspecified"
+            }
+          ]
+        }
+      ],
+      "evidence": {
+        "notes": "La página atribuye estas dos variantes a la recomendación oficial de HoYoverse; no comprobado."
+      }
+    },
+    {
+      "kind": "team",
+      "archetype": "Presupuesto (cuenta con Miyabi)",
+      "stance": "recommended",
+      "members": [
+        {
+          "agent": "Miyabi",
+          "role": "anomaly"
+        },
+        {
+          "agent": "Lycaon",
+          "role": "stunner"
+        },
+        {
+          "agent": "Soukaku",
+          "role": "support"
+        }
+      ],
+      "budget": true
+    },
+    {
+      "kind": "team",
+      "archetype": "Presupuesto (cuenta nueva)",
+      "stance": "recommended",
+      "members": [
+        {
+          "agent": "Billy",
+          "role": "main_dps"
+        },
+        {
+          "agent": "Anby",
+          "role": "stunner"
+        },
+        {
+          "agent": "Nicole",
+          "role": "support"
+        }
+      ],
+      "budget": true
+    }
+  ]
+}

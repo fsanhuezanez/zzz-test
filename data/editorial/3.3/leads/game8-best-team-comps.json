@@ -1,0 +1,144 @@
+{
+  "$schema": "../../../../schemas/editorial-submission.schema.json",
+  "sourceId": "game8",
+  "url": "https://game8.co/games/Zenless-Zone-Zero/archives/458656",
+  "title": "Best Team Comps",
+  "accessedAt": "2026-10-27",
+  "declaredPatch": null,
+  "collectedBy": "asistente (búsqueda web)",
+  "collectionMethod": "web_search",
+  "evidenceType": "explicit_recommendation",
+  "confidence": "low",
+  "verification": {
+    "state": "unverified"
+  },
+  "mode": "general",
+  "notes": "Resumen de buscador del 2026-10-27; la página original no se ha leído (bloqueada desde el entorno). Comprobar antes de verificar.",
+  "claims": [
+    {
+      "kind": "team",
+      "archetype": "Anomaly (Remielle)",
+      "stance": "recommended",
+      "members": [
+        {
+          "agent": "Remielle",
+          "role": "anomaly"
+        },
+        {
+          "agent": "Phoenix",
+          "role": "anomaly"
+        },
+        {
+          "agent": "Velina",
+          "role": "anomaly"
+        }
+      ],
+      "alternates": [
+        {
+          "agent": "Promeia",
+          "quality": "unspecified"
+        },
+        {
+          "agent": "Vivian",
+          "quality": "unspecified"
+        },
+        {
+          "agent": "Aria",
+          "quality": "unspecified"
+        },
+        {
+          "agent": "Alice",
+          "quality": "unspecified"
+        }
+      ],
+      "requirements": [
+        {
+          "text": "Remielle obtiene sus mayores bonificaciones con otros dos agentes Anomaly en el equipo",
+          "agent": "Remielle",
+          "level": "recommended"
+        }
+      ]
+    },
+    {
+      "kind": "team",
+      "archetype": "Attack (Ye Shunguang)",
+      "stance": "recommended",
+      "members": [
+        {
+          "agent": "Ye Shunguang",
+          "role": "main_dps"
+        }
+      ],
+      "flex": [
+        {
+          "pick": 2,
+          "options": [
+            "Dialyn",
+            "Sunna",
+            "Ju Fufu",
+            "Zhao",
+            "Trigger",
+            "Astra Yao"
+          ]
+        }
+      ],
+      "evidence": {
+        "notes": "Según el resumen, la página lo describe como uno de los equipos más fuertes actualmente."
+      }
+    },
+    {
+      "kind": "team",
+      "archetype": "Disorder (Miyabi)",
+      "stance": "recommended",
+      "members": [
+        {
+          "agent": "Miyabi",
+          "role": "anomaly"
+        }
+      ],
+      "flex": [
+        {
+          "pick": 2,
+          "options": [
+            "Yanagi",
+            "Yuzuha",
+            "Alice",
+            "Vivian",
+            "Astra Yao",
+            "Burnice",
+            "Nangong Yu"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "team",
+      "archetype": "Rupture (Yixuan)",
+      "stance": "recommended",
+      "members": [
+        {
+          "agent": "Yixuan",
+          "role": "main_dps"
+        },
+        {
+          "agent": "Dialyn",
+          "role": "stunner"
+        },
+        {
+          "agent": "Lucia",
+          "role": "support"
+        }
+      ],
+      "alternates": [
+        {
+          "agent": "Ju Fufu",
+          "quality": "unspecified"
+        },
+        {
+          "agent": "Astra Yao",
+          "quality": "unspecified"
+        }
+      ]
+    }
+  ]
+}

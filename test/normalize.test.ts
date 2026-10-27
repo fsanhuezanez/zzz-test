@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { CatalogIndex, nameKey } from '../src/core/catalog.ts';
+import { Vocabulary } from '../src/core/vocabulary.ts';
 import { normalizeSubmission } from '../src/core/normalize.ts';
 import { EditorialSubmission } from '../src/schema/claims.ts';
 import { assertValid } from '../src/core/validate.ts';
@@ -10,9 +11,10 @@ import { FIXTURE_DATA, submission } from './helpers.ts';
 const inputs = await loadInputs(FIXTURE_DATA);
 const catalog = new CatalogIndex(inputs.catalog);
 const sources = new Map(inputs.sources.map((s) => [s.id, s]));
+const vocabulary = new Vocabulary(inputs.vocabulary);
 
 function run(sub: Record<string, unknown>) {
-  return normalizeSubmission(assertValid(EditorialSubmission, sub, 'test'), { catalog, sources, method: 'manual_entry', origin: 'test.json' });
+  return normalizeSubmission(assertValid(EditorialSubmission, sub, 'test'), { catalog, sources, vocabulary, origin: 'test.json' });
 }
 
 test('resuelve nombres y alias a ids canónicos', () => {
@@ -86,7 +88,7 @@ test('Drive Disc: valida estadísticas por ranura', () => {
 });
 
 test('equipo: miembros repetidos y sustitutos dentro del equipo son errores', () => {
-  const { issues } = run(submission({}, [{ kind: 'team', members: [
+  const { issues } = run(submission({}, [{ kind: 'team', stance: 'recommended', members: [
     { agent: 'Ellen', role: 'main_dps' },
     { agent: 'Lycaon', role: 'stunner', substitutes: [{ agent: 'Ellen', quality: 'workable' }] },
     { agent: 'Ellen', role: 'support' },
@@ -104,7 +106,46 @@ test('datos contradictorios en el mismo envío se rechazan; duplicados exactos s
 
 test('el orden de miembros no cambia la identidad del equipo', () => {
   const m = [{ agent: 'Ellen', role: 'main_dps' }, { agent: 'Lycaon', role: 'stunner' }, { agent: 'Soukaku', role: 'support' }];
-  const a = run(submission({}, [{ kind: 'team', members: m }]));
-  const b = run(submission({}, [{ kind: 'team', members: [m[2], m[0], m[1]] }]));
+  const a = run(submission({}, [{ kind: 'team', stance: 'recommended', members: m }]));
+  const b = run(submission({}, [{ kind: 'team', stance: 'recommended', members: [m[2], m[0], m[1]] }]));
   assert.equal(a.drafts[0]!.slotKey, b.drafts[0]!.slotKey);
+});
+
+test('equipo flexible: miembros + picks deben sumar 2 o 3 y sin solapes', () => {
+  const ok = run(submission({}, [{ kind: 'team', stance: 'showcase', members: [{ agent: 'Zhu Yuan', role: 'main_dps' }],
+    flex: [{ pick: 2, options: ['Nicole', 'Qingyi', 'Astra Yao'] }] }]));
+  assert.deepEqual(ok.issues, []);
+  assert.match(ok.drafts[0]!.slotKey, /^team:zhu-yuan\[2:astra-yao\|nicole\|qingyi\]:general$/);
+  const tooBig = run(submission({}, [{ kind: 'team', stance: 'showcase', members: [{ agent: 'Zhu Yuan', role: 'main_dps' }, { agent: 'Nicole', role: 'support' }],
+    flex: [{ pick: 2, options: ['Qingyi', 'Astra Yao', 'Soukaku'] }] }]));
+  assert.ok(tooBig.issues.some((i) => /4 agentes/.test(i.message)));
+  const overlap = run(submission({}, [{ kind: 'team', stance: 'showcase', members: [{ agent: 'Zhu Yuan', role: 'main_dps' }],
+    flex: [{ pick: 2, options: ['Zhu Yuan', 'Qingyi', 'Nicole'] }] }]));
+  assert.ok(overlap.issues.some((i) => /ya es miembro fijo/.test(i.message)));
+});
+
+test('equipo: requisitos y alternativas se resuelven contra el catálogo', () => {
+  const r = run(submission({}, [{ kind: 'team', stance: 'recommended',
+    members: [{ agent: 'Miyabi', role: 'anomaly' }, { agent: 'Yanagi', role: 'anomaly' }, { agent: 'Astra', role: 'support' }],
+    alternates: [{ agent: 'Nicole', quality: 'workable' }],
+    requirements: [{ text: 'necesita a Yanagi', agent: 'Yanagi', level: 'required' }],
+    limitations: ['débil contra X'] }]));
+  assert.deepEqual(r.issues, []);
+  const draft = r.drafts[0]!;
+  assert.ok(draft.agentRefs.includes('nicole'));
+  if (draft.kind === 'team') assert.equal(draft.payload.requirements![0]!.agent, 'yanagi');
+});
+
+test('vocabulario editable: rol de tier desconocido → error que apunta a data/game.json', () => {
+  const { issues } = run(submission({}, [{ kind: 'tier', agent: 'Ellen', role: 'healer', tier: 'T0' }]));
+  assert.ok(issues.some((i) => /data\/game.json/.test(i.message)));
+});
+
+test('web_search: ni verificado ni confianza alta', () => {
+  const verified = run(submission({ collectionMethod: 'web_search', confidence: 'low', verification: { state: 'verified', reviewedBy: 'x', reviewedAt: '2026-10-26' } }));
+  assert.ok(verified.issues.some((i) => /buscador no puede estar verificado/.test(i.message)));
+  const high = run(submission({ collectionMethod: 'web_search', confidence: 'high' }));
+  assert.ok(high.issues.some((i) => /confianza "high"/.test(i.message)));
+  const ok = run(submission({ collectionMethod: 'web_search', confidence: 'low' }));
+  assert.equal(ok.drafts[0]!.provenance.collectionMethod, 'web_search');
 });

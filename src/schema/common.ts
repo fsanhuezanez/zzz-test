@@ -39,15 +39,20 @@ export const IsoDate = Type.String({ format: 'date', description: 'Fecha ISO 860
 export const IsoDateTime = Type.String({ format: 'date-time' });
 export const Url = Type.String({ format: 'uri', pattern: '^https?://', maxLength: 500 });
 
-export const Attribute = StringEnum(['physical', 'fire', 'ice', 'electric', 'ether']);
-export type Attribute = Static<typeof Attribute>;
+/**
+ * Código del vocabulario del juego (atributos, especialidades, estadísticas…).
+ * Los valores válidos viven en data/game.json, no en el código: así un parche
+ * que añade un atributo o especialidad nueva solo requiere editar datos.
+ */
+export const GameCode = Type.String({ pattern: '^[a-z][a-z0-9_]*$', maxLength: 40 });
 
-export const Specialty = StringEnum(['attack', 'stun', 'anomaly', 'support', 'defense', 'rupture']);
-export type Specialty = Static<typeof Specialty>;
-
-/** Rol evaluado en una tier list. Incluye `sub_dps` y `overall` porque algunas fuentes los usan. */
-export const TierRole = StringEnum(['attack', 'stun', 'anomaly', 'support', 'defense', 'rupture', 'sub_dps', 'overall']);
-export type TierRole = Static<typeof TierRole>;
+export const Attribute = GameCode;
+export type Attribute = string;
+export const Specialty = GameCode;
+export type Specialty = string;
+/** Rol evaluado en una tier list (especialidades de data/game.json + roles extra como "sub_dps"). */
+export const TierRole = GameCode;
+export type TierRole = string;
 
 /** Función de un agente dentro de un equipo concreto (distinta de su especialidad). */
 export const TeamRole = StringEnum(['main_dps', 'sub_dps', 'stunner', 'support', 'anomaly', 'defense', 'flex']);
@@ -71,7 +76,12 @@ export type EvidenceType = Static<typeof EvidenceType>;
 export const Confidence = StringEnum(['high', 'medium', 'low']);
 export type Confidence = Static<typeof Confidence>;
 
-export const CollectionMethod = StringEnum(['manual_entry', 'automated_api', 'automated_feed', 'derived']);
+/**
+ * - manual_entry: una persona leyó la página original.
+ * - web_search: resumen de un buscador que cita la página; nunca verificado y nunca confianza alta.
+ * - derived: calculado por este proyecto (consenso).
+ */
+export const CollectionMethod = StringEnum(['manual_entry', 'web_search', 'derived']);
 export type CollectionMethod = Static<typeof CollectionMethod>;
 
 export const Verification = Obj({
@@ -100,11 +110,13 @@ export const Sample = Obj({
  * - internal_estimate → `rationale` obligatorio y confianza distinta de "high".
  * - observed_data → `sample` obligatorio.
  * - cross_source_consensus → `derivedFrom` obligatorio.
+ * - web_search → nunca "verified" ni confianza "high": hay que leer la página para verificarlo.
  */
 export const Provenance = Obj({
   sourceId: Slug,
   url: Url,
   accessedAt: IsoDate,
+  pageUpdatedAt: Type.Optional(IsoDate),
   declaredPatch: Type.Union([Patch, Type.Null()], { description: 'Parche que declara la fuente; null si no lo declara.' }),
   evidenceType: EvidenceType,
   confidence: Confidence,
@@ -130,6 +142,10 @@ export const Provenance = Obj({
       if: { properties: { evidenceType: { const: 'cross_source_consensus' } } },
       then: { required: ['derivedFrom'], properties: { collectionMethod: { const: 'derived' } } },
     },
+    {
+      if: { properties: { collectionMethod: { const: 'web_search' } } },
+      then: { properties: { confidence: { enum: ['medium', 'low'] }, verification: { type: 'object', properties: { state: { const: 'unverified' } } } } },
+    },
   ],
 });
 export type Provenance = Static<typeof Provenance>;
@@ -141,14 +157,9 @@ export const ClaimContext = Obj({
 });
 export type ClaimContext = Static<typeof ClaimContext>;
 
-/** Estadísticas de Drive Disc. Las ranuras 4-6 se validan además con reglas de integridad. */
-export const Stat = StringEnum([
-  'hp', 'atk', 'def', 'hp_pct', 'atk_pct', 'def_pct',
-  'crit_rate', 'crit_dmg', 'anomaly_proficiency', 'anomaly_mastery',
-  'pen', 'pen_ratio', 'impact', 'energy_regen',
-  'physical_dmg', 'fire_dmg', 'ice_dmg', 'electric_dmg', 'ether_dmg',
-]);
-export type Stat = Static<typeof Stat>;
+/** Estadística de Drive Disc. Lista y reglas por ranura en data/game.json. */
+export const Stat = GameCode;
+export type Stat = string;
 
 /** Calidad declarada de un sustituto. "unspecified" si la fuente no la matiza. */
 export const SubstituteQuality = StringEnum(['near_equivalent', 'workable', 'significant_downgrade', 'unspecified']);

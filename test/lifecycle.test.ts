@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { CatalogIndex } from '../src/core/catalog.ts';
+import { Vocabulary } from '../src/core/vocabulary.ts';
 import { applyLifecycle, patchAtDate } from '../src/core/lifecycle.ts';
 import { normalizeSubmission } from '../src/core/normalize.ts';
 import { EditorialSubmission } from '../src/schema/claims.ts';
@@ -11,8 +12,9 @@ import { FIXTURE_DATA, NOW, submission } from './helpers.ts';
 const inputs = await loadInputs(FIXTURE_DATA);
 const catalog = new CatalogIndex(inputs.catalog);
 const sources = new Map(inputs.sources.map((s) => [s.id, s]));
+const vocabulary = new Vocabulary(inputs.vocabulary);
 const drafts = (sub: Record<string, unknown>) =>
-  normalizeSubmission(assertValid(EditorialSubmission, sub, 't'), { catalog, sources, method: 'manual_entry', origin: 't' }).drafts;
+  normalizeSubmission(assertValid(EditorialSubmission, sub, 't'), { catalog, sources, vocabulary, origin: 't' }).drafts;
 const lifecycle = (d: ReturnType<typeof drafts>, now = NOW) =>
   applyLifecycle(d, { currentPatch: '3.3', now, sources, calendar: inputs.calendar, catalog, previousFirstSeen: new Map() });
 
@@ -73,4 +75,23 @@ test('retracted: una fuente que retira un dato lo marca como retirado', () => {
   ]);
   assert.equal(out.length, 1);
   assert.equal(out[0]!.status, 'retracted');
+});
+
+test('sin parche declarado: se infiere de la fecha de actualización de la página si existe', () => {
+  const old = lifecycle(drafts(submission({ declaredPatch: null, accessedAt: '2026-10-26', pageUpdatedAt: '2026-08-15' })));
+  assert.equal(old[0]!.status, 'stale');
+  assert.ok(old[0]!.flags.includes('older_patch'));
+});
+
+test('dos páginas de la misma fuente con el mismo hueco coexisten', () => {
+  const a = drafts(submission({ url: 'https://guide-a.example.com/zzz/a' }, [{ kind: 'tier', agent: 'Ellen', role: 'attack', tier: 'T0' }]));
+  const b = drafts(submission({ url: 'https://guide-a.example.com/zzz/b' }, [{ kind: 'tier', agent: 'Ellen', role: 'attack', tier: 'T1' }]));
+  const out = lifecycle([...a, ...b]);
+  assert.equal(out.length, 2);
+  assert.ok(out.every((c) => c.status === 'current'));
+});
+
+test('los datos de buscador llevan el flag via_search', () => {
+  const out = lifecycle(drafts(submission({ collectionMethod: 'web_search', confidence: 'low' })));
+  assert.ok(out[0]!.flags.includes('via_search'));
 });

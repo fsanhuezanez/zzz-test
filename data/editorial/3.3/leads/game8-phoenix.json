@@ -1,0 +1,102 @@
+{
+  "$schema": "../../../../schemas/editorial-submission.schema.json",
+  "sourceId": "game8",
+  "url": "https://game8.co/games/Zenless-Zone-Zero/archives/597644",
+  "title": "Phoenix Best Builds and Teams",
+  "accessedAt": "2026-10-27",
+  "declaredPatch": null,
+  "collectedBy": "asistente (búsqueda web)",
+  "collectionMethod": "web_search",
+  "evidenceType": "explicit_recommendation",
+  "confidence": "low",
+  "verification": {
+    "state": "unverified"
+  },
+  "mode": "general",
+  "notes": "Resumen de buscador del 2026-10-27; la página original no se ha leído (bloqueada desde el entorno). Comprobar antes de verificar.",
+  "claims": [
+    {
+      "kind": "team",
+      "stance": "recommended",
+      "members": [
+        {
+          "agent": "Phoenix",
+          "role": "anomaly"
+        },
+        {
+          "agent": "Velina",
+          "role": "anomaly"
+        },
+        {
+          "agent": "Remielle",
+          "role": "anomaly"
+        }
+      ],
+      "bangboo": [
+        {
+          "bangboo": "Ariel",
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "kind": "w_engine",
+      "agent": "Phoenix",
+      "options": [
+        {
+          "wEngine": "Plume of Rebirth",
+          "rank": 1
+        },
+        {
+          "wEngine": "Angel in the Shell",
+          "rank": 2,
+          "note": "Alternativas sin orden claro en el resumen"
+        },
+        {
+          "wEngine": "Frostfall Sickle",
+          "rank": 2
+        },
+        {
+          "wEngine": "Fusion Compiler",
+          "rank": 2
+        },
+        {
+          "wEngine": "Roaring Ride",
+          "rank": 2
+        },
+        {
+          "wEngine": "Weeping Gemini",
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "kind": "drive_disc",
+      "agent": "Phoenix",
+      "fourPiece": [
+        "Freedom Blues"
+      ],
+      "twoPiece": [
+        "Phaethon's Melody"
+      ],
+      "mainStats": {
+        "slot4": [
+          "anomaly_proficiency"
+        ],
+        "slot5": [
+          "fire_dmg",
+          "pen_ratio",
+          "atk_pct"
+        ],
+        "slot6": [
+          "anomaly_mastery"
+        ]
+      },
+      "substats": [
+        "anomaly_proficiency",
+        "atk_pct",
+        "pen"
+      ]
+    }
+  ]
+}

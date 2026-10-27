@@ -9,12 +9,12 @@ import { mkdir, readFile, rename, rm, stat, writeFile } from 'node:fs/promises';
 import { dirname, join, relative, resolve } from 'node:path';
 import type { TSchema } from '@sinclair/typebox';
 import {
-  AgentCatalogFile, BangbooCatalogFile, DriveDiscCatalogFile, WEngineCatalogFile, type Catalog,
+  AgentCatalogFile, BangbooCatalogFile, DriveDiscCatalogFile, GameVocabularyFile, WEngineCatalogFile, type Catalog, type GameVocabulary,
 } from '../schema/catalog.ts';
 import type { Claim } from '../schema/claims.ts';
 import {
-  AgentIndexFile, Changelog, ClaimsFile, ConsensusFile, Manifest,
-  type AgentIndexFile as AgentIndex, type Changelog as ChangelogT, type ConsensusFile as Consensus, type Manifest as ManifestT,
+  Changelog, ClaimsFile, ConsensusFile, Manifest,
+  type Changelog as ChangelogT, type ConsensusFile as Consensus, type Manifest as ManifestT,
 } from '../schema/database.ts';
 import { SourceRegistryFile, type Source } from '../schema/sources.ts';
 import { prettyJson } from './canonical.ts';
@@ -29,7 +29,7 @@ export const DB_FILES = {
   sources: 'sources.json',
   claims: 'claims.json',
   consensus: 'derived/consensus.json',
-  index: 'index/by-agent.json',
+  vocabulary: 'game.json',
   changelog: 'changelog.json',
 } as const;
 
@@ -42,7 +42,7 @@ const FILE_SCHEMAS: Record<keyof typeof DB_FILES, [TSchema, string]> = {
   sources: [SourceRegistryFile, 'source-registry.schema.json'],
   claims: [ClaimsFile, 'claims-file.schema.json'],
   consensus: [ConsensusFile, 'consensus-file.schema.json'],
-  index: [AgentIndexFile, 'agent-index.schema.json'],
+  vocabulary: [GameVocabularyFile, 'game-vocabulary.schema.json'],
   changelog: [Changelog, 'changelog.schema.json'],
 };
 
@@ -52,7 +52,7 @@ export interface StoredDatabase {
   sources: Source[];
   claims: Claim[];
   consensus: Consensus;
-  index: AgentIndex;
+  vocabulary: GameVocabulary;
   changelog: ChangelogT;
 }
 
@@ -67,6 +67,12 @@ async function exists(path: string): Promise<boolean> {
 
 async function readJson(path: string): Promise<unknown> {
   return JSON.parse(await readFile(path, 'utf8'));
+}
+
+/** Quita la clave `$schema` (depende de la ubicación del fichero, no del contenido). */
+export function withoutSchema<T extends { $schema?: string }>(value: T): Omit<T, '$schema'> {
+  const { $schema: _schema, ...rest } = value;
+  return rest;
 }
 
 /** Devuelve null si no hay base. Lanza si existe pero es inválida. */
@@ -88,7 +94,7 @@ export async function readDatabase(dir: string): Promise<StoredDatabase | null> 
     sources: ((await load('sources')) as { sources: Source[] }).sources,
     claims: ((await load('claims')) as { items: Claim[] }).items,
     consensus: (await load('consensus')) as Consensus,
-    index: (await load('index')) as AgentIndex,
+    vocabulary: withoutSchema((await load('vocabulary')) as GameVocabulary),
     changelog: (await load('changelog')) as ChangelogT,
   };
 }
@@ -107,7 +113,7 @@ export function serializeDatabase(db: DatabaseContent, outDir: string, schemasDi
     sources: { sources: db.sources },
     claims: { dataVersion: db.manifest.dataVersion, items: db.claims },
     consensus: db.consensus,
-    index: db.index,
+    vocabulary: db.vocabulary,
     changelog: db.changelog,
   };
   for (const key of Object.keys(DB_FILES) as (keyof typeof DB_FILES)[]) {

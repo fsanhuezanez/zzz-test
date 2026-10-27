@@ -1,157 +1,138 @@
 # zzz-meta-knowledge
 
-Recopilador y normalizador de conocimiento competitivo de **Zenless Zone Zero**. Produce una base JSON versionada, validada con esquemas y trazable, pensada para que **Hoyo Builds** (u otro recomendador) combine la evidencia competitiva con el roster real de una cuenta.
+Base de conocimiento competitivo de **Zenless Zone Zero** para **Hoyo Builds**, una herramienta privada que uso con mis amigos. Es un repositorio de JSON local, versionado en git y validado con esquemas. Cada dato dice de qué página sale, cuándo se consultó, para qué parche es y si alguien lo ha comprobado.
 
-No es un agregador de tier lists. Cada dato es un *claim* atómico atribuido a **una** fuente, con su procedencia completa. Los equipos son la unidad principal de recomendación: un agente con tier alto no mejora por sí solo un equipo que ninguna fuente avala.
+La base **describe la evidencia; no decide** qué equipo es mejor para cada cuenta. Eso lo hace Hoyo Builds cruzándola con el roster real de cada persona.
 
-> **Estado de los datos (parche 3.3, 27-10-2026).** La base publicada en `db/` contiene el registro de fuentes, el calendario de parches y un catálogo semilla (33 agentes, 27 W-Engines, 18 Drive Discs y 8 Bangboo), todo marcado como *sin verificar*. **Aún no contiene claims competitivos.** Las condiciones de Prydwen y Mobalytics prohíben la recogida automatizada, Akademiya no publica condiciones ni API, y no se han inventado datos en nombre de ninguna fuente. El siguiente paso es un pase editorial manual (ver [docs/EDITORIAL-GUIDE.md](docs/EDITORIAL-GUIDE.md)). La base de ejemplo `examples/fixture-db/` usa **fuentes ficticias** y lleva `isFixture: true`.
+> ## Estado de los datos (27-10-2026, parche 3.3)
+>
+> - **0 datos verificados.** La base **no** puede considerarse actualizada para 3.3 hasta que alguien revise las páginas.
+> - **33 pistas pendientes** en `data/editorial/3.3/leads/`: 22 equipos, sustitutos, una build de Phoenix, W-Engines, sinergias y una rotación. Salen de 16 páginas de Game8, Game Rant, Icy Veins, Mobalytics, zzz-build, Timesaver y Prydwen. Se obtuvieron de **resúmenes de buscador**, porque desde el entorno donde se preparó no se podía abrir ninguna de esas webs. Llevan confianza `low`, método `web_search` y el flag `via_search`. Pueden tener errores.
+> - El catálogo incluye 25 agentes nuevos de 2.x–3.3 (Phoenix, Velina, Remielle, Ye Shunguang, Yixuan, Lucia…), solo con el nombre. Faltan rareza, atributo y especialidad, y nada del catálogo está verificado en el juego.
+> - `npm run report` lista las 16 páginas que hay que abrir, ordenadas por número de datos.
 
-## Inicio rápido
+## Separación de datos
 
-Requisitos: Node.js ≥ 22.18. El proyecto ejecuta TypeScript directamente, sin paso de compilación.
+| Qué | Dónde | Cómo se reconoce |
+|---|---|---|
+| **Verificado** | `data/editorial/<parche>/*.json` | `verification.state: "verified"` (con `reviewedBy`/`reviewedAt`) → `review: "verified"` en el export |
+| **Pendiente** (leído en la página, sin segunda revisión) | `data/editorial/<parche>/*.json` | `verification.state: "unverified"` → `review: "pending"` |
+| **Pista de buscador** (no leída en la página) | `data/editorial/<parche>/leads/*.json` | `collectionMethod: "web_search"`, nunca `verified` ni confianza `high`; flag `via_search` |
+| **Ficticio** (solo pruebas) | `test/fixtures/`, `examples/fixture-*` | fuentes `kind: "fixture"`, `isFixture: true`. `update` se niega a publicarlas sin `--allow-fixtures`. |
+
+## Instalación y uso
+
+Requisitos: Node.js ≥ 22.18 (ejecuta TypeScript directamente, sin compilar).
 
 ```bash
 npm install
-npm run update -- --patch 3.3            # recoger → normalizar → validar → publicar en db/
-npm run update -- --patch 3.3 --dry-run  # simular sin escribir nada
-npm run validate                         # esquema + integridad + hash de la base publicada
-npm run report                           # último informe (reports/latest.md)
-npm test                                 # pruebas automatizadas (node:test)
-npm run check                            # typecheck + pruebas + validación
-
-# Pase editorial: crea un borrador para una fuente
-npm run new-submission -- --source prydwen --patch 3.3 --kinds tier,team --url https://www.prydwen.gg/zenless/tier-list
-
-# Ejemplo de consumo (con la base de PRUEBA)
-npm run example:build       # regenera examples/fixture-db desde test/fixtures
-npm run example:recommend   # recomienda equipos para examples/hoyo-builds-consumer/roster.example.json
+npm run update                 # valida data/, publica db/, exporta export/ y escribe reports/
+npm run update -- --dry-run    # simula sin escribir nada
+npm run report                 # informe breve: qué cambió y qué revisar
+npm run validate               # comprueba db/ y que export/ esté al día
+npm test                       # pruebas
+npm run check                  # tipos + pruebas + validación
 ```
 
-`update` sin `--patch` usa el último parche de `data/patches.json`. Devuelve código 1 si la actualización falla. En ese caso `db/` queda intacta y se escribe `reports/failed-<parche>-<fecha>.md`.
+Si `update` encuentra un error en los datos (agente mal escrito, estadística imposible, URL de otra web…), **no publica nada**. `db/` y `export/` quedan como estaban, y el informe dice el fichero, la ruta y el motivo.
 
-## Qué hace
+## Flujo por parche
 
-| Requisito | Cómo se cumple |
-|---|---|
-| Fuentes respetando sus condiciones | `data/sources.json` registra la política de cada fuente (`allowed` / `disallowed` / `unknown`) con su base y su evidencia. La recogida automatizada solo se ejecuta con `allowed`, el método autorizado y evidencia documentada, y además respeta robots.txt. Lo demás entra por envío editorial manual con atribución. |
-| Agentes, tiers por rol, equipos, sustitutos, sinergias, rotaciones, W-Engines, Drive Discs, Bangboo, inversión y F2P | Once tipos de claim (`tier`, `team`, `substitute`, `synergy`, `rotation`, `w_engine`, `drive_disc`, `bangboo`, `investment`, `f2p_option`, `usage`) sobre un catálogo de entidades. |
-| Procedencia de cada dato | `provenance`: fuente, URL, fecha de consulta, parche declarado, tipo de evidencia, confianza, método de recogida, quién lo recogió y verificación por una segunda persona. |
-| Distinguir el tipo de evidencia | `explicit_recommendation`, `observed_data` (exige muestra), `cross_source_consensus` (solo derivado, en un fichero aparte) e `internal_estimate` (solo con la fuente interna, exige justificación y nunca tiene confianza alta). Las estadísticas de uso solo se aceptan como `observed_data` de una fuente externa. |
-| JSON consistente y tipado | JSON Schemas en `schemas/` generados desde la misma definición TypeBox que produce los tipos TS. Las claves salen ordenadas y la salida es determinista. |
-| Cambios, duplicados, último válido, antiguos y no verificados | Ids por contenido, deduplicación, `superseded`, `stale`, flags de revisión, changelog por versión, publicación atómica y conservación de los datos de una fuente cuyo feed falla. |
-| Actualización por parche e informe | `npm run update -- --patch X.Y` genera `reports/<versión>.md` y `.json` con lo actualizado, lo desactualizado y lo pendiente de revisión manual. |
-| Docs, pruebas y ejemplo externo | `docs/`, `test/` y `examples/hoyo-builds-consumer/`. |
+```bash
+npm run new-patch -- 3.4 --date 2026-12-02 --url <noticia oficial>   # 1. calendario
+#                                                                       2. agentes nuevos → data/catalog/agents.json (basta id + nombre)
+npm run update -- --patch 3.4      # 3. lo de 3.3 pasa a "stale" y el informe lista qué revisar
+npm run new-submission -- --source prydwen --template team --url https://www.prydwen.gg/zenless/...   # 4. un borrador por página
+#                                                                       5. rellenar con la página abierta, quitar ".draft"
+npm run update -- --patch 3.4      # 6. publicar; un amigo revisa y marca "verified"
+```
+
+Las plantillas son `team` (equipo y sustitutos), `build` (W-Engine, Drive Discs, F2P, inversión y Bangboo), `tier` y `all`. Guía detallada: [docs/EDITORIAL-GUIDE.md](docs/EDITORIAL-GUIDE.md).
+
+Para atributos, especialidades o estadísticas nuevas, edita `data/game.json`; no hace falta tocar código.
+
+## Uso desde Hoyo Builds
+
+Copia (o enlaza como submódulo) la carpeta `export/`:
+
+- `export/zzz-meta.json`: todo en un solo fichero, con equipos, composiciones, sustitutos, builds por agente, tiers, sinergias, rotaciones, catálogo y fuentes.
+- `export/zzz-meta.types.ts`: los tipos, sin dependencias.
+
+```ts
+import data from './zzz-meta/zzz-meta.json' with { type: 'json' };
+import type { ZzzMetaExport, Team } from './zzz-meta/zzz-meta.types.ts';
+
+const meta = data as ZzzMetaExport;
+if (meta.meta.isFixture) throw new Error('datos de prueba');
+const phoenixTeams: Team[] = meta.teams.filter((t) => t.members.some((m) => m.agent === 'phoenix'));
+const build = meta.builds['phoenix'];                            // W-Engines, Drive Discs, F2P, inversión, Bangboo
+const verifiedOnly = meta.teams.filter((t) => t.evidence.review === 'verified');
+```
+
+El [ejemplo de recomendador](examples/hoyo-builds-consumer/README.md) cruza el paquete con un roster: equipos formables, sustitutos documentados, lo que falta, una pareja para Shiyu y builds.
+
+```bash
+node examples/hoyo-builds-consumer/recommend.ts export/zzz-meta.json mi-roster.json shiyu_defense
+```
+
+### Ejemplo de equipo exportado (pista real, pendiente)
+
+```json
+{
+  "id": "clm_team_eada3c03d6dc",
+  "mode": "general",
+  "archetype": "Anomaly (Remielle)",
+  "stance": "recommended",
+  "budget": false,
+  "members": [
+    { "agent": "remielle", "role": "anomaly", "substitutes": [] },
+    { "agent": "phoenix", "role": "anomaly", "substitutes": [] },
+    { "agent": "velina", "role": "anomaly", "substitutes": [] }
+  ],
+  "flex": [],
+  "alternates": [{ "agent": "promeia", "quality": "unspecified" }, { "agent": "vivian", "quality": "unspecified" },
+                 { "agent": "aria", "quality": "unspecified" }, { "agent": "alice", "quality": "unspecified" }],
+  "requirements": [{ "text": "Remielle obtiene sus mayores bonificaciones con otros dos agentes Anomaly en el equipo", "level": "recommended", "agent": "remielle" }],
+  "limitations": [],
+  "bangboo": [],
+  "evidence": {
+    "sourceId": "game8", "sourceName": "Game8", "url": "https://game8.co/games/Zenless-Zone-Zero/archives/458656",
+    "accessedAt": "2026-10-27", "declaredPatch": null, "evidenceType": "explicit_recommendation",
+    "confidence": "low", "collectionMethod": "web_search", "review": "pending", "status": "current",
+    "flags": ["patch_undeclared", "unverified_catalog_refs", "via_search"]
+  }
+}
+```
+
+`stance` distingue entre un equipo que la fuente **clasifica** en un ranking (`ranked`, con `rating`), uno que **recomienda** (`recommended`) y uno que solo **muestra** (`showcase`). Los tiers individuales van aparte (`tiers`) y no son un ranking de equipos.
 
 ## Estructura
 
 ```
-├── data/                       ENTRADAS (editadas por personas)
-│   ├── sources.json            registro de fuentes + políticas + escalas de tier
-│   ├── patches.json            calendario de parches (detecta stale y pre_release)
-│   ├── catalog/                agentes, W-Engines, Drive Discs, Bangboo
-│   └── editorial/<parche>/     envíos manuales (*.json; *.draft.json se ignora)
-├── db/                         SALIDA versionada (no editar a mano; validate lo detecta)
-│   ├── manifest.json           versión, hash, recuentos, estado por fuente
-│   ├── claims.json             todos los claims con procedencia y estado
-│   ├── derived/consensus.json  consenso entre fuentes (derivado, separado)
-│   ├── index/by-agent.json     índice agente → claims
-│   ├── catalog/*.json  sources.json  changelog.json
-├── reports/                    informes por versión + latest.{md,json}
-├── schemas/                    JSON Schemas publicados (npm run schemas)
-├── src/
-│   ├── schema/                 TypeBox: esquemas + tipos TS
-│   ├── core/                   normalize, lifecycle, consensus, diff, store, report, integrity
-│   ├── collectors/             manual, http-feed (con permiso), policy, robots
-│   ├── client/                 lector para consumidores (loadDatabase / MetaDatabase)
-│   ├── pipeline.ts  cli.ts  templates.ts
-├── examples/
-│   ├── hoyo-builds-consumer/   recomendador de ejemplo basado en roster
-│   ├── fixture-db/             base generada con fuentes ficticias
-│   └── fixture-reports/
-├── test/                       node:test + fixtures ficticios
-└── docs/                       ARCHITECTURE, SOURCES, EDITORIAL-GUIDE
+data/                     ENTRADAS, editables a mano
+  sources.json            fuentes, condiciones de uso, dudas y escalas de tier
+  patches.json            calendario de parches
+  game.json               atributos, especialidades, estadísticas por ranura
+  catalog/                agentes, W-Engines, Drive Discs, Bangboo
+  editorial/<parche>/     envíos manuales (leads/ = pistas de buscador)
+db/                       base canónica generada (no editar; validate lo detecta)
+export/                   paquete para Hoyo Builds (zzz-meta.json + zzz-meta.types.ts)
+reports/                  informe por versión + latest.{md,json}
+schemas/                  JSON Schemas de los ficheros de entrada y de db/
+src/                      schema/ · core/ · collectors/manual · export/ · pipeline.ts · cli.ts
+examples/                 hoyo-builds-consumer/ + base, informe y paquete de PRUEBA (fixture-*)
+test/                     pruebas (node:test) + fixtures ficticias
+docs/                     ARCHITECTURE · SOURCES · EDITORIAL-GUIDE
 ```
-
-## Ejemplo de JSON generado
-
-Un claim de equipo de `examples/fixture-db/claims.json` (fuente **ficticia**):
-
-```json
-{
-  "id": "clm_team_1146c77fa655",
-  "kind": "team",
-  "sourceId": "example-guide-a",
-  "slotKey": "team:ellen+lycaon+soukaku:shiyu_defense",
-  "agentRefs": ["astra-yao", "ellen", "lycaon", "qingyi", "soukaku"],
-  "payload": {
-    "archetype": "Ice burst",
-    "members": [
-      { "agent": "ellen", "role": "main_dps" },
-      { "agent": "lycaon", "role": "stunner", "substitutes": [{ "agent": "qingyi", "quality": "workable" }] },
-      { "agent": "soukaku", "role": "support", "substitutes": [{ "agent": "astra-yao", "quality": "near_equivalent" }] }
-    ],
-    "bangboo": [{ "bangboo": "butler", "rank": 1 }]
-  },
-  "context": { "mode": "shiyu_defense" },
-  "provenance": {
-    "sourceId": "example-guide-a",
-    "url": "https://guide-a.example.com/zzz/tier-list",
-    "accessedAt": "2026-10-24",
-    "declaredPatch": "3.3",
-    "evidenceType": "explicit_recommendation",
-    "confidence": "high",
-    "collectionMethod": "manual_entry",
-    "collectedBy": "editor-a",
-    "verification": { "state": "verified", "reviewedBy": "revisor-b", "reviewedAt": "2026-10-25" }
-  },
-  "status": "current",
-  "flags": ["unverified_catalog_refs"],
-  "firstSeenAt": "2026-10-27"
-}
-```
-
-Consenso derivado (`derived/consensus.json`), siempre separado de los claims atribuidos:
-
-```json
-{
-  "id": "cns_tier_1cf3288a99f8",
-  "agent": "ellen", "role": "attack", "mode": "shiyu_defense", "patch": "3.3",
-  "entries": [
-    { "sourceId": "example-guide-a", "claimId": "clm_tier_bbb3d993ee2d", "tier": "T0", "score": 1 },
-    { "sourceId": "example-stats-b", "claimId": "clm_tier_5e0dca51f3c3", "tier": "S", "score": 0.8 }
-  ],
-  "meanScore": 0.9, "minScore": 0.8, "maxScore": 1, "agreement": "agree",
-  "evidenceType": "cross_source_consensus", "collectionMethod": "derived",
-  "derivedFrom": ["clm_tier_bbb3d993ee2d", "clm_tier_5e0dca51f3c3"]
-}
-```
-
-## Consumo desde TypeScript
-
-```ts
-import { loadDatabase } from 'zzz-meta-knowledge';           // lector validado (Node)
-import type { Claim, ClaimOf } from 'zzz-meta-knowledge/types';
-
-const db = await loadDatabase('node_modules/zzz-meta-knowledge/db');
-if (db.isFixture) throw new Error('base de prueba');
-const teams: ClaimOf<'team'>[] = db.claims({ kind: 'team', agent: 'ellen', verifiedOnly: true });
-console.log(db.attribution(teams[0]!));                       // atribución obligatoria al mostrarlo
-```
-
-También puedes importar directamente los JSON (`zzz-meta-knowledge/db/claims.json`) y validarlos con `zzz-meta-knowledge/schemas/*.schema.json`. Si se instala desde git, `prepare` compila `dist/`. El ejemplo completo, con el recomendador basado en roster, está en [examples/hoyo-builds-consumer](examples/hoyo-builds-consumer/README.md).
 
 ## Limitaciones conocidas
 
-- **Sin datos competitivos reales todavía.** Hace falta un pase editorial humano por fuente y parche (ver la guía). Ninguna fuente objetivo permite automatizar hoy.
-- **La política de las fuentes se revisó de forma indirecta.** Desde el entorno de desarrollo no se pudo acceder a prydwen.gg, mobalytics.gg ni zzz.akademiya.app (la red los bloquea), así que los términos se leyeron en fragmentos de buscador. Hay que reconfirmarlos en un navegador antes del primer envío (`automation.checkedAt`).
-- **Catálogo semilla sin verificar e incompleto.** Cubre agentes hasta la era 1.x que el mantenedor conoce. Faltan los agentes de 2.x–3.3 y sus W-Engines, Drive Discs y Bangboo, y nada está contrastado con el juego. Todos los claims que lo referencian llevan el flag `unverified_catalog_refs`.
-- **Escalas de tier provisionales** (`confirmed: false`). Las etiquetas de Prydwen, Mobalytics y Akademiya deben confirmarse contra sus páginas. El `score` normalizado es una posición dentro de la escala de cada fuente, no una métrica comparable en sentido estricto, y el consenso es aproximado.
-- **Fechas de parche sin verificar** (3.1–3.3, tomadas de resultados de búsqueda).
-- **Pesos del recomendador de ejemplo** heurísticos y no calibrados.
-- **El lector `loadDatabase` usa `node:fs`.** En navegador, carga los JSON por tu cuenta y usa `MetaDatabase.fromFiles`.
-- **El historial completo depende de git.** Cada versión guarda solo su `changelog.json` y su informe; los `superseded` se conservan dentro de `claims.json`.
-- **No hay gestión de builds por mindscape más allá de `investment`, ni datos de enemigos o del buff de cada ciclo.** Las condiciones se anotan en texto (`context.conditions`).
+- **Nada verificado.** Las 33 pistas son resúmenes de buscador: pueden mezclar páginas, haber quedado viejas o malinterpretar la fuente. Usarlas sin revisar es hacerlo bajo tu responsabilidad (`includePending: false` las excluye).
+- **Catálogo incompleto.** Los agentes nuevos solo tienen nombre, y puede faltar alguno de 2.x–3.3. Los nombres completos usados como alias salen de resultados de búsqueda.
+- **Vocabulario sin verificar.** «Wind» y «Armorer» se vieron en resultados de búsqueda. Las fechas de parche no están contrastadas con fuentes oficiales.
+- **Ninguna fuente se automatiza** (ver [docs/SOURCES.md](docs/SOURCES.md)). Mantener la base al día exige un pase manual por parche: unos minutos por página.
+- **El orden del recomendador de ejemplo** es un criterio transparente (verificado → vigente → clasificado/recomendado → no económico → más fuentes → menos sustituciones), no una métrica de daño.
+- **Sin datos de enemigos ni del buff de cada ciclo de Shiyu o Deadly Assault**. Las condiciones van como texto en `requirements`, `limitations` y `conditions`.
+- **Historial en git:** cada versión deja su informe y su `changelog.json`; los datos reemplazados se conservan en `db/claims.json`.
 
-## Licencia y atribución
-
-Código bajo MIT. Los datos competitivos pertenecen a sus fuentes. Muestra siempre `db.attribution(claim)` y enlaza la página original. Zenless Zone Zero © HoYoverse; este proyecto no está afiliado a HoYoverse ni a ninguna de las fuentes.
+Uso personal y no comercial. Los datos competitivos pertenecen a sus fuentes; muestra siempre la fuente y el enlace. Zenless Zone Zero © HoYoverse.

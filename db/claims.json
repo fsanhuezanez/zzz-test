@@ -1,5 +1,1795 @@
 {
   "$schema": "../schemas/claims-file.schema.json",
   "dataVersion": "3.3-r1",
-  "items": []
+  "items": [
+    {
+      "agentRefs": [
+        "phoenix"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_drive_disc_49cf93a1466f",
+      "kind": "drive_disc",
+      "payload": {
+        "agent": "phoenix",
+        "fourPiece": [
+          "freedom-blues"
+        ],
+        "mainStats": {
+          "slot4": [
+            "anomaly_proficiency"
+          ],
+          "slot5": [
+            "fire_dmg",
+            "pen_ratio",
+            "atk_pct"
+          ],
+          "slot6": [
+            "anomaly_mastery"
+          ]
+        },
+        "substats": [
+          "anomaly_proficiency",
+          "atk_pct",
+          "pen"
+        ],
+        "twoPiece": [
+          "phaethon-s-melody"
+        ]
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/597644",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "drive_disc:phoenix:general",
+      "sourceId": "game8",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "anby",
+        "soukaku",
+        "yixuan"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_f2p_option_943c0751683b",
+      "kind": "f2p_option",
+      "payload": {
+        "agent": "yixuan",
+        "category": "team",
+        "entities": [
+          "yixuan",
+          "anby",
+          "soukaku"
+        ]
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/516115",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "f2p_option:yixuan:team:anby+soukaku+yixuan:general",
+      "sourceId": "game8",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "phoenix",
+        "remielle",
+        "velina"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_rotation_c04fca9852de",
+      "kind": "rotation",
+      "payload": {
+        "agents": [
+          "phoenix",
+          "velina",
+          "remielle"
+        ],
+        "steps": [
+          "Durante la animación larga del EX2 de Phoenix, cambiar a Velina o Remielle"
+        ]
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "mobalytics",
+        "url": "https://mobalytics.gg/zzz/builds/phoenix-build",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "rotation:phoenix+remielle+velina:general",
+      "sourceId": "mobalytics",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "banyue",
+        "lucia",
+        "yixuan"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_substitute_054fd6bdaa50",
+      "kind": "substitute",
+      "payload": {
+        "agent": "yixuan",
+        "archetype": "Rupture",
+        "quality": "unspecified",
+        "substitute": "banyue",
+        "withAgents": [
+          "lucia"
+        ]
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/545821",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "substitute:yixuan:banyue:lucia:general",
+      "sourceId": "game8",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "lucia",
+        "yidhari",
+        "yixuan"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_substitute_0bdf86b91944",
+      "kind": "substitute",
+      "payload": {
+        "agent": "yixuan",
+        "archetype": "Rupture",
+        "quality": "unspecified",
+        "substitute": "yidhari",
+        "withAgents": [
+          "lucia"
+        ]
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/545821",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "substitute:yixuan:yidhari:lucia:general",
+      "sourceId": "game8",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "lucia",
+        "manato",
+        "yixuan"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_substitute_61ffb08a104a",
+      "kind": "substitute",
+      "payload": {
+        "agent": "yixuan",
+        "archetype": "Rupture",
+        "quality": "unspecified",
+        "substitute": "manato",
+        "withAgents": [
+          "lucia"
+        ]
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/545821",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "substitute:yixuan:manato:lucia:general",
+      "sourceId": "game8",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "lucia",
+        "starlight-billy",
+        "yixuan"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_substitute_bc88dddb3767",
+      "kind": "substitute",
+      "payload": {
+        "agent": "yixuan",
+        "archetype": "Rupture",
+        "quality": "unspecified",
+        "substitute": "starlight-billy",
+        "withAgents": [
+          "lucia"
+        ]
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/545821",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "substitute:yixuan:starlight-billy:lucia:general",
+      "sourceId": "game8",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "phoenix",
+        "remielle"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_synergy_9f6bf24b8ba2",
+      "kind": "synergy",
+      "payload": {
+        "agents": [
+          "phoenix",
+          "remielle"
+        ],
+        "mechanism": "Remielle no aprovecha del todo sus bonificaciones sin un tercer agente Anomaly; contradice a otras fuentes que recomiendan el trío",
+        "polarity": "conditional"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "icy-veins",
+        "url": "https://www.icy-veins.com/zenless-zone-zero/remielle-dan-teams",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "synergy:phoenix+remielle:general",
+      "sourceId": "icy-veins",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "remielle",
+        "vivian"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_synergy_e0e8388c2c8d",
+      "kind": "synergy",
+      "payload": {
+        "agents": [
+          "remielle",
+          "vivian"
+        ],
+        "mechanism": "La baja acumulación de Anomalía de Vivian encaja mal con Remielle",
+        "polarity": "negative"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "icy-veins",
+        "url": "https://www.icy-veins.com/zenless-zone-zero/remielle-dan-teams",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "synergy:remielle+vivian:general",
+      "sourceId": "icy-veins",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "lycaon",
+        "miyabi",
+        "soukaku"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_team_0155e2c7bd6f",
+      "kind": "team",
+      "payload": {
+        "archetype": "Presupuesto (cuenta con Miyabi)",
+        "budget": true,
+        "members": [
+          {
+            "agent": "miyabi",
+            "role": "anomaly"
+          },
+          {
+            "agent": "lycaon",
+            "role": "stunner"
+          },
+          {
+            "agent": "soukaku",
+            "role": "support"
+          }
+        ],
+        "stance": "recommended"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "timesaver",
+        "url": "https://timesaver.gg/blog/zzz-best-teams",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "team:lycaon+miyabi+soukaku:general",
+      "sourceId": "timesaver",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "alice",
+        "astra-yao",
+        "burnice",
+        "miyabi",
+        "nangong-yu",
+        "vivian",
+        "yanagi",
+        "yuzuha"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_team_034ee13d7bae",
+      "kind": "team",
+      "payload": {
+        "archetype": "Disorder (Miyabi)",
+        "flex": [
+          {
+            "options": [
+              "yanagi",
+              "yuzuha",
+              "alice",
+              "vivian",
+              "astra-yao",
+              "burnice",
+              "nangong-yu"
+            ],
+            "pick": 2
+          }
+        ],
+        "members": [
+          {
+            "agent": "miyabi",
+            "role": "anomaly"
+          }
+        ],
+        "stance": "recommended"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/458656",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "team:miyabi[2:alice|astra-yao|burnice|nangong-yu|vivian|yanagi|yuzuha]:general",
+      "sourceId": "game8",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "anby",
+        "claret",
+        "nicole"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_team_1661950cca77",
+      "kind": "team",
+      "payload": {
+        "archetype": "F2P",
+        "budget": true,
+        "members": [
+          {
+            "agent": "claret",
+            "role": "main_dps"
+          },
+          {
+            "agent": "anby",
+            "role": "stunner"
+          },
+          {
+            "agent": "nicole",
+            "role": "support"
+          }
+        ],
+        "stance": "recommended"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/462110",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "team:anby+claret+nicole:general",
+      "sourceId": "game8",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "aria",
+        "remielle",
+        "velina"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_team_288ac86cbb0a",
+      "kind": "team",
+      "payload": {
+        "members": [
+          {
+            "agent": "remielle",
+            "role": "anomaly"
+          },
+          {
+            "agent": "velina",
+            "role": "anomaly"
+          },
+          {
+            "agent": "aria",
+            "role": "anomaly"
+          }
+        ],
+        "stance": "recommended"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "notes": "Según el resumen, la guía llama a Aria la mejor DPS principal junto a Velina.",
+        "sourceId": "mobalytics",
+        "url": "https://mobalytics.gg/zzz/builds/remielle-build-guide",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "team:aria+remielle+velina:general",
+      "sourceId": "mobalytics",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "astra-yao",
+        "dialyn",
+        "ju-fufu",
+        "sunna",
+        "trigger",
+        "ye-shunguang",
+        "zhao"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_team_4221f20b96ba",
+      "kind": "team",
+      "payload": {
+        "archetype": "Attack (Ye Shunguang)",
+        "flex": [
+          {
+            "options": [
+              "dialyn",
+              "sunna",
+              "ju-fufu",
+              "zhao",
+              "trigger",
+              "astra-yao"
+            ],
+            "pick": 2
+          }
+        ],
+        "members": [
+          {
+            "agent": "ye-shunguang",
+            "role": "main_dps"
+          }
+        ],
+        "stance": "recommended"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "notes": "Según el resumen, la página lo describe como uno de los equipos más fuertes actualmente.",
+        "sourceId": "game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/458656",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "team:ye-shunguang[2:astra-yao|dialyn|ju-fufu|sunna|trigger|zhao]:general",
+      "sourceId": "game8",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "nangong-yu",
+        "phoenix",
+        "remielle"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_team_53853138a459",
+      "kind": "team",
+      "payload": {
+        "limitations": [
+          "Opción provisional según la propia página"
+        ],
+        "members": [
+          {
+            "agent": "phoenix",
+            "role": "anomaly"
+          },
+          {
+            "agent": "nangong-yu",
+            "role": "stunner"
+          },
+          {
+            "agent": "remielle",
+            "role": "anomaly"
+          }
+        ],
+        "stance": "showcase"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "zzz-build",
+        "url": "https://www.zzz-build.com/agents/phoenix/teams",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "team:nangong-yu+phoenix+remielle:general",
+      "sourceId": "zzz-build",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "lycaon",
+        "rina",
+        "sigrid"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "older_patch",
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_team_7439383e3870",
+      "kind": "team",
+      "payload": {
+        "archetype": "F2P",
+        "budget": true,
+        "members": [
+          {
+            "agent": "sigrid",
+            "role": "main_dps"
+          },
+          {
+            "agent": "lycaon",
+            "role": "stunner"
+          },
+          {
+            "agent": "rina",
+            "role": "support"
+          }
+        ],
+        "stance": "recommended"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "pageUpdatedAt": "2026-08-19",
+        "sourceId": "gamerant",
+        "url": "https://gamerant.com/zenless-zone-zero-zzz-sigrid-team-comp-composition-best-pair-teammates/",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "team:lycaon+rina+sigrid:general",
+      "sourceId": "gamerant",
+      "status": "stale"
+    },
+    {
+      "agentRefs": [
+        "claret",
+        "norma",
+        "rina"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_team_76d5a301a807",
+      "kind": "team",
+      "payload": {
+        "members": [
+          {
+            "agent": "claret",
+            "role": "main_dps"
+          },
+          {
+            "agent": "norma",
+            "role": "support"
+          },
+          {
+            "agent": "rina",
+            "role": "support"
+          }
+        ],
+        "requirements": [
+          {
+            "agent": "claret",
+            "level": "required",
+            "text": "Claret necesita un agente Stun o Armorer en el equipo para activar su habilidad adicional"
+          }
+        ],
+        "stance": "recommended"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "gamerant",
+        "url": "https://gamerant.com/zzz-claret-team-comp-composition-zenless-zone-zero-best-pair-teammates/",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "team:claret+norma+rina:general",
+      "sourceId": "gamerant",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "phoenix",
+        "remielle",
+        "velina"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_team_809ffcb380e6",
+      "kind": "team",
+      "payload": {
+        "bangboo": [
+          {
+            "bangboo": "ariel",
+            "rank": 1
+          }
+        ],
+        "members": [
+          {
+            "agent": "phoenix",
+            "role": "anomaly"
+          },
+          {
+            "agent": "velina",
+            "role": "anomaly"
+          },
+          {
+            "agent": "remielle",
+            "role": "anomaly"
+          }
+        ],
+        "stance": "recommended"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/597644",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "team:phoenix+remielle+velina:general",
+      "sourceId": "game8",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "phoenix",
+        "remielle",
+        "velina",
+        "yuzuha"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_team_99a5d4906553",
+      "kind": "team",
+      "payload": {
+        "members": [
+          {
+            "agent": "phoenix",
+            "role": "anomaly"
+          },
+          {
+            "agent": "velina",
+            "role": "anomaly"
+          },
+          {
+            "agent": "remielle",
+            "role": "anomaly",
+            "substitutes": [
+              {
+                "agent": "yuzuha",
+                "quality": "unspecified"
+              }
+            ]
+          }
+        ],
+        "stance": "recommended"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "notes": "La página atribuye estas dos variantes a la recomendación oficial de HoYoverse; no comprobado.",
+        "sourceId": "timesaver",
+        "url": "https://timesaver.gg/blog/zzz-best-teams",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "team:phoenix+remielle+velina:general",
+      "sourceId": "timesaver",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "nicole",
+        "norma",
+        "severian"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_team_9c8c4ea82fe6",
+      "kind": "team",
+      "payload": {
+        "members": [
+          {
+            "agent": "severian",
+            "role": "main_dps"
+          },
+          {
+            "agent": "norma",
+            "role": "support"
+          },
+          {
+            "agent": "nicole",
+            "role": "support"
+          }
+        ],
+        "stance": "showcase"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "icy-veins",
+        "url": "https://www.icy-veins.com/zenless-zone-zero/severian-teams",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "team:nicole+norma+severian:general",
+      "sourceId": "icy-veins",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "anby",
+        "soukaku",
+        "yixuan"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_team_a46cf5f74284",
+      "kind": "team",
+      "payload": {
+        "archetype": "F2P",
+        "budget": true,
+        "members": [
+          {
+            "agent": "yixuan",
+            "role": "main_dps"
+          },
+          {
+            "agent": "anby",
+            "role": "stunner"
+          },
+          {
+            "agent": "soukaku",
+            "role": "support"
+          }
+        ],
+        "stance": "recommended"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/516115",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "team:anby+soukaku+yixuan:general",
+      "sourceId": "game8",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "astra-yao",
+        "dialyn",
+        "ju-fufu",
+        "lucia",
+        "yixuan"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_team_a7181052dda3",
+      "kind": "team",
+      "payload": {
+        "alternates": [
+          {
+            "agent": "ju-fufu",
+            "quality": "unspecified"
+          },
+          {
+            "agent": "astra-yao",
+            "quality": "unspecified"
+          }
+        ],
+        "archetype": "Rupture (Yixuan)",
+        "members": [
+          {
+            "agent": "yixuan",
+            "role": "main_dps"
+          },
+          {
+            "agent": "dialyn",
+            "role": "stunner"
+          },
+          {
+            "agent": "lucia",
+            "role": "support"
+          }
+        ],
+        "stance": "recommended"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/458656",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "team:dialyn+lucia+yixuan:general",
+      "sourceId": "game8",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "phoenix",
+        "remielle",
+        "velina"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_team_c2adba9232bf",
+      "kind": "team",
+      "payload": {
+        "limitations": [
+          "Composición provisional según la propia página (calculada antes o en el lanzamiento de Phoenix)"
+        ],
+        "members": [
+          {
+            "agent": "phoenix",
+            "role": "anomaly"
+          },
+          {
+            "agent": "velina",
+            "role": "anomaly"
+          },
+          {
+            "agent": "remielle",
+            "role": "anomaly"
+          }
+        ],
+        "stance": "recommended"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "zzz-build",
+        "url": "https://www.zzz-build.com/agents/phoenix/teams",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "team:phoenix+remielle+velina:general",
+      "sourceId": "zzz-build",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "astra-yao",
+        "pan-yinhu",
+        "yixuan",
+        "yuzuha"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_team_d228437f4aa2",
+      "kind": "team",
+      "payload": {
+        "flex": [
+          {
+            "options": [
+              "astra-yao",
+              "yuzuha"
+            ],
+            "pick": 1
+          }
+        ],
+        "members": [
+          {
+            "agent": "yixuan",
+            "role": "main_dps"
+          },
+          {
+            "agent": "pan-yinhu",
+            "role": "defense"
+          }
+        ],
+        "stance": "showcase"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "notes": "Según el resumen, la guía describe Pan Yinhu con Astra Yao o Yuzuha como otros equipos fuertes; sus cálculos usan Ju Fufu.",
+        "sourceId": "prydwen",
+        "url": "https://www.prydwen.gg/zenless/characters/yixuan",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "team:pan-yinhu+yixuan[1:astra-yao|yuzuha]:general",
+      "sourceId": "prydwen",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "dialyn",
+        "norma",
+        "sigrid",
+        "sunna"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "older_patch",
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_team_d4ce32d167ce",
+      "kind": "team",
+      "payload": {
+        "members": [
+          {
+            "agent": "sigrid",
+            "role": "main_dps"
+          },
+          {
+            "agent": "norma",
+            "role": "support",
+            "substitutes": [
+              {
+                "agent": "dialyn",
+                "quality": "unspecified"
+              }
+            ]
+          },
+          {
+            "agent": "sunna",
+            "role": "support"
+          }
+        ],
+        "stance": "recommended"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "pageUpdatedAt": "2026-08-19",
+        "sourceId": "gamerant",
+        "url": "https://gamerant.com/zenless-zone-zero-zzz-sigrid-team-comp-composition-best-pair-teammates/",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "team:norma+sigrid+sunna:general",
+      "sourceId": "gamerant",
+      "status": "stale"
+    },
+    {
+      "agentRefs": [
+        "dialyn",
+        "lucia",
+        "yixuan"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_team_e5152f9de4cf",
+      "kind": "team",
+      "payload": {
+        "members": [
+          {
+            "agent": "yixuan",
+            "role": "main_dps"
+          },
+          {
+            "agent": "dialyn",
+            "role": "stunner"
+          },
+          {
+            "agent": "lucia",
+            "role": "support"
+          }
+        ],
+        "stance": "recommended"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/516115",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "team:dialyn+lucia+yixuan:general",
+      "sourceId": "game8",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "astra-yao",
+        "norma",
+        "severian"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_team_e9df7637958d",
+      "kind": "team",
+      "payload": {
+        "bangboo": [
+          {
+            "bangboo": "ultra-jake",
+            "rank": 1
+          }
+        ],
+        "members": [
+          {
+            "agent": "severian",
+            "role": "main_dps"
+          },
+          {
+            "agent": "norma",
+            "role": "support"
+          },
+          {
+            "agent": "astra-yao",
+            "role": "support"
+          }
+        ],
+        "name": "Premium",
+        "stance": "recommended"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/597407",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "team:astra-yao+norma+severian:general",
+      "sourceId": "game8",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "alice",
+        "aria",
+        "phoenix",
+        "promeia",
+        "remielle",
+        "velina",
+        "vivian"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_team_eada3c03d6dc",
+      "kind": "team",
+      "payload": {
+        "alternates": [
+          {
+            "agent": "promeia",
+            "quality": "unspecified"
+          },
+          {
+            "agent": "vivian",
+            "quality": "unspecified"
+          },
+          {
+            "agent": "aria",
+            "quality": "unspecified"
+          },
+          {
+            "agent": "alice",
+            "quality": "unspecified"
+          }
+        ],
+        "archetype": "Anomaly (Remielle)",
+        "members": [
+          {
+            "agent": "remielle",
+            "role": "anomaly"
+          },
+          {
+            "agent": "phoenix",
+            "role": "anomaly"
+          },
+          {
+            "agent": "velina",
+            "role": "anomaly"
+          }
+        ],
+        "requirements": [
+          {
+            "agent": "remielle",
+            "level": "recommended",
+            "text": "Remielle obtiene sus mayores bonificaciones con otros dos agentes Anomaly en el equipo"
+          }
+        ],
+        "stance": "recommended"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/458656",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "team:phoenix+remielle+velina:general",
+      "sourceId": "game8",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "claret",
+        "koleda",
+        "rina"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_team_ef66b2cacde3",
+      "kind": "team",
+      "payload": {
+        "archetype": "F2P",
+        "budget": true,
+        "members": [
+          {
+            "agent": "claret",
+            "role": "main_dps"
+          },
+          {
+            "agent": "koleda",
+            "role": "stunner"
+          },
+          {
+            "agent": "rina",
+            "role": "support"
+          }
+        ],
+        "stance": "recommended"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "gamerant",
+        "url": "https://gamerant.com/zzz-claret-team-comp-composition-zenless-zone-zero-best-pair-teammates/",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "team:claret+koleda+rina:general",
+      "sourceId": "gamerant",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "anby",
+        "billy",
+        "nicole"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_team_f867857919fc",
+      "kind": "team",
+      "payload": {
+        "archetype": "Presupuesto (cuenta nueva)",
+        "budget": true,
+        "members": [
+          {
+            "agent": "billy",
+            "role": "main_dps"
+          },
+          {
+            "agent": "anby",
+            "role": "stunner"
+          },
+          {
+            "agent": "nicole",
+            "role": "support"
+          }
+        ],
+        "stance": "recommended"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "timesaver",
+        "url": "https://timesaver.gg/blog/zzz-best-teams",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "team:anby+billy+nicole:general",
+      "sourceId": "timesaver",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "anby",
+        "sigrid",
+        "soukaku"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_team_fb13aa256273",
+      "kind": "team",
+      "payload": {
+        "archetype": "F2P",
+        "budget": true,
+        "members": [
+          {
+            "agent": "sigrid",
+            "role": "main_dps"
+          },
+          {
+            "agent": "anby",
+            "role": "stunner"
+          },
+          {
+            "agent": "soukaku",
+            "role": "support"
+          }
+        ],
+        "stance": "recommended"
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/462110",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "team:anby+sigrid+soukaku:general",
+      "sourceId": "game8",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "ye-shunguang"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_w_engine_5d40d830424b",
+      "kind": "w_engine",
+      "payload": {
+        "agent": "ye-shunguang",
+        "options": [
+          {
+            "note": "W-Engine exclusivo",
+            "rank": 1,
+            "wEngine": "cloudcleave-radiance"
+          }
+        ]
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "gamerant",
+        "url": "https://gamerant.com/zenless-zone-zero-zzz-ye-shunguang-build-best-weapon-w-engine-drive-disc-materials-mindscape-cinema/",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "w_engine:ye-shunguang:general",
+      "sourceId": "gamerant",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "phoenix"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_w_engine_bccf39a14bbd",
+      "kind": "w_engine",
+      "payload": {
+        "agent": "phoenix",
+        "options": [
+          {
+            "rank": 1,
+            "wEngine": "plume-of-rebirth"
+          },
+          {
+            "note": "Alternativas sin orden claro en el resumen",
+            "rank": 2,
+            "wEngine": "angel-in-the-shell"
+          },
+          {
+            "rank": 2,
+            "wEngine": "frostfall-sickle"
+          },
+          {
+            "rank": 2,
+            "wEngine": "fusion-compiler"
+          },
+          {
+            "rank": 2,
+            "wEngine": "roaring-ride"
+          },
+          {
+            "rank": 2,
+            "wEngine": "weeping-gemini"
+          }
+        ]
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/597644",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "w_engine:phoenix:general",
+      "sourceId": "game8",
+      "status": "current"
+    }
+  ]
 }

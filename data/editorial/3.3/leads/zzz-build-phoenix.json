@@ -1,0 +1,60 @@
+{
+  "$schema": "../../../../schemas/editorial-submission.schema.json",
+  "sourceId": "zzz-build",
+  "url": "https://www.zzz-build.com/agents/phoenix/teams",
+  "accessedAt": "2026-10-27",
+  "declaredPatch": null,
+  "collectedBy": "asistente (búsqueda web)",
+  "collectionMethod": "web_search",
+  "evidenceType": "explicit_recommendation",
+  "confidence": "low",
+  "verification": {
+    "state": "unverified"
+  },
+  "mode": "general",
+  "notes": "Resumen de buscador del 2026-10-27; la página original no se ha leído (bloqueada desde el entorno). Comprobar antes de verificar. La página indicaba a la vez que Phoenix no había salido y que salió el 21-10-2026: equipos provisionales.",
+  "claims": [
+    {
+      "kind": "team",
+      "stance": "recommended",
+      "members": [
+        {
+          "agent": "Phoenix",
+          "role": "anomaly"
+        },
+        {
+          "agent": "Velina",
+          "role": "anomaly"
+        },
+        {
+          "agent": "Remielle",
+          "role": "anomaly"
+        }
+      ],
+      "limitations": [
+        "Composición provisional según la propia página (calculada antes o en el lanzamiento de Phoenix)"
+      ]
+    },
+    {
+      "kind": "team",
+      "stance": "showcase",
+      "members": [
+        {
+          "agent": "Phoenix",
+          "role": "anomaly"
+        },
+        {
+          "agent": "Nangong Yu",
+          "role": "stunner"
+        },
+        {
+          "agent": "Remielle",
+          "role": "anomaly"
+        }
+      ],
+      "limitations": [
+        "Opción provisional según la propia página"
+      ]
+    }
+  ]
+}

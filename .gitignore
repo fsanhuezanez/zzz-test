@@ -5,3 +5,4 @@ dist/
 # directorios temporales del intercambio atómico
 *.staging/
 *.prev/
+*.tmp

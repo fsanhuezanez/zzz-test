@@ -21,13 +21,8 @@
             "uniqueItems": true
           },
           "attribute": {
-            "enum": [
-              "physical",
-              "fire",
-              "ice",
-              "electric",
-              "ether"
-            ],
+            "maxLength": 40,
+            "pattern": "^[a-z][a-z0-9_]*$",
             "type": "string"
           },
           "attributeVariant": {
@@ -63,8 +58,7 @@
               "collectionMethod": {
                 "enum": [
                   "manual_entry",
-                  "automated_api",
-                  "automated_feed",
+                  "web_search",
                   "derived"
                 ],
                 "type": "string"
@@ -157,14 +151,8 @@
             "type": "string"
           },
           "specialty": {
-            "enum": [
-              "attack",
-              "stun",
-              "anomaly",
-              "support",
-              "defense",
-              "rupture"
-            ],
+            "maxLength": 40,
+            "pattern": "^[a-z][a-z0-9_]*$",
             "type": "string"
           }
         },
@@ -172,9 +160,6 @@
           "id",
           "name",
           "aliases",
-          "rarity",
-          "attribute",
-          "specialty",
           "provenance"
         ],
         "type": "object"

@@ -1,0 +1,63 @@
+{
+  "$schema": "../../../../schemas/editorial-submission.schema.json",
+  "sourceId": "gamerant",
+  "url": "https://gamerant.com/zenless-zone-zero-zzz-sigrid-team-comp-composition-best-pair-teammates/",
+  "accessedAt": "2026-10-27",
+  "pageUpdatedAt": "2026-08-19",
+  "declaredPatch": null,
+  "collectedBy": "asistente (búsqueda web)",
+  "collectionMethod": "web_search",
+  "evidenceType": "explicit_recommendation",
+  "confidence": "low",
+  "verification": {
+    "state": "unverified"
+  },
+  "mode": "general",
+  "notes": "Resumen de buscador del 2026-10-27; la página original no se ha leído (bloqueada desde el entorno). Comprobar antes de verificar. pageUpdatedAt aproximada: el buscador indicaba ~69 días de antigüedad.",
+  "claims": [
+    {
+      "kind": "team",
+      "stance": "recommended",
+      "members": [
+        {
+          "agent": "Sigrid",
+          "role": "main_dps"
+        },
+        {
+          "agent": "Norma",
+          "role": "support",
+          "substitutes": [
+            {
+              "agent": "Dialyn",
+              "quality": "unspecified"
+            }
+          ]
+        },
+        {
+          "agent": "Sunna",
+          "role": "support"
+        }
+      ]
+    },
+    {
+      "kind": "team",
+      "archetype": "F2P",
+      "stance": "recommended",
+      "members": [
+        {
+          "agent": "Sigrid",
+          "role": "main_dps"
+        },
+        {
+          "agent": "Lycaon",
+          "role": "stunner"
+        },
+        {
+          "agent": "Rina",
+          "role": "support"
+        }
+      ],
+      "budget": true
+    }
+  ]
+}

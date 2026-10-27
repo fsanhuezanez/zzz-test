@@ -50,6 +50,23 @@
         "driveDiscs": {
           "type": "integer"
         },
+        "liveClaimsByReview": {
+          "additionalProperties": false,
+          "description": "Claims current/stale según revisión humana.",
+          "properties": {
+            "pending": {
+              "type": "integer"
+            },
+            "verified": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "verified",
+            "pending"
+          ],
+          "type": "object"
+        },
         "teamConsensus": {
           "type": "integer"
         },
@@ -67,6 +84,7 @@
         "bangboo",
         "claims",
         "claimsByStatus",
+        "liveClaimsByReview",
         "tierConsensus",
         "teamConsensus"
       ],
@@ -95,10 +113,10 @@
         "driveDiscs": {
           "type": "string"
         },
-        "index": {
+        "sources": {
           "type": "string"
         },
-        "sources": {
+        "vocabulary": {
           "type": "string"
         },
         "wEngines": {
@@ -113,7 +131,7 @@
         "sources",
         "claims",
         "consensus",
-        "index"
+        "vocabulary"
       ],
       "type": "object"
     },
@@ -194,10 +212,9 @@
             "type": "string"
           },
           "updateOutcome": {
-            "description": "collected: hay entrada válida en esta ejecución; carried_over: falló y se conservaron sus datos anteriores; no_input: sin datos.",
+            "description": "collected: hay envíos válidos de esta fuente; no_input: sin datos.",
             "enum": [
               "collected",
-              "carried_over",
               "no_input"
             ],
             "type": "string"

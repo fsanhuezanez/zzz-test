@@ -103,7 +103,8 @@
           "bangboo": "Butler",
           "rank": 1
         }
-      ]
+      ],
+      "stance": "recommended"
     },
     {
       "kind": "team",
@@ -127,6 +128,17 @@
             }
           ]
         }
+      ],
+      "stance": "recommended",
+      "requirements": [
+        {
+          "text": "Ejemplo ficticio: necesita a Yanagi para activar la reacción del núcleo.",
+          "agent": "Yanagi",
+          "level": "required"
+        }
+      ],
+      "limitations": [
+        "Ejemplo ficticio: rinde peor contra enemigos resistentes al hielo."
       ]
     },
     {
@@ -151,7 +163,8 @@
           "agent": "Nicole",
           "role": "support"
         }
-      ]
+      ],
+      "stance": "recommended"
     },
     {
       "kind": "w_engine",
@@ -245,6 +258,48 @@
         {
           "bangboo": "Sharkboo",
           "rank": 2
+        }
+      ]
+    },
+    {
+      "kind": "team",
+      "archetype": "Ether flexible",
+      "stance": "showcase",
+      "members": [
+        {
+          "agent": "Zhu Yuan",
+          "role": "main_dps"
+        }
+      ],
+      "flex": [
+        {
+          "pick": 2,
+          "options": [
+            "Nicole",
+            "Qingyi",
+            "Astra Yao",
+            "Soukaku"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "team",
+      "archetype": "Económico",
+      "stance": "recommended",
+      "budget": true,
+      "members": [
+        {
+          "agent": "Billy",
+          "role": "main_dps"
+        },
+        {
+          "agent": "Anby",
+          "role": "stunner"
+        },
+        {
+          "agent": "Nicole",
+          "role": "support"
         }
       ]
     }

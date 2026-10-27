@@ -33,6 +33,12 @@ function payloads<R extends TSchema>(ref: R) {
     team: {
       name: Type.Optional(Str(80)),
       archetype: Type.Optional(Str(80)),
+      budget: Type.Optional(Type.Boolean({ description: 'true si la fuente lo presenta como opción económica / F2P / para cuentas con pocos personajes.' })),
+      stance: StringEnum(['ranked', 'recommended', 'showcase'], {
+        description: 'Qué hace la fuente con el equipo: ranked = lo clasifica en un ranking de equipos (exige rating); '
+          + 'recommended = lo recomienda explícitamente (p. ej. "mejor equipo para X"); showcase = solo lo muestra como opción viable. '
+          + 'Una composición documentada no es por ello competitivamente superior.',
+      }),
       members: Type.Array(Obj({
         agent: ref,
         role: TeamRole,
@@ -40,8 +46,24 @@ function payloads<R extends TSchema>(ref: R) {
           agent: ref,
           quality: SubstituteQuality,
           note: Type.Optional(Str(200)),
-        }), { maxItems: 6 })),
-      }), { minItems: 2, maxItems: 3 }),
+        }), { maxItems: 8 })),
+      }), { minItems: 1, maxItems: 3, description: 'Miembros fijos del núcleo.' }),
+      flex: Type.Optional(Type.Array(Obj({
+        pick: Type.Integer({ minimum: 1, maximum: 2 }),
+        role: Type.Optional(TeamRole),
+        options: Type.Array(ref, { minItems: 2, maxItems: 10, description: 'En el orden que da la fuente.' }),
+      }), { maxItems: 2, description: 'Huecos flexibles: "elige N de estas opciones". Miembros + picks = 3.' })),
+      alternates: Type.Optional(Type.Array(Obj({
+        agent: ref,
+        quality: SubstituteQuality,
+        note: Type.Optional(Str(200)),
+      }), { maxItems: 8, description: 'Alternativas que la fuente cita sin decir a quién reemplazan.' })),
+      requirements: Type.Optional(Type.Array(Obj({
+        text: Str(160),
+        agent: Type.Optional(ref),
+        level: StringEnum(['required', 'recommended']),
+      }), { maxItems: 8, description: 'Condiciones que la fuente declara para que el equipo funcione (Cinema, W-Engine, umbral de estadística…).' })),
+      limitations: Type.Optional(Type.Array(Str(160), { maxItems: 6, description: 'Debilidades o advertencias que declara la fuente.' })),
       bangboo: Type.Optional(Type.Array(Obj({ bangboo: ref, rank: Rank }), { maxItems: 5 })),
       rating: Type.Optional(Obj({ label: Str(16), scale: Type.Optional(Slug) }, { description: 'Valoración del equipo si la fuente la publica.' })),
     },
@@ -81,6 +103,11 @@ function payloads<R extends TSchema>(ref: R) {
         slot6: Type.Optional(Type.Array(Stat, { minItems: 1, maxItems: 4 })),
       }),
       substats: Type.Optional(Type.Array(Stat, { maxItems: 8, description: 'Prioridad de subestadísticas en orden.' })),
+      statTargets: Type.Optional(Type.Array(Obj({
+        stat: Stat,
+        min: Type.Number({ minimum: 0 }),
+        note: Type.Optional(Str(160)),
+      }), { maxItems: 6, description: 'Umbrales que la fuente publica (p. ej. maestría de anomalía ≥ X).' })),
     },
     bangboo: {
       agent: Type.Optional(ref),
@@ -115,6 +142,7 @@ function payloads<R extends TSchema>(ref: R) {
 /** Reglas condicionales adicionales por tipo. */
 const KIND_RULES: Partial<Record<ClaimKind, object>> = {
   bangboo: { anyOf: [{ required: ['agent'] }, { required: ['team'] }] },
+  team: { if: { properties: { stance: { const: 'ranked' } } }, then: { required: ['rating'] } },
 };
 
 // ---------------------------------------------------------------------------
@@ -133,8 +161,7 @@ export const CLAIM_FLAGS = [
   'older_patch', // declarado para un parche anterior al actual
   'access_too_old', // consultado hace más de maxAgeDays de la fuente
   'pre_release', // consultado antes del lanzamiento del parche declarado (beta/filtración/preview)
-  'carried_over', // la actualización de su fuente falló y se conserva el último valor válido
-  'source_policy_changed', // recogido automáticamente pero la política actual de la fuente ya no lo permite
+  'via_search', // obtenido de un resumen de buscador: hay que confirmarlo en la página original
   'unverified_catalog_refs', // referencia entidades de catálogo aún sin verificar
 ] as const;
 export type ClaimFlag = (typeof CLAIM_FLAGS)[number];
@@ -219,8 +246,12 @@ export const EditorialSubmission = Obj({
   url: Url,
   title: Type.Optional(Str(160)),
   accessedAt: IsoDate,
+  pageUpdatedAt: Type.Optional(IsoDate),
   declaredPatch: Type.Union([Patch, Type.Null()]),
   collectedBy: Str(80),
+  collectionMethod: Type.Optional(StringEnum(['manual_entry', 'web_search'], {
+    description: 'manual_entry (por defecto): alguien leyó la página. web_search: dato tomado de un resumen de buscador que cita la página.',
+  })),
   evidenceType: Type.Union([Type.Literal('explicit_recommendation'), Type.Literal('observed_data'), Type.Literal('internal_estimate')]),
   confidence: Confidence,
   verification: Verification,

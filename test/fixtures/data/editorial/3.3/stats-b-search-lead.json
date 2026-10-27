@@ -1,0 +1,38 @@
+{
+  "$schema": "../../../../../schemas/editorial-submission.schema.json",
+  "sourceId": "example-stats-b",
+  "url": "https://stats-b.example.com/zzz/teams",
+  "title": "Pista ficticia obtenida de buscador",
+  "accessedAt": "2026-10-27",
+  "pageUpdatedAt": "2026-10-22",
+  "declaredPatch": null,
+  "collectedBy": "asistente",
+  "collectionMethod": "web_search",
+  "evidenceType": "explicit_recommendation",
+  "confidence": "low",
+  "verification": {
+    "state": "unverified"
+  },
+  "mode": "shiyu_defense",
+  "notes": "Resumen de buscador ficticio: comprobar en la página.",
+  "claims": [
+    {
+      "kind": "team",
+      "stance": "recommended",
+      "members": [
+        {
+          "agent": "Miyabi",
+          "role": "anomaly"
+        },
+        {
+          "agent": "Soukaku",
+          "role": "support"
+        },
+        {
+          "agent": "Lycaon",
+          "role": "stunner"
+        }
+      ]
+    }
+  ]
+}

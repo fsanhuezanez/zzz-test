@@ -24,8 +24,10 @@ export function patchAtDate(calendar: PatchCalendarFile['patches'], isoDate: str
   return candidates[0]?.patch ?? null;
 }
 
+/** Parche declarado o, si no lo hay, el vigente cuando se actualizó la página (o cuando se consultó). */
 function effectivePatch(draft: DraftClaim, calendar: PatchCalendarFile['patches']): string | null {
-  return draft.provenance.declaredPatch ?? patchAtDate(calendar, draft.provenance.accessedAt);
+  const p = draft.provenance;
+  return p.declaredPatch ?? patchAtDate(calendar, p.pageUpdatedAt ?? p.accessedAt);
 }
 
 /** Orden "más reciente primero": parche efectivo, luego fecha de consulta, luego id (desempate estable). */
@@ -45,16 +47,14 @@ export function dedupe(drafts: DraftClaim[]): DraftClaim[] {
   const byId = new Map<string, DraftClaim>();
   for (const d of drafts) {
     const prev = byId.get(d.id);
-    if (!prev || d.provenance.accessedAt > prev.provenance.accessedAt) {
-      byId.set(d.id, prev ? { ...d, initialFlags: [...new Set([...prev.initialFlags, ...d.initialFlags])] } : d);
-    }
+    if (!prev || d.provenance.accessedAt > prev.provenance.accessedAt) byId.set(d.id, d);
   }
   return [...byId.values()];
 }
 
 const ENTITY_FIELDS: Record<string, EntityType> = { agent: 'agent', substitute: 'agent', wEngine: 'wEngine', bangboo: 'bangboo' };
 
-function catalogRefs(claim: DraftClaim): [EntityType, string][] {
+export function catalogRefs(claim: DraftClaim | Claim): [EntityType, string][] {
   const refs: [EntityType, string][] = claim.agentRefs.map((id) => ['agent', id]);
   const walk = (value: unknown) => {
     if (Array.isArray(value)) return value.forEach(walk);
@@ -80,7 +80,8 @@ export function applyLifecycle(drafts: DraftClaim[], ctx: LifecycleContext): Cla
   const unique = dedupe(drafts);
   const groups = new Map<string, DraftClaim[]>();
   for (const d of unique) {
-    const key = `${d.sourceId}|${d.slotKey}`;
+    // Mismo dato = misma fuente, misma página y mismo hueco. Dos páginas de una fuente pueden coexistir.
+    const key = `${d.sourceId}|${d.provenance.url}|${d.slotKey}`;
     groups.set(key, [...(groups.get(key) ?? []), d]);
   }
 
@@ -90,7 +91,7 @@ export function applyLifecycle(drafts: DraftClaim[], ctx: LifecycleContext): Cla
     group.sort(order);
     const head = group[0]!;
     group.forEach((draft, i) => {
-      const flags = new Set<ClaimFlag>(draft.initialFlags);
+      const flags = new Set<ClaimFlag>();
       const p = draft.provenance;
       const source = ctx.sources.get(draft.sourceId)!;
       const eff = effectivePatch(draft, ctx.calendar);
@@ -103,10 +104,7 @@ export function applyLifecycle(drafts: DraftClaim[], ctx: LifecycleContext): Cla
       if ((release && p.accessedAt < release) || (p.declaredPatch && comparePatch(p.declaredPatch, ctx.currentPatch) > 0)) {
         flags.add('pre_release');
       }
-      const automated = p.collectionMethod === 'automated_api' || p.collectionMethod === 'automated_feed';
-      if (automated && (source.automation.status !== 'allowed' || !source.automation.allowedMethods.includes(p.collectionMethod))) {
-        flags.add('source_policy_changed');
-      }
+      if (p.collectionMethod === 'web_search') flags.add('via_search');
       if (catalogRefs(draft).some(([type, id]) => !ctx.catalog.isVerified(type, id))) flags.add('unverified_catalog_refs');
 
       let status: ClaimStatus;
@@ -115,7 +113,7 @@ export function applyLifecycle(drafts: DraftClaim[], ctx: LifecycleContext): Cla
       else if (flags.has('older_patch') || flags.has('access_too_old')) status = 'stale';
       else status = 'current';
 
-      const { retracted: _r, initialFlags: _f, origin: _o, ...rest } = draft;
+      const { retracted: _r, origin: _o, ...rest } = draft;
       out.push({
         ...rest,
         status,

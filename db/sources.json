@@ -4,13 +4,14 @@
     {
       "attribution": "Datos de ZZZ Akademiya (zzz.akademiya.app), base de datos comunitaria no afiliada a HoYoverse.",
       "automation": {
-        "allowedMethods": [
-          "manual_entry"
-        ],
         "basis": "No se encontraron términos de uso ni API pública documentada. Sin permiso explícito se trata como no automatizable. Sus tier lists incluyen rankings creados por usuarios: indicar en cada envío qué lista se consultó.",
         "checkedAt": "2026-10-27",
+        "checkedVia": "web_search",
         "evidenceUrls": [
           "https://zzz.akademiya.app/en/tier-lists"
+        ],
+        "openQuestions": [
+          "No publica condiciones: la ausencia de términos no equivale a permiso. Se trata como no automatizable; pedir permiso a los mantenedores si se quiere un export."
         ],
         "status": "unknown"
       },
@@ -56,13 +57,53 @@
       ]
     },
     {
+      "attribution": "Datos resumidos de Game8 (game8.co). Consulta la guía original en el enlace de cada dato.",
+      "automation": {
+        "basis": "No se pudieron leer sus condiciones desde el entorno de trabajo. Por prudencia: solo consulta manual en navegador y resumen breve con enlace.",
+        "checkedAt": "2026-10-27",
+        "checkedVia": "web_search",
+        "evidenceUrls": [
+          "https://game8.co/terms"
+        ],
+        "openQuestions": [
+          "Confirmar en navegador qué permiten sus términos sobre reutilización de contenido. Mientras tanto, solo hechos breves con enlace."
+        ],
+        "status": "unknown"
+      },
+      "homepage": "https://game8.co/",
+      "id": "game8",
+      "kind": "community_guide",
+      "maxAgeDays": 30,
+      "name": "Game8",
+      "notes": "Publica páginas de 'Best Team Comps', guías por agente y un tier list por rol. Útil para equipos y alternativas.",
+      "termsUrl": "https://game8.co/terms",
+      "tierScales": []
+    },
+    {
+      "attribution": "Datos resumidos de Game Rant (gamerant.com).",
+      "automation": {
+        "basis": "Medio de prensa. Condiciones no revisadas en navegador. Solo consulta manual y resumen breve con enlace.",
+        "checkedAt": "2026-10-27",
+        "checkedVia": "web_search",
+        "evidenceUrls": [
+          "https://gamerant.com/"
+        ],
+        "status": "unknown"
+      },
+      "homepage": "https://gamerant.com/",
+      "id": "gamerant",
+      "kind": "media",
+      "maxAgeDays": 30,
+      "name": "Game Rant",
+      "notes": "Prensa que resume guías; menor prioridad que Prydwen o Game8. Fijarse en la fecha de la página.",
+      "tierScales": []
+    },
+    {
       "attribution": "Información oficial de Zenless Zone Zero © HoYoverse.",
       "automation": {
-        "allowedMethods": [
-          "manual_entry"
-        ],
         "basis": "Se usa solo para hechos del catálogo (atributos, especialidad, facción) verificados a mano en el juego, HoYoLAB o notas de parche oficiales.",
         "checkedAt": "2026-10-27",
+        "checkedVia": "web_search",
         "evidenceUrls": [
           "https://zenless.hoyoverse.com/"
         ],
@@ -76,13 +117,30 @@
       "tierScales": []
     },
     {
+      "attribution": "Datos resumidos de Icy Veins (icy-veins.com). Consulta la guía original en el enlace de cada dato.",
+      "automation": {
+        "basis": "Condiciones no revisadas en navegador. Solo consulta manual y resumen breve con enlace.",
+        "checkedAt": "2026-10-27",
+        "checkedVia": "web_search",
+        "evidenceUrls": [
+          "https://www.icy-veins.com/"
+        ],
+        "status": "unknown"
+      },
+      "homepage": "https://www.icy-veins.com/zenless-zone-zero/",
+      "id": "icy-veins",
+      "kind": "community_guide",
+      "maxAgeDays": 30,
+      "name": "Icy Veins",
+      "notes": "Páginas de equipos y sinergias por agente; a veces discrepa de otras fuentes, lo que es útil para detectar condiciones.",
+      "tierScales": []
+    },
+    {
       "attribution": "Estimación propia de zzz-meta-knowledge; no procede de ninguna fuente externa.",
       "automation": {
-        "allowedMethods": [
-          "manual_entry"
-        ],
         "basis": "Fuente interna: solo estimaciones manuales, siempre como internal_estimate, con rationale y confianza media o baja.",
         "checkedAt": "2026-10-27",
+        "checkedVia": "web_search",
         "evidenceUrls": [
           "https://github.com/fsanhuezanez/zzz-test"
         ],
@@ -98,11 +156,9 @@
     {
       "attribution": "Datos resumidos de Mobalytics (mobalytics.gg). Consulta la guía original en el enlace de cada dato.",
       "automation": {
-        "allowedMethods": [
-          "manual_entry"
-        ],
         "basis": "Sus Términos prohíben acceder, buscar o descargar contenido con spiders, robots, crawlers o herramientas de minería de datos distintas de su software o un navegador estándar, y el scraping para entrenar IA. Revisado vía buscador; reconfirmar en navegador.",
         "checkedAt": "2026-10-27",
+        "checkedVia": "web_search",
         "evidenceUrls": [
           "https://mobalytics.gg/terms/"
         ],
@@ -152,13 +208,14 @@
     {
       "attribution": "Datos resumidos de Prydwen Institute (prydwen.gg). Consulta la guía original en el enlace de cada dato.",
       "automation": {
-        "allowedMethods": [
-          "manual_entry"
-        ],
         "basis": "Sus Términos de servicio prohíben scraping, crawling o extracción masiva de datos y limitan el uso a fines personales no comerciales; no publican API. Revisado vía buscador: la página no era accesible desde el entorno de desarrollo; reconfirmar en navegador.",
         "checkedAt": "2026-10-27",
+        "checkedVia": "web_search",
         "evidenceUrls": [
           "https://www.prydwen.gg/terms"
+        ],
+        "openQuestions": [
+          "Los términos permiten uso personal no comercial pero prohíben la extracción masiva. Un grupo privado de amigos encaja en 'personal', pero no está claro si compartir datos resumidos con terceros es 'redistribución'. Alternativa prudente: solo hechos breves con enlace, sin copiar texto, y no publicar la base."
         ],
         "status": "disallowed"
       },
@@ -168,7 +225,7 @@
       "kind": "community_guide",
       "maxAgeDays": 30,
       "name": "Prydwen Institute",
-      "notes": "Registrar solo hechos estructurados breves con enlace, nunca texto de sus guías. Para uso comercial en Hoyo Builds, pedir permiso por escrito antes de publicar.",
+      "notes": "Fuente prioritaria para equipos y builds. Registrar solo hechos estructurados breves con enlace; nunca texto de sus guías. No usar mirrors ni cachés (p. ej. CDN) para saltarse el acceso.",
       "termsUrl": "https://www.prydwen.gg/terms",
       "tierScales": [
         {
@@ -211,6 +268,46 @@
           "notes": "Escala supuesta (T0…T5 con medios tiers). Confirmar contra la tier list en vivo."
         }
       ]
+    },
+    {
+      "attribution": "Datos resumidos de timesaver.gg.",
+      "automation": {
+        "basis": "Blog de guías. Condiciones no revisadas. Solo consulta manual y resumen breve con enlace.",
+        "checkedAt": "2026-10-27",
+        "checkedVia": "web_search",
+        "evidenceUrls": [
+          "https://timesaver.gg/"
+        ],
+        "status": "unknown"
+      },
+      "homepage": "https://timesaver.gg/",
+      "id": "timesaver",
+      "kind": "media",
+      "maxAgeDays": 30,
+      "name": "Timesaver.gg",
+      "notes": "Útil por sus opciones de presupuesto para cuentas con pocos personajes; prioridad baja.",
+      "tierScales": []
+    },
+    {
+      "attribution": "Datos resumidos de zzz-build.com.",
+      "automation": {
+        "basis": "Condiciones no revisadas. Solo consulta manual y resumen breve con enlace.",
+        "checkedAt": "2026-10-27",
+        "checkedVia": "web_search",
+        "evidenceUrls": [
+          "https://www.zzz-build.com/"
+        ],
+        "openQuestions": [
+          "Dice sincronizarse con datos de Prydwen: puede ser fuente secundaria. Si coincide con Prydwen, no contar ambas como fuentes independientes."
+        ],
+        "status": "unknown"
+      },
+      "homepage": "https://www.zzz-build.com/",
+      "id": "zzz-build",
+      "kind": "community_guide",
+      "maxAgeDays": 30,
+      "name": "ZZZ Build (zzz-build.com)",
+      "tierScales": []
     }
   ]
 }

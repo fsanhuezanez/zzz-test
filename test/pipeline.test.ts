@@ -4,7 +4,6 @@ import { readFile, readdir, rm, stat } from 'node:fs/promises';
 import { join } from 'node:path';
 import { checkIntegrity } from '../src/core/integrity.ts';
 import { readDatabase } from '../src/core/store.ts';
-import type { Source } from '../src/schema/sources.ts';
 import { readJson, sandbox, submission, update, writeJson } from './helpers.ts';
 
 test('publica una base válida, íntegra y marcada como fixture', async () => {
@@ -20,10 +19,32 @@ test('publica una base válida, íntegra y marcada como fixture', async () => {
   const byStatus = db.manifest.counts.claimsByStatus;
   assert.equal(byStatus.superseded, 1, 'Ellen 3.2 reemplazado por 3.3');
   assert.equal(byStatus.stale, 1, 'Burnice solo tiene dato de 3.2');
-  assert.ok(r.report.pendingReview.drafts.some((d) => d.endsWith('.draft.json')));
-  assert.ok(r.report.pendingReview.preRelease.length >= 1);
+  assert.ok(r.report.pendingReview!.drafts.some((d) => d.endsWith('.draft.json')));
+  assert.ok(r.report.pendingReview!.preRelease.length >= 1);
   await stat(join(box.reports, '3.3-r1.md'));
   await stat(join(box.reports, 'latest.json'));
+  const bundle = await readJson(join(box.exportDir, 'zzz-meta.json'));
+  assert.equal(bundle.meta.dataVersion, '3.3-r1');
+  assert.equal(bundle.meta.isFixture, true);
+  await stat(join(box.exportDir, 'zzz-meta.types.ts'));
+});
+
+test('las fuentes ficticias no pueden publicarse sin permiso explícito', async () => {
+  const box = await sandbox();
+  const r = await update(box, { allowFixtures: false });
+  assert.equal(r.report.outcome, 'failed');
+  assert.match(r.report.errors[0]!.message, /ficticias/);
+  await assert.rejects(stat(box.out));
+});
+
+test('el fallo de una actualización no toca db/ ni export/', async () => {
+  const box = await sandbox();
+  await update(box);
+  const before = await readFile(join(box.exportDir, 'zzz-meta.json'), 'utf8');
+  await writeJson(join(box.data, 'editorial/3.3/broken.json'), submission({}, [{ kind: 'team', stance: 'recommended', members: [{ agent: 'Nadie', role: 'main_dps' }, { agent: 'Ellen', role: 'support' }] }]));
+  const r = await update(box);
+  assert.equal(r.exitCode, 1);
+  assert.equal(await readFile(join(box.exportDir, 'zzz-meta.json'), 'utf8'), before);
 });
 
 test('consenso entre fuentes: acuerdo, discrepancia y nunca con una sola fuente', async () => {
@@ -39,6 +60,7 @@ test('consenso entre fuentes: acuerdo, discrepancia y nunca con una sola fuente'
   assert.equal(db.consensus.tiers.some((t) => t.agent === 'lycaon'), false, 'una sola fuente no es consenso');
   assert.equal(db.consensus.teams.length, 1);
   assert.deepEqual(db.consensus.teams[0]!.members, ['ellen', 'lycaon', 'soukaku']);
+  assert.equal(db.manifest.counts.liveClaimsByReview.pending > 0, true);
   // Las estimaciones internas no entran en el consenso ni en claims de fuentes externas.
   const internal = db.claims.filter((c) => c.sourceId === 'maintainer');
   assert.ok(internal.every((c) => c.provenance.evidenceType === 'internal_estimate'));
@@ -79,6 +101,7 @@ test('entrada inválida → la actualización falla y se conserva la última ver
   await writeJson(join(box.data, 'editorial/3.3/broken.json'), submission({}, [{ kind: 'tier', agent: 'Personaje Inexistente', role: 'attack', tier: 'T0' }]));
   const r = await update(box);
   assert.equal(r.exitCode, 1);
+  assert.match(r.markdown, /Errores que corregir/);
   assert.equal(r.report.outcome, 'failed');
   assert.match(r.report.errors[0]!.message, /desconocido/);
   assert.equal(await readFile(join(box.out, 'claims.json'), 'utf8'), before);
@@ -111,6 +134,7 @@ test('borrar un envío se refleja como eliminado en el changelog', async () => {
   await rm(join(box.data, 'editorial/3.3/maintainer-estimates.json'));
   const r = await update(box);
   assert.equal(r.report.changes!.claims.removed.length, 1);
+  assert.equal((await readJson(join(box.exportDir, 'zzz-meta.json'))).meta.dataVersion, '3.3-r2');
   assert.equal(r.report.changes!.claims.removed[0]!.sourceId, 'maintainer');
 });
 
@@ -127,73 +151,6 @@ test('nuevo parche → revisión 1 y los datos del parche anterior pasan a stale
   assert.ok(r.report.changes!.claims.statusChanged.length > 0);
 });
 
-test('fallo de un feed automatizado → se conservan sus datos anteriores marcados carried_over', async () => {
-  const box = await sandbox();
-  const registryPath = join(box.data, 'sources.json');
-  const registry = await readJson<{ sources: Source[] }>(registryPath);
-  registry.sources.push({
-    id: 'example-feed', name: 'Feed ficticio', kind: 'fixture', homepage: 'https://feed.example.com/',
-    attribution: 'Feed ficticio de pruebas.',
-    automation: { status: 'allowed', basis: 'Permiso ficticio de pruebas.', checkedAt: '2026-10-27', evidenceUrls: ['https://feed.example.com/permiso'], allowedMethods: ['automated_feed'] },
-    adapter: { type: 'http_json_feed', url: 'https://feed.example.com/zzz.json', method: 'automated_feed', minIntervalMs: 1000, timeoutMs: 5000, respectRobotsTxt: true },
-    defaultTierScale: 't', tierScales: [{ id: 't', labels: [{ label: 'A', score: 1 }, { label: 'B', score: 0 }], confirmed: true }], maxAgeDays: 30,
-  });
-  await writeJson(registryPath, registry);
-  const feed = submission({ sourceId: 'example-feed', url: 'https://feed.example.com/zzz.json' }, [{ kind: 'tier', agent: 'Ellen', role: 'attack', tier: 'A' }]);
-  const okFetch = async (url: string) => ({
-    ok: true, status: 200,
-    text: async () => (url.endsWith('robots.txt') ? 'User-agent: *\nDisallow: /private\n' : JSON.stringify(feed)),
-  });
-  const noSleep = async () => {};
-
-  const first = await update(box, { http: { fetch: okFetch, sleep: noSleep } });
-  assert.equal(first.exitCode, 0, first.markdown);
-  const firstDb = (await readDatabase(box.out))!;
-  const fed = firstDb.claims.filter((c) => c.sourceId === 'example-feed');
-  assert.equal(fed.length, 1);
-  assert.equal(fed[0]!.provenance.collectionMethod, 'automated_feed');
-
-  const failingFetch = async () => { throw new Error('ECONNRESET'); };
-  const second = await update(box, { http: { fetch: failingFetch, sleep: noSleep } });
-  assert.equal(second.exitCode, 0);
-  assert.ok(second.report.warnings.some((w) => /example-feed.*ECONNRESET/.test(w)));
-  const db = (await readDatabase(box.out))!;
-  const carried = db.claims.filter((c) => c.sourceId === 'example-feed');
-  assert.equal(carried.length, 1);
-  assert.equal(carried[0]!.id, fed[0]!.id);
-  assert.ok(carried[0]!.flags.includes('carried_over'));
-  assert.equal(db.manifest.sources.find((s) => s.id === 'example-feed')!.updateOutcome, 'carried_over');
-
-  // Si la política cambia a "disallowed", el feed no se consulta y sus datos se marcan.
-  registry.sources.at(-1)!.automation.status = 'disallowed';
-  await writeJson(registryPath, registry);
-  let called = false;
-  const spyFetch = async () => { called = true; throw new Error('no debería llamarse'); };
-  const third = await update(box, { http: { fetch: spyFetch, sleep: noSleep } });
-  assert.equal(called, false);
-  const db3 = (await readDatabase(box.out))!;
-  const flagged = db3.claims.find((c) => c.sourceId === 'example-feed')!;
-  assert.ok(flagged.flags.includes('source_policy_changed'));
-  assert.ok(third.report.pendingReview.sourcePolicyChanged.length === 1);
-});
-
-test('el feed no puede publicar datos en nombre de otra fuente', async () => {
-  const box = await sandbox();
-  const registryPath = join(box.data, 'sources.json');
-  const registry = await readJson<{ sources: Source[] }>(registryPath);
-  registry.sources.push({
-    id: 'example-feed', name: 'Feed', kind: 'fixture', homepage: 'https://feed.example.com/', attribution: 'x',
-    automation: { status: 'allowed', basis: 'x', checkedAt: '2026-10-27', evidenceUrls: ['https://feed.example.com/p'], allowedMethods: ['automated_feed'] },
-    adapter: { type: 'http_json_feed', url: 'https://feed.example.com/zzz.json', method: 'automated_feed', minIntervalMs: 1000, timeoutMs: 5000, respectRobotsTxt: true },
-    tierScales: [], maxAgeDays: 30,
-  });
-  await writeJson(registryPath, registry);
-  const fetchOther = async (url: string) => ({ ok: !url.endsWith('robots.txt'), status: url.endsWith('robots.txt') ? 404 : 200, text: async () => JSON.stringify(submission()) });
-  const r = await update(box, { http: { fetch: fetchOther, sleep: async () => {} } });
-  assert.equal(r.report.outcome, 'failed');
-  assert.ok(r.report.errors.some((e) => /no puede publicar datos de "example-guide-a"/.test(e.message)));
-});
-
 test('validate detecta una base editada a mano', async () => {
   const box = await sandbox();
   await update(box);
@@ -203,4 +160,14 @@ test('validate detecta una base editada a mano', async () => {
   await writeJson(path, claims);
   const problems = checkIntegrity((await readDatabase(box.out))!);
   assert.ok(problems.some((p) => /contentHash/.test(p)));
+});
+
+test('el informe agrupa lo pendiente por página y marca lo que viene de buscador', async () => {
+  const box = await sandbox();
+  const r = await update(box);
+  const pages = r.report.pendingReview!.pagesToVerify;
+  const lead = pages.find((p) => p.url === 'https://stats-b.example.com/zzz/teams')!;
+  assert.equal(lead.viaSearch, true);
+  assert.match(r.markdown, /🔎 https:\/\/stats-b\.example\.com\/zzz\/teams/);
+  assert.ok(r.report.pendingReview!.summary.viaSearch >= 1);
 });

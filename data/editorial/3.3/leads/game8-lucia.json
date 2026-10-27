@@ -1,0 +1,59 @@
+{
+  "$schema": "../../../../schemas/editorial-submission.schema.json",
+  "sourceId": "game8",
+  "url": "https://game8.co/games/Zenless-Zone-Zero/archives/545821",
+  "title": "Lucia Best Builds and Teams",
+  "accessedAt": "2026-10-27",
+  "declaredPatch": null,
+  "collectedBy": "asistente (búsqueda web)",
+  "collectionMethod": "web_search",
+  "evidenceType": "explicit_recommendation",
+  "confidence": "low",
+  "verification": {
+    "state": "unverified"
+  },
+  "mode": "general",
+  "notes": "Resumen de buscador del 2026-10-27; la página original no se ha leído (bloqueada desde el entorno). Comprobar antes de verificar.",
+  "claims": [
+    {
+      "kind": "substitute",
+      "agent": "Yixuan",
+      "substitute": "Starlight Billy",
+      "quality": "unspecified",
+      "withAgents": [
+        "Lucia"
+      ],
+      "archetype": "Rupture"
+    },
+    {
+      "kind": "substitute",
+      "agent": "Yixuan",
+      "substitute": "Banyue",
+      "quality": "unspecified",
+      "withAgents": [
+        "Lucia"
+      ],
+      "archetype": "Rupture"
+    },
+    {
+      "kind": "substitute",
+      "agent": "Yixuan",
+      "substitute": "Yidhari",
+      "quality": "unspecified",
+      "withAgents": [
+        "Lucia"
+      ],
+      "archetype": "Rupture"
+    },
+    {
+      "kind": "substitute",
+      "agent": "Yixuan",
+      "substitute": "Manato",
+      "quality": "unspecified",
+      "withAgents": [
+        "Lucia"
+      ],
+      "archetype": "Rupture"
+    }
+  ]
+}

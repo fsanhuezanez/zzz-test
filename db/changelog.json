@@ -2,40 +2,66 @@
   "$schema": "../schemas/changelog.schema.json",
   "catalog": {
     "added": [
+      "agent:alice",
       "agent:anby",
       "agent:anton",
+      "agent:aria",
       "agent:astra-yao",
+      "agent:banyue",
       "agent:ben",
       "agent:billy",
       "agent:burnice",
       "agent:caesar",
+      "agent:claret",
       "agent:corin",
+      "agent:dialyn",
       "agent:ellen",
       "agent:evelyn",
       "agent:grace",
       "agent:harumasa",
       "agent:hugo",
       "agent:jane-doe",
+      "agent:ju-fufu",
       "agent:koleda",
       "agent:lighter",
+      "agent:lucia",
       "agent:lucy",
       "agent:lycaon",
+      "agent:manato",
       "agent:miyabi",
+      "agent:nangong-yu",
       "agent:nekomata",
       "agent:nicole",
+      "agent:norma",
+      "agent:pan-yinhu",
+      "agent:phoenix",
       "agent:piper",
+      "agent:promeia",
       "agent:pulchra",
       "agent:qingyi",
+      "agent:remielle",
       "agent:rina",
+      "agent:roxy",
       "agent:seth",
+      "agent:severian",
+      "agent:sigrid",
       "agent:soldier-0-anby",
       "agent:soldier-11",
       "agent:soukaku",
+      "agent:starlight-billy",
+      "agent:sunna",
       "agent:trigger",
+      "agent:velina",
       "agent:vivian",
       "agent:yanagi",
+      "agent:ye-shunguang",
+      "agent:yidhari",
+      "agent:yixuan",
+      "agent:yuzuha",
+      "agent:zhao",
       "agent:zhu-yuan",
       "bangboo:amillion",
+      "bangboo:ariel",
       "bangboo:bagboo",
       "bangboo:butler",
       "bangboo:exploreboo",
@@ -43,6 +69,7 @@
       "bangboo:plugboo",
       "bangboo:rocketboo",
       "bangboo:sharkboo",
+      "bangboo:ultra-jake",
       "drive-disc:astral-voice",
       "drive-disc:branch-blade-song",
       "drive-disc:chaos-jazz",
@@ -61,13 +88,16 @@
       "drive-disc:swing-jazz",
       "drive-disc:thunder-metal",
       "drive-disc:woodpecker-electro",
+      "w-engine:angel-in-the-shell",
       "w-engine:bashful-demon",
       "w-engine:blazing-laurel",
+      "w-engine:cloudcleave-radiance",
       "w-engine:deep-sea-visitor",
       "w-engine:demara-battery-mark-ii",
       "w-engine:electro-lip-gloss",
       "w-engine:elegant-vanity",
       "w-engine:flamemaker-shaker",
+      "w-engine:frostfall-sickle",
       "w-engine:fusion-compiler",
       "w-engine:hailstorm-shrine",
       "w-engine:heartstring-nocturne",
@@ -75,8 +105,10 @@
       "w-engine:ice-jade-teapot",
       "w-engine:kaboom-the-cannon",
       "w-engine:marcato-desire",
+      "w-engine:plume-of-rebirth",
       "w-engine:precious-fossilized-core",
       "w-engine:riot-suppressor-mark-vi",
+      "w-engine:roaring-ride",
       "w-engine:sharpened-stinger",
       "w-engine:slice-of-time",
       "w-engine:spring-embrace",
@@ -93,13 +125,212 @@
     "removed": []
   },
   "claims": {
-    "added": [],
+    "added": [
+      {
+        "id": "clm_drive_disc_49cf93a1466f",
+        "kind": "drive_disc",
+        "slotKey": "drive_disc:phoenix:general",
+        "sourceId": "game8"
+      },
+      {
+        "id": "clm_f2p_option_943c0751683b",
+        "kind": "f2p_option",
+        "slotKey": "f2p_option:yixuan:team:anby+soukaku+yixuan:general",
+        "sourceId": "game8"
+      },
+      {
+        "id": "clm_rotation_c04fca9852de",
+        "kind": "rotation",
+        "slotKey": "rotation:phoenix+remielle+velina:general",
+        "sourceId": "mobalytics"
+      },
+      {
+        "id": "clm_substitute_054fd6bdaa50",
+        "kind": "substitute",
+        "slotKey": "substitute:yixuan:banyue:lucia:general",
+        "sourceId": "game8"
+      },
+      {
+        "id": "clm_substitute_0bdf86b91944",
+        "kind": "substitute",
+        "slotKey": "substitute:yixuan:yidhari:lucia:general",
+        "sourceId": "game8"
+      },
+      {
+        "id": "clm_substitute_61ffb08a104a",
+        "kind": "substitute",
+        "slotKey": "substitute:yixuan:manato:lucia:general",
+        "sourceId": "game8"
+      },
+      {
+        "id": "clm_substitute_bc88dddb3767",
+        "kind": "substitute",
+        "slotKey": "substitute:yixuan:starlight-billy:lucia:general",
+        "sourceId": "game8"
+      },
+      {
+        "id": "clm_synergy_9f6bf24b8ba2",
+        "kind": "synergy",
+        "slotKey": "synergy:phoenix+remielle:general",
+        "sourceId": "icy-veins"
+      },
+      {
+        "id": "clm_synergy_e0e8388c2c8d",
+        "kind": "synergy",
+        "slotKey": "synergy:remielle+vivian:general",
+        "sourceId": "icy-veins"
+      },
+      {
+        "id": "clm_team_0155e2c7bd6f",
+        "kind": "team",
+        "slotKey": "team:lycaon+miyabi+soukaku:general",
+        "sourceId": "timesaver"
+      },
+      {
+        "id": "clm_team_034ee13d7bae",
+        "kind": "team",
+        "slotKey": "team:miyabi[2:alice|astra-yao|burnice|nangong-yu|vivian|yanagi|yuzuha]:general",
+        "sourceId": "game8"
+      },
+      {
+        "id": "clm_team_1661950cca77",
+        "kind": "team",
+        "slotKey": "team:anby+claret+nicole:general",
+        "sourceId": "game8"
+      },
+      {
+        "id": "clm_team_288ac86cbb0a",
+        "kind": "team",
+        "slotKey": "team:aria+remielle+velina:general",
+        "sourceId": "mobalytics"
+      },
+      {
+        "id": "clm_team_4221f20b96ba",
+        "kind": "team",
+        "slotKey": "team:ye-shunguang[2:astra-yao|dialyn|ju-fufu|sunna|trigger|zhao]:general",
+        "sourceId": "game8"
+      },
+      {
+        "id": "clm_team_53853138a459",
+        "kind": "team",
+        "slotKey": "team:nangong-yu+phoenix+remielle:general",
+        "sourceId": "zzz-build"
+      },
+      {
+        "id": "clm_team_7439383e3870",
+        "kind": "team",
+        "slotKey": "team:lycaon+rina+sigrid:general",
+        "sourceId": "gamerant"
+      },
+      {
+        "id": "clm_team_76d5a301a807",
+        "kind": "team",
+        "slotKey": "team:claret+norma+rina:general",
+        "sourceId": "gamerant"
+      },
+      {
+        "id": "clm_team_809ffcb380e6",
+        "kind": "team",
+        "slotKey": "team:phoenix+remielle+velina:general",
+        "sourceId": "game8"
+      },
+      {
+        "id": "clm_team_99a5d4906553",
+        "kind": "team",
+        "slotKey": "team:phoenix+remielle+velina:general",
+        "sourceId": "timesaver"
+      },
+      {
+        "id": "clm_team_9c8c4ea82fe6",
+        "kind": "team",
+        "slotKey": "team:nicole+norma+severian:general",
+        "sourceId": "icy-veins"
+      },
+      {
+        "id": "clm_team_a46cf5f74284",
+        "kind": "team",
+        "slotKey": "team:anby+soukaku+yixuan:general",
+        "sourceId": "game8"
+      },
+      {
+        "id": "clm_team_a7181052dda3",
+        "kind": "team",
+        "slotKey": "team:dialyn+lucia+yixuan:general",
+        "sourceId": "game8"
+      },
+      {
+        "id": "clm_team_c2adba9232bf",
+        "kind": "team",
+        "slotKey": "team:phoenix+remielle+velina:general",
+        "sourceId": "zzz-build"
+      },
+      {
+        "id": "clm_team_d228437f4aa2",
+        "kind": "team",
+        "slotKey": "team:pan-yinhu+yixuan[1:astra-yao|yuzuha]:general",
+        "sourceId": "prydwen"
+      },
+      {
+        "id": "clm_team_d4ce32d167ce",
+        "kind": "team",
+        "slotKey": "team:norma+sigrid+sunna:general",
+        "sourceId": "gamerant"
+      },
+      {
+        "id": "clm_team_e5152f9de4cf",
+        "kind": "team",
+        "slotKey": "team:dialyn+lucia+yixuan:general",
+        "sourceId": "game8"
+      },
+      {
+        "id": "clm_team_e9df7637958d",
+        "kind": "team",
+        "slotKey": "team:astra-yao+norma+severian:general",
+        "sourceId": "game8"
+      },
+      {
+        "id": "clm_team_eada3c03d6dc",
+        "kind": "team",
+        "slotKey": "team:phoenix+remielle+velina:general",
+        "sourceId": "game8"
+      },
+      {
+        "id": "clm_team_ef66b2cacde3",
+        "kind": "team",
+        "slotKey": "team:claret+koleda+rina:general",
+        "sourceId": "gamerant"
+      },
+      {
+        "id": "clm_team_f867857919fc",
+        "kind": "team",
+        "slotKey": "team:anby+billy+nicole:general",
+        "sourceId": "timesaver"
+      },
+      {
+        "id": "clm_team_fb13aa256273",
+        "kind": "team",
+        "slotKey": "team:anby+sigrid+soukaku:general",
+        "sourceId": "game8"
+      },
+      {
+        "id": "clm_w_engine_5d40d830424b",
+        "kind": "w_engine",
+        "slotKey": "w_engine:ye-shunguang:general",
+        "sourceId": "gamerant"
+      },
+      {
+        "id": "clm_w_engine_bccf39a14bbd",
+        "kind": "w_engine",
+        "slotKey": "w_engine:phoenix:general",
+        "sourceId": "game8"
+      }
+    ],
     "changed": [],
     "refreshed": [],
     "removed": [],
     "statusChanged": []
   },
   "fromVersion": null,
-  "generatedAt": "2026-10-27T16:58:04.831Z",
+  "generatedAt": "2026-10-27T18:01:19.667Z",
   "toVersion": "3.3-r1"
 }

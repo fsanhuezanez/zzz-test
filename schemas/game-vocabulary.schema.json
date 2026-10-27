@@ -1,0 +1,163 @@
+{
+  "$id": "game-vocabulary.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "attributes": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "maxLength": 40,
+            "pattern": "^[a-z][a-z0-9_]*$",
+            "type": "string"
+          },
+          "label": {
+            "maxLength": 60,
+            "minLength": 1,
+            "type": "string"
+          },
+          "notes": {
+            "maxLength": 500,
+            "minLength": 1,
+            "type": "string"
+          },
+          "verified": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "verified"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "extraTierRoles": {
+      "description": "Roles de tier list además de las especialidades (p. ej. sub_dps, overall).",
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "maxLength": 40,
+            "pattern": "^[a-z][a-z0-9_]*$",
+            "type": "string"
+          },
+          "label": {
+            "maxLength": 60,
+            "minLength": 1,
+            "type": "string"
+          },
+          "notes": {
+            "maxLength": 500,
+            "minLength": 1,
+            "type": "string"
+          },
+          "verified": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "verified"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "specialties": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "maxLength": 40,
+            "pattern": "^[a-z][a-z0-9_]*$",
+            "type": "string"
+          },
+          "label": {
+            "maxLength": 60,
+            "minLength": 1,
+            "type": "string"
+          },
+          "notes": {
+            "maxLength": 500,
+            "minLength": 1,
+            "type": "string"
+          },
+          "verified": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "verified"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "stats": {
+      "additionalProperties": false,
+      "properties": {
+        "all": {
+          "description": "Estadísticas conocidas. Las de daño elemental (<atributo>_dmg) se añaden solas.",
+          "items": {
+            "pattern": "^[a-z][a-z0-9_]*$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "slot4": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "slot5": {
+          "description": "Además de estas, la ranura 5 acepta <atributo>_dmg de cada atributo.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "slot6": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "substats": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "all",
+        "slot4",
+        "slot5",
+        "slot6",
+        "substats"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "attributes",
+    "specialties",
+    "extraTierRoles",
+    "stats"
+  ],
+  "type": "object"
+}

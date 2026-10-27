@@ -1,0 +1,39 @@
+{
+  "$schema": "../../../../schemas/editorial-submission.schema.json",
+  "sourceId": "mobalytics",
+  "url": "https://mobalytics.gg/zzz/builds/remielle-build-guide",
+  "accessedAt": "2026-10-27",
+  "declaredPatch": null,
+  "collectedBy": "asistente (búsqueda web)",
+  "collectionMethod": "web_search",
+  "evidenceType": "explicit_recommendation",
+  "confidence": "low",
+  "verification": {
+    "state": "unverified"
+  },
+  "mode": "general",
+  "notes": "Resumen de buscador del 2026-10-27; la página original no se ha leído (bloqueada desde el entorno). Comprobar antes de verificar.",
+  "claims": [
+    {
+      "kind": "team",
+      "stance": "recommended",
+      "members": [
+        {
+          "agent": "Remielle",
+          "role": "anomaly"
+        },
+        {
+          "agent": "Velina",
+          "role": "anomaly"
+        },
+        {
+          "agent": "Aria",
+          "role": "anomaly"
+        }
+      ],
+      "evidence": {
+        "notes": "Según el resumen, la guía llama a Aria la mejor DPS principal junto a Velina."
+      }
+    }
+  ]
+}

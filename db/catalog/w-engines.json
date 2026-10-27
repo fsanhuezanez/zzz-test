@@ -3,6 +3,20 @@
   "items": [
     {
       "aliases": [],
+      "id": "angel-in-the-shell",
+      "name": "Angel in the Shell",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
+      "aliases": [],
       "id": "bashful-demon",
       "name": "Bashful Demon",
       "provenance": {
@@ -33,6 +47,21 @@
       "rarity": "S",
       "signatureOf": "lighter",
       "specialty": "stun"
+    },
+    {
+      "aliases": [],
+      "id": "cloudcleave-radiance",
+      "name": "Cloudcleave Radiance",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "signatureOf": "ye-shunguang"
     },
     {
       "aliases": [],
@@ -116,6 +145,20 @@
       "rarity": "S",
       "signatureOf": "burnice",
       "specialty": "anomaly"
+    },
+    {
+      "aliases": [],
+      "id": "frostfall-sickle",
+      "name": "Frostfall Sickle",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
     },
     {
       "aliases": [],
@@ -235,6 +278,22 @@
       "specialty": "attack"
     },
     {
+      "aliases": [
+        "Nirvana's First Plume"
+      ],
+      "id": "plume-of-rebirth",
+      "name": "Plume of Rebirth",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
       "aliases": [],
       "id": "precious-fossilized-core",
       "name": "Precious Fossilized Core",
@@ -266,6 +325,20 @@
       "rarity": "S",
       "signatureOf": "zhu-yuan",
       "specialty": "attack"
+    },
+    {
+      "aliases": [],
+      "id": "roaring-ride",
+      "name": "Roaring Ride",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
     },
     {
       "aliases": [],

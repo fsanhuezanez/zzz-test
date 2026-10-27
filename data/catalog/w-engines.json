@@ -449,6 +449,79 @@
         },
         "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified."
       }
+    },
+    {
+      "id": "plume-of-rebirth",
+      "name": "Plume of Rebirth",
+      "aliases": [
+        "Nirvana's First Plume"
+      ],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "angel-in-the-shell",
+      "name": "Angel in the Shell",
+      "aliases": [],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "frostfall-sickle",
+      "name": "Frostfall Sickle",
+      "aliases": [],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "roaring-ride",
+      "name": "Roaring Ride",
+      "aliases": [],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "cloudcleave-radiance",
+      "name": "Cloudcleave Radiance",
+      "aliases": [],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
+      },
+      "signatureOf": "ye-shunguang"
     }
   ]
 }

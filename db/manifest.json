@@ -1,20 +1,24 @@
 {
   "$schema": "../schemas/manifest.schema.json",
-  "contentHash": "87598af2e3712808338af30b9bb13fc950957c11c014aa5d4c48643212f771ab",
+  "contentHash": "acefb2f5827abbb277af98e1dd71bac549795828ff60a2633eb550f2083ca10e",
   "counts": {
-    "agents": 33,
-    "bangboo": 8,
-    "claims": 0,
+    "agents": 58,
+    "bangboo": 10,
+    "claims": 33,
     "claimsByStatus": {
-      "current": 0,
+      "current": 31,
       "retracted": 0,
-      "stale": 0,
+      "stale": 2,
       "superseded": 0
     },
     "driveDiscs": 18,
+    "liveClaimsByReview": {
+      "pending": 33,
+      "verified": 0
+    },
     "teamConsensus": 0,
     "tierConsensus": 0,
-    "wEngines": 27
+    "wEngines": 32
   },
   "dataVersion": "3.3-r1",
   "files": {
@@ -23,12 +27,12 @@
     "claims": "claims.json",
     "consensus": "derived/consensus.json",
     "driveDiscs": "catalog/drive-discs.json",
-    "index": "index/by-agent.json",
     "sources": "sources.json",
+    "vocabulary": "game.json",
     "wEngines": "catalog/w-engines.json"
   },
   "gamePatch": "3.3",
-  "generatedAt": "2026-10-27T16:58:04.831Z",
+  "generatedAt": "2026-10-27T18:01:19.667Z",
   "isFixture": false,
   "previousDataVersion": null,
   "revision": 1,
@@ -45,6 +49,26 @@
       "updateOutcome": "no_input"
     },
     {
+      "attribution": "Datos resumidos de Game8 (game8.co). Consulta la guía original en el enlace de cada dato.",
+      "automationStatus": "unknown",
+      "claimCount": 17,
+      "currentClaimCount": 17,
+      "id": "game8",
+      "lastAccessedAt": "2026-10-27",
+      "name": "Game8",
+      "updateOutcome": "collected"
+    },
+    {
+      "attribution": "Datos resumidos de Game Rant (gamerant.com).",
+      "automationStatus": "unknown",
+      "claimCount": 5,
+      "currentClaimCount": 3,
+      "id": "gamerant",
+      "lastAccessedAt": "2026-10-27",
+      "name": "Game Rant",
+      "updateOutcome": "collected"
+    },
+    {
       "attribution": "Información oficial de Zenless Zone Zero © HoYoverse.",
       "automationStatus": "unknown",
       "claimCount": 0,
@@ -53,6 +77,16 @@
       "lastAccessedAt": null,
       "name": "HoYoverse (fuentes oficiales)",
       "updateOutcome": "no_input"
+    },
+    {
+      "attribution": "Datos resumidos de Icy Veins (icy-veins.com). Consulta la guía original en el enlace de cada dato.",
+      "automationStatus": "unknown",
+      "claimCount": 3,
+      "currentClaimCount": 3,
+      "id": "icy-veins",
+      "lastAccessedAt": "2026-10-27",
+      "name": "Icy Veins",
+      "updateOutcome": "collected"
     },
     {
       "attribution": "Estimación propia de zzz-meta-knowledge; no procede de ninguna fuente externa.",
@@ -67,22 +101,42 @@
     {
       "attribution": "Datos resumidos de Mobalytics (mobalytics.gg). Consulta la guía original en el enlace de cada dato.",
       "automationStatus": "disallowed",
-      "claimCount": 0,
-      "currentClaimCount": 0,
+      "claimCount": 2,
+      "currentClaimCount": 2,
       "id": "mobalytics",
-      "lastAccessedAt": null,
+      "lastAccessedAt": "2026-10-27",
       "name": "Mobalytics",
-      "updateOutcome": "no_input"
+      "updateOutcome": "collected"
     },
     {
       "attribution": "Datos resumidos de Prydwen Institute (prydwen.gg). Consulta la guía original en el enlace de cada dato.",
       "automationStatus": "disallowed",
-      "claimCount": 0,
-      "currentClaimCount": 0,
+      "claimCount": 1,
+      "currentClaimCount": 1,
       "id": "prydwen",
-      "lastAccessedAt": null,
+      "lastAccessedAt": "2026-10-27",
       "name": "Prydwen Institute",
-      "updateOutcome": "no_input"
+      "updateOutcome": "collected"
+    },
+    {
+      "attribution": "Datos resumidos de timesaver.gg.",
+      "automationStatus": "unknown",
+      "claimCount": 3,
+      "currentClaimCount": 3,
+      "id": "timesaver",
+      "lastAccessedAt": "2026-10-27",
+      "name": "Timesaver.gg",
+      "updateOutcome": "collected"
+    },
+    {
+      "attribution": "Datos resumidos de zzz-build.com.",
+      "automationStatus": "unknown",
+      "claimCount": 2,
+      "currentClaimCount": 2,
+      "id": "zzz-build",
+      "lastAccessedAt": "2026-10-27",
+      "name": "ZZZ Build (zzz-build.com)",
+      "updateOutcome": "collected"
     }
   ]
 }

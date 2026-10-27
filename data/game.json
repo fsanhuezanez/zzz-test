@@ -1,0 +1,138 @@
+{
+  "$schema": "../schemas/game-vocabulary.schema.json",
+  "attributes": [
+    {
+      "id": "physical",
+      "label": "Physical",
+      "verified": false
+    },
+    {
+      "id": "fire",
+      "label": "Fire",
+      "verified": false
+    },
+    {
+      "id": "ice",
+      "label": "Ice",
+      "verified": false
+    },
+    {
+      "id": "electric",
+      "label": "Electric",
+      "verified": false
+    },
+    {
+      "id": "ether",
+      "label": "Ether",
+      "verified": false
+    },
+    {
+      "id": "wind",
+      "label": "Wind",
+      "verified": false,
+      "notes": "Visto en resultados de búsqueda (oct. 2026) para Velina, Roxy y Severian. Confirmar en el juego."
+    }
+  ],
+  "specialties": [
+    {
+      "id": "attack",
+      "label": "Attack",
+      "verified": false
+    },
+    {
+      "id": "stun",
+      "label": "Stun",
+      "verified": false
+    },
+    {
+      "id": "anomaly",
+      "label": "Anomaly",
+      "verified": false
+    },
+    {
+      "id": "support",
+      "label": "Support",
+      "verified": false
+    },
+    {
+      "id": "defense",
+      "label": "Defense",
+      "verified": false
+    },
+    {
+      "id": "rupture",
+      "label": "Rupture",
+      "verified": false
+    },
+    {
+      "id": "armorer",
+      "label": "Armorer",
+      "verified": false,
+      "notes": "Visto en resultados de búsqueda (oct. 2026) para Claret. Confirmar en el juego."
+    }
+  ],
+  "extraTierRoles": [
+    {
+      "id": "sub_dps",
+      "label": "Sub-DPS",
+      "verified": false
+    },
+    {
+      "id": "overall",
+      "label": "General",
+      "verified": false
+    }
+  ],
+  "stats": {
+    "all": [
+      "hp",
+      "atk",
+      "def",
+      "hp_pct",
+      "atk_pct",
+      "def_pct",
+      "crit_rate",
+      "crit_dmg",
+      "anomaly_proficiency",
+      "anomaly_mastery",
+      "pen",
+      "pen_ratio",
+      "impact",
+      "energy_regen"
+    ],
+    "slot4": [
+      "hp_pct",
+      "atk_pct",
+      "def_pct",
+      "crit_rate",
+      "crit_dmg",
+      "anomaly_proficiency"
+    ],
+    "slot5": [
+      "hp_pct",
+      "atk_pct",
+      "def_pct",
+      "pen_ratio"
+    ],
+    "slot6": [
+      "hp_pct",
+      "atk_pct",
+      "def_pct",
+      "anomaly_mastery",
+      "impact",
+      "energy_regen"
+    ],
+    "substats": [
+      "hp",
+      "atk",
+      "def",
+      "hp_pct",
+      "atk_pct",
+      "def_pct",
+      "crit_rate",
+      "crit_dmg",
+      "pen",
+      "anomaly_proficiency"
+    ]
+  }
+}

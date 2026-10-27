@@ -4,11 +4,9 @@
     {
       "attribution": "Fuente ficticia de pruebas A.",
       "automation": {
-        "allowedMethods": [
-          "manual_entry"
-        ],
         "basis": "Fuente FICTICIA para pruebas. No representa a ningún sitio real.",
         "checkedAt": "2026-10-27",
+        "checkedVia": "browser",
         "evidenceUrls": [
           "https://example.com/"
         ],
@@ -52,11 +50,9 @@
     {
       "attribution": "Fuente ficticia de pruebas B.",
       "automation": {
-        "allowedMethods": [
-          "manual_entry"
-        ],
         "basis": "Fuente FICTICIA para pruebas. No representa a ningún sitio real.",
         "checkedAt": "2026-10-27",
+        "checkedVia": "browser",
         "evidenceUrls": [
           "https://example.com/"
         ],
@@ -100,11 +96,9 @@
     {
       "attribution": "Estimación propia de zzz-meta-knowledge.",
       "automation": {
-        "allowedMethods": [
-          "manual_entry"
-        ],
         "basis": "Fuente interna.",
         "checkedAt": "2026-10-27",
+        "checkedVia": "browser",
         "evidenceUrls": [
           "https://github.com/fsanhuezanez/zzz-test"
         ],

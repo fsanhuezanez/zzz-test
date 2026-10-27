@@ -1,0 +1,63 @@
+{
+  "$schema": "../../../../schemas/editorial-submission.schema.json",
+  "sourceId": "gamerant",
+  "url": "https://gamerant.com/zzz-claret-team-comp-composition-zenless-zone-zero-best-pair-teammates/",
+  "accessedAt": "2026-10-27",
+  "declaredPatch": null,
+  "collectedBy": "asistente (búsqueda web)",
+  "collectionMethod": "web_search",
+  "evidenceType": "explicit_recommendation",
+  "confidence": "low",
+  "verification": {
+    "state": "unverified"
+  },
+  "mode": "general",
+  "notes": "Resumen de buscador del 2026-10-27; la página original no se ha leído (bloqueada desde el entorno). Comprobar antes de verificar.",
+  "claims": [
+    {
+      "kind": "team",
+      "stance": "recommended",
+      "members": [
+        {
+          "agent": "Claret",
+          "role": "main_dps"
+        },
+        {
+          "agent": "Norma",
+          "role": "support"
+        },
+        {
+          "agent": "Rina",
+          "role": "support"
+        }
+      ],
+      "requirements": [
+        {
+          "text": "Claret necesita un agente Stun o Armorer en el equipo para activar su habilidad adicional",
+          "agent": "Claret",
+          "level": "required"
+        }
+      ]
+    },
+    {
+      "kind": "team",
+      "archetype": "F2P",
+      "stance": "recommended",
+      "members": [
+        {
+          "agent": "Claret",
+          "role": "main_dps"
+        },
+        {
+          "agent": "Koleda",
+          "role": "stunner"
+        },
+        {
+          "agent": "Rina",
+          "role": "support"
+        }
+      ],
+      "budget": true
+    }
+  ]
+}

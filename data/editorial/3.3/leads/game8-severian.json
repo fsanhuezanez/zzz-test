@@ -1,0 +1,44 @@
+{
+  "$schema": "../../../../schemas/editorial-submission.schema.json",
+  "sourceId": "game8",
+  "url": "https://game8.co/games/Zenless-Zone-Zero/archives/597407",
+  "title": "Severian Best Builds and Teams",
+  "accessedAt": "2026-10-27",
+  "declaredPatch": null,
+  "collectedBy": "asistente (búsqueda web)",
+  "collectionMethod": "web_search",
+  "evidenceType": "explicit_recommendation",
+  "confidence": "low",
+  "verification": {
+    "state": "unverified"
+  },
+  "mode": "general",
+  "notes": "Resumen de buscador del 2026-10-27; la página original no se ha leído (bloqueada desde el entorno). Comprobar antes de verificar. Según el resumen, la página lo describe como agente próximo (fase 2 de 3.3): información previa al lanzamiento.",
+  "claims": [
+    {
+      "kind": "team",
+      "name": "Premium",
+      "stance": "recommended",
+      "members": [
+        {
+          "agent": "Severian",
+          "role": "main_dps"
+        },
+        {
+          "agent": "Norma",
+          "role": "support"
+        },
+        {
+          "agent": "Astra Yao",
+          "role": "support"
+        }
+      ],
+      "bangboo": [
+        {
+          "bangboo": "Ultra Jake",
+          "rank": 1
+        }
+      ]
+    }
+  ]
+}

@@ -60,3 +60,18 @@ test('los esquemas publicados en /schemas están al día con src/schema', async 
     assert.deepEqual(await readJson(join(ROOT, 'schemas', name)), expected, `${name} desactualizado: ejecuta npm run schemas`);
   }
 });
+
+test('web_search: nunca verificado ni con confianza alta', () => {
+  const base = { ...baseProvenance, collectionMethod: 'web_search' };
+  assert.equal(check(Provenance, { ...base, confidence: 'low' }).ok, true);
+  assert.equal(check(Provenance, { ...base, confidence: 'high' }).ok, false);
+  assert.equal(check(Provenance, { ...base, confidence: 'low', verification: { state: 'verified', reviewedBy: 'x', reviewedAt: '2026-10-27' } }).ok, false);
+});
+
+test('equipo: stance obligatorio y "ranked" exige rating', () => {
+  const members = [{ agent: 'Ellen', role: 'main_dps' }, { agent: 'Lycaon', role: 'stunner' }];
+  assert.equal(check(EditorialSubmission, submission({}, [{ kind: 'team', members }])).ok, false);
+  assert.equal(check(EditorialSubmission, submission({}, [{ kind: 'team', stance: 'ranked', members }])).ok, false);
+  assert.equal(check(EditorialSubmission, submission({}, [{ kind: 'team', stance: 'ranked', rating: { label: 'S' }, members }])).ok, true);
+  assert.equal(check(EditorialSubmission, submission({}, [{ kind: 'team', stance: 'showcase', members }])).ok, true);
+});

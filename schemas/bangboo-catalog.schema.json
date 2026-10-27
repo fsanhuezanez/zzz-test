@@ -42,8 +42,7 @@
               "collectionMethod": {
                 "enum": [
                   "manual_entry",
-                  "automated_api",
-                  "automated_feed",
+                  "web_search",
                   "derived"
                 ],
                 "type": "string"
@@ -131,7 +130,6 @@
           "id",
           "name",
           "aliases",
-          "rarity",
           "provenance"
         ],
         "type": "object"
