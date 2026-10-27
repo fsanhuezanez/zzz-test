@@ -13,7 +13,7 @@
     "state": "unverified"
   },
   "mode": "general",
-  "notes": "Resumen de buscador del 2026-10-27; la página original no se ha leído (bloqueada desde el entorno). Comprobar antes de verificar.",
+  "notes": "Resumen de buscador del 2026-10-27; la página original no se ha leído (bloqueada desde el entorno). Comprobar antes de verificar. pageUpdatedAt aproximada: el buscador indicaba ~3 días de antigüedad.",
   "claims": [
     {
       "kind": "team",
@@ -62,6 +62,44 @@
         "Anby",
         "Soukaku"
       ]
+    },
+    {
+      "kind": "w_engine",
+      "agent": "Yixuan",
+      "options": [
+        {
+          "wEngine": "Qingming Birdcage",
+          "rank": 1
+        },
+        {
+          "wEngine": "Cinder Cobalt",
+          "rank": 2,
+          "note": "El resumen la cita entre otras alternativas"
+        }
+      ]
+    },
+    {
+      "kind": "drive_disc",
+      "agent": "Yixuan",
+      "fourPiece": [
+        "Yunkui Tales"
+      ],
+      "twoPiece": [
+        "Woodpecker Electro"
+      ],
+      "mainStats": {
+        "slot4": [
+          "crit_rate",
+          "crit_dmg"
+        ],
+        "slot5": [
+          "ether_dmg"
+        ],
+        "slot6": [
+          "hp_pct"
+        ]
+      }
     }
-  ]
+  ],
+  "pageUpdatedAt": "2026-10-24"
 }

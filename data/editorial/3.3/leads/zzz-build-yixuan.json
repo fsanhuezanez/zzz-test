@@ -1,0 +1,44 @@
+{
+  "$schema": "../../../../schemas/editorial-submission.schema.json",
+  "sourceId": "zzz-build",
+  "url": "https://www.zzz-build.com/agents/yi-xuan",
+  "accessedAt": "2026-10-27",
+  "declaredPatch": "3.3",
+  "collectedBy": "asistente (búsqueda web)",
+  "collectionMethod": "web_search",
+  "evidenceType": "explicit_recommendation",
+  "confidence": "low",
+  "verification": {
+    "state": "unverified"
+  },
+  "mode": "general",
+  "notes": "Resumen de buscador del 2026-10-27; la página original no se ha leído (bloqueada desde el entorno). Comprobar antes de verificar.",
+  "claims": [
+    {
+      "kind": "w_engine",
+      "agent": "Yixuan",
+      "options": [
+        {
+          "wEngine": "Qingming Birdcage",
+          "rank": 1
+        },
+        {
+          "wEngine": "Cauldron of Clarity",
+          "rank": 2,
+          "note": "Alternativa económica según el resumen"
+        }
+      ]
+    },
+    {
+      "kind": "drive_disc",
+      "agent": "Yixuan",
+      "fourPiece": [
+        "Yunkui Tales"
+      ],
+      "twoPiece": [
+        "Woodpecker Electro"
+      ],
+      "mainStats": {}
+    }
+  ]
+}

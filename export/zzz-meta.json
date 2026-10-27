@@ -2,16 +2,16 @@
   "meta": {
     "format": "zzz-meta-export",
     "formatVersion": 1,
-    "dataVersion": "3.3-r1",
+    "dataVersion": "3.3-r2",
     "gamePatch": "3.3",
-    "generatedAt": "2026-10-27T18:01:19.667Z",
-    "contentHash": "acefb2f5827abbb277af98e1dd71bac549795828ff60a2633eb550f2083ca10e",
+    "generatedAt": "2026-10-27T19:21:48.036Z",
+    "contentHash": "04f602f6a3abb04dde38bdd568c3fae21226557705abb68c3b833e52f2a72a8b",
     "isFixture": false,
     "counts": {
       "teams": 22,
       "verified": 0,
-      "pending": 33,
-      "stale": 2
+      "pending": 41,
+      "stale": 3
     },
     "notice": "Evidencia atribuida, no veredictos. \"pending\" = no comprobado en la página original; \"via_search\" = tomado de un resumen de buscador. Un tier individual no es un ranking de equipos, y un equipo documentado (showcase) no es necesariamente superior. Muestra siempre la fuente y el enlace."
   },
@@ -668,6 +668,18 @@
       "review": "pending"
     },
     {
+      "id": "cauldron-of-clarity",
+      "name": "Cauldron of Clarity",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "cinder-cobalt",
+      "name": "Cinder Cobalt",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
       "id": "cloudcleave-radiance",
       "name": "Cloudcleave Radiance",
       "aliases": [],
@@ -740,6 +752,12 @@
       "review": "pending"
     },
     {
+      "id": "joyau-dore",
+      "name": "Joyau Dore",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
       "id": "kaboom-the-cannon",
       "name": "Kaboom the Cannon",
       "aliases": [],
@@ -762,6 +780,12 @@
     {
       "id": "precious-fossilized-core",
       "name": "Precious Fossilized Core",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "qingming-birdcage",
+      "name": "Qingming Birdcage",
       "aliases": [],
       "review": "pending"
     },
@@ -894,6 +918,12 @@
       "review": "pending"
     },
     {
+      "id": "moonlight-lullaby",
+      "name": "Moonlight Lullaby",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
       "id": "phaethon-s-melody",
       "name": "Phaethon's Melody",
       "aliases": [],
@@ -948,8 +978,26 @@
       "review": "pending"
     },
     {
+      "id": "white-water-ballad",
+      "name": "White Water Ballad",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
       "id": "woodpecker-electro",
       "name": "Woodpecker Electro",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "wuthering-salon",
+      "name": "Wuthering Salon",
+      "aliases": [],
+      "review": "pending"
+    },
+    {
+      "id": "yunkui-tales",
+      "name": "Yunkui Tales",
       "aliases": [],
       "review": "pending"
     }
@@ -1600,6 +1648,7 @@
         "sourceName": "Game8",
         "url": "https://game8.co/games/Zenless-Zone-Zero/archives/516115",
         "accessedAt": "2026-10-27",
+        "pageUpdatedAt": "2026-10-24",
         "declaredPatch": null,
         "evidenceType": "explicit_recommendation",
         "confidence": "low",
@@ -1858,6 +1907,7 @@
         "sourceName": "Game8",
         "url": "https://game8.co/games/Zenless-Zone-Zero/archives/516115",
         "accessedAt": "2026-10-27",
+        "pageUpdatedAt": "2026-10-24",
         "declaredPatch": null,
         "evidenceType": "explicit_recommendation",
         "confidence": "low",
@@ -2735,10 +2785,225 @@
           }
         }
       ],
-      "driveDiscs": [],
+      "driveDiscs": [
+        {
+          "fourPiece": [
+            "white-water-ballad"
+          ],
+          "twoPiece": [
+            "branch-blade-song"
+          ],
+          "mainStats": {
+            "slot4": [
+              "atk_pct",
+              "crit_dmg"
+            ],
+            "slot5": [
+              "pen_ratio",
+              "atk_pct"
+            ],
+            "slot6": [
+              "atk_pct"
+            ]
+          },
+          "substats": [],
+          "statTargets": [],
+          "mode": "general",
+          "evidence": {
+            "claimId": "clm_drive_disc_995d16381a00",
+            "sourceId": "prydwen",
+            "sourceName": "Prydwen Institute",
+            "url": "https://www.prydwen.gg/zenless/characters/ye-shunguang",
+            "accessedAt": "2026-10-27",
+            "declaredPatch": null,
+            "evidenceType": "explicit_recommendation",
+            "confidence": "low",
+            "collectionMethod": "web_search",
+            "review": "pending",
+            "status": "current",
+            "flags": [
+              "patch_undeclared",
+              "unverified_catalog_refs",
+              "via_search"
+            ]
+          }
+        }
+      ],
       "bangboo": [],
       "investment": [],
       "f2p": []
+    },
+    "yixuan": {
+      "wEngines": [
+        {
+          "options": [
+            {
+              "wEngine": "qingming-birdcage",
+              "rank": 1
+            },
+            {
+              "wEngine": "cinder-cobalt",
+              "rank": 2,
+              "note": "El resumen la cita entre otras alternativas"
+            }
+          ],
+          "mode": "general",
+          "evidence": {
+            "claimId": "clm_w_engine_644c8d7c7d37",
+            "sourceId": "game8",
+            "sourceName": "Game8",
+            "url": "https://game8.co/games/Zenless-Zone-Zero/archives/516115",
+            "accessedAt": "2026-10-27",
+            "pageUpdatedAt": "2026-10-24",
+            "declaredPatch": null,
+            "evidenceType": "explicit_recommendation",
+            "confidence": "low",
+            "collectionMethod": "web_search",
+            "review": "pending",
+            "status": "current",
+            "flags": [
+              "patch_undeclared",
+              "unverified_catalog_refs",
+              "via_search"
+            ]
+          }
+        },
+        {
+          "options": [
+            {
+              "wEngine": "qingming-birdcage",
+              "rank": 1
+            },
+            {
+              "wEngine": "cauldron-of-clarity",
+              "rank": 2,
+              "note": "Alternativa económica según el resumen"
+            }
+          ],
+          "mode": "general",
+          "evidence": {
+            "claimId": "clm_w_engine_fcf020efd385",
+            "sourceId": "zzz-build",
+            "sourceName": "ZZZ Build (zzz-build.com)",
+            "url": "https://www.zzz-build.com/agents/yi-xuan",
+            "accessedAt": "2026-10-27",
+            "declaredPatch": "3.3",
+            "evidenceType": "explicit_recommendation",
+            "confidence": "low",
+            "collectionMethod": "web_search",
+            "review": "pending",
+            "status": "current",
+            "flags": [
+              "unverified_catalog_refs",
+              "via_search"
+            ]
+          }
+        }
+      ],
+      "driveDiscs": [
+        {
+          "fourPiece": [
+            "yunkui-tales"
+          ],
+          "twoPiece": [
+            "woodpecker-electro"
+          ],
+          "mainStats": {
+            "slot4": [
+              "crit_rate",
+              "crit_dmg"
+            ],
+            "slot5": [
+              "ether_dmg"
+            ],
+            "slot6": [
+              "hp_pct"
+            ]
+          },
+          "substats": [],
+          "statTargets": [],
+          "mode": "general",
+          "evidence": {
+            "claimId": "clm_drive_disc_6454aa1e0a99",
+            "sourceId": "game8",
+            "sourceName": "Game8",
+            "url": "https://game8.co/games/Zenless-Zone-Zero/archives/516115",
+            "accessedAt": "2026-10-27",
+            "pageUpdatedAt": "2026-10-24",
+            "declaredPatch": null,
+            "evidenceType": "explicit_recommendation",
+            "confidence": "low",
+            "collectionMethod": "web_search",
+            "review": "pending",
+            "status": "current",
+            "flags": [
+              "patch_undeclared",
+              "unverified_catalog_refs",
+              "via_search"
+            ]
+          }
+        },
+        {
+          "fourPiece": [
+            "yunkui-tales"
+          ],
+          "twoPiece": [
+            "woodpecker-electro"
+          ],
+          "mainStats": {},
+          "substats": [],
+          "statTargets": [],
+          "mode": "general",
+          "evidence": {
+            "claimId": "clm_drive_disc_9eba979fc049",
+            "sourceId": "zzz-build",
+            "sourceName": "ZZZ Build (zzz-build.com)",
+            "url": "https://www.zzz-build.com/agents/yi-xuan",
+            "accessedAt": "2026-10-27",
+            "declaredPatch": "3.3",
+            "evidenceType": "explicit_recommendation",
+            "confidence": "low",
+            "collectionMethod": "web_search",
+            "review": "pending",
+            "status": "current",
+            "flags": [
+              "unverified_catalog_refs",
+              "via_search"
+            ]
+          }
+        }
+      ],
+      "bangboo": [],
+      "investment": [],
+      "f2p": [
+        {
+          "category": "team",
+          "entities": [
+            "yixuan",
+            "anby",
+            "soukaku"
+          ],
+          "evidence": {
+            "claimId": "clm_f2p_option_943c0751683b",
+            "sourceId": "game8",
+            "sourceName": "Game8",
+            "url": "https://game8.co/games/Zenless-Zone-Zero/archives/516115",
+            "accessedAt": "2026-10-27",
+            "pageUpdatedAt": "2026-10-24",
+            "declaredPatch": null,
+            "evidenceType": "explicit_recommendation",
+            "confidence": "low",
+            "collectionMethod": "web_search",
+            "review": "pending",
+            "status": "current",
+            "flags": [
+              "patch_undeclared",
+              "unverified_catalog_refs",
+              "via_search"
+            ]
+          }
+        }
+      ]
     },
     "phoenix": {
       "wEngines": [
@@ -2843,39 +3108,108 @@
       "investment": [],
       "f2p": []
     },
-    "yixuan": {
-      "wEngines": [],
-      "driveDiscs": [],
-      "bangboo": [],
-      "investment": [],
-      "f2p": [
+    "velina": {
+      "wEngines": [
         {
-          "category": "team",
-          "entities": [
-            "yixuan",
-            "anby",
-            "soukaku"
+          "options": [
+            {
+              "wEngine": "joyau-dore",
+              "rank": 1,
+              "note": "W-Engine exclusivo"
+            }
           ],
+          "mode": "general",
           "evidence": {
-            "claimId": "clm_f2p_option_943c0751683b",
-            "sourceId": "game8",
-            "sourceName": "Game8",
-            "url": "https://game8.co/games/Zenless-Zone-Zero/archives/516115",
+            "claimId": "clm_w_engine_ee8d97ab7675",
+            "sourceId": "zzz-build",
+            "sourceName": "ZZZ Build (zzz-build.com)",
+            "url": "https://www.zzz-build.com/agents/velina",
             "accessedAt": "2026-10-27",
-            "declaredPatch": null,
+            "declaredPatch": "3.3",
             "evidenceType": "explicit_recommendation",
             "confidence": "low",
             "collectionMethod": "web_search",
             "review": "pending",
             "status": "current",
             "flags": [
-              "patch_undeclared",
               "unverified_catalog_refs",
               "via_search"
             ]
           }
         }
-      ]
+      ],
+      "driveDiscs": [
+        {
+          "fourPiece": [
+            "wuthering-salon"
+          ],
+          "twoPiece": [
+            "moonlight-lullaby"
+          ],
+          "mainStats": {},
+          "substats": [],
+          "statTargets": [],
+          "mode": "general",
+          "evidence": {
+            "claimId": "clm_drive_disc_4a398533abe3",
+            "sourceId": "zzz-build",
+            "sourceName": "ZZZ Build (zzz-build.com)",
+            "url": "https://www.zzz-build.com/agents/velina",
+            "accessedAt": "2026-10-27",
+            "declaredPatch": "3.3",
+            "evidenceType": "explicit_recommendation",
+            "confidence": "low",
+            "collectionMethod": "web_search",
+            "review": "pending",
+            "status": "current",
+            "flags": [
+              "unverified_catalog_refs",
+              "via_search"
+            ]
+          }
+        }
+      ],
+      "bangboo": [],
+      "investment": [],
+      "f2p": []
+    },
+    "miyabi": {
+      "wEngines": [],
+      "driveDiscs": [
+        {
+          "fourPiece": [
+            "branch-blade-song"
+          ],
+          "twoPiece": [
+            "polar-metal"
+          ],
+          "mainStats": {},
+          "substats": [],
+          "statTargets": [],
+          "mode": "general",
+          "evidence": {
+            "claimId": "clm_drive_disc_a8d394f11a50",
+            "sourceId": "zzz-build",
+            "sourceName": "ZZZ Build (zzz-build.com)",
+            "url": "https://www.zzz-build.com/agents/miyabi",
+            "accessedAt": "2026-10-27",
+            "declaredPatch": "3.2",
+            "evidenceType": "explicit_recommendation",
+            "confidence": "low",
+            "collectionMethod": "web_search",
+            "review": "pending",
+            "status": "stale",
+            "flags": [
+              "older_patch",
+              "unverified_catalog_refs",
+              "via_search"
+            ]
+          }
+        }
+      ],
+      "bangboo": [],
+      "investment": [],
+      "f2p": []
     }
   },
   "tiers": [],

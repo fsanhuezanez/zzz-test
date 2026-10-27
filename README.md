@@ -7,9 +7,10 @@ La base **describe la evidencia; no decide** qué equipo es mejor para cada cuen
 > ## Estado de los datos (27-10-2026, parche 3.3)
 >
 > - **0 datos verificados.** La base **no** puede considerarse actualizada para 3.3 hasta que alguien revise las páginas.
-> - **33 pistas pendientes** en `data/editorial/3.3/leads/`: 22 equipos, sustitutos, una build de Phoenix, W-Engines, sinergias y una rotación. Salen de 16 páginas de Game8, Game Rant, Icy Veins, Mobalytics, zzz-build, Timesaver y Prydwen. Se obtuvieron de **resúmenes de buscador**, porque desde el entorno donde se preparó no se podía abrir ninguna de esas webs. Llevan confianza `low`, método `web_search` y el flag `via_search`. Pueden tener errores.
+> - **41 pistas pendientes** en `data/editorial/3.3/leads/`: 22 equipos, 4 sustitutos, builds (W-Engine y/o Drive Discs) de Phoenix, Yixuan, Velina, Ye Shunguang y Miyabi, 2 sinergias y una rotación. Salen de 20 páginas de Game8, Game Rant, Icy Veins, Mobalytics, zzz-build, Timesaver y Prydwen. Se obtuvieron de **resúmenes de buscador**, porque desde el entorno donde se preparó no se podía abrir ninguna de esas webs. Llevan confianza `low`, método `web_search` y el flag `via_search`. Pueden tener errores.
 > - El catálogo incluye 25 agentes nuevos de 2.x–3.3 (Phoenix, Velina, Remielle, Ye Shunguang, Yixuan, Lucia…), solo con el nombre. Faltan rareza, atributo y especialidad, y nada del catálogo está verificado en el juego.
-> - `npm run report` lista las 16 páginas que hay que abrir, ordenadas por número de datos.
+> - **Falta por completo:** prioridades de inversión (Cinemas y W-Engine exclusivo). Las búsquedas solo devolvieron opiniones mezcladas sin atribuir a una página concreta, así que no se registraron. Los Bangboo solo aparecen en 2 equipos.
+> - `npm run report` lista las 20 páginas que hay que abrir, ordenadas por número de datos.
 
 ## Separación de datos
 
@@ -127,7 +128,7 @@ docs/                     ARCHITECTURE · SOURCES · EDITORIAL-GUIDE
 
 ## Limitaciones conocidas
 
-- **Nada verificado.** Las 33 pistas son resúmenes de buscador: pueden mezclar páginas, haber quedado viejas o malinterpretar la fuente. Usarlas sin revisar es hacerlo bajo tu responsabilidad (`includePending: false` las excluye).
+- **Nada verificado.** Las 41 pistas son resúmenes de buscador: pueden mezclar páginas, haber quedado viejas o malinterpretar la fuente. Usarlas sin revisar es hacerlo bajo tu responsabilidad (`includePending: false` las excluye).
 - **Catálogo incompleto.** Los agentes nuevos solo tienen nombre, y puede faltar alguno de 2.x–3.3. Los nombres completos usados como alias salen de resultados de búsqueda.
 - **Vocabulario sin verificar.** «Wind» y «Armorer» se vieron en resultados de búsqueda. Las fechas de parche no están contrastadas con fuentes oficiales.
 - **Ninguna fuente se automatiza** (ver [docs/SOURCES.md](docs/SOURCES.md)). Mantener la base al día exige un pase manual por parche: unos minutos por página.

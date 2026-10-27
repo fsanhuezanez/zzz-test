@@ -1,0 +1,29 @@
+{
+  "$schema": "../../../../schemas/editorial-submission.schema.json",
+  "sourceId": "zzz-build",
+  "url": "https://www.zzz-build.com/agents/miyabi",
+  "accessedAt": "2026-10-27",
+  "declaredPatch": "3.2",
+  "collectedBy": "asistente (búsqueda web)",
+  "collectionMethod": "web_search",
+  "evidenceType": "explicit_recommendation",
+  "confidence": "low",
+  "verification": {
+    "state": "unverified"
+  },
+  "mode": "general",
+  "notes": "Resumen de buscador del 2026-10-27; la página original no se ha leído (bloqueada desde el entorno). Comprobar antes de verificar. La página declaraba estar actualizada para 3.2.",
+  "claims": [
+    {
+      "kind": "drive_disc",
+      "agent": "Miyabi",
+      "fourPiece": [
+        "Branch & Blade Song"
+      ],
+      "twoPiece": [
+        "Polar Metal"
+      ],
+      "mainStats": {}
+    }
+  ]
+}

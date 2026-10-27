@@ -50,6 +50,34 @@
     },
     {
       "aliases": [],
+      "id": "cauldron-of-clarity",
+      "name": "Cauldron of Clarity",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27. Comprobar en el juego o HoYoLAB.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
+      "aliases": [],
+      "id": "cinder-cobalt",
+      "name": "Cinder Cobalt",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27. Comprobar en el juego o HoYoLAB.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
+      "aliases": [],
       "id": "cloudcleave-radiance",
       "name": "Cloudcleave Radiance",
       "provenance": {
@@ -247,6 +275,21 @@
     },
     {
       "aliases": [],
+      "id": "joyau-dore",
+      "name": "Joyau Dore",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27. Comprobar en el juego o HoYoLAB.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "signatureOf": "velina"
+    },
+    {
+      "aliases": [],
       "id": "kaboom-the-cannon",
       "name": "Kaboom the Cannon",
       "provenance": {
@@ -308,6 +351,20 @@
       },
       "rarity": "A",
       "specialty": "stun"
+    },
+    {
+      "aliases": [],
+      "id": "qingming-birdcage",
+      "name": "Qingming Birdcage",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27. Comprobar en el juego o HoYoLAB.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
     },
     {
       "aliases": [],

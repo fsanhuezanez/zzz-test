@@ -1,6 +1,6 @@
 {
   "$schema": "../schemas/claims-file.schema.json",
-  "dataVersion": "3.3-r1",
+  "dataVersion": "3.3-r2",
   "items": [
     {
       "agentRefs": [
@@ -64,6 +64,243 @@
     },
     {
       "agentRefs": [
+        "velina"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_drive_disc_4a398533abe3",
+      "kind": "drive_disc",
+      "payload": {
+        "agent": "velina",
+        "fourPiece": [
+          "wuthering-salon"
+        ],
+        "mainStats": {},
+        "twoPiece": [
+          "moonlight-lullaby"
+        ]
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "zzz-build",
+        "url": "https://www.zzz-build.com/agents/velina",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "drive_disc:velina:general",
+      "sourceId": "zzz-build",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "yixuan"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_drive_disc_6454aa1e0a99",
+      "kind": "drive_disc",
+      "payload": {
+        "agent": "yixuan",
+        "fourPiece": [
+          "yunkui-tales"
+        ],
+        "mainStats": {
+          "slot4": [
+            "crit_rate",
+            "crit_dmg"
+          ],
+          "slot5": [
+            "ether_dmg"
+          ],
+          "slot6": [
+            "hp_pct"
+          ]
+        },
+        "twoPiece": [
+          "woodpecker-electro"
+        ]
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "pageUpdatedAt": "2026-10-24",
+        "sourceId": "game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/516115",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "drive_disc:yixuan:general",
+      "sourceId": "game8",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "ye-shunguang"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_drive_disc_995d16381a00",
+      "kind": "drive_disc",
+      "payload": {
+        "agent": "ye-shunguang",
+        "fourPiece": [
+          "white-water-ballad"
+        ],
+        "mainStats": {
+          "slot4": [
+            "atk_pct",
+            "crit_dmg"
+          ],
+          "slot5": [
+            "pen_ratio",
+            "atk_pct"
+          ],
+          "slot6": [
+            "atk_pct"
+          ]
+        },
+        "twoPiece": [
+          "branch-blade-song"
+        ]
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "prydwen",
+        "url": "https://www.prydwen.gg/zenless/characters/ye-shunguang",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "drive_disc:ye-shunguang:general",
+      "sourceId": "prydwen",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "yixuan"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_drive_disc_9eba979fc049",
+      "kind": "drive_disc",
+      "payload": {
+        "agent": "yixuan",
+        "fourPiece": [
+          "yunkui-tales"
+        ],
+        "mainStats": {},
+        "twoPiece": [
+          "woodpecker-electro"
+        ]
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "zzz-build",
+        "url": "https://www.zzz-build.com/agents/yi-xuan",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "drive_disc:yixuan:general",
+      "sourceId": "zzz-build",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "miyabi"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "older_patch",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_drive_disc_a8d394f11a50",
+      "kind": "drive_disc",
+      "payload": {
+        "agent": "miyabi",
+        "fourPiece": [
+          "branch-blade-song"
+        ],
+        "mainStats": {},
+        "twoPiece": [
+          "polar-metal"
+        ]
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": "3.2",
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "zzz-build",
+        "url": "https://www.zzz-build.com/agents/miyabi",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "drive_disc:miyabi:general",
+      "sourceId": "zzz-build",
+      "status": "stale"
+    },
+    {
+      "agentRefs": [
         "anby",
         "soukaku",
         "yixuan"
@@ -96,6 +333,7 @@
         "confidence": "low",
         "declaredPatch": null,
         "evidenceType": "explicit_recommendation",
+        "pageUpdatedAt": "2026-10-24",
         "sourceId": "game8",
         "url": "https://game8.co/games/Zenless-Zone-Zero/archives/516115",
         "verification": {
@@ -1081,6 +1319,7 @@
         "confidence": "low",
         "declaredPatch": null,
         "evidenceType": "explicit_recommendation",
+        "pageUpdatedAt": "2026-10-24",
         "sourceId": "game8",
         "url": "https://game8.co/games/Zenless-Zone-Zero/archives/516115",
         "verification": {
@@ -1373,6 +1612,7 @@
         "confidence": "low",
         "declaredPatch": null,
         "evidenceType": "explicit_recommendation",
+        "pageUpdatedAt": "2026-10-24",
         "sourceId": "game8",
         "url": "https://game8.co/games/Zenless-Zone-Zero/archives/516115",
         "verification": {
@@ -1730,6 +1970,54 @@
     },
     {
       "agentRefs": [
+        "yixuan"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "patch_undeclared",
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_w_engine_644c8d7c7d37",
+      "kind": "w_engine",
+      "payload": {
+        "agent": "yixuan",
+        "options": [
+          {
+            "rank": 1,
+            "wEngine": "qingming-birdcage"
+          },
+          {
+            "note": "El resumen la cita entre otras alternativas",
+            "rank": 2,
+            "wEngine": "cinder-cobalt"
+          }
+        ]
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": null,
+        "evidenceType": "explicit_recommendation",
+        "pageUpdatedAt": "2026-10-24",
+        "sourceId": "game8",
+        "url": "https://game8.co/games/Zenless-Zone-Zero/archives/516115",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "w_engine:yixuan:general",
+      "sourceId": "game8",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
         "phoenix"
       ],
       "context": {
@@ -1789,6 +2077,94 @@
       },
       "slotKey": "w_engine:phoenix:general",
       "sourceId": "game8",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "velina"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_w_engine_ee8d97ab7675",
+      "kind": "w_engine",
+      "payload": {
+        "agent": "velina",
+        "options": [
+          {
+            "note": "W-Engine exclusivo",
+            "rank": 1,
+            "wEngine": "joyau-dore"
+          }
+        ]
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "zzz-build",
+        "url": "https://www.zzz-build.com/agents/velina",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "w_engine:velina:general",
+      "sourceId": "zzz-build",
+      "status": "current"
+    },
+    {
+      "agentRefs": [
+        "yixuan"
+      ],
+      "context": {
+        "mode": "general"
+      },
+      "firstSeenAt": "2026-10-27",
+      "flags": [
+        "unverified",
+        "unverified_catalog_refs",
+        "via_search"
+      ],
+      "id": "clm_w_engine_fcf020efd385",
+      "kind": "w_engine",
+      "payload": {
+        "agent": "yixuan",
+        "options": [
+          {
+            "rank": 1,
+            "wEngine": "qingming-birdcage"
+          },
+          {
+            "note": "Alternativa económica según el resumen",
+            "rank": 2,
+            "wEngine": "cauldron-of-clarity"
+          }
+        ]
+      },
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectedBy": "asistente (búsqueda web)",
+        "collectionMethod": "web_search",
+        "confidence": "low",
+        "declaredPatch": "3.3",
+        "evidenceType": "explicit_recommendation",
+        "sourceId": "zzz-build",
+        "url": "https://www.zzz-build.com/agents/yi-xuan",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "slotKey": "w_engine:yixuan:general",
+      "sourceId": "zzz-build",
       "status": "current"
     }
   ]

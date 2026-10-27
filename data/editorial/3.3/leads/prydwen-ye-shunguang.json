@@ -1,0 +1,41 @@
+{
+  "$schema": "../../../../schemas/editorial-submission.schema.json",
+  "sourceId": "prydwen",
+  "url": "https://www.prydwen.gg/zenless/characters/ye-shunguang",
+  "accessedAt": "2026-10-27",
+  "declaredPatch": null,
+  "collectedBy": "asistente (búsqueda web)",
+  "collectionMethod": "web_search",
+  "evidenceType": "explicit_recommendation",
+  "confidence": "low",
+  "verification": {
+    "state": "unverified"
+  },
+  "mode": "general",
+  "notes": "Resumen de buscador del 2026-10-27; la página original no se ha leído (bloqueada desde el entorno). Comprobar antes de verificar.",
+  "claims": [
+    {
+      "kind": "drive_disc",
+      "agent": "Ye Shunguang",
+      "fourPiece": [
+        "White Water Ballad"
+      ],
+      "twoPiece": [
+        "Branch & Blade Song"
+      ],
+      "mainStats": {
+        "slot4": [
+          "atk_pct",
+          "crit_dmg"
+        ],
+        "slot5": [
+          "pen_ratio",
+          "atk_pct"
+        ],
+        "slot6": [
+          "atk_pct"
+        ]
+      }
+    }
+  ]
+}

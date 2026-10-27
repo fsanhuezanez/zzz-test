@@ -1,26 +1,26 @@
 {
   "$schema": "../schemas/manifest.schema.json",
-  "contentHash": "acefb2f5827abbb277af98e1dd71bac549795828ff60a2633eb550f2083ca10e",
+  "contentHash": "04f602f6a3abb04dde38bdd568c3fae21226557705abb68c3b833e52f2a72a8b",
   "counts": {
     "agents": 58,
     "bangboo": 10,
-    "claims": 33,
+    "claims": 41,
     "claimsByStatus": {
-      "current": 31,
+      "current": 38,
       "retracted": 0,
-      "stale": 2,
+      "stale": 3,
       "superseded": 0
     },
-    "driveDiscs": 18,
+    "driveDiscs": 22,
     "liveClaimsByReview": {
-      "pending": 33,
+      "pending": 41,
       "verified": 0
     },
     "teamConsensus": 0,
     "tierConsensus": 0,
-    "wEngines": 32
+    "wEngines": 36
   },
-  "dataVersion": "3.3-r1",
+  "dataVersion": "3.3-r2",
   "files": {
     "agents": "catalog/agents.json",
     "bangboo": "catalog/bangboo.json",
@@ -32,10 +32,10 @@
     "wEngines": "catalog/w-engines.json"
   },
   "gamePatch": "3.3",
-  "generatedAt": "2026-10-27T18:01:19.667Z",
+  "generatedAt": "2026-10-27T19:21:48.036Z",
   "isFixture": false,
-  "previousDataVersion": null,
-  "revision": 1,
+  "previousDataVersion": "3.3-r1",
+  "revision": 2,
   "schemaVersion": "1.0.0",
   "sources": [
     {
@@ -51,8 +51,8 @@
     {
       "attribution": "Datos resumidos de Game8 (game8.co). Consulta la guía original en el enlace de cada dato.",
       "automationStatus": "unknown",
-      "claimCount": 17,
-      "currentClaimCount": 17,
+      "claimCount": 19,
+      "currentClaimCount": 19,
       "id": "game8",
       "lastAccessedAt": "2026-10-27",
       "name": "Game8",
@@ -111,8 +111,8 @@
     {
       "attribution": "Datos resumidos de Prydwen Institute (prydwen.gg). Consulta la guía original en el enlace de cada dato.",
       "automationStatus": "disallowed",
-      "claimCount": 1,
-      "currentClaimCount": 1,
+      "claimCount": 2,
+      "currentClaimCount": 2,
       "id": "prydwen",
       "lastAccessedAt": "2026-10-27",
       "name": "Prydwen Institute",
@@ -131,8 +131,8 @@
     {
       "attribution": "Datos resumidos de zzz-build.com.",
       "automationStatus": "unknown",
-      "claimCount": 2,
-      "currentClaimCount": 2,
+      "claimCount": 7,
+      "currentClaimCount": 6,
       "id": "zzz-build",
       "lastAccessedAt": "2026-10-27",
       "name": "ZZZ Build (zzz-build.com)",

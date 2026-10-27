@@ -115,6 +115,20 @@
     },
     {
       "aliases": [],
+      "id": "moonlight-lullaby",
+      "name": "Moonlight Lullaby",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27. Comprobar en el juego o HoYoLAB.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
+      "aliases": [],
       "id": "phaethon-s-melody",
       "name": "Phaethon's Melody",
       "provenance": {
@@ -241,12 +255,54 @@
     },
     {
       "aliases": [],
+      "id": "white-water-ballad",
+      "name": "White Water Ballad",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27. Comprobar en el juego o HoYoLAB.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
+      "aliases": [],
       "id": "woodpecker-electro",
       "name": "Woodpecker Electro",
       "provenance": {
         "accessedAt": "2026-10-27",
         "collectionMethod": "manual_entry",
         "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
+      "aliases": [],
+      "id": "wuthering-salon",
+      "name": "Wuthering Salon",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27. Comprobar en el juego o HoYoLAB.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
+      "aliases": [],
+      "id": "yunkui-tales",
+      "name": "Yunkui Tales",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27. Comprobar en el juego o HoYoLAB.",
         "sourceId": "maintainer",
         "verification": {
           "state": "unverified"

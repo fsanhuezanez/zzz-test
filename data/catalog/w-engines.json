@@ -522,6 +522,63 @@
         "notes": "Nombre visto en resultados de búsqueda del 2026-10-27 (Game8, Fandom, Mobalytics, Icy Veins…). Completar rareza, atributo y especialidad comprobándolo en el juego o HoYoLAB."
       },
       "signatureOf": "ye-shunguang"
+    },
+    {
+      "id": "qingming-birdcage",
+      "name": "Qingming Birdcage",
+      "aliases": [],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27. Comprobar en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "cinder-cobalt",
+      "name": "Cinder Cobalt",
+      "aliases": [],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27. Comprobar en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "cauldron-of-clarity",
+      "name": "Cauldron of Clarity",
+      "aliases": [],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27. Comprobar en el juego o HoYoLAB."
+      }
+    },
+    {
+      "id": "joyau-dore",
+      "name": "Joyau Dore",
+      "aliases": [],
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "web_search",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Nombre visto en resultados de búsqueda del 2026-10-27. Comprobar en el juego o HoYoLAB."
+      },
+      "signatureOf": "velina"
     }
   ]
 }

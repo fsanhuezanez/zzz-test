@@ -27,7 +27,7 @@ Revisión del 27-10-2026. Desde el entorno donde se preparó el proyecto **no se
 
 ## Sobre las pistas de buscador (`leads/`)
 
-Las 33 pistas de 3.3 salen de resúmenes generados por un buscador sobre esas páginas. Se registran porque ahorran tiempo: dicen qué página abrir y qué buscar en ella. Pero **no cuentan como lectura de la fuente**:
+Las 41 pistas de 3.3 salen de resúmenes generados por un buscador sobre esas páginas. Se registran porque ahorran tiempo: dicen qué página abrir y qué buscar en ella. Pero **no cuentan como lectura de la fuente**:
 
 - `collectionMethod: "web_search"`, confianza `low`, nunca verificables tal cual.
 - El resumen puede mezclar páginas o resumir mal. Varias pistas lo advierten en `notes`.

@@ -1,0 +1,40 @@
+{
+  "$schema": "../../../../schemas/editorial-submission.schema.json",
+  "sourceId": "zzz-build",
+  "url": "https://www.zzz-build.com/agents/velina",
+  "accessedAt": "2026-10-27",
+  "declaredPatch": "3.3",
+  "collectedBy": "asistente (búsqueda web)",
+  "collectionMethod": "web_search",
+  "evidenceType": "explicit_recommendation",
+  "confidence": "low",
+  "verification": {
+    "state": "unverified"
+  },
+  "mode": "general",
+  "notes": "Resumen de buscador del 2026-10-27; la página original no se ha leído (bloqueada desde el entorno). Comprobar antes de verificar. El set de 4 piezas lo atribuía el resumen a \"la mayoría de guías\"; el de 2 piezas, a esta página.",
+  "claims": [
+    {
+      "kind": "w_engine",
+      "agent": "Velina",
+      "options": [
+        {
+          "wEngine": "Joyau Dore",
+          "rank": 1,
+          "note": "W-Engine exclusivo"
+        }
+      ]
+    },
+    {
+      "kind": "drive_disc",
+      "agent": "Velina",
+      "fourPiece": [
+        "Wuthering Salon"
+      ],
+      "twoPiece": [
+        "Moonlight Lullaby"
+      ],
+      "mainStats": {}
+    }
+  ]
+}
