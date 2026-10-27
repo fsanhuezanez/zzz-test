@@ -1,0 +1,4525 @@
+{
+  "$id": "claim.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "discriminator": {
+    "propertyName": "kind"
+  },
+  "oneOf": [
+    {
+      "additionalProperties": false,
+      "properties": {
+        "agentRefs": {
+          "description": "Todos los agentes mencionados, para indexar.",
+          "items": {
+            "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+            "maxLength": 64,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "context": {
+          "additionalProperties": false,
+          "properties": {
+            "conditions": {
+              "description": "Condiciones declaradas por la fuente (p. ej. \"requiere M2\").",
+              "items": {
+                "maxLength": 100,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 6,
+              "type": "array"
+            },
+            "mode": {
+              "description": "Modo para el que la fuente declara la evaluación. \"general\" si no lo especifica.",
+              "enum": [
+                "general",
+                "shiyu_defense",
+                "deadly_assault",
+                "lost_void",
+                "other"
+              ],
+              "type": "string"
+            },
+            "modeDetail": {
+              "description": "Detalle libre del modo (p. ej. \"Shiyu nodo 7, mitad 1\").",
+              "maxLength": 100,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "mode"
+          ],
+          "type": "object"
+        },
+        "firstSeenAt": {
+          "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+          "format": "date",
+          "type": "string"
+        },
+        "flags": {
+          "items": {
+            "enum": [
+              "unverified",
+              "patch_undeclared",
+              "older_patch",
+              "access_too_old",
+              "pre_release",
+              "carried_over",
+              "source_policy_changed",
+              "unverified_catalog_refs"
+            ],
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "id": {
+          "pattern": "^clm_[a-z0-9_]+_[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "kind": {
+          "const": "tier",
+          "type": "string"
+        },
+        "payload": {
+          "additionalProperties": false,
+          "properties": {
+            "agent": {
+              "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            "role": {
+              "enum": [
+                "attack",
+                "stun",
+                "anomaly",
+                "support",
+                "defense",
+                "rupture",
+                "sub_dps",
+                "overall"
+              ],
+              "type": "string"
+            },
+            "score": {
+              "description": "Posición normalizada en la escala de la fuente (1 = mejor). La calcula este proyecto a partir de la escala registrada.",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "tier": {
+              "description": "Etiqueta tal y como la publica la fuente (p. ej. \"T0.5\", \"S\").",
+              "maxLength": 16,
+              "minLength": 1,
+              "type": "string"
+            },
+            "tierScale": {
+              "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "agent",
+            "role",
+            "tier",
+            "tierScale",
+            "score"
+          ],
+          "type": "object"
+        },
+        "provenance": {
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "internal_estimate"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "confidence": {
+                    "enum": [
+                      "medium",
+                      "low"
+                    ]
+                  }
+                },
+                "required": [
+                  "rationale"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "observed_data"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sample"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "cross_source_consensus"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "collectionMethod": {
+                    "const": "derived"
+                  }
+                },
+                "required": [
+                  "derivedFrom"
+                ]
+              }
+            }
+          ],
+          "properties": {
+            "accessedAt": {
+              "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+              "format": "date",
+              "type": "string"
+            },
+            "collectedBy": {
+              "maxLength": 80,
+              "minLength": 1,
+              "type": "string"
+            },
+            "collectionMethod": {
+              "enum": [
+                "manual_entry",
+                "automated_api",
+                "automated_feed",
+                "derived"
+              ],
+              "type": "string"
+            },
+            "confidence": {
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ],
+              "type": "string"
+            },
+            "declaredPatch": {
+              "anyOf": [
+                {
+                  "description": "Versión del juego, \"MAYOR.MENOR\" (p. ej. \"3.3\").",
+                  "pattern": "^[0-9]+\\.[0-9]+$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Parche que declara la fuente; null si no lo declara."
+            },
+            "derivedFrom": {
+              "items": {
+                "type": "string"
+              },
+              "minItems": 2,
+              "type": "array"
+            },
+            "evidenceType": {
+              "enum": [
+                "explicit_recommendation",
+                "observed_data",
+                "cross_source_consensus",
+                "internal_estimate"
+              ],
+              "type": "string"
+            },
+            "excerpt": {
+              "description": "Cita breve (≤200 caracteres) que justifica el dato. Nunca párrafos completos.",
+              "maxLength": 200,
+              "minLength": 1,
+              "type": "string"
+            },
+            "notes": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "rationale": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "sample": {
+              "additionalProperties": false,
+              "properties": {
+                "description": {
+                  "description": "Qué muestra declara la fuente (modo, ciclo, servidor, etc.).",
+                  "maxLength": 300,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "period": {
+                  "maxLength": 100,
+                  "type": "string"
+                },
+                "size": {
+                  "description": "Tamaño de muestra SOLO si la fuente lo publica.",
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "description"
+              ],
+              "type": "object"
+            },
+            "sourceId": {
+              "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            "url": {
+              "format": "uri",
+              "maxLength": 500,
+              "pattern": "^https?://",
+              "type": "string"
+            },
+            "verification": {
+              "additionalProperties": false,
+              "description": "\"verified\" exige una segunda revisión humana contra la fuente (quién y cuándo).",
+              "if": {
+                "properties": {
+                  "state": {
+                    "const": "verified"
+                  }
+                }
+              },
+              "properties": {
+                "reviewedAt": {
+                  "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+                  "format": "date",
+                  "type": "string"
+                },
+                "reviewedBy": {
+                  "maxLength": 80,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "state": {
+                  "enum": [
+                    "verified",
+                    "unverified"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "state"
+              ],
+              "then": {
+                "required": [
+                  "reviewedBy",
+                  "reviewedAt"
+                ]
+              },
+              "type": "object"
+            }
+          },
+          "required": [
+            "sourceId",
+            "url",
+            "accessedAt",
+            "declaredPatch",
+            "evidenceType",
+            "confidence",
+            "collectionMethod",
+            "verification"
+          ],
+          "type": "object"
+        },
+        "slotKey": {
+          "description": "Clave de \"hueco\": misma fuente + mismo slotKey = mismo dato en distintas versiones.",
+          "minLength": 1,
+          "type": "string"
+        },
+        "sourceId": {
+          "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+          "maxLength": 64,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "type": "string"
+        },
+        "status": {
+          "description": "current: vigente; stale: antiguo; superseded: reemplazado por un dato más nuevo de la misma fuente; retracted: retirado.",
+          "enum": [
+            "current",
+            "stale",
+            "superseded",
+            "retracted"
+          ],
+          "type": "string"
+        },
+        "supersededBy": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "sourceId",
+        "slotKey",
+        "agentRefs",
+        "payload",
+        "context",
+        "provenance",
+        "status",
+        "flags",
+        "firstSeenAt"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "agentRefs": {
+          "description": "Todos los agentes mencionados, para indexar.",
+          "items": {
+            "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+            "maxLength": 64,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "context": {
+          "additionalProperties": false,
+          "properties": {
+            "conditions": {
+              "description": "Condiciones declaradas por la fuente (p. ej. \"requiere M2\").",
+              "items": {
+                "maxLength": 100,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 6,
+              "type": "array"
+            },
+            "mode": {
+              "description": "Modo para el que la fuente declara la evaluación. \"general\" si no lo especifica.",
+              "enum": [
+                "general",
+                "shiyu_defense",
+                "deadly_assault",
+                "lost_void",
+                "other"
+              ],
+              "type": "string"
+            },
+            "modeDetail": {
+              "description": "Detalle libre del modo (p. ej. \"Shiyu nodo 7, mitad 1\").",
+              "maxLength": 100,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "mode"
+          ],
+          "type": "object"
+        },
+        "firstSeenAt": {
+          "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+          "format": "date",
+          "type": "string"
+        },
+        "flags": {
+          "items": {
+            "enum": [
+              "unverified",
+              "patch_undeclared",
+              "older_patch",
+              "access_too_old",
+              "pre_release",
+              "carried_over",
+              "source_policy_changed",
+              "unverified_catalog_refs"
+            ],
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "id": {
+          "pattern": "^clm_[a-z0-9_]+_[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "kind": {
+          "const": "team",
+          "type": "string"
+        },
+        "payload": {
+          "additionalProperties": false,
+          "properties": {
+            "archetype": {
+              "maxLength": 80,
+              "minLength": 1,
+              "type": "string"
+            },
+            "bangboo": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "bangboo": {
+                    "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+                    "maxLength": 64,
+                    "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                    "type": "string"
+                  },
+                  "rank": {
+                    "description": "Orden de preferencia declarado por la fuente (1 = preferida).",
+                    "maximum": 20,
+                    "minimum": 1,
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "bangboo",
+                  "rank"
+                ],
+                "type": "object"
+              },
+              "maxItems": 5,
+              "type": "array"
+            },
+            "members": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "agent": {
+                    "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+                    "maxLength": 64,
+                    "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                    "type": "string"
+                  },
+                  "role": {
+                    "enum": [
+                      "main_dps",
+                      "sub_dps",
+                      "stunner",
+                      "support",
+                      "anomaly",
+                      "defense",
+                      "flex"
+                    ],
+                    "type": "string"
+                  },
+                  "substitutes": {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "agent": {
+                          "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+                          "maxLength": 64,
+                          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                          "type": "string"
+                        },
+                        "note": {
+                          "maxLength": 200,
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "quality": {
+                          "enum": [
+                            "near_equivalent",
+                            "workable",
+                            "significant_downgrade",
+                            "unspecified"
+                          ],
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "agent",
+                        "quality"
+                      ],
+                      "type": "object"
+                    },
+                    "maxItems": 6,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "agent",
+                  "role"
+                ],
+                "type": "object"
+              },
+              "maxItems": 3,
+              "minItems": 2,
+              "type": "array"
+            },
+            "name": {
+              "maxLength": 80,
+              "minLength": 1,
+              "type": "string"
+            },
+            "rating": {
+              "additionalProperties": false,
+              "description": "Valoración del equipo si la fuente la publica.",
+              "properties": {
+                "label": {
+                  "maxLength": 16,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "scale": {
+                  "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+                  "maxLength": 64,
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "label"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "members"
+          ],
+          "type": "object"
+        },
+        "provenance": {
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "internal_estimate"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "confidence": {
+                    "enum": [
+                      "medium",
+                      "low"
+                    ]
+                  }
+                },
+                "required": [
+                  "rationale"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "observed_data"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sample"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "cross_source_consensus"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "collectionMethod": {
+                    "const": "derived"
+                  }
+                },
+                "required": [
+                  "derivedFrom"
+                ]
+              }
+            }
+          ],
+          "properties": {
+            "accessedAt": {
+              "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+              "format": "date",
+              "type": "string"
+            },
+            "collectedBy": {
+              "maxLength": 80,
+              "minLength": 1,
+              "type": "string"
+            },
+            "collectionMethod": {
+              "enum": [
+                "manual_entry",
+                "automated_api",
+                "automated_feed",
+                "derived"
+              ],
+              "type": "string"
+            },
+            "confidence": {
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ],
+              "type": "string"
+            },
+            "declaredPatch": {
+              "anyOf": [
+                {
+                  "description": "Versión del juego, \"MAYOR.MENOR\" (p. ej. \"3.3\").",
+                  "pattern": "^[0-9]+\\.[0-9]+$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Parche que declara la fuente; null si no lo declara."
+            },
+            "derivedFrom": {
+              "items": {
+                "type": "string"
+              },
+              "minItems": 2,
+              "type": "array"
+            },
+            "evidenceType": {
+              "enum": [
+                "explicit_recommendation",
+                "observed_data",
+                "cross_source_consensus",
+                "internal_estimate"
+              ],
+              "type": "string"
+            },
+            "excerpt": {
+              "description": "Cita breve (≤200 caracteres) que justifica el dato. Nunca párrafos completos.",
+              "maxLength": 200,
+              "minLength": 1,
+              "type": "string"
+            },
+            "notes": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "rationale": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "sample": {
+              "additionalProperties": false,
+              "properties": {
+                "description": {
+                  "description": "Qué muestra declara la fuente (modo, ciclo, servidor, etc.).",
+                  "maxLength": 300,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "period": {
+                  "maxLength": 100,
+                  "type": "string"
+                },
+                "size": {
+                  "description": "Tamaño de muestra SOLO si la fuente lo publica.",
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "description"
+              ],
+              "type": "object"
+            },
+            "sourceId": {
+              "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            "url": {
+              "format": "uri",
+              "maxLength": 500,
+              "pattern": "^https?://",
+              "type": "string"
+            },
+            "verification": {
+              "additionalProperties": false,
+              "description": "\"verified\" exige una segunda revisión humana contra la fuente (quién y cuándo).",
+              "if": {
+                "properties": {
+                  "state": {
+                    "const": "verified"
+                  }
+                }
+              },
+              "properties": {
+                "reviewedAt": {
+                  "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+                  "format": "date",
+                  "type": "string"
+                },
+                "reviewedBy": {
+                  "maxLength": 80,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "state": {
+                  "enum": [
+                    "verified",
+                    "unverified"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "state"
+              ],
+              "then": {
+                "required": [
+                  "reviewedBy",
+                  "reviewedAt"
+                ]
+              },
+              "type": "object"
+            }
+          },
+          "required": [
+            "sourceId",
+            "url",
+            "accessedAt",
+            "declaredPatch",
+            "evidenceType",
+            "confidence",
+            "collectionMethod",
+            "verification"
+          ],
+          "type": "object"
+        },
+        "slotKey": {
+          "description": "Clave de \"hueco\": misma fuente + mismo slotKey = mismo dato en distintas versiones.",
+          "minLength": 1,
+          "type": "string"
+        },
+        "sourceId": {
+          "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+          "maxLength": 64,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "type": "string"
+        },
+        "status": {
+          "description": "current: vigente; stale: antiguo; superseded: reemplazado por un dato más nuevo de la misma fuente; retracted: retirado.",
+          "enum": [
+            "current",
+            "stale",
+            "superseded",
+            "retracted"
+          ],
+          "type": "string"
+        },
+        "supersededBy": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "sourceId",
+        "slotKey",
+        "agentRefs",
+        "payload",
+        "context",
+        "provenance",
+        "status",
+        "flags",
+        "firstSeenAt"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "agentRefs": {
+          "description": "Todos los agentes mencionados, para indexar.",
+          "items": {
+            "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+            "maxLength": 64,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "context": {
+          "additionalProperties": false,
+          "properties": {
+            "conditions": {
+              "description": "Condiciones declaradas por la fuente (p. ej. \"requiere M2\").",
+              "items": {
+                "maxLength": 100,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 6,
+              "type": "array"
+            },
+            "mode": {
+              "description": "Modo para el que la fuente declara la evaluación. \"general\" si no lo especifica.",
+              "enum": [
+                "general",
+                "shiyu_defense",
+                "deadly_assault",
+                "lost_void",
+                "other"
+              ],
+              "type": "string"
+            },
+            "modeDetail": {
+              "description": "Detalle libre del modo (p. ej. \"Shiyu nodo 7, mitad 1\").",
+              "maxLength": 100,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "mode"
+          ],
+          "type": "object"
+        },
+        "firstSeenAt": {
+          "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+          "format": "date",
+          "type": "string"
+        },
+        "flags": {
+          "items": {
+            "enum": [
+              "unverified",
+              "patch_undeclared",
+              "older_patch",
+              "access_too_old",
+              "pre_release",
+              "carried_over",
+              "source_policy_changed",
+              "unverified_catalog_refs"
+            ],
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "id": {
+          "pattern": "^clm_[a-z0-9_]+_[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "kind": {
+          "const": "substitute",
+          "type": "string"
+        },
+        "payload": {
+          "additionalProperties": false,
+          "properties": {
+            "agent": {
+              "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            "archetype": {
+              "maxLength": 80,
+              "minLength": 1,
+              "type": "string"
+            },
+            "quality": {
+              "enum": [
+                "near_equivalent",
+                "workable",
+                "significant_downgrade",
+                "unspecified"
+              ],
+              "type": "string"
+            },
+            "substitute": {
+              "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            "withAgents": {
+              "description": "Compañeros de equipo con los que la fuente valida la sustitución.",
+              "items": {
+                "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+                "maxLength": 64,
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "type": "string"
+              },
+              "maxItems": 2,
+              "type": "array"
+            }
+          },
+          "required": [
+            "agent",
+            "substitute",
+            "quality"
+          ],
+          "type": "object"
+        },
+        "provenance": {
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "internal_estimate"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "confidence": {
+                    "enum": [
+                      "medium",
+                      "low"
+                    ]
+                  }
+                },
+                "required": [
+                  "rationale"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "observed_data"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sample"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "cross_source_consensus"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "collectionMethod": {
+                    "const": "derived"
+                  }
+                },
+                "required": [
+                  "derivedFrom"
+                ]
+              }
+            }
+          ],
+          "properties": {
+            "accessedAt": {
+              "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+              "format": "date",
+              "type": "string"
+            },
+            "collectedBy": {
+              "maxLength": 80,
+              "minLength": 1,
+              "type": "string"
+            },
+            "collectionMethod": {
+              "enum": [
+                "manual_entry",
+                "automated_api",
+                "automated_feed",
+                "derived"
+              ],
+              "type": "string"
+            },
+            "confidence": {
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ],
+              "type": "string"
+            },
+            "declaredPatch": {
+              "anyOf": [
+                {
+                  "description": "Versión del juego, \"MAYOR.MENOR\" (p. ej. \"3.3\").",
+                  "pattern": "^[0-9]+\\.[0-9]+$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Parche que declara la fuente; null si no lo declara."
+            },
+            "derivedFrom": {
+              "items": {
+                "type": "string"
+              },
+              "minItems": 2,
+              "type": "array"
+            },
+            "evidenceType": {
+              "enum": [
+                "explicit_recommendation",
+                "observed_data",
+                "cross_source_consensus",
+                "internal_estimate"
+              ],
+              "type": "string"
+            },
+            "excerpt": {
+              "description": "Cita breve (≤200 caracteres) que justifica el dato. Nunca párrafos completos.",
+              "maxLength": 200,
+              "minLength": 1,
+              "type": "string"
+            },
+            "notes": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "rationale": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "sample": {
+              "additionalProperties": false,
+              "properties": {
+                "description": {
+                  "description": "Qué muestra declara la fuente (modo, ciclo, servidor, etc.).",
+                  "maxLength": 300,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "period": {
+                  "maxLength": 100,
+                  "type": "string"
+                },
+                "size": {
+                  "description": "Tamaño de muestra SOLO si la fuente lo publica.",
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "description"
+              ],
+              "type": "object"
+            },
+            "sourceId": {
+              "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            "url": {
+              "format": "uri",
+              "maxLength": 500,
+              "pattern": "^https?://",
+              "type": "string"
+            },
+            "verification": {
+              "additionalProperties": false,
+              "description": "\"verified\" exige una segunda revisión humana contra la fuente (quién y cuándo).",
+              "if": {
+                "properties": {
+                  "state": {
+                    "const": "verified"
+                  }
+                }
+              },
+              "properties": {
+                "reviewedAt": {
+                  "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+                  "format": "date",
+                  "type": "string"
+                },
+                "reviewedBy": {
+                  "maxLength": 80,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "state": {
+                  "enum": [
+                    "verified",
+                    "unverified"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "state"
+              ],
+              "then": {
+                "required": [
+                  "reviewedBy",
+                  "reviewedAt"
+                ]
+              },
+              "type": "object"
+            }
+          },
+          "required": [
+            "sourceId",
+            "url",
+            "accessedAt",
+            "declaredPatch",
+            "evidenceType",
+            "confidence",
+            "collectionMethod",
+            "verification"
+          ],
+          "type": "object"
+        },
+        "slotKey": {
+          "description": "Clave de \"hueco\": misma fuente + mismo slotKey = mismo dato en distintas versiones.",
+          "minLength": 1,
+          "type": "string"
+        },
+        "sourceId": {
+          "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+          "maxLength": 64,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "type": "string"
+        },
+        "status": {
+          "description": "current: vigente; stale: antiguo; superseded: reemplazado por un dato más nuevo de la misma fuente; retracted: retirado.",
+          "enum": [
+            "current",
+            "stale",
+            "superseded",
+            "retracted"
+          ],
+          "type": "string"
+        },
+        "supersededBy": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "sourceId",
+        "slotKey",
+        "agentRefs",
+        "payload",
+        "context",
+        "provenance",
+        "status",
+        "flags",
+        "firstSeenAt"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "agentRefs": {
+          "description": "Todos los agentes mencionados, para indexar.",
+          "items": {
+            "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+            "maxLength": 64,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "context": {
+          "additionalProperties": false,
+          "properties": {
+            "conditions": {
+              "description": "Condiciones declaradas por la fuente (p. ej. \"requiere M2\").",
+              "items": {
+                "maxLength": 100,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 6,
+              "type": "array"
+            },
+            "mode": {
+              "description": "Modo para el que la fuente declara la evaluación. \"general\" si no lo especifica.",
+              "enum": [
+                "general",
+                "shiyu_defense",
+                "deadly_assault",
+                "lost_void",
+                "other"
+              ],
+              "type": "string"
+            },
+            "modeDetail": {
+              "description": "Detalle libre del modo (p. ej. \"Shiyu nodo 7, mitad 1\").",
+              "maxLength": 100,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "mode"
+          ],
+          "type": "object"
+        },
+        "firstSeenAt": {
+          "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+          "format": "date",
+          "type": "string"
+        },
+        "flags": {
+          "items": {
+            "enum": [
+              "unverified",
+              "patch_undeclared",
+              "older_patch",
+              "access_too_old",
+              "pre_release",
+              "carried_over",
+              "source_policy_changed",
+              "unverified_catalog_refs"
+            ],
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "id": {
+          "pattern": "^clm_[a-z0-9_]+_[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "kind": {
+          "const": "synergy",
+          "type": "string"
+        },
+        "payload": {
+          "additionalProperties": false,
+          "properties": {
+            "agents": {
+              "items": {
+                "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+                "maxLength": 64,
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "type": "string"
+              },
+              "maxItems": 3,
+              "minItems": 2,
+              "type": "array"
+            },
+            "mechanism": {
+              "maxLength": 200,
+              "minLength": 1,
+              "type": "string"
+            },
+            "polarity": {
+              "anyOf": [
+                {
+                  "const": "positive",
+                  "type": "string"
+                },
+                {
+                  "const": "negative",
+                  "type": "string"
+                },
+                {
+                  "const": "conditional",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "required": [
+            "agents",
+            "polarity",
+            "mechanism"
+          ],
+          "type": "object"
+        },
+        "provenance": {
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "internal_estimate"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "confidence": {
+                    "enum": [
+                      "medium",
+                      "low"
+                    ]
+                  }
+                },
+                "required": [
+                  "rationale"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "observed_data"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sample"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "cross_source_consensus"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "collectionMethod": {
+                    "const": "derived"
+                  }
+                },
+                "required": [
+                  "derivedFrom"
+                ]
+              }
+            }
+          ],
+          "properties": {
+            "accessedAt": {
+              "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+              "format": "date",
+              "type": "string"
+            },
+            "collectedBy": {
+              "maxLength": 80,
+              "minLength": 1,
+              "type": "string"
+            },
+            "collectionMethod": {
+              "enum": [
+                "manual_entry",
+                "automated_api",
+                "automated_feed",
+                "derived"
+              ],
+              "type": "string"
+            },
+            "confidence": {
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ],
+              "type": "string"
+            },
+            "declaredPatch": {
+              "anyOf": [
+                {
+                  "description": "Versión del juego, \"MAYOR.MENOR\" (p. ej. \"3.3\").",
+                  "pattern": "^[0-9]+\\.[0-9]+$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Parche que declara la fuente; null si no lo declara."
+            },
+            "derivedFrom": {
+              "items": {
+                "type": "string"
+              },
+              "minItems": 2,
+              "type": "array"
+            },
+            "evidenceType": {
+              "enum": [
+                "explicit_recommendation",
+                "observed_data",
+                "cross_source_consensus",
+                "internal_estimate"
+              ],
+              "type": "string"
+            },
+            "excerpt": {
+              "description": "Cita breve (≤200 caracteres) que justifica el dato. Nunca párrafos completos.",
+              "maxLength": 200,
+              "minLength": 1,
+              "type": "string"
+            },
+            "notes": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "rationale": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "sample": {
+              "additionalProperties": false,
+              "properties": {
+                "description": {
+                  "description": "Qué muestra declara la fuente (modo, ciclo, servidor, etc.).",
+                  "maxLength": 300,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "period": {
+                  "maxLength": 100,
+                  "type": "string"
+                },
+                "size": {
+                  "description": "Tamaño de muestra SOLO si la fuente lo publica.",
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "description"
+              ],
+              "type": "object"
+            },
+            "sourceId": {
+              "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            "url": {
+              "format": "uri",
+              "maxLength": 500,
+              "pattern": "^https?://",
+              "type": "string"
+            },
+            "verification": {
+              "additionalProperties": false,
+              "description": "\"verified\" exige una segunda revisión humana contra la fuente (quién y cuándo).",
+              "if": {
+                "properties": {
+                  "state": {
+                    "const": "verified"
+                  }
+                }
+              },
+              "properties": {
+                "reviewedAt": {
+                  "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+                  "format": "date",
+                  "type": "string"
+                },
+                "reviewedBy": {
+                  "maxLength": 80,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "state": {
+                  "enum": [
+                    "verified",
+                    "unverified"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "state"
+              ],
+              "then": {
+                "required": [
+                  "reviewedBy",
+                  "reviewedAt"
+                ]
+              },
+              "type": "object"
+            }
+          },
+          "required": [
+            "sourceId",
+            "url",
+            "accessedAt",
+            "declaredPatch",
+            "evidenceType",
+            "confidence",
+            "collectionMethod",
+            "verification"
+          ],
+          "type": "object"
+        },
+        "slotKey": {
+          "description": "Clave de \"hueco\": misma fuente + mismo slotKey = mismo dato en distintas versiones.",
+          "minLength": 1,
+          "type": "string"
+        },
+        "sourceId": {
+          "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+          "maxLength": 64,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "type": "string"
+        },
+        "status": {
+          "description": "current: vigente; stale: antiguo; superseded: reemplazado por un dato más nuevo de la misma fuente; retracted: retirado.",
+          "enum": [
+            "current",
+            "stale",
+            "superseded",
+            "retracted"
+          ],
+          "type": "string"
+        },
+        "supersededBy": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "sourceId",
+        "slotKey",
+        "agentRefs",
+        "payload",
+        "context",
+        "provenance",
+        "status",
+        "flags",
+        "firstSeenAt"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "agentRefs": {
+          "description": "Todos los agentes mencionados, para indexar.",
+          "items": {
+            "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+            "maxLength": 64,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "context": {
+          "additionalProperties": false,
+          "properties": {
+            "conditions": {
+              "description": "Condiciones declaradas por la fuente (p. ej. \"requiere M2\").",
+              "items": {
+                "maxLength": 100,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 6,
+              "type": "array"
+            },
+            "mode": {
+              "description": "Modo para el que la fuente declara la evaluación. \"general\" si no lo especifica.",
+              "enum": [
+                "general",
+                "shiyu_defense",
+                "deadly_assault",
+                "lost_void",
+                "other"
+              ],
+              "type": "string"
+            },
+            "modeDetail": {
+              "description": "Detalle libre del modo (p. ej. \"Shiyu nodo 7, mitad 1\").",
+              "maxLength": 100,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "mode"
+          ],
+          "type": "object"
+        },
+        "firstSeenAt": {
+          "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+          "format": "date",
+          "type": "string"
+        },
+        "flags": {
+          "items": {
+            "enum": [
+              "unverified",
+              "patch_undeclared",
+              "older_patch",
+              "access_too_old",
+              "pre_release",
+              "carried_over",
+              "source_policy_changed",
+              "unverified_catalog_refs"
+            ],
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "id": {
+          "pattern": "^clm_[a-z0-9_]+_[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "kind": {
+          "const": "rotation",
+          "type": "string"
+        },
+        "payload": {
+          "additionalProperties": false,
+          "properties": {
+            "agents": {
+              "items": {
+                "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+                "maxLength": 64,
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "type": "string"
+              },
+              "maxItems": 3,
+              "minItems": 1,
+              "type": "array"
+            },
+            "notation": {
+              "maxLength": 200,
+              "minLength": 1,
+              "type": "string"
+            },
+            "steps": {
+              "description": "Pasos resumidos con palabras propias; no copiar guías.",
+              "items": {
+                "maxLength": 120,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 12,
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "agents",
+            "steps"
+          ],
+          "type": "object"
+        },
+        "provenance": {
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "internal_estimate"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "confidence": {
+                    "enum": [
+                      "medium",
+                      "low"
+                    ]
+                  }
+                },
+                "required": [
+                  "rationale"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "observed_data"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sample"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "cross_source_consensus"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "collectionMethod": {
+                    "const": "derived"
+                  }
+                },
+                "required": [
+                  "derivedFrom"
+                ]
+              }
+            }
+          ],
+          "properties": {
+            "accessedAt": {
+              "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+              "format": "date",
+              "type": "string"
+            },
+            "collectedBy": {
+              "maxLength": 80,
+              "minLength": 1,
+              "type": "string"
+            },
+            "collectionMethod": {
+              "enum": [
+                "manual_entry",
+                "automated_api",
+                "automated_feed",
+                "derived"
+              ],
+              "type": "string"
+            },
+            "confidence": {
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ],
+              "type": "string"
+            },
+            "declaredPatch": {
+              "anyOf": [
+                {
+                  "description": "Versión del juego, \"MAYOR.MENOR\" (p. ej. \"3.3\").",
+                  "pattern": "^[0-9]+\\.[0-9]+$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Parche que declara la fuente; null si no lo declara."
+            },
+            "derivedFrom": {
+              "items": {
+                "type": "string"
+              },
+              "minItems": 2,
+              "type": "array"
+            },
+            "evidenceType": {
+              "enum": [
+                "explicit_recommendation",
+                "observed_data",
+                "cross_source_consensus",
+                "internal_estimate"
+              ],
+              "type": "string"
+            },
+            "excerpt": {
+              "description": "Cita breve (≤200 caracteres) que justifica el dato. Nunca párrafos completos.",
+              "maxLength": 200,
+              "minLength": 1,
+              "type": "string"
+            },
+            "notes": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "rationale": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "sample": {
+              "additionalProperties": false,
+              "properties": {
+                "description": {
+                  "description": "Qué muestra declara la fuente (modo, ciclo, servidor, etc.).",
+                  "maxLength": 300,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "period": {
+                  "maxLength": 100,
+                  "type": "string"
+                },
+                "size": {
+                  "description": "Tamaño de muestra SOLO si la fuente lo publica.",
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "description"
+              ],
+              "type": "object"
+            },
+            "sourceId": {
+              "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            "url": {
+              "format": "uri",
+              "maxLength": 500,
+              "pattern": "^https?://",
+              "type": "string"
+            },
+            "verification": {
+              "additionalProperties": false,
+              "description": "\"verified\" exige una segunda revisión humana contra la fuente (quién y cuándo).",
+              "if": {
+                "properties": {
+                  "state": {
+                    "const": "verified"
+                  }
+                }
+              },
+              "properties": {
+                "reviewedAt": {
+                  "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+                  "format": "date",
+                  "type": "string"
+                },
+                "reviewedBy": {
+                  "maxLength": 80,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "state": {
+                  "enum": [
+                    "verified",
+                    "unverified"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "state"
+              ],
+              "then": {
+                "required": [
+                  "reviewedBy",
+                  "reviewedAt"
+                ]
+              },
+              "type": "object"
+            }
+          },
+          "required": [
+            "sourceId",
+            "url",
+            "accessedAt",
+            "declaredPatch",
+            "evidenceType",
+            "confidence",
+            "collectionMethod",
+            "verification"
+          ],
+          "type": "object"
+        },
+        "slotKey": {
+          "description": "Clave de \"hueco\": misma fuente + mismo slotKey = mismo dato en distintas versiones.",
+          "minLength": 1,
+          "type": "string"
+        },
+        "sourceId": {
+          "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+          "maxLength": 64,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "type": "string"
+        },
+        "status": {
+          "description": "current: vigente; stale: antiguo; superseded: reemplazado por un dato más nuevo de la misma fuente; retracted: retirado.",
+          "enum": [
+            "current",
+            "stale",
+            "superseded",
+            "retracted"
+          ],
+          "type": "string"
+        },
+        "supersededBy": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "sourceId",
+        "slotKey",
+        "agentRefs",
+        "payload",
+        "context",
+        "provenance",
+        "status",
+        "flags",
+        "firstSeenAt"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "agentRefs": {
+          "description": "Todos los agentes mencionados, para indexar.",
+          "items": {
+            "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+            "maxLength": 64,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "context": {
+          "additionalProperties": false,
+          "properties": {
+            "conditions": {
+              "description": "Condiciones declaradas por la fuente (p. ej. \"requiere M2\").",
+              "items": {
+                "maxLength": 100,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 6,
+              "type": "array"
+            },
+            "mode": {
+              "description": "Modo para el que la fuente declara la evaluación. \"general\" si no lo especifica.",
+              "enum": [
+                "general",
+                "shiyu_defense",
+                "deadly_assault",
+                "lost_void",
+                "other"
+              ],
+              "type": "string"
+            },
+            "modeDetail": {
+              "description": "Detalle libre del modo (p. ej. \"Shiyu nodo 7, mitad 1\").",
+              "maxLength": 100,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "mode"
+          ],
+          "type": "object"
+        },
+        "firstSeenAt": {
+          "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+          "format": "date",
+          "type": "string"
+        },
+        "flags": {
+          "items": {
+            "enum": [
+              "unverified",
+              "patch_undeclared",
+              "older_patch",
+              "access_too_old",
+              "pre_release",
+              "carried_over",
+              "source_policy_changed",
+              "unverified_catalog_refs"
+            ],
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "id": {
+          "pattern": "^clm_[a-z0-9_]+_[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "kind": {
+          "const": "w_engine",
+          "type": "string"
+        },
+        "payload": {
+          "additionalProperties": false,
+          "properties": {
+            "agent": {
+              "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            "options": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "f2p": {
+                    "description": "Solo si la fuente lo señala como opción F2P.",
+                    "type": "boolean"
+                  },
+                  "note": {
+                    "maxLength": 200,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "rank": {
+                    "description": "Orden de preferencia declarado por la fuente (1 = preferida).",
+                    "maximum": 20,
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "wEngine": {
+                    "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+                    "maxLength": 64,
+                    "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "wEngine",
+                  "rank"
+                ],
+                "type": "object"
+              },
+              "maxItems": 10,
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "agent",
+            "options"
+          ],
+          "type": "object"
+        },
+        "provenance": {
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "internal_estimate"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "confidence": {
+                    "enum": [
+                      "medium",
+                      "low"
+                    ]
+                  }
+                },
+                "required": [
+                  "rationale"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "observed_data"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sample"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "cross_source_consensus"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "collectionMethod": {
+                    "const": "derived"
+                  }
+                },
+                "required": [
+                  "derivedFrom"
+                ]
+              }
+            }
+          ],
+          "properties": {
+            "accessedAt": {
+              "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+              "format": "date",
+              "type": "string"
+            },
+            "collectedBy": {
+              "maxLength": 80,
+              "minLength": 1,
+              "type": "string"
+            },
+            "collectionMethod": {
+              "enum": [
+                "manual_entry",
+                "automated_api",
+                "automated_feed",
+                "derived"
+              ],
+              "type": "string"
+            },
+            "confidence": {
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ],
+              "type": "string"
+            },
+            "declaredPatch": {
+              "anyOf": [
+                {
+                  "description": "Versión del juego, \"MAYOR.MENOR\" (p. ej. \"3.3\").",
+                  "pattern": "^[0-9]+\\.[0-9]+$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Parche que declara la fuente; null si no lo declara."
+            },
+            "derivedFrom": {
+              "items": {
+                "type": "string"
+              },
+              "minItems": 2,
+              "type": "array"
+            },
+            "evidenceType": {
+              "enum": [
+                "explicit_recommendation",
+                "observed_data",
+                "cross_source_consensus",
+                "internal_estimate"
+              ],
+              "type": "string"
+            },
+            "excerpt": {
+              "description": "Cita breve (≤200 caracteres) que justifica el dato. Nunca párrafos completos.",
+              "maxLength": 200,
+              "minLength": 1,
+              "type": "string"
+            },
+            "notes": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "rationale": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "sample": {
+              "additionalProperties": false,
+              "properties": {
+                "description": {
+                  "description": "Qué muestra declara la fuente (modo, ciclo, servidor, etc.).",
+                  "maxLength": 300,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "period": {
+                  "maxLength": 100,
+                  "type": "string"
+                },
+                "size": {
+                  "description": "Tamaño de muestra SOLO si la fuente lo publica.",
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "description"
+              ],
+              "type": "object"
+            },
+            "sourceId": {
+              "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            "url": {
+              "format": "uri",
+              "maxLength": 500,
+              "pattern": "^https?://",
+              "type": "string"
+            },
+            "verification": {
+              "additionalProperties": false,
+              "description": "\"verified\" exige una segunda revisión humana contra la fuente (quién y cuándo).",
+              "if": {
+                "properties": {
+                  "state": {
+                    "const": "verified"
+                  }
+                }
+              },
+              "properties": {
+                "reviewedAt": {
+                  "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+                  "format": "date",
+                  "type": "string"
+                },
+                "reviewedBy": {
+                  "maxLength": 80,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "state": {
+                  "enum": [
+                    "verified",
+                    "unverified"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "state"
+              ],
+              "then": {
+                "required": [
+                  "reviewedBy",
+                  "reviewedAt"
+                ]
+              },
+              "type": "object"
+            }
+          },
+          "required": [
+            "sourceId",
+            "url",
+            "accessedAt",
+            "declaredPatch",
+            "evidenceType",
+            "confidence",
+            "collectionMethod",
+            "verification"
+          ],
+          "type": "object"
+        },
+        "slotKey": {
+          "description": "Clave de \"hueco\": misma fuente + mismo slotKey = mismo dato en distintas versiones.",
+          "minLength": 1,
+          "type": "string"
+        },
+        "sourceId": {
+          "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+          "maxLength": 64,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "type": "string"
+        },
+        "status": {
+          "description": "current: vigente; stale: antiguo; superseded: reemplazado por un dato más nuevo de la misma fuente; retracted: retirado.",
+          "enum": [
+            "current",
+            "stale",
+            "superseded",
+            "retracted"
+          ],
+          "type": "string"
+        },
+        "supersededBy": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "sourceId",
+        "slotKey",
+        "agentRefs",
+        "payload",
+        "context",
+        "provenance",
+        "status",
+        "flags",
+        "firstSeenAt"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "agentRefs": {
+          "description": "Todos los agentes mencionados, para indexar.",
+          "items": {
+            "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+            "maxLength": 64,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "context": {
+          "additionalProperties": false,
+          "properties": {
+            "conditions": {
+              "description": "Condiciones declaradas por la fuente (p. ej. \"requiere M2\").",
+              "items": {
+                "maxLength": 100,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 6,
+              "type": "array"
+            },
+            "mode": {
+              "description": "Modo para el que la fuente declara la evaluación. \"general\" si no lo especifica.",
+              "enum": [
+                "general",
+                "shiyu_defense",
+                "deadly_assault",
+                "lost_void",
+                "other"
+              ],
+              "type": "string"
+            },
+            "modeDetail": {
+              "description": "Detalle libre del modo (p. ej. \"Shiyu nodo 7, mitad 1\").",
+              "maxLength": 100,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "mode"
+          ],
+          "type": "object"
+        },
+        "firstSeenAt": {
+          "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+          "format": "date",
+          "type": "string"
+        },
+        "flags": {
+          "items": {
+            "enum": [
+              "unverified",
+              "patch_undeclared",
+              "older_patch",
+              "access_too_old",
+              "pre_release",
+              "carried_over",
+              "source_policy_changed",
+              "unverified_catalog_refs"
+            ],
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "id": {
+          "pattern": "^clm_[a-z0-9_]+_[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "kind": {
+          "const": "drive_disc",
+          "type": "string"
+        },
+        "payload": {
+          "additionalProperties": false,
+          "properties": {
+            "agent": {
+              "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            "fourPiece": {
+              "description": "Sets de 4 piezas en orden de preferencia.",
+              "items": {
+                "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+                "maxLength": 64,
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "type": "string"
+              },
+              "maxItems": 4,
+              "minItems": 1,
+              "type": "array"
+            },
+            "mainStats": {
+              "additionalProperties": false,
+              "properties": {
+                "slot4": {
+                  "items": {
+                    "enum": [
+                      "hp",
+                      "atk",
+                      "def",
+                      "hp_pct",
+                      "atk_pct",
+                      "def_pct",
+                      "crit_rate",
+                      "crit_dmg",
+                      "anomaly_proficiency",
+                      "anomaly_mastery",
+                      "pen",
+                      "pen_ratio",
+                      "impact",
+                      "energy_regen",
+                      "physical_dmg",
+                      "fire_dmg",
+                      "ice_dmg",
+                      "electric_dmg",
+                      "ether_dmg"
+                    ],
+                    "type": "string"
+                  },
+                  "maxItems": 4,
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "slot5": {
+                  "items": {
+                    "enum": [
+                      "hp",
+                      "atk",
+                      "def",
+                      "hp_pct",
+                      "atk_pct",
+                      "def_pct",
+                      "crit_rate",
+                      "crit_dmg",
+                      "anomaly_proficiency",
+                      "anomaly_mastery",
+                      "pen",
+                      "pen_ratio",
+                      "impact",
+                      "energy_regen",
+                      "physical_dmg",
+                      "fire_dmg",
+                      "ice_dmg",
+                      "electric_dmg",
+                      "ether_dmg"
+                    ],
+                    "type": "string"
+                  },
+                  "maxItems": 4,
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "slot6": {
+                  "items": {
+                    "enum": [
+                      "hp",
+                      "atk",
+                      "def",
+                      "hp_pct",
+                      "atk_pct",
+                      "def_pct",
+                      "crit_rate",
+                      "crit_dmg",
+                      "anomaly_proficiency",
+                      "anomaly_mastery",
+                      "pen",
+                      "pen_ratio",
+                      "impact",
+                      "energy_regen",
+                      "physical_dmg",
+                      "fire_dmg",
+                      "ice_dmg",
+                      "electric_dmg",
+                      "ether_dmg"
+                    ],
+                    "type": "string"
+                  },
+                  "maxItems": 4,
+                  "minItems": 1,
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "substats": {
+              "description": "Prioridad de subestadísticas en orden.",
+              "items": {
+                "enum": [
+                  "hp",
+                  "atk",
+                  "def",
+                  "hp_pct",
+                  "atk_pct",
+                  "def_pct",
+                  "crit_rate",
+                  "crit_dmg",
+                  "anomaly_proficiency",
+                  "anomaly_mastery",
+                  "pen",
+                  "pen_ratio",
+                  "impact",
+                  "energy_regen",
+                  "physical_dmg",
+                  "fire_dmg",
+                  "ice_dmg",
+                  "electric_dmg",
+                  "ether_dmg"
+                ],
+                "type": "string"
+              },
+              "maxItems": 8,
+              "type": "array"
+            },
+            "twoPiece": {
+              "items": {
+                "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+                "maxLength": 64,
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "type": "string"
+              },
+              "maxItems": 6,
+              "type": "array"
+            }
+          },
+          "required": [
+            "agent",
+            "fourPiece",
+            "twoPiece",
+            "mainStats"
+          ],
+          "type": "object"
+        },
+        "provenance": {
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "internal_estimate"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "confidence": {
+                    "enum": [
+                      "medium",
+                      "low"
+                    ]
+                  }
+                },
+                "required": [
+                  "rationale"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "observed_data"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sample"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "cross_source_consensus"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "collectionMethod": {
+                    "const": "derived"
+                  }
+                },
+                "required": [
+                  "derivedFrom"
+                ]
+              }
+            }
+          ],
+          "properties": {
+            "accessedAt": {
+              "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+              "format": "date",
+              "type": "string"
+            },
+            "collectedBy": {
+              "maxLength": 80,
+              "minLength": 1,
+              "type": "string"
+            },
+            "collectionMethod": {
+              "enum": [
+                "manual_entry",
+                "automated_api",
+                "automated_feed",
+                "derived"
+              ],
+              "type": "string"
+            },
+            "confidence": {
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ],
+              "type": "string"
+            },
+            "declaredPatch": {
+              "anyOf": [
+                {
+                  "description": "Versión del juego, \"MAYOR.MENOR\" (p. ej. \"3.3\").",
+                  "pattern": "^[0-9]+\\.[0-9]+$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Parche que declara la fuente; null si no lo declara."
+            },
+            "derivedFrom": {
+              "items": {
+                "type": "string"
+              },
+              "minItems": 2,
+              "type": "array"
+            },
+            "evidenceType": {
+              "enum": [
+                "explicit_recommendation",
+                "observed_data",
+                "cross_source_consensus",
+                "internal_estimate"
+              ],
+              "type": "string"
+            },
+            "excerpt": {
+              "description": "Cita breve (≤200 caracteres) que justifica el dato. Nunca párrafos completos.",
+              "maxLength": 200,
+              "minLength": 1,
+              "type": "string"
+            },
+            "notes": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "rationale": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "sample": {
+              "additionalProperties": false,
+              "properties": {
+                "description": {
+                  "description": "Qué muestra declara la fuente (modo, ciclo, servidor, etc.).",
+                  "maxLength": 300,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "period": {
+                  "maxLength": 100,
+                  "type": "string"
+                },
+                "size": {
+                  "description": "Tamaño de muestra SOLO si la fuente lo publica.",
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "description"
+              ],
+              "type": "object"
+            },
+            "sourceId": {
+              "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            "url": {
+              "format": "uri",
+              "maxLength": 500,
+              "pattern": "^https?://",
+              "type": "string"
+            },
+            "verification": {
+              "additionalProperties": false,
+              "description": "\"verified\" exige una segunda revisión humana contra la fuente (quién y cuándo).",
+              "if": {
+                "properties": {
+                  "state": {
+                    "const": "verified"
+                  }
+                }
+              },
+              "properties": {
+                "reviewedAt": {
+                  "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+                  "format": "date",
+                  "type": "string"
+                },
+                "reviewedBy": {
+                  "maxLength": 80,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "state": {
+                  "enum": [
+                    "verified",
+                    "unverified"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "state"
+              ],
+              "then": {
+                "required": [
+                  "reviewedBy",
+                  "reviewedAt"
+                ]
+              },
+              "type": "object"
+            }
+          },
+          "required": [
+            "sourceId",
+            "url",
+            "accessedAt",
+            "declaredPatch",
+            "evidenceType",
+            "confidence",
+            "collectionMethod",
+            "verification"
+          ],
+          "type": "object"
+        },
+        "slotKey": {
+          "description": "Clave de \"hueco\": misma fuente + mismo slotKey = mismo dato en distintas versiones.",
+          "minLength": 1,
+          "type": "string"
+        },
+        "sourceId": {
+          "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+          "maxLength": 64,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "type": "string"
+        },
+        "status": {
+          "description": "current: vigente; stale: antiguo; superseded: reemplazado por un dato más nuevo de la misma fuente; retracted: retirado.",
+          "enum": [
+            "current",
+            "stale",
+            "superseded",
+            "retracted"
+          ],
+          "type": "string"
+        },
+        "supersededBy": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "sourceId",
+        "slotKey",
+        "agentRefs",
+        "payload",
+        "context",
+        "provenance",
+        "status",
+        "flags",
+        "firstSeenAt"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "agentRefs": {
+          "description": "Todos los agentes mencionados, para indexar.",
+          "items": {
+            "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+            "maxLength": 64,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "context": {
+          "additionalProperties": false,
+          "properties": {
+            "conditions": {
+              "description": "Condiciones declaradas por la fuente (p. ej. \"requiere M2\").",
+              "items": {
+                "maxLength": 100,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 6,
+              "type": "array"
+            },
+            "mode": {
+              "description": "Modo para el que la fuente declara la evaluación. \"general\" si no lo especifica.",
+              "enum": [
+                "general",
+                "shiyu_defense",
+                "deadly_assault",
+                "lost_void",
+                "other"
+              ],
+              "type": "string"
+            },
+            "modeDetail": {
+              "description": "Detalle libre del modo (p. ej. \"Shiyu nodo 7, mitad 1\").",
+              "maxLength": 100,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "mode"
+          ],
+          "type": "object"
+        },
+        "firstSeenAt": {
+          "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+          "format": "date",
+          "type": "string"
+        },
+        "flags": {
+          "items": {
+            "enum": [
+              "unverified",
+              "patch_undeclared",
+              "older_patch",
+              "access_too_old",
+              "pre_release",
+              "carried_over",
+              "source_policy_changed",
+              "unverified_catalog_refs"
+            ],
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "id": {
+          "pattern": "^clm_[a-z0-9_]+_[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "kind": {
+          "const": "bangboo",
+          "type": "string"
+        },
+        "payload": {
+          "additionalProperties": false,
+          "anyOf": [
+            {
+              "required": [
+                "agent"
+              ]
+            },
+            {
+              "required": [
+                "team"
+              ]
+            }
+          ],
+          "properties": {
+            "agent": {
+              "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            "options": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "bangboo": {
+                    "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+                    "maxLength": 64,
+                    "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                    "type": "string"
+                  },
+                  "note": {
+                    "maxLength": 200,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "rank": {
+                    "description": "Orden de preferencia declarado por la fuente (1 = preferida).",
+                    "maximum": 20,
+                    "minimum": 1,
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "bangboo",
+                  "rank"
+                ],
+                "type": "object"
+              },
+              "maxItems": 6,
+              "minItems": 1,
+              "type": "array"
+            },
+            "team": {
+              "items": {
+                "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+                "maxLength": 64,
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "type": "string"
+              },
+              "maxItems": 3,
+              "minItems": 2,
+              "type": "array"
+            }
+          },
+          "required": [
+            "options"
+          ],
+          "type": "object"
+        },
+        "provenance": {
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "internal_estimate"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "confidence": {
+                    "enum": [
+                      "medium",
+                      "low"
+                    ]
+                  }
+                },
+                "required": [
+                  "rationale"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "observed_data"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sample"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "cross_source_consensus"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "collectionMethod": {
+                    "const": "derived"
+                  }
+                },
+                "required": [
+                  "derivedFrom"
+                ]
+              }
+            }
+          ],
+          "properties": {
+            "accessedAt": {
+              "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+              "format": "date",
+              "type": "string"
+            },
+            "collectedBy": {
+              "maxLength": 80,
+              "minLength": 1,
+              "type": "string"
+            },
+            "collectionMethod": {
+              "enum": [
+                "manual_entry",
+                "automated_api",
+                "automated_feed",
+                "derived"
+              ],
+              "type": "string"
+            },
+            "confidence": {
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ],
+              "type": "string"
+            },
+            "declaredPatch": {
+              "anyOf": [
+                {
+                  "description": "Versión del juego, \"MAYOR.MENOR\" (p. ej. \"3.3\").",
+                  "pattern": "^[0-9]+\\.[0-9]+$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Parche que declara la fuente; null si no lo declara."
+            },
+            "derivedFrom": {
+              "items": {
+                "type": "string"
+              },
+              "minItems": 2,
+              "type": "array"
+            },
+            "evidenceType": {
+              "enum": [
+                "explicit_recommendation",
+                "observed_data",
+                "cross_source_consensus",
+                "internal_estimate"
+              ],
+              "type": "string"
+            },
+            "excerpt": {
+              "description": "Cita breve (≤200 caracteres) que justifica el dato. Nunca párrafos completos.",
+              "maxLength": 200,
+              "minLength": 1,
+              "type": "string"
+            },
+            "notes": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "rationale": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "sample": {
+              "additionalProperties": false,
+              "properties": {
+                "description": {
+                  "description": "Qué muestra declara la fuente (modo, ciclo, servidor, etc.).",
+                  "maxLength": 300,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "period": {
+                  "maxLength": 100,
+                  "type": "string"
+                },
+                "size": {
+                  "description": "Tamaño de muestra SOLO si la fuente lo publica.",
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "description"
+              ],
+              "type": "object"
+            },
+            "sourceId": {
+              "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            "url": {
+              "format": "uri",
+              "maxLength": 500,
+              "pattern": "^https?://",
+              "type": "string"
+            },
+            "verification": {
+              "additionalProperties": false,
+              "description": "\"verified\" exige una segunda revisión humana contra la fuente (quién y cuándo).",
+              "if": {
+                "properties": {
+                  "state": {
+                    "const": "verified"
+                  }
+                }
+              },
+              "properties": {
+                "reviewedAt": {
+                  "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+                  "format": "date",
+                  "type": "string"
+                },
+                "reviewedBy": {
+                  "maxLength": 80,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "state": {
+                  "enum": [
+                    "verified",
+                    "unverified"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "state"
+              ],
+              "then": {
+                "required": [
+                  "reviewedBy",
+                  "reviewedAt"
+                ]
+              },
+              "type": "object"
+            }
+          },
+          "required": [
+            "sourceId",
+            "url",
+            "accessedAt",
+            "declaredPatch",
+            "evidenceType",
+            "confidence",
+            "collectionMethod",
+            "verification"
+          ],
+          "type": "object"
+        },
+        "slotKey": {
+          "description": "Clave de \"hueco\": misma fuente + mismo slotKey = mismo dato en distintas versiones.",
+          "minLength": 1,
+          "type": "string"
+        },
+        "sourceId": {
+          "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+          "maxLength": 64,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "type": "string"
+        },
+        "status": {
+          "description": "current: vigente; stale: antiguo; superseded: reemplazado por un dato más nuevo de la misma fuente; retracted: retirado.",
+          "enum": [
+            "current",
+            "stale",
+            "superseded",
+            "retracted"
+          ],
+          "type": "string"
+        },
+        "supersededBy": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "sourceId",
+        "slotKey",
+        "agentRefs",
+        "payload",
+        "context",
+        "provenance",
+        "status",
+        "flags",
+        "firstSeenAt"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "agentRefs": {
+          "description": "Todos los agentes mencionados, para indexar.",
+          "items": {
+            "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+            "maxLength": 64,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "context": {
+          "additionalProperties": false,
+          "properties": {
+            "conditions": {
+              "description": "Condiciones declaradas por la fuente (p. ej. \"requiere M2\").",
+              "items": {
+                "maxLength": 100,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 6,
+              "type": "array"
+            },
+            "mode": {
+              "description": "Modo para el que la fuente declara la evaluación. \"general\" si no lo especifica.",
+              "enum": [
+                "general",
+                "shiyu_defense",
+                "deadly_assault",
+                "lost_void",
+                "other"
+              ],
+              "type": "string"
+            },
+            "modeDetail": {
+              "description": "Detalle libre del modo (p. ej. \"Shiyu nodo 7, mitad 1\").",
+              "maxLength": 100,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "mode"
+          ],
+          "type": "object"
+        },
+        "firstSeenAt": {
+          "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+          "format": "date",
+          "type": "string"
+        },
+        "flags": {
+          "items": {
+            "enum": [
+              "unverified",
+              "patch_undeclared",
+              "older_patch",
+              "access_too_old",
+              "pre_release",
+              "carried_over",
+              "source_policy_changed",
+              "unverified_catalog_refs"
+            ],
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "id": {
+          "pattern": "^clm_[a-z0-9_]+_[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "kind": {
+          "const": "investment",
+          "type": "string"
+        },
+        "payload": {
+          "additionalProperties": false,
+          "properties": {
+            "agent": {
+              "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            "aspect": {
+              "enum": [
+                "mindscape",
+                "signature_w_engine",
+                "skills",
+                "core_skill",
+                "general"
+              ],
+              "type": "string"
+            },
+            "mindscape": {
+              "maximum": 6,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "note": {
+              "maxLength": 200,
+              "minLength": 1,
+              "type": "string"
+            },
+            "priority": {
+              "anyOf": [
+                {
+                  "const": "high",
+                  "type": "string"
+                },
+                {
+                  "const": "medium",
+                  "type": "string"
+                },
+                {
+                  "const": "low",
+                  "type": "string"
+                }
+              ]
+            },
+            "priorityLabel": {
+              "description": "Etiqueta original de la fuente, si difiere de la normalizada.",
+              "maxLength": 32,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "agent",
+            "aspect",
+            "priority"
+          ],
+          "type": "object"
+        },
+        "provenance": {
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "internal_estimate"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "confidence": {
+                    "enum": [
+                      "medium",
+                      "low"
+                    ]
+                  }
+                },
+                "required": [
+                  "rationale"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "observed_data"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sample"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "cross_source_consensus"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "collectionMethod": {
+                    "const": "derived"
+                  }
+                },
+                "required": [
+                  "derivedFrom"
+                ]
+              }
+            }
+          ],
+          "properties": {
+            "accessedAt": {
+              "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+              "format": "date",
+              "type": "string"
+            },
+            "collectedBy": {
+              "maxLength": 80,
+              "minLength": 1,
+              "type": "string"
+            },
+            "collectionMethod": {
+              "enum": [
+                "manual_entry",
+                "automated_api",
+                "automated_feed",
+                "derived"
+              ],
+              "type": "string"
+            },
+            "confidence": {
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ],
+              "type": "string"
+            },
+            "declaredPatch": {
+              "anyOf": [
+                {
+                  "description": "Versión del juego, \"MAYOR.MENOR\" (p. ej. \"3.3\").",
+                  "pattern": "^[0-9]+\\.[0-9]+$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Parche que declara la fuente; null si no lo declara."
+            },
+            "derivedFrom": {
+              "items": {
+                "type": "string"
+              },
+              "minItems": 2,
+              "type": "array"
+            },
+            "evidenceType": {
+              "enum": [
+                "explicit_recommendation",
+                "observed_data",
+                "cross_source_consensus",
+                "internal_estimate"
+              ],
+              "type": "string"
+            },
+            "excerpt": {
+              "description": "Cita breve (≤200 caracteres) que justifica el dato. Nunca párrafos completos.",
+              "maxLength": 200,
+              "minLength": 1,
+              "type": "string"
+            },
+            "notes": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "rationale": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "sample": {
+              "additionalProperties": false,
+              "properties": {
+                "description": {
+                  "description": "Qué muestra declara la fuente (modo, ciclo, servidor, etc.).",
+                  "maxLength": 300,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "period": {
+                  "maxLength": 100,
+                  "type": "string"
+                },
+                "size": {
+                  "description": "Tamaño de muestra SOLO si la fuente lo publica.",
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "description"
+              ],
+              "type": "object"
+            },
+            "sourceId": {
+              "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            "url": {
+              "format": "uri",
+              "maxLength": 500,
+              "pattern": "^https?://",
+              "type": "string"
+            },
+            "verification": {
+              "additionalProperties": false,
+              "description": "\"verified\" exige una segunda revisión humana contra la fuente (quién y cuándo).",
+              "if": {
+                "properties": {
+                  "state": {
+                    "const": "verified"
+                  }
+                }
+              },
+              "properties": {
+                "reviewedAt": {
+                  "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+                  "format": "date",
+                  "type": "string"
+                },
+                "reviewedBy": {
+                  "maxLength": 80,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "state": {
+                  "enum": [
+                    "verified",
+                    "unverified"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "state"
+              ],
+              "then": {
+                "required": [
+                  "reviewedBy",
+                  "reviewedAt"
+                ]
+              },
+              "type": "object"
+            }
+          },
+          "required": [
+            "sourceId",
+            "url",
+            "accessedAt",
+            "declaredPatch",
+            "evidenceType",
+            "confidence",
+            "collectionMethod",
+            "verification"
+          ],
+          "type": "object"
+        },
+        "slotKey": {
+          "description": "Clave de \"hueco\": misma fuente + mismo slotKey = mismo dato en distintas versiones.",
+          "minLength": 1,
+          "type": "string"
+        },
+        "sourceId": {
+          "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+          "maxLength": 64,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "type": "string"
+        },
+        "status": {
+          "description": "current: vigente; stale: antiguo; superseded: reemplazado por un dato más nuevo de la misma fuente; retracted: retirado.",
+          "enum": [
+            "current",
+            "stale",
+            "superseded",
+            "retracted"
+          ],
+          "type": "string"
+        },
+        "supersededBy": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "sourceId",
+        "slotKey",
+        "agentRefs",
+        "payload",
+        "context",
+        "provenance",
+        "status",
+        "flags",
+        "firstSeenAt"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "agentRefs": {
+          "description": "Todos los agentes mencionados, para indexar.",
+          "items": {
+            "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+            "maxLength": 64,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "context": {
+          "additionalProperties": false,
+          "properties": {
+            "conditions": {
+              "description": "Condiciones declaradas por la fuente (p. ej. \"requiere M2\").",
+              "items": {
+                "maxLength": 100,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 6,
+              "type": "array"
+            },
+            "mode": {
+              "description": "Modo para el que la fuente declara la evaluación. \"general\" si no lo especifica.",
+              "enum": [
+                "general",
+                "shiyu_defense",
+                "deadly_assault",
+                "lost_void",
+                "other"
+              ],
+              "type": "string"
+            },
+            "modeDetail": {
+              "description": "Detalle libre del modo (p. ej. \"Shiyu nodo 7, mitad 1\").",
+              "maxLength": 100,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "mode"
+          ],
+          "type": "object"
+        },
+        "firstSeenAt": {
+          "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+          "format": "date",
+          "type": "string"
+        },
+        "flags": {
+          "items": {
+            "enum": [
+              "unverified",
+              "patch_undeclared",
+              "older_patch",
+              "access_too_old",
+              "pre_release",
+              "carried_over",
+              "source_policy_changed",
+              "unverified_catalog_refs"
+            ],
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "id": {
+          "pattern": "^clm_[a-z0-9_]+_[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "kind": {
+          "const": "f2p_option",
+          "type": "string"
+        },
+        "payload": {
+          "additionalProperties": false,
+          "properties": {
+            "agent": {
+              "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            "category": {
+              "enum": [
+                "agent",
+                "w_engine",
+                "bangboo",
+                "drive_disc",
+                "team"
+              ],
+              "type": "string"
+            },
+            "entities": {
+              "items": {
+                "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+                "maxLength": 64,
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "type": "string"
+              },
+              "maxItems": 3,
+              "minItems": 1,
+              "type": "array"
+            },
+            "note": {
+              "maxLength": 200,
+              "minLength": 1,
+              "type": "string"
+            },
+            "replaces": {
+              "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "category",
+            "entities"
+          ],
+          "type": "object"
+        },
+        "provenance": {
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "internal_estimate"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "confidence": {
+                    "enum": [
+                      "medium",
+                      "low"
+                    ]
+                  }
+                },
+                "required": [
+                  "rationale"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "observed_data"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sample"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "cross_source_consensus"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "collectionMethod": {
+                    "const": "derived"
+                  }
+                },
+                "required": [
+                  "derivedFrom"
+                ]
+              }
+            }
+          ],
+          "properties": {
+            "accessedAt": {
+              "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+              "format": "date",
+              "type": "string"
+            },
+            "collectedBy": {
+              "maxLength": 80,
+              "minLength": 1,
+              "type": "string"
+            },
+            "collectionMethod": {
+              "enum": [
+                "manual_entry",
+                "automated_api",
+                "automated_feed",
+                "derived"
+              ],
+              "type": "string"
+            },
+            "confidence": {
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ],
+              "type": "string"
+            },
+            "declaredPatch": {
+              "anyOf": [
+                {
+                  "description": "Versión del juego, \"MAYOR.MENOR\" (p. ej. \"3.3\").",
+                  "pattern": "^[0-9]+\\.[0-9]+$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Parche que declara la fuente; null si no lo declara."
+            },
+            "derivedFrom": {
+              "items": {
+                "type": "string"
+              },
+              "minItems": 2,
+              "type": "array"
+            },
+            "evidenceType": {
+              "enum": [
+                "explicit_recommendation",
+                "observed_data",
+                "cross_source_consensus",
+                "internal_estimate"
+              ],
+              "type": "string"
+            },
+            "excerpt": {
+              "description": "Cita breve (≤200 caracteres) que justifica el dato. Nunca párrafos completos.",
+              "maxLength": 200,
+              "minLength": 1,
+              "type": "string"
+            },
+            "notes": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "rationale": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "sample": {
+              "additionalProperties": false,
+              "properties": {
+                "description": {
+                  "description": "Qué muestra declara la fuente (modo, ciclo, servidor, etc.).",
+                  "maxLength": 300,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "period": {
+                  "maxLength": 100,
+                  "type": "string"
+                },
+                "size": {
+                  "description": "Tamaño de muestra SOLO si la fuente lo publica.",
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "description"
+              ],
+              "type": "object"
+            },
+            "sourceId": {
+              "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            "url": {
+              "format": "uri",
+              "maxLength": 500,
+              "pattern": "^https?://",
+              "type": "string"
+            },
+            "verification": {
+              "additionalProperties": false,
+              "description": "\"verified\" exige una segunda revisión humana contra la fuente (quién y cuándo).",
+              "if": {
+                "properties": {
+                  "state": {
+                    "const": "verified"
+                  }
+                }
+              },
+              "properties": {
+                "reviewedAt": {
+                  "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+                  "format": "date",
+                  "type": "string"
+                },
+                "reviewedBy": {
+                  "maxLength": 80,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "state": {
+                  "enum": [
+                    "verified",
+                    "unverified"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "state"
+              ],
+              "then": {
+                "required": [
+                  "reviewedBy",
+                  "reviewedAt"
+                ]
+              },
+              "type": "object"
+            }
+          },
+          "required": [
+            "sourceId",
+            "url",
+            "accessedAt",
+            "declaredPatch",
+            "evidenceType",
+            "confidence",
+            "collectionMethod",
+            "verification"
+          ],
+          "type": "object"
+        },
+        "slotKey": {
+          "description": "Clave de \"hueco\": misma fuente + mismo slotKey = mismo dato en distintas versiones.",
+          "minLength": 1,
+          "type": "string"
+        },
+        "sourceId": {
+          "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+          "maxLength": 64,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "type": "string"
+        },
+        "status": {
+          "description": "current: vigente; stale: antiguo; superseded: reemplazado por un dato más nuevo de la misma fuente; retracted: retirado.",
+          "enum": [
+            "current",
+            "stale",
+            "superseded",
+            "retracted"
+          ],
+          "type": "string"
+        },
+        "supersededBy": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "sourceId",
+        "slotKey",
+        "agentRefs",
+        "payload",
+        "context",
+        "provenance",
+        "status",
+        "flags",
+        "firstSeenAt"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "agentRefs": {
+          "description": "Todos los agentes mencionados, para indexar.",
+          "items": {
+            "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+            "maxLength": 64,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "context": {
+          "additionalProperties": false,
+          "properties": {
+            "conditions": {
+              "description": "Condiciones declaradas por la fuente (p. ej. \"requiere M2\").",
+              "items": {
+                "maxLength": 100,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 6,
+              "type": "array"
+            },
+            "mode": {
+              "description": "Modo para el que la fuente declara la evaluación. \"general\" si no lo especifica.",
+              "enum": [
+                "general",
+                "shiyu_defense",
+                "deadly_assault",
+                "lost_void",
+                "other"
+              ],
+              "type": "string"
+            },
+            "modeDetail": {
+              "description": "Detalle libre del modo (p. ej. \"Shiyu nodo 7, mitad 1\").",
+              "maxLength": 100,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "mode"
+          ],
+          "type": "object"
+        },
+        "firstSeenAt": {
+          "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+          "format": "date",
+          "type": "string"
+        },
+        "flags": {
+          "items": {
+            "enum": [
+              "unverified",
+              "patch_undeclared",
+              "older_patch",
+              "access_too_old",
+              "pre_release",
+              "carried_over",
+              "source_policy_changed",
+              "unverified_catalog_refs"
+            ],
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "id": {
+          "pattern": "^clm_[a-z0-9_]+_[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "kind": {
+          "const": "usage",
+          "type": "string"
+        },
+        "payload": {
+          "additionalProperties": false,
+          "properties": {
+            "agents": {
+              "description": "Un agente o un equipo completo.",
+              "items": {
+                "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+                "maxLength": 64,
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "type": "string"
+              },
+              "maxItems": 3,
+              "minItems": 1,
+              "type": "array"
+            },
+            "metric": {
+              "enum": [
+                "usage_rate",
+                "pick_rate",
+                "clear_rate",
+                "other"
+              ],
+              "type": "string"
+            },
+            "metricLabel": {
+              "maxLength": 60,
+              "minLength": 1,
+              "type": "string"
+            },
+            "unit": {
+              "anyOf": [
+                {
+                  "const": "percent",
+                  "type": "string"
+                },
+                {
+                  "const": "ratio",
+                  "type": "string"
+                },
+                {
+                  "const": "count",
+                  "type": "string"
+                }
+              ]
+            },
+            "value": {
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "agents",
+            "metric",
+            "value",
+            "unit"
+          ],
+          "type": "object"
+        },
+        "provenance": {
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "internal_estimate"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "confidence": {
+                    "enum": [
+                      "medium",
+                      "low"
+                    ]
+                  }
+                },
+                "required": [
+                  "rationale"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "observed_data"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sample"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidenceType": {
+                    "const": "cross_source_consensus"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "collectionMethod": {
+                    "const": "derived"
+                  }
+                },
+                "required": [
+                  "derivedFrom"
+                ]
+              }
+            }
+          ],
+          "properties": {
+            "accessedAt": {
+              "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+              "format": "date",
+              "type": "string"
+            },
+            "collectedBy": {
+              "maxLength": 80,
+              "minLength": 1,
+              "type": "string"
+            },
+            "collectionMethod": {
+              "enum": [
+                "manual_entry",
+                "automated_api",
+                "automated_feed",
+                "derived"
+              ],
+              "type": "string"
+            },
+            "confidence": {
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ],
+              "type": "string"
+            },
+            "declaredPatch": {
+              "anyOf": [
+                {
+                  "description": "Versión del juego, \"MAYOR.MENOR\" (p. ej. \"3.3\").",
+                  "pattern": "^[0-9]+\\.[0-9]+$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Parche que declara la fuente; null si no lo declara."
+            },
+            "derivedFrom": {
+              "items": {
+                "type": "string"
+              },
+              "minItems": 2,
+              "type": "array"
+            },
+            "evidenceType": {
+              "enum": [
+                "explicit_recommendation",
+                "observed_data",
+                "cross_source_consensus",
+                "internal_estimate"
+              ],
+              "type": "string"
+            },
+            "excerpt": {
+              "description": "Cita breve (≤200 caracteres) que justifica el dato. Nunca párrafos completos.",
+              "maxLength": 200,
+              "minLength": 1,
+              "type": "string"
+            },
+            "notes": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "rationale": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "sample": {
+              "additionalProperties": false,
+              "properties": {
+                "description": {
+                  "description": "Qué muestra declara la fuente (modo, ciclo, servidor, etc.).",
+                  "maxLength": 300,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "period": {
+                  "maxLength": 100,
+                  "type": "string"
+                },
+                "size": {
+                  "description": "Tamaño de muestra SOLO si la fuente lo publica.",
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "description"
+              ],
+              "type": "object"
+            },
+            "sourceId": {
+              "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            "url": {
+              "format": "uri",
+              "maxLength": 500,
+              "pattern": "^https?://",
+              "type": "string"
+            },
+            "verification": {
+              "additionalProperties": false,
+              "description": "\"verified\" exige una segunda revisión humana contra la fuente (quién y cuándo).",
+              "if": {
+                "properties": {
+                  "state": {
+                    "const": "verified"
+                  }
+                }
+              },
+              "properties": {
+                "reviewedAt": {
+                  "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+                  "format": "date",
+                  "type": "string"
+                },
+                "reviewedBy": {
+                  "maxLength": 80,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "state": {
+                  "enum": [
+                    "verified",
+                    "unverified"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "state"
+              ],
+              "then": {
+                "required": [
+                  "reviewedBy",
+                  "reviewedAt"
+                ]
+              },
+              "type": "object"
+            }
+          },
+          "required": [
+            "sourceId",
+            "url",
+            "accessedAt",
+            "declaredPatch",
+            "evidenceType",
+            "confidence",
+            "collectionMethod",
+            "verification"
+          ],
+          "type": "object"
+        },
+        "slotKey": {
+          "description": "Clave de \"hueco\": misma fuente + mismo slotKey = mismo dato en distintas versiones.",
+          "minLength": 1,
+          "type": "string"
+        },
+        "sourceId": {
+          "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+          "maxLength": 64,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "type": "string"
+        },
+        "status": {
+          "description": "current: vigente; stale: antiguo; superseded: reemplazado por un dato más nuevo de la misma fuente; retracted: retirado.",
+          "enum": [
+            "current",
+            "stale",
+            "superseded",
+            "retracted"
+          ],
+          "type": "string"
+        },
+        "supersededBy": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "sourceId",
+        "slotKey",
+        "agentRefs",
+        "payload",
+        "context",
+        "provenance",
+        "status",
+        "flags",
+        "firstSeenAt"
+      ],
+      "type": "object"
+    }
+  ],
+  "required": [
+    "kind"
+  ],
+  "title": "Claim",
+  "type": "object"
+}

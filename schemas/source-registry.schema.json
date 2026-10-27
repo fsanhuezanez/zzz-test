@@ -1,0 +1,244 @@
+{
+  "$id": "source-registry.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "sources": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "adapter": {
+            "additionalProperties": false,
+            "properties": {
+              "method": {
+                "enum": [
+                  "automated_api",
+                  "automated_feed"
+                ],
+                "type": "string"
+              },
+              "minIntervalMs": {
+                "description": "Pausa mínima entre peticiones.",
+                "minimum": 1000,
+                "type": "integer"
+              },
+              "respectRobotsTxt": {
+                "const": true,
+                "type": "boolean"
+              },
+              "timeoutMs": {
+                "maximum": 120000,
+                "minimum": 1000,
+                "type": "integer"
+              },
+              "type": {
+                "const": "http_json_feed",
+                "type": "string"
+              },
+              "url": {
+                "format": "uri",
+                "maxLength": 500,
+                "pattern": "^https?://",
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "url",
+              "method",
+              "minIntervalMs",
+              "timeoutMs",
+              "respectRobotsTxt"
+            ],
+            "type": "object"
+          },
+          "attribution": {
+            "description": "Texto de atribución a mostrar junto a sus datos.",
+            "maxLength": 200,
+            "minLength": 1,
+            "type": "string"
+          },
+          "automation": {
+            "additionalProperties": false,
+            "properties": {
+              "allowedMethods": {
+                "items": {
+                  "enum": [
+                    "manual_entry",
+                    "automated_api",
+                    "automated_feed",
+                    "derived"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "basis": {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              "checkedAt": {
+                "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+                "format": "date",
+                "type": "string"
+              },
+              "evidenceUrls": {
+                "description": "Términos, robots.txt, correo de permiso, documentación de API...",
+                "items": {
+                  "format": "uri",
+                  "maxLength": 500,
+                  "pattern": "^https?://",
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "status": {
+                "description": "allowed: hay permiso explícito o API/feed con licencia; disallowed: las condiciones lo prohíben; unknown: sin información → se trata como disallowed.",
+                "enum": [
+                  "allowed",
+                  "disallowed",
+                  "unknown"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "basis",
+              "checkedAt",
+              "evidenceUrls",
+              "allowedMethods"
+            ],
+            "type": "object"
+          },
+          "defaultTierScale": {
+            "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+            "maxLength": 64,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "type": "string"
+          },
+          "homepage": {
+            "format": "uri",
+            "maxLength": 500,
+            "pattern": "^https?://",
+            "type": "string"
+          },
+          "id": {
+            "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+            "maxLength": 64,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "community_guide",
+              "stats_site",
+              "database",
+              "official",
+              "internal",
+              "fixture"
+            ],
+            "type": "string"
+          },
+          "maxAgeDays": {
+            "description": "Días tras los que un dato consultado se marca access_too_old.",
+            "maximum": 365,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "name": {
+            "maxLength": 80,
+            "minLength": 1,
+            "type": "string"
+          },
+          "notes": {
+            "maxLength": 500,
+            "minLength": 1,
+            "type": "string"
+          },
+          "termsUrl": {
+            "format": "uri",
+            "maxLength": 500,
+            "pattern": "^https?://",
+            "type": "string"
+          },
+          "tierScales": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "confirmed": {
+                  "description": "true solo cuando un editor ha comprobado las etiquetas contra la página de la fuente.",
+                  "type": "boolean"
+                },
+                "id": {
+                  "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+                  "maxLength": 64,
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                  "type": "string"
+                },
+                "labels": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "label": {
+                        "maxLength": 16,
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "score": {
+                        "maximum": 1,
+                        "minimum": 0,
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "label",
+                      "score"
+                    ],
+                    "type": "object"
+                  },
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "notes": {
+                  "maxLength": 500,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "labels",
+                "confirmed"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "kind",
+          "homepage",
+          "attribution",
+          "automation",
+          "tierScales",
+          "maxAgeDays"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "sources"
+  ],
+  "type": "object"
+}

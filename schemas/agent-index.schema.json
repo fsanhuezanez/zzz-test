@@ -1,0 +1,54 @@
+{
+  "$id": "agent-index.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "agents": {
+      "patternProperties": {
+        "^[a-z0-9]+(?:-[a-z0-9]+)*$": {
+          "additionalProperties": false,
+          "properties": {
+            "claimIds": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "currentClaimIds": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "tierConsensusIds": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "claimIds",
+            "currentClaimIds",
+            "tierConsensusIds"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "dataVersion": {
+      "description": "\"<parche>-r<revisión>\", p. ej. \"3.3-r2\".",
+      "pattern": "^[0-9]+\\.[0-9]+-r[0-9]+$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataVersion",
+    "agents"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,257 @@
+{
+  "$schema": "../../../schemas/drive-disc-catalog.schema.json",
+  "items": [
+    {
+      "aliases": [],
+      "id": "astral-voice",
+      "name": "Astral Voice",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
+      "aliases": [],
+      "id": "branch-blade-song",
+      "name": "Branch & Blade Song",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
+      "aliases": [],
+      "id": "chaos-jazz",
+      "name": "Chaos Jazz",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
+      "aliases": [],
+      "id": "chaotic-metal",
+      "name": "Chaotic Metal",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
+      "aliases": [],
+      "id": "fanged-metal",
+      "name": "Fanged Metal",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
+      "aliases": [],
+      "id": "freedom-blues",
+      "name": "Freedom Blues",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
+      "aliases": [],
+      "id": "hormone-punk",
+      "name": "Hormone Punk",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
+      "aliases": [],
+      "id": "inferno-metal",
+      "name": "Inferno Metal",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
+      "aliases": [],
+      "id": "phaethon-s-melody",
+      "name": "Phaethon's Melody",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
+      "aliases": [],
+      "id": "polar-metal",
+      "name": "Polar Metal",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
+      "aliases": [],
+      "id": "proto-punk",
+      "name": "Proto Punk",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
+      "aliases": [],
+      "id": "puffer-electro",
+      "name": "Puffer Electro",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
+      "aliases": [],
+      "id": "shadow-harmony",
+      "name": "Shadow Harmony",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
+      "aliases": [],
+      "id": "shockstar-disco",
+      "name": "Shockstar Disco",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
+      "aliases": [],
+      "id": "soul-rock",
+      "name": "Soul Rock",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
+      "aliases": [],
+      "id": "swing-jazz",
+      "name": "Swing Jazz",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
+      "aliases": [],
+      "id": "thunder-metal",
+      "name": "Thunder Metal",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    },
+    {
+      "aliases": [],
+      "id": "woodpecker-electro",
+      "name": "Woodpecker Electro",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      }
+    }
+  ]
+}

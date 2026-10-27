@@ -1,0 +1,232 @@
+{
+  "$id": "consensus-file.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "dataVersion": {
+      "description": "\"<parche>-r<revisión>\", p. ej. \"3.3-r2\".",
+      "pattern": "^[0-9]+\\.[0-9]+-r[0-9]+$",
+      "type": "string"
+    },
+    "method": {
+      "type": "string"
+    },
+    "teams": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "collectionMethod": {
+            "const": "derived",
+            "type": "string"
+          },
+          "derivedFrom": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 2,
+            "type": "array"
+          },
+          "evidenceType": {
+            "const": "cross_source_consensus",
+            "type": "string"
+          },
+          "id": {
+            "pattern": "^cns_team_[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "members": {
+            "items": {
+              "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            "maxItems": 3,
+            "minItems": 2,
+            "type": "array"
+          },
+          "mode": {
+            "description": "Modo para el que la fuente declara la evaluación. \"general\" si no lo especifica.",
+            "enum": [
+              "general",
+              "shiyu_defense",
+              "deadly_assault",
+              "lost_void",
+              "other"
+            ],
+            "type": "string"
+          },
+          "patch": {
+            "description": "Versión del juego, \"MAYOR.MENOR\" (p. ej. \"3.3\").",
+            "pattern": "^[0-9]+\\.[0-9]+$",
+            "type": "string"
+          },
+          "sources": {
+            "items": {
+              "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            "minItems": 2,
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "members",
+          "mode",
+          "patch",
+          "sources",
+          "evidenceType",
+          "collectionMethod",
+          "derivedFrom"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "tiers": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "agent": {
+            "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+            "maxLength": 64,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "type": "string"
+          },
+          "agreement": {
+            "description": "agree si max-min ≤ umbral; mixed si las fuentes discrepan.",
+            "enum": [
+              "agree",
+              "mixed"
+            ],
+            "type": "string"
+          },
+          "collectionMethod": {
+            "const": "derived",
+            "type": "string"
+          },
+          "derivedFrom": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 2,
+            "type": "array"
+          },
+          "entries": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "claimId": {
+                  "type": "string"
+                },
+                "score": {
+                  "type": "number"
+                },
+                "sourceId": {
+                  "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+                  "maxLength": 64,
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                  "type": "string"
+                },
+                "tier": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "sourceId",
+                "claimId",
+                "tier",
+                "score"
+              ],
+              "type": "object"
+            },
+            "minItems": 2,
+            "type": "array"
+          },
+          "evidenceType": {
+            "const": "cross_source_consensus",
+            "type": "string"
+          },
+          "id": {
+            "pattern": "^cns_tier_[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "maxScore": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "meanScore": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "minScore": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "mode": {
+            "description": "Modo para el que la fuente declara la evaluación. \"general\" si no lo especifica.",
+            "enum": [
+              "general",
+              "shiyu_defense",
+              "deadly_assault",
+              "lost_void",
+              "other"
+            ],
+            "type": "string"
+          },
+          "patch": {
+            "description": "Versión del juego, \"MAYOR.MENOR\" (p. ej. \"3.3\").",
+            "pattern": "^[0-9]+\\.[0-9]+$",
+            "type": "string"
+          },
+          "role": {
+            "enum": [
+              "attack",
+              "stun",
+              "anomaly",
+              "support",
+              "defense",
+              "rupture",
+              "sub_dps",
+              "overall"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "agent",
+          "role",
+          "mode",
+          "patch",
+          "entries",
+          "meanScore",
+          "minScore",
+          "maxScore",
+          "agreement",
+          "evidenceType",
+          "collectionMethod",
+          "derivedFrom"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "dataVersion",
+    "method",
+    "tiers",
+    "teams"
+  ],
+  "type": "object"
+}

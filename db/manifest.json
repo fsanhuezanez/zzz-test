@@ -1,0 +1,88 @@
+{
+  "$schema": "../schemas/manifest.schema.json",
+  "contentHash": "87598af2e3712808338af30b9bb13fc950957c11c014aa5d4c48643212f771ab",
+  "counts": {
+    "agents": 33,
+    "bangboo": 8,
+    "claims": 0,
+    "claimsByStatus": {
+      "current": 0,
+      "retracted": 0,
+      "stale": 0,
+      "superseded": 0
+    },
+    "driveDiscs": 18,
+    "teamConsensus": 0,
+    "tierConsensus": 0,
+    "wEngines": 27
+  },
+  "dataVersion": "3.3-r1",
+  "files": {
+    "agents": "catalog/agents.json",
+    "bangboo": "catalog/bangboo.json",
+    "claims": "claims.json",
+    "consensus": "derived/consensus.json",
+    "driveDiscs": "catalog/drive-discs.json",
+    "index": "index/by-agent.json",
+    "sources": "sources.json",
+    "wEngines": "catalog/w-engines.json"
+  },
+  "gamePatch": "3.3",
+  "generatedAt": "2026-10-27T16:58:04.831Z",
+  "isFixture": false,
+  "previousDataVersion": null,
+  "revision": 1,
+  "schemaVersion": "1.0.0",
+  "sources": [
+    {
+      "attribution": "Datos de ZZZ Akademiya (zzz.akademiya.app), base de datos comunitaria no afiliada a HoYoverse.",
+      "automationStatus": "unknown",
+      "claimCount": 0,
+      "currentClaimCount": 0,
+      "id": "akademiya",
+      "lastAccessedAt": null,
+      "name": "ZZZ Akademiya",
+      "updateOutcome": "no_input"
+    },
+    {
+      "attribution": "Información oficial de Zenless Zone Zero © HoYoverse.",
+      "automationStatus": "unknown",
+      "claimCount": 0,
+      "currentClaimCount": 0,
+      "id": "hoyoverse-official",
+      "lastAccessedAt": null,
+      "name": "HoYoverse (fuentes oficiales)",
+      "updateOutcome": "no_input"
+    },
+    {
+      "attribution": "Estimación propia de zzz-meta-knowledge; no procede de ninguna fuente externa.",
+      "automationStatus": "disallowed",
+      "claimCount": 0,
+      "currentClaimCount": 0,
+      "id": "maintainer",
+      "lastAccessedAt": null,
+      "name": "Estimación del mantenedor",
+      "updateOutcome": "no_input"
+    },
+    {
+      "attribution": "Datos resumidos de Mobalytics (mobalytics.gg). Consulta la guía original en el enlace de cada dato.",
+      "automationStatus": "disallowed",
+      "claimCount": 0,
+      "currentClaimCount": 0,
+      "id": "mobalytics",
+      "lastAccessedAt": null,
+      "name": "Mobalytics",
+      "updateOutcome": "no_input"
+    },
+    {
+      "attribution": "Datos resumidos de Prydwen Institute (prydwen.gg). Consulta la guía original en el enlace de cada dato.",
+      "automationStatus": "disallowed",
+      "claimCount": 0,
+      "currentClaimCount": 0,
+      "id": "prydwen",
+      "lastAccessedAt": null,
+      "name": "Prydwen Institute",
+      "updateOutcome": "no_input"
+    }
+  ]
+}

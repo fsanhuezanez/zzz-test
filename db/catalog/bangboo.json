@@ -1,0 +1,125 @@
+{
+  "$schema": "../../schemas/bangboo-catalog.schema.json",
+  "items": [
+    {
+      "aliases": [],
+      "id": "amillion",
+      "name": "Amillion",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "A"
+    },
+    {
+      "aliases": [],
+      "id": "bagboo",
+      "name": "Bagboo",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "A"
+    },
+    {
+      "aliases": [],
+      "id": "butler",
+      "name": "Butler",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S"
+    },
+    {
+      "aliases": [],
+      "id": "exploreboo",
+      "name": "Exploreboo",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "A"
+    },
+    {
+      "aliases": [],
+      "id": "penguinboo",
+      "name": "Penguinboo",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "A"
+    },
+    {
+      "aliases": [],
+      "id": "plugboo",
+      "name": "Plugboo",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S"
+    },
+    {
+      "aliases": [],
+      "id": "rocketboo",
+      "name": "Rocketboo",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S"
+    },
+    {
+      "aliases": [],
+      "id": "sharkboo",
+      "name": "Sharkboo",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S"
+    }
+  ]
+}

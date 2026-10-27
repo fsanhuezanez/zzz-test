@@ -1,0 +1,252 @@
+{
+  "$schema": "../../../../../schemas/editorial-submission.schema.json",
+  "sourceId": "example-guide-a",
+  "url": "https://guide-a.example.com/zzz/tier-list",
+  "title": "Tier list Shiyu (ficticia)",
+  "accessedAt": "2026-10-24",
+  "declaredPatch": "3.3",
+  "collectedBy": "editor-a",
+  "evidenceType": "explicit_recommendation",
+  "confidence": "high",
+  "verification": {
+    "state": "verified",
+    "reviewedBy": "revisor-b",
+    "reviewedAt": "2026-10-25"
+  },
+  "mode": "shiyu_defense",
+  "claims": [
+    {
+      "kind": "tier",
+      "agent": "Ellen",
+      "role": "attack",
+      "tier": "T0"
+    },
+    {
+      "kind": "tier",
+      "agent": "Miyabi",
+      "role": "anomaly",
+      "tier": "T0"
+    },
+    {
+      "kind": "tier",
+      "agent": "Yanagi",
+      "role": "anomaly",
+      "tier": "T0.5"
+    },
+    {
+      "kind": "tier",
+      "agent": "Von Lycaon",
+      "role": "stun",
+      "tier": "T0.5"
+    },
+    {
+      "kind": "tier",
+      "agent": "Qingyi",
+      "role": "stun",
+      "tier": "T0.5"
+    },
+    {
+      "kind": "tier",
+      "agent": "Astra",
+      "role": "support",
+      "tier": "T0"
+    },
+    {
+      "kind": "tier",
+      "agent": "Soukaku",
+      "role": "support",
+      "tier": "T1"
+    },
+    {
+      "kind": "tier",
+      "agent": "Nicole",
+      "role": "support",
+      "tier": "T1"
+    },
+    {
+      "kind": "tier",
+      "agent": "Zhu Yuan",
+      "role": "attack",
+      "tier": "T1"
+    },
+    {
+      "kind": "team",
+      "archetype": "Ice burst",
+      "members": [
+        {
+          "agent": "Ellen",
+          "role": "main_dps"
+        },
+        {
+          "agent": "Lycaon",
+          "role": "stunner",
+          "substitutes": [
+            {
+              "agent": "Qingyi",
+              "quality": "workable"
+            }
+          ]
+        },
+        {
+          "agent": "Soukaku",
+          "role": "support",
+          "substitutes": [
+            {
+              "agent": "Astra Yao",
+              "quality": "near_equivalent"
+            }
+          ]
+        }
+      ],
+      "bangboo": [
+        {
+          "bangboo": "Butler",
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "kind": "team",
+      "archetype": "Frost anomaly",
+      "members": [
+        {
+          "agent": "Miyabi",
+          "role": "anomaly"
+        },
+        {
+          "agent": "Yanagi",
+          "role": "anomaly"
+        },
+        {
+          "agent": "Astra Yao",
+          "role": "support",
+          "substitutes": [
+            {
+              "agent": "Nicole",
+              "quality": "workable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "team",
+      "archetype": "Ether hypercarry",
+      "members": [
+        {
+          "agent": "Zhu Yuan",
+          "role": "main_dps"
+        },
+        {
+          "agent": "Qingyi",
+          "role": "stunner",
+          "substitutes": [
+            {
+              "agent": "Anby",
+              "quality": "significant_downgrade"
+            }
+          ]
+        },
+        {
+          "agent": "Nicole",
+          "role": "support"
+        }
+      ]
+    },
+    {
+      "kind": "w_engine",
+      "agent": "Ellen",
+      "options": [
+        {
+          "wEngine": "Deep Sea Visitor",
+          "rank": 1
+        },
+        {
+          "wEngine": "Starlight Engine",
+          "rank": 2,
+          "f2p": true
+        }
+      ]
+    },
+    {
+      "kind": "drive_disc",
+      "agent": "Ellen",
+      "fourPiece": [
+        "Polar Metal"
+      ],
+      "twoPiece": [
+        "Woodpecker Electro"
+      ],
+      "mainStats": {
+        "slot4": [
+          "crit_rate",
+          "crit_dmg"
+        ],
+        "slot5": [
+          "ice_dmg"
+        ],
+        "slot6": [
+          "atk_pct"
+        ]
+      },
+      "substats": [
+        "crit_rate",
+        "crit_dmg",
+        "atk_pct",
+        "pen"
+      ]
+    },
+    {
+      "kind": "investment",
+      "agent": "Ellen",
+      "aspect": "signature_w_engine",
+      "priority": "medium",
+      "priorityLabel": "Nice to have"
+    },
+    {
+      "kind": "f2p_option",
+      "agent": "Ellen",
+      "category": "w_engine",
+      "entities": [
+        "Starlight Engine"
+      ],
+      "replaces": "Deep Sea Visitor"
+    },
+    {
+      "kind": "rotation",
+      "agents": [
+        "Ellen",
+        "Lycaon",
+        "Soukaku"
+      ],
+      "steps": [
+        "Soukaku abre con su ataque de apoyo",
+        "Lycaon acumula aturdimiento",
+        "Ellen descarga durante el aturdimiento"
+      ]
+    },
+    {
+      "kind": "synergy",
+      "agents": [
+        "Ellen",
+        "Lycaon"
+      ],
+      "polarity": "positive",
+      "mechanism": "Ejemplo ficticio: el aturdidor amplifica el daño de hielo del DPS principal."
+    },
+    {
+      "kind": "bangboo",
+      "agent": "Ellen",
+      "options": [
+        {
+          "bangboo": "Butler",
+          "rank": 1
+        },
+        {
+          "bangboo": "Sharkboo",
+          "rank": 2
+        }
+      ]
+    }
+  ]
+}

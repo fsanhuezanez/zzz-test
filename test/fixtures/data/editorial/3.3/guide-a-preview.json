@@ -1,0 +1,25 @@
+{
+  "$schema": "../../../../../schemas/editorial-submission.schema.json",
+  "sourceId": "example-guide-a",
+  "url": "https://guide-a.example.com/zzz/preview",
+  "accessedAt": "2026-10-15",
+  "declaredPatch": "3.3",
+  "collectedBy": "editor-a",
+  "evidenceType": "explicit_recommendation",
+  "confidence": "low",
+  "verification": {
+    "state": "unverified"
+  },
+  "mode": "general",
+  "claims": [
+    {
+      "kind": "tier",
+      "agent": "Hugo",
+      "role": "attack",
+      "tier": "T1",
+      "evidence": {
+        "notes": "Valoración previa al lanzamiento (ficticia)."
+      }
+    }
+  ]
+}

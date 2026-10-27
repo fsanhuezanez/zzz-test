@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schemas/manifest.schema.json",
+  "contentHash": "519873b6091c3b2ba8dcb45b125927b62cbc1c83539ad345cdc4e87ca85f8824",
+  "counts": {
+    "agents": 33,
+    "bangboo": 8,
+    "claims": 27,
+    "claimsByStatus": {
+      "current": 25,
+      "retracted": 0,
+      "stale": 1,
+      "superseded": 1
+    },
+    "driveDiscs": 18,
+    "teamConsensus": 1,
+    "tierConsensus": 2,
+    "wEngines": 27
+  },
+  "dataVersion": "3.3-r1",
+  "files": {
+    "agents": "catalog/agents.json",
+    "bangboo": "catalog/bangboo.json",
+    "claims": "claims.json",
+    "consensus": "derived/consensus.json",
+    "driveDiscs": "catalog/drive-discs.json",
+    "index": "index/by-agent.json",
+    "sources": "sources.json",
+    "wEngines": "catalog/w-engines.json"
+  },
+  "gamePatch": "3.3",
+  "generatedAt": "2026-10-27T12:00:00.000Z",
+  "isFixture": true,
+  "previousDataVersion": null,
+  "revision": 1,
+  "schemaVersion": "1.0.0",
+  "sources": [
+    {
+      "attribution": "Fuente ficticia de pruebas A.",
+      "automationStatus": "disallowed",
+      "claimCount": 22,
+      "currentClaimCount": 20,
+      "id": "example-guide-a",
+      "lastAccessedAt": "2026-10-24",
+      "name": "Example Guide A (ficticia)",
+      "updateOutcome": "collected"
+    },
+    {
+      "attribution": "Fuente ficticia de pruebas B.",
+      "automationStatus": "disallowed",
+      "claimCount": 4,
+      "currentClaimCount": 4,
+      "id": "example-stats-b",
+      "lastAccessedAt": "2026-10-26",
+      "name": "Example Stats B (ficticia)",
+      "updateOutcome": "collected"
+    },
+    {
+      "attribution": "Estimación propia de zzz-meta-knowledge.",
+      "automationStatus": "disallowed",
+      "claimCount": 1,
+      "currentClaimCount": 1,
+      "id": "maintainer",
+      "lastAccessedAt": "2026-10-26",
+      "name": "Estimación del mantenedor",
+      "updateOutcome": "collected"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "name": "zzz-meta-knowledge",
+  "version": "0.1.0",
+  "description": "Recopilador y normalizador trazable de conocimiento competitivo de Zenless Zone Zero. Produce una base JSON versionada y validada para Hoyo Builds.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "bin": {
+    "zzz-meta": "./dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/client/index.d.ts",
+      "default": "./dist/client/index.js"
+    },
+    "./types": {
+      "types": "./dist/schema/index.d.ts",
+      "default": "./dist/schema/index.js"
+    },
+    "./db/*": "./db/*",
+    "./schemas/*": "./schemas/*"
+  },
+  "files": [
+    "dist",
+    "db",
+    "schemas",
+    "src"
+  ],
+  "scripts": {
+    "update": "node src/cli.ts update",
+    "validate": "node src/cli.ts validate",
+    "report": "node src/cli.ts report",
+    "new-submission": "node src/cli.ts new-submission",
+    "schemas": "node src/cli.ts export-schemas",
+    "example:build": "node src/cli.ts update --data test/fixtures/data --out examples/fixture-db --reports examples/fixture-reports --patch 3.3 --now 2026-10-27T12:00:00Z",
+    "example:recommend": "node examples/hoyo-builds-consumer/recommend.ts",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc -p tsconfig.build.json",
+    "test": "node --test \"test/**/*.test.ts\"",
+    "check": "npm run typecheck && npm test && npm run validate",
+    "prepare": "tsc -p tsconfig.build.json"
+  },
+  "dependencies": {
+    "@sinclair/typebox": "^0.34.41",
+    "ajv": "^8.20.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.18.0",
+    "typescript": "^5.9.3"
+  }
+}

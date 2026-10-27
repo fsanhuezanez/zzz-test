@@ -1,0 +1,28 @@
+{
+  "$schema": "../../../../../schemas/editorial-submission.schema.json",
+  "sourceId": "maintainer",
+  "url": "https://github.com/fsanhuezanez/zzz-test/blob/main/docs/ESTIMATES.md",
+  "accessedAt": "2026-10-26",
+  "declaredPatch": "3.3",
+  "collectedBy": "maintainer",
+  "evidenceType": "internal_estimate",
+  "confidence": "low",
+  "verification": {
+    "state": "unverified"
+  },
+  "mode": "shiyu_defense",
+  "claims": [
+    {
+      "kind": "substitute",
+      "agent": "Lycaon",
+      "substitute": "Anby",
+      "quality": "significant_downgrade",
+      "withAgents": [
+        "Ellen"
+      ],
+      "evidence": {
+        "rationale": "Estimación ficticia: Anby aporta aturdimiento básico cuando falta Lycaon; ninguna fuente lo evalúa."
+      }
+    }
+  ]
+}

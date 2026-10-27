@@ -1,0 +1,30 @@
+{
+  "$schema": "../../../../../schemas/editorial-submission.schema.json",
+  "sourceId": "example-guide-a",
+  "url": "https://guide-a.example.com/zzz/tier-list",
+  "accessedAt": "2026-09-15",
+  "declaredPatch": "3.2",
+  "collectedBy": "editor-a",
+  "evidenceType": "explicit_recommendation",
+  "confidence": "high",
+  "verification": {
+    "state": "verified",
+    "reviewedBy": "revisor-b",
+    "reviewedAt": "2026-09-16"
+  },
+  "mode": "shiyu_defense",
+  "claims": [
+    {
+      "kind": "tier",
+      "agent": "Ellen",
+      "role": "attack",
+      "tier": "T1"
+    },
+    {
+      "kind": "tier",
+      "agent": "Burnice",
+      "role": "anomaly",
+      "tier": "T0.5"
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "$schema": "../../../../schemas/bangboo-catalog.schema.json",
+  "items": [
+    {
+      "id": "butler",
+      "name": "Butler",
+      "aliases": [],
+      "rarity": "S",
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified."
+      }
+    },
+    {
+      "id": "sharkboo",
+      "name": "Sharkboo",
+      "aliases": [],
+      "rarity": "S",
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified."
+      }
+    },
+    {
+      "id": "rocketboo",
+      "name": "Rocketboo",
+      "aliases": [],
+      "rarity": "S",
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified."
+      }
+    },
+    {
+      "id": "plugboo",
+      "name": "Plugboo",
+      "aliases": [],
+      "rarity": "S",
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified."
+      }
+    },
+    {
+      "id": "bagboo",
+      "name": "Bagboo",
+      "aliases": [],
+      "rarity": "A",
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified."
+      }
+    },
+    {
+      "id": "amillion",
+      "name": "Amillion",
+      "aliases": [],
+      "rarity": "A",
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified."
+      }
+    },
+    {
+      "id": "penguinboo",
+      "name": "Penguinboo",
+      "aliases": [],
+      "rarity": "A",
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified."
+      }
+    },
+    {
+      "id": "exploreboo",
+      "name": "Exploreboo",
+      "aliases": [],
+      "rarity": "A",
+      "provenance": {
+        "sourceId": "maintainer",
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "verification": {
+          "state": "unverified"
+        },
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified."
+      }
+    }
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "$id": "manifest.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "contentHash": {
+      "description": "sha256 del contenido (sin marcas de tiempo). Igual hash = misma base.",
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "counts": {
+      "additionalProperties": false,
+      "properties": {
+        "agents": {
+          "type": "integer"
+        },
+        "bangboo": {
+          "type": "integer"
+        },
+        "claims": {
+          "type": "integer"
+        },
+        "claimsByStatus": {
+          "additionalProperties": false,
+          "properties": {
+            "current": {
+              "type": "integer"
+            },
+            "retracted": {
+              "type": "integer"
+            },
+            "stale": {
+              "type": "integer"
+            },
+            "superseded": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "current",
+            "stale",
+            "superseded",
+            "retracted"
+          ],
+          "type": "object"
+        },
+        "driveDiscs": {
+          "type": "integer"
+        },
+        "teamConsensus": {
+          "type": "integer"
+        },
+        "tierConsensus": {
+          "type": "integer"
+        },
+        "wEngines": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "agents",
+        "wEngines",
+        "driveDiscs",
+        "bangboo",
+        "claims",
+        "claimsByStatus",
+        "tierConsensus",
+        "teamConsensus"
+      ],
+      "type": "object"
+    },
+    "dataVersion": {
+      "description": "\"<parche>-r<revisión>\", p. ej. \"3.3-r2\".",
+      "pattern": "^[0-9]+\\.[0-9]+-r[0-9]+$",
+      "type": "string"
+    },
+    "files": {
+      "additionalProperties": false,
+      "properties": {
+        "agents": {
+          "type": "string"
+        },
+        "bangboo": {
+          "type": "string"
+        },
+        "claims": {
+          "type": "string"
+        },
+        "consensus": {
+          "type": "string"
+        },
+        "driveDiscs": {
+          "type": "string"
+        },
+        "index": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "string"
+        },
+        "wEngines": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "agents",
+        "wEngines",
+        "driveDiscs",
+        "bangboo",
+        "sources",
+        "claims",
+        "consensus",
+        "index"
+      ],
+      "type": "object"
+    },
+    "gamePatch": {
+      "description": "Versión del juego, \"MAYOR.MENOR\" (p. ej. \"3.3\").",
+      "pattern": "^[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "generatedAt": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "isFixture": {
+      "description": "true si contiene fuentes ficticias de prueba. Nunca consumir en producción.",
+      "type": "boolean"
+    },
+    "previousDataVersion": {
+      "anyOf": [
+        {
+          "description": "\"<parche>-r<revisión>\", p. ej. \"3.3-r2\".",
+          "pattern": "^[0-9]+\\.[0-9]+-r[0-9]+$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "revision": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "schemaVersion": {
+      "type": "string"
+    },
+    "sources": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "attribution": {
+            "type": "string"
+          },
+          "automationStatus": {
+            "enum": [
+              "allowed",
+              "disallowed",
+              "unknown"
+            ],
+            "type": "string"
+          },
+          "claimCount": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "currentClaimCount": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "id": {
+            "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+            "maxLength": 64,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "type": "string"
+          },
+          "lastAccessedAt": {
+            "anyOf": [
+              {
+                "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "updateOutcome": {
+            "description": "collected: hay entrada válida en esta ejecución; carried_over: falló y se conservaron sus datos anteriores; no_input: sin datos.",
+            "enum": [
+              "collected",
+              "carried_over",
+              "no_input"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "attribution",
+          "automationStatus",
+          "updateOutcome",
+          "lastAccessedAt",
+          "claimCount",
+          "currentClaimCount"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "dataVersion",
+    "gamePatch",
+    "revision",
+    "previousDataVersion",
+    "generatedAt",
+    "contentHash",
+    "isFixture",
+    "counts",
+    "sources",
+    "files"
+  ],
+  "title": "Manifest",
+  "type": "object"
+}

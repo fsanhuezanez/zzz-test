@@ -1,0 +1,146 @@
+{
+  "$id": "bangboo-catalog.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "items": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "aliases": {
+            "description": "Nombres alternativos usados por las fuentes; sirven para normalizar entradas.",
+            "items": {
+              "maxLength": 80,
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "id": {
+            "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+            "maxLength": 64,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "type": "string"
+          },
+          "name": {
+            "maxLength": 80,
+            "minLength": 1,
+            "type": "string"
+          },
+          "provenance": {
+            "additionalProperties": false,
+            "properties": {
+              "accessedAt": {
+                "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+                "format": "date",
+                "type": "string"
+              },
+              "collectionMethod": {
+                "enum": [
+                  "manual_entry",
+                  "automated_api",
+                  "automated_feed",
+                  "derived"
+                ],
+                "type": "string"
+              },
+              "notes": {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              "sourceId": {
+                "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+                "maxLength": 64,
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "type": "string"
+              },
+              "url": {
+                "format": "uri",
+                "maxLength": 500,
+                "pattern": "^https?://",
+                "type": "string"
+              },
+              "verification": {
+                "additionalProperties": false,
+                "description": "\"verified\" exige una segunda revisión humana contra la fuente (quién y cuándo).",
+                "if": {
+                  "properties": {
+                    "state": {
+                      "const": "verified"
+                    }
+                  }
+                },
+                "properties": {
+                  "reviewedAt": {
+                    "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+                    "format": "date",
+                    "type": "string"
+                  },
+                  "reviewedBy": {
+                    "maxLength": 80,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "state": {
+                    "enum": [
+                      "verified",
+                      "unverified"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "state"
+                ],
+                "then": {
+                  "required": [
+                    "reviewedBy",
+                    "reviewedAt"
+                  ]
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "sourceId",
+              "accessedAt",
+              "collectionMethod",
+              "verification"
+            ],
+            "type": "object"
+          },
+          "rarity": {
+            "anyOf": [
+              {
+                "const": "S",
+                "type": "string"
+              },
+              {
+                "const": "A",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "aliases",
+          "rarity",
+          "provenance"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "items"
+  ],
+  "type": "object"
+}

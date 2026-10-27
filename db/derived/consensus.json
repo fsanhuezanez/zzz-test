@@ -1,0 +1,7 @@
+{
+  "$schema": "../../schemas/consensus-file.schema.json",
+  "dataVersion": "3.3-r1",
+  "method": "Solo claims \"current\" atribuidos a fuentes externas y declarados para el parche actual (se excluyen estimaciones internas). Tiers: se agrupan por agente+rol+modo del parche actual y se exige ≥2 fuentes distintas; score = media de las posiciones normalizadas de cada escala; agreement = \"agree\" si max-min ≤ 0.2. Equipos: misma composición y modo citada por ≥2 fuentes distintas. Es una agregación aproximada: las escalas de cada fuente no son equivalentes.",
+  "teams": [],
+  "tiers": []
+}

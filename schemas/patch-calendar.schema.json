@@ -1,0 +1,48 @@
+{
+  "$id": "patch-calendar.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "patches": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "patch": {
+            "description": "Versión del juego, \"MAYOR.MENOR\" (p. ej. \"3.3\").",
+            "pattern": "^[0-9]+\\.[0-9]+$",
+            "type": "string"
+          },
+          "releaseDate": {
+            "description": "Fecha ISO 8601 (AAAA-MM-DD).",
+            "format": "date",
+            "type": "string"
+          },
+          "source": {
+            "format": "uri",
+            "maxLength": 500,
+            "pattern": "^https?://",
+            "type": "string"
+          },
+          "verified": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "patch",
+          "releaseDate",
+          "source",
+          "verified"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "patches"
+  ],
+  "type": "object"
+}

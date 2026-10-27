@@ -1,0 +1,91 @@
+{
+  "$schema": "../../../schemas/consensus-file.schema.json",
+  "dataVersion": "3.3-r1",
+  "method": "Solo claims \"current\" atribuidos a fuentes externas y declarados para el parche actual (se excluyen estimaciones internas). Tiers: se agrupan por agente+rol+modo del parche actual y se exige ≥2 fuentes distintas; score = media de las posiciones normalizadas de cada escala; agreement = \"agree\" si max-min ≤ 0.2. Equipos: misma composición y modo citada por ≥2 fuentes distintas. Es una agregación aproximada: las escalas de cada fuente no son equivalentes.",
+  "teams": [
+    {
+      "collectionMethod": "derived",
+      "derivedFrom": [
+        "clm_team_1146c77fa655",
+        "clm_team_6075bf646663"
+      ],
+      "evidenceType": "cross_source_consensus",
+      "id": "cns_team_300d673454a6",
+      "members": [
+        "ellen",
+        "lycaon",
+        "soukaku"
+      ],
+      "mode": "shiyu_defense",
+      "patch": "3.3",
+      "sources": [
+        "example-guide-a",
+        "example-stats-b"
+      ]
+    }
+  ],
+  "tiers": [
+    {
+      "agent": "ellen",
+      "agreement": "agree",
+      "collectionMethod": "derived",
+      "derivedFrom": [
+        "clm_tier_bbb3d993ee2d",
+        "clm_tier_5e0dca51f3c3"
+      ],
+      "entries": [
+        {
+          "claimId": "clm_tier_bbb3d993ee2d",
+          "score": 1,
+          "sourceId": "example-guide-a",
+          "tier": "T0"
+        },
+        {
+          "claimId": "clm_tier_5e0dca51f3c3",
+          "score": 0.8,
+          "sourceId": "example-stats-b",
+          "tier": "S"
+        }
+      ],
+      "evidenceType": "cross_source_consensus",
+      "id": "cns_tier_1cf3288a99f8",
+      "maxScore": 1,
+      "meanScore": 0.9,
+      "minScore": 0.8,
+      "mode": "shiyu_defense",
+      "patch": "3.3",
+      "role": "attack"
+    },
+    {
+      "agent": "miyabi",
+      "agreement": "mixed",
+      "collectionMethod": "derived",
+      "derivedFrom": [
+        "clm_tier_3c9302901624",
+        "clm_tier_0118922b07ba"
+      ],
+      "entries": [
+        {
+          "claimId": "clm_tier_3c9302901624",
+          "score": 1,
+          "sourceId": "example-guide-a",
+          "tier": "T0"
+        },
+        {
+          "claimId": "clm_tier_0118922b07ba",
+          "score": 0.6,
+          "sourceId": "example-stats-b",
+          "tier": "A"
+        }
+      ],
+      "evidenceType": "cross_source_consensus",
+      "id": "cns_tier_ea2808ac970a",
+      "maxScore": 1,
+      "meanScore": 0.8,
+      "minScore": 0.6,
+      "mode": "shiyu_defense",
+      "patch": "3.3",
+      "role": "anomaly"
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "$schema": "../../schemas/source-registry.schema.json",
+  "sources": [
+    {
+      "attribution": "Fuente ficticia de pruebas A.",
+      "automation": {
+        "allowedMethods": [
+          "manual_entry"
+        ],
+        "basis": "Fuente FICTICIA para pruebas. No representa a ningún sitio real.",
+        "checkedAt": "2026-10-27",
+        "evidenceUrls": [
+          "https://example.com/"
+        ],
+        "status": "disallowed"
+      },
+      "defaultTierScale": "t-scale",
+      "homepage": "https://guide-a.example.com/",
+      "id": "example-guide-a",
+      "kind": "fixture",
+      "maxAgeDays": 30,
+      "name": "Example Guide A (ficticia)",
+      "tierScales": [
+        {
+          "confirmed": true,
+          "id": "t-scale",
+          "labels": [
+            {
+              "label": "T0",
+              "score": 1
+            },
+            {
+              "label": "T0.5",
+              "score": 0.9
+            },
+            {
+              "label": "T1",
+              "score": 0.8
+            },
+            {
+              "label": "T2",
+              "score": 0.6
+            },
+            {
+              "label": "T3",
+              "score": 0.4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "attribution": "Fuente ficticia de pruebas B.",
+      "automation": {
+        "allowedMethods": [
+          "manual_entry"
+        ],
+        "basis": "Fuente FICTICIA para pruebas. No representa a ningún sitio real.",
+        "checkedAt": "2026-10-27",
+        "evidenceUrls": [
+          "https://example.com/"
+        ],
+        "status": "disallowed"
+      },
+      "defaultTierScale": "letters",
+      "homepage": "https://stats-b.example.com/",
+      "id": "example-stats-b",
+      "kind": "fixture",
+      "maxAgeDays": 30,
+      "name": "Example Stats B (ficticia)",
+      "tierScales": [
+        {
+          "confirmed": true,
+          "id": "letters",
+          "labels": [
+            {
+              "label": "SS",
+              "score": 1
+            },
+            {
+              "label": "S",
+              "score": 0.8
+            },
+            {
+              "label": "A",
+              "score": 0.6
+            },
+            {
+              "label": "B",
+              "score": 0.4
+            },
+            {
+              "label": "C",
+              "score": 0.2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "attribution": "Estimación propia de zzz-meta-knowledge.",
+      "automation": {
+        "allowedMethods": [
+          "manual_entry"
+        ],
+        "basis": "Fuente interna.",
+        "checkedAt": "2026-10-27",
+        "evidenceUrls": [
+          "https://github.com/fsanhuezanez/zzz-test"
+        ],
+        "status": "disallowed"
+      },
+      "homepage": "https://github.com/fsanhuezanez/zzz-test",
+      "id": "maintainer",
+      "kind": "internal",
+      "maxAgeDays": 60,
+      "name": "Estimación del mantenedor",
+      "tierScales": []
+    }
+  ]
+}

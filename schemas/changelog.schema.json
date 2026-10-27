@@ -1,0 +1,250 @@
+{
+  "$id": "changelog.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "catalog": {
+      "additionalProperties": false,
+      "properties": {
+        "added": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "changed": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "removed": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "added",
+        "removed",
+        "changed"
+      ],
+      "type": "object"
+    },
+    "claims": {
+      "additionalProperties": false,
+      "properties": {
+        "added": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "slotKey": {
+                "type": "string"
+              },
+              "sourceId": {
+                "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+                "maxLength": 64,
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "sourceId",
+              "slotKey"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "changed": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "fields": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "fromId": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "slotKey": {
+                "type": "string"
+              },
+              "sourceId": {
+                "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+                "maxLength": 64,
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "type": "string"
+              },
+              "toId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "sourceId",
+              "kind",
+              "slotKey",
+              "fromId",
+              "toId",
+              "fields"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "refreshed": {
+          "description": "Mismo dato reconsultado o re-verificado (cambia solo la procedencia).",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "slotKey": {
+                "type": "string"
+              },
+              "sourceId": {
+                "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+                "maxLength": 64,
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "sourceId",
+              "slotKey"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "removed": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "slotKey": {
+                "type": "string"
+              },
+              "sourceId": {
+                "description": "Identificador estable en kebab-case (p. ej. \"zhu-yuan\").",
+                "maxLength": 64,
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "sourceId",
+              "slotKey"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "statusChanged": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "flagsAdded": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "flagsRemoved": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "from": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "to": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "from",
+              "to",
+              "flagsAdded",
+              "flagsRemoved"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "added",
+        "removed",
+        "changed",
+        "refreshed",
+        "statusChanged"
+      ],
+      "type": "object"
+    },
+    "fromVersion": {
+      "anyOf": [
+        {
+          "description": "\"<parche>-r<revisión>\", p. ej. \"3.3-r2\".",
+          "pattern": "^[0-9]+\\.[0-9]+-r[0-9]+$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "generatedAt": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "toVersion": {
+      "description": "\"<parche>-r<revisión>\", p. ej. \"3.3-r2\".",
+      "pattern": "^[0-9]+\\.[0-9]+-r[0-9]+$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "fromVersion",
+    "toVersion",
+    "generatedAt",
+    "claims",
+    "catalog"
+  ],
+  "type": "object"
+}

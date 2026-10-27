@@ -1,0 +1,216 @@
+{
+  "$schema": "../schemas/source-registry.schema.json",
+  "sources": [
+    {
+      "attribution": "Datos de ZZZ Akademiya (zzz.akademiya.app), base de datos comunitaria no afiliada a HoYoverse.",
+      "automation": {
+        "allowedMethods": [
+          "manual_entry"
+        ],
+        "basis": "No se encontraron términos de uso ni API pública documentada. Sin permiso explícito se trata como no automatizable. Sus tier lists incluyen rankings creados por usuarios: indicar en cada envío qué lista se consultó.",
+        "checkedAt": "2026-10-27",
+        "evidenceUrls": [
+          "https://zzz.akademiya.app/en/tier-lists"
+        ],
+        "status": "unknown"
+      },
+      "defaultTierScale": "akademiya-letter",
+      "homepage": "https://zzz.akademiya.app/",
+      "id": "akademiya",
+      "kind": "database",
+      "maxAgeDays": 30,
+      "name": "ZZZ Akademiya",
+      "notes": "Vía viable para automatizar: pedir a los mantenedores un export JSON o un feed y registrar el permiso en evidenceUrls.",
+      "tierScales": [
+        {
+          "confirmed": false,
+          "id": "akademiya-letter",
+          "labels": [
+            {
+              "label": "SS",
+              "score": 1
+            },
+            {
+              "label": "S",
+              "score": 0.8
+            },
+            {
+              "label": "A",
+              "score": 0.6
+            },
+            {
+              "label": "B",
+              "score": 0.4
+            },
+            {
+              "label": "C",
+              "score": 0.2
+            },
+            {
+              "label": "D",
+              "score": 0
+            }
+          ],
+          "notes": "Escala provisional. Confirmar etiquetas contra la página en vivo antes del primer envío y marcar confirmed=true."
+        }
+      ]
+    },
+    {
+      "attribution": "Información oficial de Zenless Zone Zero © HoYoverse.",
+      "automation": {
+        "allowedMethods": [
+          "manual_entry"
+        ],
+        "basis": "Se usa solo para hechos del catálogo (atributos, especialidad, facción) verificados a mano en el juego, HoYoLAB o notas de parche oficiales.",
+        "checkedAt": "2026-10-27",
+        "evidenceUrls": [
+          "https://zenless.hoyoverse.com/"
+        ],
+        "status": "unknown"
+      },
+      "homepage": "https://zenless.hoyoverse.com/",
+      "id": "hoyoverse-official",
+      "kind": "official",
+      "maxAgeDays": 365,
+      "name": "HoYoverse (fuentes oficiales)",
+      "tierScales": []
+    },
+    {
+      "attribution": "Estimación propia de zzz-meta-knowledge; no procede de ninguna fuente externa.",
+      "automation": {
+        "allowedMethods": [
+          "manual_entry"
+        ],
+        "basis": "Fuente interna: solo estimaciones manuales, siempre como internal_estimate, con rationale y confianza media o baja.",
+        "checkedAt": "2026-10-27",
+        "evidenceUrls": [
+          "https://github.com/fsanhuezanez/zzz-test"
+        ],
+        "status": "disallowed"
+      },
+      "homepage": "https://github.com/fsanhuezanez/zzz-test",
+      "id": "maintainer",
+      "kind": "internal",
+      "maxAgeDays": 60,
+      "name": "Estimación del mantenedor",
+      "tierScales": []
+    },
+    {
+      "attribution": "Datos resumidos de Mobalytics (mobalytics.gg). Consulta la guía original en el enlace de cada dato.",
+      "automation": {
+        "allowedMethods": [
+          "manual_entry"
+        ],
+        "basis": "Sus Términos prohíben acceder, buscar o descargar contenido con spiders, robots, crawlers o herramientas de minería de datos distintas de su software o un navegador estándar, y el scraping para entrenar IA. Revisado vía buscador; reconfirmar en navegador.",
+        "checkedAt": "2026-10-27",
+        "evidenceUrls": [
+          "https://mobalytics.gg/terms/"
+        ],
+        "status": "disallowed"
+      },
+      "defaultTierScale": "mobalytics-letter",
+      "homepage": "https://mobalytics.gg/",
+      "id": "mobalytics",
+      "kind": "community_guide",
+      "maxAgeDays": 30,
+      "name": "Mobalytics",
+      "termsUrl": "https://mobalytics.gg/terms/",
+      "tierScales": [
+        {
+          "confirmed": false,
+          "id": "mobalytics-letter",
+          "labels": [
+            {
+              "label": "SS",
+              "score": 1
+            },
+            {
+              "label": "S",
+              "score": 0.8
+            },
+            {
+              "label": "A",
+              "score": 0.6
+            },
+            {
+              "label": "B",
+              "score": 0.4
+            },
+            {
+              "label": "C",
+              "score": 0.2
+            },
+            {
+              "label": "D",
+              "score": 0
+            }
+          ],
+          "notes": "Escala provisional. Confirmar etiquetas contra la página en vivo antes del primer envío y marcar confirmed=true."
+        }
+      ]
+    },
+    {
+      "attribution": "Datos resumidos de Prydwen Institute (prydwen.gg). Consulta la guía original en el enlace de cada dato.",
+      "automation": {
+        "allowedMethods": [
+          "manual_entry"
+        ],
+        "basis": "Sus Términos de servicio prohíben scraping, crawling o extracción masiva de datos y limitan el uso a fines personales no comerciales; no publican API. Revisado vía buscador: la página no era accesible desde el entorno de desarrollo; reconfirmar en navegador.",
+        "checkedAt": "2026-10-27",
+        "evidenceUrls": [
+          "https://www.prydwen.gg/terms"
+        ],
+        "status": "disallowed"
+      },
+      "defaultTierScale": "prydwen-zzz",
+      "homepage": "https://www.prydwen.gg/zenless/",
+      "id": "prydwen",
+      "kind": "community_guide",
+      "maxAgeDays": 30,
+      "name": "Prydwen Institute",
+      "notes": "Registrar solo hechos estructurados breves con enlace, nunca texto de sus guías. Para uso comercial en Hoyo Builds, pedir permiso por escrito antes de publicar.",
+      "termsUrl": "https://www.prydwen.gg/terms",
+      "tierScales": [
+        {
+          "confirmed": false,
+          "id": "prydwen-zzz",
+          "labels": [
+            {
+              "label": "T0",
+              "score": 1
+            },
+            {
+              "label": "T0.5",
+              "score": 0.9
+            },
+            {
+              "label": "T1",
+              "score": 0.8
+            },
+            {
+              "label": "T1.5",
+              "score": 0.7
+            },
+            {
+              "label": "T2",
+              "score": 0.6
+            },
+            {
+              "label": "T3",
+              "score": 0.4
+            },
+            {
+              "label": "T4",
+              "score": 0.2
+            },
+            {
+              "label": "T5",
+              "score": 0
+            }
+          ],
+          "notes": "Escala supuesta (T0…T5 con medios tiers). Confirmar contra la tier list en vivo."
+        }
+      ]
+    }
+  ]
+}

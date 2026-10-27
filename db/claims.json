@@ -1,0 +1,5 @@
+{
+  "$schema": "../schemas/claims-file.schema.json",
+  "dataVersion": "3.3-r1",
+  "items": []
+}

@@ -1,0 +1,454 @@
+{
+  "$schema": "../../schemas/w-engine-catalog.schema.json",
+  "items": [
+    {
+      "aliases": [],
+      "id": "bashful-demon",
+      "name": "Bashful Demon",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "A",
+      "specialty": "support"
+    },
+    {
+      "aliases": [],
+      "id": "blazing-laurel",
+      "name": "Blazing Laurel",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "signatureOf": "lighter",
+      "specialty": "stun"
+    },
+    {
+      "aliases": [],
+      "id": "deep-sea-visitor",
+      "name": "Deep Sea Visitor",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "signatureOf": "ellen",
+      "specialty": "attack"
+    },
+    {
+      "aliases": [],
+      "id": "demara-battery-mark-ii",
+      "name": "Demara Battery Mark II",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "A",
+      "specialty": "stun"
+    },
+    {
+      "aliases": [],
+      "id": "electro-lip-gloss",
+      "name": "Electro-Lip Gloss",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "A",
+      "specialty": "anomaly"
+    },
+    {
+      "aliases": [],
+      "id": "elegant-vanity",
+      "name": "Elegant Vanity",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "signatureOf": "astra-yao",
+      "specialty": "support"
+    },
+    {
+      "aliases": [],
+      "id": "flamemaker-shaker",
+      "name": "Flamemaker Shaker",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "signatureOf": "burnice",
+      "specialty": "anomaly"
+    },
+    {
+      "aliases": [],
+      "id": "fusion-compiler",
+      "name": "Fusion Compiler",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "signatureOf": "grace",
+      "specialty": "anomaly"
+    },
+    {
+      "aliases": [],
+      "id": "hailstorm-shrine",
+      "name": "Hailstorm Shrine",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "signatureOf": "miyabi",
+      "specialty": "anomaly"
+    },
+    {
+      "aliases": [],
+      "id": "heartstring-nocturne",
+      "name": "Heartstring Nocturne",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "signatureOf": "evelyn",
+      "specialty": "attack"
+    },
+    {
+      "aliases": [],
+      "id": "hellfire-gears",
+      "name": "Hellfire Gears",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "signatureOf": "koleda",
+      "specialty": "stun"
+    },
+    {
+      "aliases": [],
+      "id": "ice-jade-teapot",
+      "name": "Ice-Jade Teapot",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "signatureOf": "qingyi",
+      "specialty": "stun"
+    },
+    {
+      "aliases": [],
+      "id": "kaboom-the-cannon",
+      "name": "Kaboom the Cannon",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "A",
+      "specialty": "support"
+    },
+    {
+      "aliases": [],
+      "id": "marcato-desire",
+      "name": "Marcato Desire",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "A",
+      "specialty": "attack"
+    },
+    {
+      "aliases": [],
+      "id": "precious-fossilized-core",
+      "name": "Precious Fossilized Core",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "A",
+      "specialty": "stun"
+    },
+    {
+      "aliases": [],
+      "id": "riot-suppressor-mark-vi",
+      "name": "Riot Suppressor Mark VI",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "signatureOf": "zhu-yuan",
+      "specialty": "attack"
+    },
+    {
+      "aliases": [],
+      "id": "sharpened-stinger",
+      "name": "Sharpened Stinger",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "signatureOf": "jane-doe",
+      "specialty": "anomaly"
+    },
+    {
+      "aliases": [],
+      "id": "slice-of-time",
+      "name": "Slice of Time",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "A",
+      "specialty": "support"
+    },
+    {
+      "aliases": [],
+      "id": "spring-embrace",
+      "name": "Spring Embrace",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "A",
+      "specialty": "defense"
+    },
+    {
+      "aliases": [],
+      "id": "starlight-engine",
+      "name": "Starlight Engine",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "A",
+      "specialty": "attack"
+    },
+    {
+      "aliases": [],
+      "id": "steel-cushion",
+      "name": "Steel Cushion",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "signatureOf": "nekomata",
+      "specialty": "attack"
+    },
+    {
+      "aliases": [],
+      "id": "the-brimstone",
+      "name": "The Brimstone",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "signatureOf": "soldier-11",
+      "specialty": "attack"
+    },
+    {
+      "aliases": [],
+      "id": "the-restrained",
+      "name": "The Restrained",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "signatureOf": "lycaon",
+      "specialty": "stun"
+    },
+    {
+      "aliases": [],
+      "id": "timeweaver",
+      "name": "Timeweaver",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "signatureOf": "yanagi",
+      "specialty": "anomaly"
+    },
+    {
+      "aliases": [],
+      "id": "tusks-of-fury",
+      "name": "Tusks of Fury",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "signatureOf": "caesar",
+      "specialty": "defense"
+    },
+    {
+      "aliases": [],
+      "id": "weeping-cradle",
+      "name": "Weeping Cradle",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "signatureOf": "rina",
+      "specialty": "support"
+    },
+    {
+      "aliases": [],
+      "id": "weeping-gemini",
+      "name": "Weeping Gemini",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "A",
+      "specialty": "anomaly"
+    }
+  ]
+}

@@ -1,0 +1,284 @@
+{
+  "$schema": "../../../schemas/agent-index.schema.json",
+  "agents": {
+    "anby": {
+      "claimIds": [
+        "clm_substitute_f0f064bf0324",
+        "clm_team_e04d1b1384d9"
+      ],
+      "currentClaimIds": [
+        "clm_substitute_f0f064bf0324",
+        "clm_team_e04d1b1384d9"
+      ],
+      "tierConsensusIds": []
+    },
+    "anton": {
+      "claimIds": [],
+      "currentClaimIds": [],
+      "tierConsensusIds": []
+    },
+    "astra-yao": {
+      "claimIds": [
+        "clm_team_1146c77fa655",
+        "clm_team_8560cf154716",
+        "clm_tier_496d44a84d1e"
+      ],
+      "currentClaimIds": [
+        "clm_team_1146c77fa655",
+        "clm_team_8560cf154716",
+        "clm_tier_496d44a84d1e"
+      ],
+      "tierConsensusIds": []
+    },
+    "ben": {
+      "claimIds": [],
+      "currentClaimIds": [],
+      "tierConsensusIds": []
+    },
+    "billy": {
+      "claimIds": [],
+      "currentClaimIds": [],
+      "tierConsensusIds": []
+    },
+    "burnice": {
+      "claimIds": [
+        "clm_tier_9a499d69aadc"
+      ],
+      "currentClaimIds": [],
+      "tierConsensusIds": []
+    },
+    "caesar": {
+      "claimIds": [],
+      "currentClaimIds": [],
+      "tierConsensusIds": []
+    },
+    "corin": {
+      "claimIds": [],
+      "currentClaimIds": [],
+      "tierConsensusIds": []
+    },
+    "ellen": {
+      "claimIds": [
+        "clm_bangboo_7238e4d11f1b",
+        "clm_drive_disc_114c4678fd1f",
+        "clm_f2p_option_0005883bd5f4",
+        "clm_investment_faf123713b93",
+        "clm_rotation_b3b3b2c1725b",
+        "clm_substitute_f0f064bf0324",
+        "clm_synergy_57e8af828fc2",
+        "clm_team_1146c77fa655",
+        "clm_team_6075bf646663",
+        "clm_tier_5e0dca51f3c3",
+        "clm_tier_70d61bae0c7c",
+        "clm_tier_bbb3d993ee2d",
+        "clm_usage_541be35a159d",
+        "clm_w_engine_92ce8bd945a9"
+      ],
+      "currentClaimIds": [
+        "clm_bangboo_7238e4d11f1b",
+        "clm_drive_disc_114c4678fd1f",
+        "clm_f2p_option_0005883bd5f4",
+        "clm_investment_faf123713b93",
+        "clm_rotation_b3b3b2c1725b",
+        "clm_substitute_f0f064bf0324",
+        "clm_synergy_57e8af828fc2",
+        "clm_team_1146c77fa655",
+        "clm_team_6075bf646663",
+        "clm_tier_5e0dca51f3c3",
+        "clm_tier_bbb3d993ee2d",
+        "clm_usage_541be35a159d",
+        "clm_w_engine_92ce8bd945a9"
+      ],
+      "tierConsensusIds": [
+        "cns_tier_1cf3288a99f8"
+      ]
+    },
+    "evelyn": {
+      "claimIds": [],
+      "currentClaimIds": [],
+      "tierConsensusIds": []
+    },
+    "grace": {
+      "claimIds": [],
+      "currentClaimIds": [],
+      "tierConsensusIds": []
+    },
+    "harumasa": {
+      "claimIds": [],
+      "currentClaimIds": [],
+      "tierConsensusIds": []
+    },
+    "hugo": {
+      "claimIds": [
+        "clm_tier_fe76c8740915"
+      ],
+      "currentClaimIds": [
+        "clm_tier_fe76c8740915"
+      ],
+      "tierConsensusIds": []
+    },
+    "jane-doe": {
+      "claimIds": [],
+      "currentClaimIds": [],
+      "tierConsensusIds": []
+    },
+    "koleda": {
+      "claimIds": [],
+      "currentClaimIds": [],
+      "tierConsensusIds": []
+    },
+    "lighter": {
+      "claimIds": [],
+      "currentClaimIds": [],
+      "tierConsensusIds": []
+    },
+    "lucy": {
+      "claimIds": [],
+      "currentClaimIds": [],
+      "tierConsensusIds": []
+    },
+    "lycaon": {
+      "claimIds": [
+        "clm_rotation_b3b3b2c1725b",
+        "clm_substitute_f0f064bf0324",
+        "clm_synergy_57e8af828fc2",
+        "clm_team_1146c77fa655",
+        "clm_team_6075bf646663",
+        "clm_tier_3f3335ac5f92"
+      ],
+      "currentClaimIds": [
+        "clm_rotation_b3b3b2c1725b",
+        "clm_substitute_f0f064bf0324",
+        "clm_synergy_57e8af828fc2",
+        "clm_team_1146c77fa655",
+        "clm_team_6075bf646663",
+        "clm_tier_3f3335ac5f92"
+      ],
+      "tierConsensusIds": []
+    },
+    "miyabi": {
+      "claimIds": [
+        "clm_team_8560cf154716",
+        "clm_tier_0118922b07ba",
+        "clm_tier_3c9302901624"
+      ],
+      "currentClaimIds": [
+        "clm_team_8560cf154716",
+        "clm_tier_0118922b07ba",
+        "clm_tier_3c9302901624"
+      ],
+      "tierConsensusIds": [
+        "cns_tier_ea2808ac970a"
+      ]
+    },
+    "nekomata": {
+      "claimIds": [],
+      "currentClaimIds": [],
+      "tierConsensusIds": []
+    },
+    "nicole": {
+      "claimIds": [
+        "clm_team_8560cf154716",
+        "clm_team_e04d1b1384d9",
+        "clm_tier_f3e90be8abd4"
+      ],
+      "currentClaimIds": [
+        "clm_team_8560cf154716",
+        "clm_team_e04d1b1384d9",
+        "clm_tier_f3e90be8abd4"
+      ],
+      "tierConsensusIds": []
+    },
+    "piper": {
+      "claimIds": [],
+      "currentClaimIds": [],
+      "tierConsensusIds": []
+    },
+    "pulchra": {
+      "claimIds": [],
+      "currentClaimIds": [],
+      "tierConsensusIds": []
+    },
+    "qingyi": {
+      "claimIds": [
+        "clm_team_1146c77fa655",
+        "clm_team_e04d1b1384d9",
+        "clm_tier_46499499471d"
+      ],
+      "currentClaimIds": [
+        "clm_team_1146c77fa655",
+        "clm_team_e04d1b1384d9",
+        "clm_tier_46499499471d"
+      ],
+      "tierConsensusIds": []
+    },
+    "rina": {
+      "claimIds": [],
+      "currentClaimIds": [],
+      "tierConsensusIds": []
+    },
+    "seth": {
+      "claimIds": [],
+      "currentClaimIds": [],
+      "tierConsensusIds": []
+    },
+    "soldier-0-anby": {
+      "claimIds": [],
+      "currentClaimIds": [],
+      "tierConsensusIds": []
+    },
+    "soldier-11": {
+      "claimIds": [],
+      "currentClaimIds": [],
+      "tierConsensusIds": []
+    },
+    "soukaku": {
+      "claimIds": [
+        "clm_rotation_b3b3b2c1725b",
+        "clm_team_1146c77fa655",
+        "clm_team_6075bf646663",
+        "clm_tier_394ede30f5be"
+      ],
+      "currentClaimIds": [
+        "clm_rotation_b3b3b2c1725b",
+        "clm_team_1146c77fa655",
+        "clm_team_6075bf646663",
+        "clm_tier_394ede30f5be"
+      ],
+      "tierConsensusIds": []
+    },
+    "trigger": {
+      "claimIds": [],
+      "currentClaimIds": [],
+      "tierConsensusIds": []
+    },
+    "vivian": {
+      "claimIds": [],
+      "currentClaimIds": [],
+      "tierConsensusIds": []
+    },
+    "yanagi": {
+      "claimIds": [
+        "clm_team_8560cf154716",
+        "clm_tier_3acab5cccba9"
+      ],
+      "currentClaimIds": [
+        "clm_team_8560cf154716",
+        "clm_tier_3acab5cccba9"
+      ],
+      "tierConsensusIds": []
+    },
+    "zhu-yuan": {
+      "claimIds": [
+        "clm_team_e04d1b1384d9",
+        "clm_tier_bb21b9a255cd"
+      ],
+      "currentClaimIds": [
+        "clm_team_e04d1b1384d9",
+        "clm_tier_bb21b9a255cd"
+      ],
+      "tierConsensusIds": []
+    }
+  },
+  "dataVersion": "3.3-r1"
+}

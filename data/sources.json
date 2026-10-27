@@ -1,0 +1,216 @@
+{
+  "$schema": "../schemas/source-registry.schema.json",
+  "sources": [
+    {
+      "id": "prydwen",
+      "name": "Prydwen Institute",
+      "kind": "community_guide",
+      "homepage": "https://www.prydwen.gg/zenless/",
+      "termsUrl": "https://www.prydwen.gg/terms",
+      "attribution": "Datos resumidos de Prydwen Institute (prydwen.gg). Consulta la guía original en el enlace de cada dato.",
+      "automation": {
+        "status": "disallowed",
+        "basis": "Sus Términos de servicio prohíben scraping, crawling o extracción masiva de datos y limitan el uso a fines personales no comerciales; no publican API. Revisado vía buscador: la página no era accesible desde el entorno de desarrollo; reconfirmar en navegador.",
+        "checkedAt": "2026-10-27",
+        "evidenceUrls": [
+          "https://www.prydwen.gg/terms"
+        ],
+        "allowedMethods": [
+          "manual_entry"
+        ]
+      },
+      "defaultTierScale": "prydwen-zzz",
+      "tierScales": [
+        {
+          "id": "prydwen-zzz",
+          "labels": [
+            {
+              "label": "T0",
+              "score": 1
+            },
+            {
+              "label": "T0.5",
+              "score": 0.9
+            },
+            {
+              "label": "T1",
+              "score": 0.8
+            },
+            {
+              "label": "T1.5",
+              "score": 0.7
+            },
+            {
+              "label": "T2",
+              "score": 0.6
+            },
+            {
+              "label": "T3",
+              "score": 0.4
+            },
+            {
+              "label": "T4",
+              "score": 0.2
+            },
+            {
+              "label": "T5",
+              "score": 0
+            }
+          ],
+          "confirmed": false,
+          "notes": "Escala supuesta (T0…T5 con medios tiers). Confirmar contra la tier list en vivo."
+        }
+      ],
+      "maxAgeDays": 30,
+      "notes": "Registrar solo hechos estructurados breves con enlace, nunca texto de sus guías. Para uso comercial en Hoyo Builds, pedir permiso por escrito antes de publicar."
+    },
+    {
+      "id": "mobalytics",
+      "name": "Mobalytics",
+      "kind": "community_guide",
+      "homepage": "https://mobalytics.gg/",
+      "termsUrl": "https://mobalytics.gg/terms/",
+      "attribution": "Datos resumidos de Mobalytics (mobalytics.gg). Consulta la guía original en el enlace de cada dato.",
+      "automation": {
+        "status": "disallowed",
+        "basis": "Sus Términos prohíben acceder, buscar o descargar contenido con spiders, robots, crawlers o herramientas de minería de datos distintas de su software o un navegador estándar, y el scraping para entrenar IA. Revisado vía buscador; reconfirmar en navegador.",
+        "checkedAt": "2026-10-27",
+        "evidenceUrls": [
+          "https://mobalytics.gg/terms/"
+        ],
+        "allowedMethods": [
+          "manual_entry"
+        ]
+      },
+      "defaultTierScale": "mobalytics-letter",
+      "tierScales": [
+        {
+          "id": "mobalytics-letter",
+          "labels": [
+            {
+              "label": "SS",
+              "score": 1
+            },
+            {
+              "label": "S",
+              "score": 0.8
+            },
+            {
+              "label": "A",
+              "score": 0.6
+            },
+            {
+              "label": "B",
+              "score": 0.4
+            },
+            {
+              "label": "C",
+              "score": 0.2
+            },
+            {
+              "label": "D",
+              "score": 0
+            }
+          ],
+          "confirmed": false,
+          "notes": "Escala provisional. Confirmar etiquetas contra la página en vivo antes del primer envío y marcar confirmed=true."
+        }
+      ],
+      "maxAgeDays": 30
+    },
+    {
+      "id": "akademiya",
+      "name": "ZZZ Akademiya",
+      "kind": "database",
+      "homepage": "https://zzz.akademiya.app/",
+      "attribution": "Datos de ZZZ Akademiya (zzz.akademiya.app), base de datos comunitaria no afiliada a HoYoverse.",
+      "automation": {
+        "status": "unknown",
+        "basis": "No se encontraron términos de uso ni API pública documentada. Sin permiso explícito se trata como no automatizable. Sus tier lists incluyen rankings creados por usuarios: indicar en cada envío qué lista se consultó.",
+        "checkedAt": "2026-10-27",
+        "evidenceUrls": [
+          "https://zzz.akademiya.app/en/tier-lists"
+        ],
+        "allowedMethods": [
+          "manual_entry"
+        ]
+      },
+      "defaultTierScale": "akademiya-letter",
+      "tierScales": [
+        {
+          "id": "akademiya-letter",
+          "labels": [
+            {
+              "label": "SS",
+              "score": 1
+            },
+            {
+              "label": "S",
+              "score": 0.8
+            },
+            {
+              "label": "A",
+              "score": 0.6
+            },
+            {
+              "label": "B",
+              "score": 0.4
+            },
+            {
+              "label": "C",
+              "score": 0.2
+            },
+            {
+              "label": "D",
+              "score": 0
+            }
+          ],
+          "confirmed": false,
+          "notes": "Escala provisional. Confirmar etiquetas contra la página en vivo antes del primer envío y marcar confirmed=true."
+        }
+      ],
+      "maxAgeDays": 30,
+      "notes": "Vía viable para automatizar: pedir a los mantenedores un export JSON o un feed y registrar el permiso en evidenceUrls."
+    },
+    {
+      "id": "hoyoverse-official",
+      "name": "HoYoverse (fuentes oficiales)",
+      "kind": "official",
+      "homepage": "https://zenless.hoyoverse.com/",
+      "attribution": "Información oficial de Zenless Zone Zero © HoYoverse.",
+      "automation": {
+        "status": "unknown",
+        "basis": "Se usa solo para hechos del catálogo (atributos, especialidad, facción) verificados a mano en el juego, HoYoLAB o notas de parche oficiales.",
+        "checkedAt": "2026-10-27",
+        "evidenceUrls": [
+          "https://zenless.hoyoverse.com/"
+        ],
+        "allowedMethods": [
+          "manual_entry"
+        ]
+      },
+      "tierScales": [],
+      "maxAgeDays": 365
+    },
+    {
+      "id": "maintainer",
+      "name": "Estimación del mantenedor",
+      "kind": "internal",
+      "homepage": "https://github.com/fsanhuezanez/zzz-test",
+      "attribution": "Estimación propia de zzz-meta-knowledge; no procede de ninguna fuente externa.",
+      "automation": {
+        "status": "disallowed",
+        "basis": "Fuente interna: solo estimaciones manuales, siempre como internal_estimate, con rationale y confianza media o baja.",
+        "checkedAt": "2026-10-27",
+        "evidenceUrls": [
+          "https://github.com/fsanhuezanez/zzz-test"
+        ],
+        "allowedMethods": [
+          "manual_entry"
+        ]
+      },
+      "tierScales": [],
+      "maxAgeDays": 60
+    }
+  ]
+}

@@ -1,0 +1,661 @@
+{
+  "$schema": "../../../schemas/agent-catalog.schema.json",
+  "items": [
+    {
+      "aliases": [
+        "Anby"
+      ],
+      "attribute": "electric",
+      "faction": "Cunning Hares",
+      "id": "anby",
+      "name": "Anby Demara",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "A",
+      "specialty": "stun"
+    },
+    {
+      "aliases": [
+        "Anton"
+      ],
+      "attribute": "electric",
+      "faction": "Belobog Heavy Industries",
+      "id": "anton",
+      "name": "Anton Ivanov",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "A",
+      "specialty": "attack"
+    },
+    {
+      "aliases": [
+        "Astra"
+      ],
+      "attribute": "ether",
+      "faction": "Stars of Lyra",
+      "id": "astra-yao",
+      "name": "Astra Yao",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "specialty": "support"
+    },
+    {
+      "aliases": [
+        "Ben"
+      ],
+      "attribute": "fire",
+      "faction": "Belobog Heavy Industries",
+      "id": "ben",
+      "name": "Ben Bigger",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "A",
+      "specialty": "defense"
+    },
+    {
+      "aliases": [
+        "Billy"
+      ],
+      "attribute": "physical",
+      "faction": "Cunning Hares",
+      "id": "billy",
+      "name": "Billy Kid",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "A",
+      "specialty": "attack"
+    },
+    {
+      "aliases": [
+        "Burnice"
+      ],
+      "attribute": "fire",
+      "faction": "Sons of Calydon",
+      "id": "burnice",
+      "name": "Burnice White",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "specialty": "anomaly"
+    },
+    {
+      "aliases": [
+        "Caesar"
+      ],
+      "attribute": "physical",
+      "faction": "Sons of Calydon",
+      "id": "caesar",
+      "name": "Caesar King",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "specialty": "defense"
+    },
+    {
+      "aliases": [
+        "Corin"
+      ],
+      "attribute": "physical",
+      "faction": "Victoria Housekeeping",
+      "id": "corin",
+      "name": "Corin Wickes",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "A",
+      "specialty": "attack"
+    },
+    {
+      "aliases": [
+        "Ellen"
+      ],
+      "attribute": "ice",
+      "faction": "Victoria Housekeeping",
+      "id": "ellen",
+      "name": "Ellen Joe",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "specialty": "attack"
+    },
+    {
+      "aliases": [
+        "Evelyn"
+      ],
+      "attribute": "fire",
+      "faction": "Stars of Lyra",
+      "id": "evelyn",
+      "name": "Evelyn Chevalier",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "specialty": "attack"
+    },
+    {
+      "aliases": [
+        "Grace"
+      ],
+      "attribute": "electric",
+      "faction": "Belobog Heavy Industries",
+      "id": "grace",
+      "name": "Grace Howard",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "specialty": "anomaly"
+    },
+    {
+      "aliases": [
+        "Harumasa"
+      ],
+      "attribute": "electric",
+      "faction": "Section 6",
+      "id": "harumasa",
+      "name": "Asaba Harumasa",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "specialty": "attack"
+    },
+    {
+      "aliases": [
+        "Hugo"
+      ],
+      "attribute": "ice",
+      "faction": "Mockingbird",
+      "id": "hugo",
+      "name": "Hugo Vlad",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "specialty": "attack"
+    },
+    {
+      "aliases": [
+        "Jane"
+      ],
+      "attribute": "physical",
+      "faction": "Criminal Investigation Special Response Team",
+      "id": "jane-doe",
+      "name": "Jane Doe",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "specialty": "anomaly"
+    },
+    {
+      "aliases": [
+        "Koleda"
+      ],
+      "attribute": "fire",
+      "faction": "Belobog Heavy Industries",
+      "id": "koleda",
+      "name": "Koleda Belobog",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "specialty": "stun"
+    },
+    {
+      "aliases": [],
+      "attribute": "fire",
+      "faction": "Sons of Calydon",
+      "id": "lighter",
+      "name": "Lighter",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "specialty": "stun"
+    },
+    {
+      "aliases": [
+        "Lucy",
+        "Luciana"
+      ],
+      "attribute": "fire",
+      "faction": "Sons of Calydon",
+      "id": "lucy",
+      "name": "Luciana de Montefio",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "A",
+      "specialty": "support"
+    },
+    {
+      "aliases": [
+        "Lycaon"
+      ],
+      "attribute": "ice",
+      "faction": "Victoria Housekeeping",
+      "id": "lycaon",
+      "name": "Von Lycaon",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "specialty": "stun"
+    },
+    {
+      "aliases": [
+        "Miyabi"
+      ],
+      "attribute": "ice",
+      "attributeVariant": "Frost",
+      "faction": "Section 6",
+      "id": "miyabi",
+      "name": "Hoshimi Miyabi",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "specialty": "anomaly"
+    },
+    {
+      "aliases": [
+        "Nekomata",
+        "Neko"
+      ],
+      "attribute": "physical",
+      "faction": "Cunning Hares",
+      "id": "nekomata",
+      "name": "Nekomiya Mana",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "specialty": "attack"
+    },
+    {
+      "aliases": [
+        "Nicole"
+      ],
+      "attribute": "ether",
+      "faction": "Cunning Hares",
+      "id": "nicole",
+      "name": "Nicole Demara",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "A",
+      "specialty": "support"
+    },
+    {
+      "aliases": [
+        "Piper"
+      ],
+      "attribute": "physical",
+      "faction": "Sons of Calydon",
+      "id": "piper",
+      "name": "Piper Wheel",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "A",
+      "specialty": "anomaly"
+    },
+    {
+      "aliases": [
+        "Pulchra"
+      ],
+      "attribute": "physical",
+      "faction": "Sons of Calydon",
+      "id": "pulchra",
+      "name": "Pulchra Fellini",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "A",
+      "specialty": "stun"
+    },
+    {
+      "aliases": [],
+      "attribute": "electric",
+      "faction": "Criminal Investigation Special Response Team",
+      "id": "qingyi",
+      "name": "Qingyi",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "specialty": "stun"
+    },
+    {
+      "aliases": [
+        "Rina",
+        "Alexandrina"
+      ],
+      "attribute": "electric",
+      "faction": "Victoria Housekeeping",
+      "id": "rina",
+      "name": "Alexandrina Sebastiane",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "specialty": "support"
+    },
+    {
+      "aliases": [
+        "Seth"
+      ],
+      "attribute": "electric",
+      "faction": "Criminal Investigation Special Response Team",
+      "id": "seth",
+      "name": "Seth Lowell",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "A",
+      "specialty": "defense"
+    },
+    {
+      "aliases": [
+        "Soldier 0 Anby",
+        "S0 Anby",
+        "Soldier 0"
+      ],
+      "attribute": "electric",
+      "faction": "OBOLS Squad",
+      "id": "soldier-0-anby",
+      "name": "Soldier 0 - Anby",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "specialty": "attack"
+    },
+    {
+      "aliases": [
+        "S11"
+      ],
+      "attribute": "fire",
+      "faction": "OBOLS Squad",
+      "id": "soldier-11",
+      "name": "Soldier 11",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "specialty": "attack"
+    },
+    {
+      "aliases": [],
+      "attribute": "ice",
+      "faction": "Section 6",
+      "id": "soukaku",
+      "name": "Soukaku",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "A",
+      "specialty": "support"
+    },
+    {
+      "aliases": [],
+      "attribute": "electric",
+      "faction": "OBOLS Squad",
+      "id": "trigger",
+      "name": "Trigger",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "specialty": "stun"
+    },
+    {
+      "aliases": [
+        "Vivian"
+      ],
+      "attribute": "ether",
+      "faction": "Mockingbird",
+      "id": "vivian",
+      "name": "Vivian Banshee",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "specialty": "anomaly"
+    },
+    {
+      "aliases": [
+        "Yanagi"
+      ],
+      "attribute": "electric",
+      "faction": "Section 6",
+      "id": "yanagi",
+      "name": "Tsukishiro Yanagi",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "specialty": "anomaly"
+    },
+    {
+      "aliases": [],
+      "attribute": "ether",
+      "faction": "Criminal Investigation Special Response Team",
+      "id": "zhu-yuan",
+      "name": "Zhu Yuan",
+      "provenance": {
+        "accessedAt": "2026-10-27",
+        "collectionMethod": "manual_entry",
+        "notes": "Semilla inicial a partir del conocimiento previo del mantenedor. Verificar contra la ficha in-game u HoYoLAB y cambiar la fuente a hoyoverse-official al marcarla verified.",
+        "sourceId": "maintainer",
+        "verification": {
+          "state": "unverified"
+        }
+      },
+      "rarity": "S",
+      "specialty": "attack"
+    }
+  ]
+}
